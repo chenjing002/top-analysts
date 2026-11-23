@@ -1,6 +1,6 @@
 # Fact sheet — 东鹏饮料 (605499.SH) · 软饮料
 
-Generated 2026-11-23T02:48:45-08:00 by `data/fetch.py`. Amounts in **亿元 (1e8 CNY)** unless stated; ratios as decimals.
+Generated 2026-11-23T05:50:48-08:00 by `data/fetch.py`. Amounts in **亿元 (1e8 CNY)** unless stated; ratios as decimals.
 
 ## Sources
 - **S1 AshareValueLine** version `20261121_201610` (financials fetched 2026-11-08 19:08:24, quote 2026-11-21 20:16:10): `https://chenjing002.github.io/AshareValueLine/data/versions/a_share/20261121_201610/stocks/605499.SH.js`

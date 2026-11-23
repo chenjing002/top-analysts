@@ -32,7 +32,11 @@ Use the user's company name or code, round count, or session reference. Examples
 - Read the cross-check first. Any comparable S1/S2 mismatch over 1% takes priority as the first
   panel question. Banks, insurers, and brokers (`comp_type` 2/3/4/7) have raw S2 statements only.
   Disclose that coverage and use S1 plus raw statements with sector-appropriate measures.
-- Read company facts and hypotheses in `knowledge/` if present. Write `session.json` with the
+- Read company facts and hypotheses in `knowledge/` if present. When the run repeats a company
+  after changes to the workflow or role cards, start a fresh session ID and delete the superseded
+  session only when the user asks. The goal of such a run is to test the system, so record
+  `run_purpose` and the git revision of the workflow files in `session.json`, and compare the new
+  rounds with the old on the dimensions the user named. Write `session.json` with the
   user's request verbatim, selected expert slugs and versions, and a one-line reason for each pick.
 - For `continue`, choose the most recent open session for the named company or the only open session.
   Resolve ambiguity when several companies have open sessions and none was named. Read the session
@@ -64,7 +68,8 @@ the reason and the role version.
 2. **Work up the series first.** Before the discussion, build the multi-year and single-quarter
    series the question depends on from S1/S2 (de-cumulate quarters, bridge balance-sheet and equity
    movements, split growth into price, volume and mix where the data allow, and reconcile S1 to S2).
-   Put the SQL and formulas in the turn evidence. Treat a bridge that does not close as a finding.
+   Put the SQL, formulas and intermediate tables in `data/workpaper-round-NN.md`, not in the discussion.
+   Treat a bridge that does not close as a finding.
    Check that earlier rounds' derived figures use comparable share counts and definitions, and
    correct them in the round when they do not.
 3. **Start with one live point.** Give the panel the round question, fact sheet, data dictionary,
@@ -95,10 +100,17 @@ the reason and the role version.
    data: a prediction, a ratio, or the series that would separate two explanations. The next speaker
    runs that test, or states why it cannot be run locally.
 
-   Append each turn to `statements[]` in spoken order with `phase: "discussion"`. Write natural
-   English and keep the figures, dates and accounting distinctions the reader needs to follow the
-   inference. Put source locators, calculation inputs, formulas and any query SQL in the turn's
-   `evidence[]`. A question can have empty evidence. Identify assumptions in the spoken text.
+   Append each turn to `statements[]` in spoken order with `phase: "discussion"`.
+
+   **Chat register.** The round is read as a group chat, so write each turn as one person talking to
+   the others: under about 110 words, one idea, no tables, no formulas, no SQL, no field names and no
+   source codes in `text`. Use at most three figures per turn, rounded, each with its period, and
+   name the accounting term in plain words. A turn answers the previous one before it adds anything.
+   Intermediate arithmetic stays in the workpaper. The turn's `evidence[]` holds at most two short
+   items, one per figure the reader may want to check, with a short source label such as
+   `S2 raw_income Q3 2026`. A question can have empty evidence. Identify assumptions in the spoken
+   text. Run-level notes on how the system performed belong in `session.json` `run_notes`, not in
+   the chat.
    If reasoning stalls despite usable evidence, consult a method in `Thinkers/README.md`, attach
    its required label in the turn record, and return to verification.
 5. **Close the round.** If the conclusion relies on an objection raised in the last turn, give

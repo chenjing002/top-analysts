@@ -9,6 +9,7 @@ sessions/
       data/factsheet.md              evidence sheet from data/fetch.py (S1 + S2, cross-checked)
       data/factsheet.json
       data/avl_raw.json
+      data/workpaper-round-01.md     SQL, series and bridges behind round 1 (not shown in the chat view)
       rounds/round-01.json           one file per round (schema below)
       rounds/round-01.md             rendered by scripts/render_round.py — never hand-edit
       observer/round-01.md           Observer notes on that round
@@ -33,6 +34,8 @@ sessions/
   },
   "data": {"avl_version": "20261121_201610", "duckdb_last_end": "20251231", "factsheet_generated_at": "..."},
   "question_queue": ["candidate questions not yet taken up"],
+  "run_purpose": "optional: why this run exists, e.g. a re-run to test workflow changes",
+  "run_notes": ["optional: what this run showed about the system, not about the company"],
   "rounds": 1
 }
 ```
@@ -41,7 +44,7 @@ sessions/
 
 One round follows one question. Write turns in spoken order. Each number a speaker reports needs
 an entry in that turn's `evidence`, with a source and, for a calculation, the formula and inputs.
-Keep the spoken text focused on what those facts imply. A question or reply introducing no new
+Keep the spoken text focused on what those facts imply: conversational, under about 110 words per turn, at most two evidence items, with the working in `data/workpaper-round-NN.md`. A question or reply introducing no new
 figures can carry an empty evidence list. Earlier rounds use `opening`, `rebuttal` and `closing`
 as phase labels. Readers render all turns in array order.
 

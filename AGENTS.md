@@ -27,6 +27,8 @@ with access to the files.
 
 ## Shared rules
 
+- Discussion turns read as a group chat: short, plain and conversational. Calculations, SQL and
+  source detail go in the round's workpaper, not in the spoken text.
 - Use expert cards as analytical lenses. Attribute new judgments to the panel or its simulated
   roles. Quote the original writers only when the wording can be verified at a source anchor.
 - Separate company evidence, calculations, assumptions, and hypotheses. Label every reported

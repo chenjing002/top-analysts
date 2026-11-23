@@ -1,0 +1,265 @@
+{
+ "round": 1,
+ "session_id": "2026-11-23-02",
+ "ts_code": "605499.SH",
+ "started_at": "2026-11-23T06:05:00-08:00",
+ "ended_at": "2026-11-23T06:40:00-08:00",
+ "question": "Q3 2026 revenue growth fell to 0.75% and profit fell 8%. Does the 113.55 yuan price (S1 quote, 20261120) price the end of growth, or a pause?",
+ "why_this_question": "First round on this company in this session. Revenue growth is falling quickly while the price has dropped, and the 2026 share issue makes the old comparison muddy.",
+ "participants": [
+  "stephen-penman",
+  "li-lu",
+  "warren-buffett",
+  "jeff-bezos"
+ ],
+ "statements": [
+  {
+   "expert": "stephen-penman",
+   "phase": "discussion",
+   "text": "Revenue growth went 21%, 11%, then under 1% in Q3, and Q3 profit fell 8%. The market cap is down 40% since last December, but that is muddy: the share count went from 5.2 to 7.3 亿 and about 99 亿 of cash came in. So my question is simple: does 113.55 yuan price the end of growth, or just a pause?",
+   "evidence": [
+    {
+     "claim": "Revenue growth 21.5%, 11.3%, 0.75% in Q1–Q3 2026; Q3 profit −7.8%",
+     "source": "S2 raw_income, single quarters"
+    },
+    {
+     "claim": "Share count 5.20 → 7.34 亿; 98.85 亿 capital contribution in Q1",
+     "source": "S2 raw_balancesheet, raw_cashflow"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "li-lu",
+   "phase": "discussion",
+   "text": "Before the price, I'd like to know if this is a blip. Compare each quarter with two years ago, not one: it was up 69% in Q1, 49% in Q2, 31% in Q3. That is a steady slowing, not one bad quarter. If I were the bear, I'd say the 2025 summer filled the shelves and 2026 is the hangover.",
+   "evidence": [
+    {
+     "claim": "Revenue vs same quarter of 2024: ×1.69, ×1.49, ×1.31",
+     "source": "S1 quarterly revenue; S2 raw_income"
+    }
+   ],
+   "challenges": [
+    {
+     "to": "stephen-penman",
+     "point": "One slow quarter is not evidence of a pause; the slowing has run three quarters."
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "warren-buffett",
+   "phase": "discussion",
+   "text": "Then let me ask what slowed. If they had cut price to hold volume, gross margin would show it. It did the opposite: 45.7% in Q3 against 45.2% a year ago. So the same price sells fewer bottles. That is a demand or shelf problem, not a price war, and I trust it more than a margin story. I'd still watch how often the company needs promotions to get the bottle out.",
+   "evidence": [
+    {
+     "claim": "Gross margin Q3 2026 45.7% vs 45.2% in Q3 2025",
+     "source": "S2 raw_income, single quarter"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "jeff-bezos",
+   "phase": "discussion",
+   "text": "What I notice on the cash side is that dealers have not blinked. Customer prepayments were 50.9 亿 at September, about 43% above a year ago, and nearly unchanged from June. Operating cash for nine months is up 13%. If dealers feared too much stock, they would prepay less. I read that as a pause.",
+   "evidence": [
+    {
+     "claim": "Contract liabilities 50.90 vs 35.63 a year earlier; 51.30 in June",
+     "source": "S2 raw_balancesheet"
+    },
+    {
+     "claim": "Nine-month operating cash flow 35.42 vs 31.33",
+     "source": "S2 raw_cashflow"
+    }
+   ],
+   "challenges": [
+    {
+     "to": "li-lu",
+     "point": "A hangover would show up in dealer prepayments first; they are not falling."
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "li-lu",
+   "phase": "discussion",
+   "text": "I don't accept that. A prepayment is a dealer's promise to the company, not a sale to a drinker. Dealers who loaded up last summer still have to keep their contract. Prepayments tell us what dealers will order, which lags what customers buy. So I take your number as a lead, and the test is year-end: last year it was 59.7 亿. If that falls, I'm right.",
+   "evidence": [
+    {
+     "claim": "Year-end 2025 contract liabilities 59.74",
+     "source": "S2 raw_balancesheet"
+    }
+   ],
+   "concessions": [
+    {
+     "to": "jeff-bezos",
+     "point": "Prepayments holding up is not what a channel in distress looks like."
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "stephen-penman",
+   "phase": "discussion",
+   "text": "Now profit. Q3 profit before tax fell about 1 亿 from a year ago. Selling the drinks and running the business got better by about 1.7 亿: gross profit up 0.5, marketing down 1.1, admin up 0.45, net interest better by 0.55. What dragged it down, by about 2.6 亿, was investment and fair-value gains falling 1.5 and a 1.1 亿 other financial cost. So the stall hit sales, not the profit engine.",
+   "evidence": [
+    {
+     "claim": "Q3 pretax profit 16.77 vs 17.76; fair-value + investment income −1.46; other financial cost −1.13 (derived)",
+     "source": "S2 raw_income; workpaper bridge"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "warren-buffett",
+   "phase": "discussion",
+   "text": "Careful with 'marketing down 1.1'. Marketing was 17% of sales in Q1 and Q2 and only 13% in Q3, and gross margin jumped to 49.7% in Q2. Those two move in opposite directions. Take them together and the margin is 32% in both Q2 and Q3, against 30% last year. Over nine months, marketing is actually higher than last year, 16.0% against 15.5%. So the company did not cut marketing; it moved the cost around. The gain is about gross margin, 47.5% against 45.2%.",
+   "evidence": [
+    {
+     "claim": "Gross margin less selling ratio: Q2 32.5%, Q3 32.3% vs 30.9%, 29.9% in 2025",
+     "source": "derived, S2 raw_income"
+    },
+    {
+     "claim": "Nine-month selling ratio 16.0% vs 15.5%",
+     "source": "derived, S2 raw_income"
+    }
+   ],
+   "challenges": [
+    {
+     "to": "stephen-penman",
+     "point": "The 'cost cut' is mostly timing between two lines, so I would not call it discipline."
+    }
+   ],
+   "concessions": [
+    {
+     "to": "li-lu",
+     "point": "The Q3 gain in profit is not a sign of a healthier sales engine."
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "stephen-penman",
+   "phase": "discussion",
+   "text": "Fair, I accept that: the improvement is margin, and it comes from the product mix and cost side, not from squeezing marketing. Now the price. I take profit after the last four quarters of 48 亿 and charge 8% on the 186 亿 of equity. The market cap of 834 亿 then needs about 2.75% growth forever in residual earnings. At year-end the same method needed 5.0%. At 6% it needs almost nothing, at 10% about 5%.",
+   "evidence": [
+    {
+     "claim": "Implied perpetual growth in residual earnings: 0.3% / 2.75% / 5.2% at r = 6% / 8% / 10%; 5.0% at 20251231 and 8%",
+     "source": "derived: S1 quote 20261120, S2 raw statements; workpaper"
+    },
+    {
+     "claim": "Residual earnings = earnings less a required-return charge on book value",
+     "source": "SRC Penman_What_Matters_in_Company_Valuation.pdf, residual earnings section"
+    }
+   ],
+   "concessions": [
+    {
+     "to": "warren-buffett",
+     "point": "Margin, not marketing, is the profit gain."
+    }
+   ],
+   "confidence": "low"
+  },
+  {
+   "expert": "warren-buffett",
+   "phase": "discussion",
+   "text": "I'd push back on charging 8% on the new cash. About 99 亿 sits there earning interest of roughly 3%, yet the formula treats it as a business that must earn 8%. Take it out of both sides and the implied growth drops to about 2%. That is a modest ask, though it depends on the cash being returned or used well. It is also dependent on what the company does with the money, which nobody here knows.",
+   "evidence": [
+    {
+     "claim": "Excluding the 98.85 亿 raised from price and equity (and its interest), implied growth at 8% ≈ 2%",
+     "source": "derived; workpaper"
+    }
+   ],
+   "challenges": [
+    {
+     "to": "stephen-penman",
+     "point": "Charging 8% on idle cash overstates the growth the market needs."
+    }
+   ],
+   "confidence": "low"
+  },
+  {
+   "expert": "jeff-bezos",
+   "phase": "discussion",
+   "text": "One more fact fits the pause view and one doesn't. Capital spending fell to 2.9 亿 in Q3 from about 6 亿 in each of the first two quarters, so management is not building for a boom. Per my reading of the 2004 letter, a share is worth future cash, not earnings, so I care that cash is up while the building slows. Q4 capex tells us whether that is a decision or a timing.",
+   "evidence": [
+    {
+     "claim": "Capex Q3 2.94 vs 6.95 a year ago; 6.00 and 5.35 in Q1, Q2",
+     "source": "S2 raw_cashflow"
+    },
+    {
+     "claim": "Shares are worth the present value of future cash flows, not earnings",
+     "source": "SRC Amazon Shareholder Letter 2004.html, opening paragraphs"
+    }
+   ],
+   "confidence": "low"
+  },
+  {
+   "expert": "li-lu",
+   "phase": "discussion",
+   "text": "Here is my bear case in one line: three quarters of slowing, the biggest cost swing was moved between lines, and 3.5 亿 of financial cost nobody can explain. What would change my mind is Q4 revenue above last year's weak 40.3 亿 and dealer prepayments holding near 60 亿 at year-end. Until then I don't know it is a pause. I do accept that the price doesn't ask for zero growth.",
+   "evidence": [
+    {
+     "claim": "Other (non-interest) financial cost 3.55 in nine months of 2026 vs about zero in 2025",
+     "source": "derived: fin_exp − (interest expense − interest income), S2 raw_income"
+    }
+   ],
+   "concessions": [
+    {
+     "to": "stephen-penman",
+     "point": "At 8% or less, the price does not assume growth ends."
+    }
+   ],
+   "confidence": "low"
+  }
+ ],
+ "disagreements": [
+  {
+   "topic": "Do dealer prepayments (+43% yoy, flat since June) show a pause?",
+   "positions": {
+    "jeff-bezos": "Yes, dealers are not cutting orders.",
+    "li-lu": "No, prepayments lag sell-through; the year-end figure is the test."
+   },
+   "status": "open"
+  },
+  {
+   "topic": "Should the 99 亿 raised be charged an 8% return?",
+   "positions": {
+    "stephen-penman": "Yes, it is part of equity; 2.75% implied growth.",
+    "warren-buffett": "No, it is idle cash; about 2%."
+   },
+   "status": "narrowed",
+   "resolution": "Both numbers are shown; the use of the money decides it."
+  },
+  {
+   "topic": "Was Q3 profit helped by a marketing cut?",
+   "positions": {
+    "stephen-penman": "Marketing fell 1.1 亿.",
+    "warren-buffett": "Marketing and gross margin offset; nine-month ratio is up."
+   },
+   "status": "resolved",
+   "resolution": "Timing between two lines; profit gain is margin."
+  }
+ ],
+ "conclusion": {
+  "answer": "The price does not assume growth ends: at 8% it needs about 2.75% perpetual growth in residual earnings (about 2% if the new cash and its interest are excluded), against 5.0% at year-end. Whether Q3 is a pause or the start of a lasting slowdown cannot be settled from one quarter; the panel leans to a pause on dealer prepayments and margins and stays unsure because growth has slowed three quarters in a row. The profit gain is gross margin, not a marketing cut.",
+  "confidence": "low",
+  "what_would_change_our_mind": [
+   "Q4 2026 revenue below the 40.31 亿 base",
+   "Year-end dealer prepayments well below the 59.74 亿 of last year",
+   "A 2026 announcement showing the 99 亿 is not held for use in the business"
+  ],
+  "open_questions": [
+   "What is the 3.55 亿 of non-interest financial cost in nine months of 2026?",
+   "What will the 99 亿 be used for?",
+   "Bonus issue or placement behind the move to 7.34 亿 shares, which is not in local data"
+  ]
+ },
+ "next_question_candidates": [
+  "Does Q4 2026 revenue clear the 40.31 亿 base and do prepayments hold?",
+  "What is the other financial cost and what will the 99 亿 earn?"
+ ],
+ "thinkers_consulted": [],
+ "knowledge_candidates": []
+}

@@ -55,14 +55,8 @@
     view.innerHTML = `<div class="crumbs"><a href="#">首页</a> › ${esc(c.name)} ${c.ts_code} › ${s.session_id}</div>
       <h1>${esc(c.name)} <span class="muted">${c.ts_code} · ${esc(c.industry)}</span></h1>
       <div class="card">
-        <div><b>Session</b> ${s.session_id} · started ${fmtTs(s.started_at)} · <span class="tag">${s.status}</span></div>
-        <div class="muted">Request: ${esc(s.user_request)}</div>
-        <div style="margin-top:6px">Experts: ${s.experts.map(e => `<span class="tag" title="${esc(INDEX.experts[e]?.tagline || '')}">${esc(ename(e))}</span>`).join('')}</div>
-        <div class="muted" style="margin-top:6px">
-          ${s.factsheet ? `<a href="${s.factsheet}" target="_blank">fact sheet (evidence)</a> · ` : ''}
-          ${s.summary ? `<a href="${s.summary}" target="_blank">session summary</a> · ` : ''}
-          <a href="https://github.com/chenjing002/top-analysts/tree/main/sessions/${co}/${s.session_id}" target="_blank">raw files</a>
-        </div>
+        <div class="cast">${s.experts.map(e => `<span class="chip" title="${esc(INDEX.experts[e]?.tagline || '')}">${avatar(e)}${esc(shortName(e))}</span>`).join('')}</div>
+        <div class="muted" style="margin-top:6px">Session ${s.session_id} · <a href="https://github.com/chenjing002/top-analysts/tree/main/sessions/${co}/${s.session_id}" target="_blank">原始文件与数据</a></div>
       </div>
       <div id="rounds"></div>`;
     const wrap = $('#rounds');
@@ -73,38 +67,42 @@
     }
   }
 
+  // ---- avatars: monogram + colour per expert (generated, no image files)
+  const AV = {
+    'stephen-penman': ['#1f6feb', 'SP'], 'warren-buffett': ['#b3541e', 'WB'], 'michael-mauboussin': ['#7a42c8', 'MM'],
+    'jeff-bezos': ['#d98a00', 'JB'], 'rockwood': ['#0f8a7a', 'RW'], 'joel-greenblatt': ['#2d7a3e', 'JG'],
+    'li-lu': ['#c23b4a', 'LL'], 'joekray-mond': ['#5b6470', 'JM'],
+  };
+  const avatar = slug => {
+    const [c, ini] = AV[slug] || ['#6b6b66', (slug || '?').slice(0, 2).toUpperCase()];
+    return `<span class="av" style="--c:${c}" aria-hidden="true">${ini}</span>`;
+  };
+  const shortName = slug => ename(slug).split(' — ')[0].replace(/\s*\(.*?\)/, '');
+
   function renderRound(R, meta) {
-    const stmt = s => {
-      const notes = `
-        ${s.phase && s.phase !== 'discussion' ? `<span class="tag">${esc(s.phase)}</span>` : ''}
-        ${s.confidence ? `<span class="tag">confidence ${esc(s.confidence)}</span>` : ''}
-        ${s.timestamp ? `<span class="ts">${esc(fmtTs(s.timestamp))}</span>` : ''}
-        ${s.evidence?.length ? `<ul class="ev">${s.evidence.map(e => `<li>${esc(e.claim)} <span class="src">[${esc(e.source)}]</span>${e.values ? ` <span class="src">${esc(JSON.stringify(e.values))}</span>` : ''}</li>`).join('')}</ul>` : ''}
-        ${s.challenges?.length ? `<ul class="chal">${s.challenges.map(c => `<li>→ <b>${esc(ename(c.to))}</b>: ${esc(c.point)}</li>`).join('')}</ul>` : ''}
-        ${s.concessions?.length ? `<ul class="chal">${s.concessions.map(c => `<li>← <b>${esc(ename(c.to))}</b>: ${esc(c.point)}</li>`).join('')}</ul>` : ''}
-        ${s.thinker_used ? `<div class="thinker">[reasoning method, not evidence — ${esc(s.thinker_used.thinker)} · ${esc(s.thinker_used.method)}]</div>` : ''}
-      `.trim();
-      return `<div class="stmt">
-        <div class="who"><b>${esc(ename(s.expert))}</b></div>
-        <div class="md">${md(s.text)}</div>
-        ${notes ? `<details><summary>依据与发言记录</summary>${notes}</details>` : ''}
+    const seen = new Set();
+    const msg = s => {
+      const first = !seen.has(s.expert); seen.add(s.expert);
+      const exp = INDEX.experts[s.expert] || {};
+      return `<div class="msg">
+        ${avatar(s.expert)}
+        <div class="bub-wrap">
+          <div class="who"><b>${esc(shortName(s.expert))}</b>${first && exp.tagline ? `<span class="role">${esc(exp.tagline.split(/[:.;]/)[0].slice(0, 70))}</span>` : ''}</div>
+          <div class="bub md">${md(s.text)}</div>
+        </div>
       </div>`;
     };
+    const dis = (R.disagreements || []).filter(d => d.status !== 'resolved');
     return `
       <div class="round-h"><span class="tag">Round ${R.round}</span><h2>${esc(R.question)}</h2></div>
-      <div class="muted">${fmtTs(R.started_at)} → ${fmtTs(R.ended_at)} · ${R.participants.map(ename).map(esc).join(', ')}</div>
-      ${R.why_this_question ? `<p class="muted">${esc(R.why_this_question)}</p>` : ''}
-      <h3>专家讨论</h3><div class="muted">以下发言由专家角色卡模拟。</div>
-      ${R.statements.map(stmt).join('')}
-      ${R.disagreements?.length ? `<h3>Disagreements · 分歧</h3>${R.disagreements.map(d => `<div class="dis"><b>${esc(d.topic)}</b> <span class="tag">${esc(d.status)}</span>
-         <ul>${Object.entries(d.positions || {}).map(([w, p]) => `<li><b>${esc(ename(w))}</b>: ${esc(p)}</li>`).join('')}</ul>${d.resolution ? `<div class="muted">resolution: ${esc(d.resolution)}</div>` : ''}</div>`).join('')}` : ''}
-      <div class="concl"><b>Conclusion · 结论</b> <span class="tag ${R.conclusion.confidence}">${R.conclusion.confidence}</span><div class="md">${md(R.conclusion.answer)}</div>
-        ${R.conclusion.what_would_change_our_mind?.length ? `<details><summary>What would change our mind</summary><ul>${R.conclusion.what_would_change_our_mind.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>` : ''}
-        ${R.conclusion.open_questions?.length ? `<details><summary>Open questions</summary><ul>${R.conclusion.open_questions.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>` : ''}
+      <div class="cast">${R.participants.map(p => `<span class="chip">${avatar(p)}${esc(shortName(p))}</span>`).join('')}</div>
+      <div class="chat">${R.statements.map(msg).join('')}</div>
+      <div class="concl"><b>结论 · Conclusion</b> <span class="tag ${R.conclusion.confidence}">${R.conclusion.confidence}</span>
+        <div class="md">${md(R.conclusion.answer)}</div>
+        ${dis.length ? `<div class="md"><b>仍未解决的分歧</b><ul>${dis.map(d => `<li>${esc(d.topic)}</li>`).join('')}</ul></div>` : ''}
+        ${R.conclusion.what_would_change_our_mind?.length ? `<details><summary>什么会改变我们的看法</summary><ul>${R.conclusion.what_would_change_our_mind.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>` : ''}
       </div>
-      ${R.thinkers_consulted?.length ? `<p class="thinker">Thinkers consulted: ${R.thinkers_consulted.map(t => `${esc(t.thinker)} · ${esc(t.method)} — ${esc(t.used_for)}`).join('; ')}</p>` : ''}
-      ${R.next_question_candidates?.length ? `<details><summary>Candidate questions for next round</summary><ul>${R.next_question_candidates.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>` : ''}
-      <div class="muted" style="margin-top:8px"><a href="${meta.md}" target="_blank">markdown</a> · <a href="${meta.json}" target="_blank">json</a>${meta.observer ? ` · <a href="${meta.observer}" target="_blank">observer notes</a>` : ''}</div>`;
+      <div class="muted" style="margin-top:8px">完整记录（含依据）：<a href="${meta.md}" target="_blank">markdown</a> · <a href="${meta.json}" target="_blank">json</a>${meta.observer ? ` · <a href="${meta.observer}" target="_blank">observer</a>` : ''}</div>`;
   }
 
   // ---- search: index fields first, then full statement text once rounds are prefetched
