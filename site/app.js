@@ -67,15 +67,22 @@
     }
   }
 
-  // ---- avatars: monogram + colour per expert (generated, no image files)
+  // ---- avatars: minimalist inline-SVG mark + colour per expert (generated, no image files)
+  // Each mark abstracts the expert's analytical identity; strokes/fills are white on the colour disc.
   const AV = {
-    'stephen-penman': ['#1f6feb', 'SP'], 'warren-buffett': ['#b3541e', 'WB'], 'michael-mauboussin': ['#7a42c8', 'MM'],
-    'jeff-bezos': ['#d98a00', 'JB'], 'rockwood': ['#0f8a7a', 'RW'], 'joel-greenblatt': ['#2d7a3e', 'JG'],
-    'li-lu': ['#c23b4a', 'LL'], 'joekray-mond': ['#5b6470', 'JM'],
+    'stephen-penman': ['#1f6feb', '<path d="M5.5 6.5h13v11h-13z"/><path d="M12 6.5v11"/>'],                 // reformulated statement: one sheet, two sides
+    'warren-buffett': ['#b3541e', '<circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="1.9" class="f"/>'], // compounding core inside the moat
+    'michael-mauboussin': ['#7a42c8', '<path d="M5.5 17.5h4v-4h4v-4h4v-4"/>'],                              // ROIC staircase
+    'jeff-bezos': ['#d98a00', '<path d="M6.5 17.5 17.5 6.5"/><path d="M10.5 6.5h7v7"/>'],                   // free cash flow per share, up and to the right
+    'rockwood': ['#0f8a7a', '<path d="M5.5 8h13"/><path d="M5.5 12h9"/><path d="M5.5 16h5"/>'],             // amortization layers running off
+    'joel-greenblatt': ['#2d7a3e', '<circle cx="10.5" cy="10.5" r="5"/><path d="M14.2 14.2 18.5 18.5"/>'],  // grilling the thesis
+    'li-lu': ['#c23b4a', '<path d="M5.5 12.5l4.5 4.5 8.5-10"/>'],                                           // fear-by-fear verification
+    'joekray-mond': ['#5b6470', '<circle cx="7" cy="15.5" r="1.7" class="f"/><circle cx="12" cy="8.5" r="1.7" class="f"/><circle cx="17" cy="13.5" r="1.7" class="f"/>'], // base rates from scattered cases
   };
   const avatar = slug => {
-    const [c, ini] = AV[slug] || ['#6b6b66', (slug || '?').slice(0, 2).toUpperCase()];
-    return `<span class="av" style="--c:${c}" aria-hidden="true">${ini}</span>`;
+    const m = AV[slug];
+    if (!m) return `<span class="av" style="--c:#6b6b66" aria-hidden="true">${esc((slug || '?').slice(0, 2).toUpperCase())}</span>`;
+    return `<span class="av" style="--c:${m[0]}" aria-hidden="true"><svg viewBox="0 0 24 24">${m[1]}</svg></span>`;
   };
   const shortName = slug => ename(slug).split(' — ')[0].replace(/\s*\(.*?\)/, '');
 

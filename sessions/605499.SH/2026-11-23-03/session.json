@@ -1,0 +1,29 @@
+{
+ "session_id": "2026-11-23-03",
+ "company": {"ts_code": "605499.SH", "name": "东鹏饮料", "industry": "软饮料"},
+ "started_at": "2026-11-23T07:00:00-08:00",
+ "status": "open",
+ "user_request": "re-analyse 东鹏饮料 605499.SH  and then publish to github pages",
+ "run_purpose": "Fresh re-run of 605499.SH after the chat-register workflow and site changes (uncommitted on top of b2805a7). Compares with session 2026-11-23-02 on: opening on the decade rather than the quarter, fewer figures per turn, cash split and core earnings done before the valuation turn.",
+ "run_notes": [
+  "Experts were run as simulated perspectives by one model, not separate contexts.",
+  "Local quarterly data runs to 20260930, so the round did not treat 2026 data as missing.",
+  "Compared with session -02: the cash split and core-earnings cleaning were done before the reverse curve, and the prepayment test uses the seasonal Q3-to-Q4 build instead of a fixed threshold.",
+  "Source files under source-files/ were not opened this run; method references come from the role cards and are labelled as such."
+ ],
+ "experts": ["li-lu", "warren-buffett", "michael-mauboussin", "stephen-penman"],
+ "expert_versions": {"li-lu": "1.0", "warren-buffett": "1.0", "michael-mauboussin": "1.0", "stephen-penman": "1.0"},
+ "expert_selection_reason": {
+  "stephen-penman": "always on the panel; separates operating from financial and reads implied expectations",
+  "warren-buffett": "franchise quality and dealer prepayments behind a 45% gross margin",
+  "michael-mauboussin": "expectations and how long the growth advantage lasts; growth has outrun the flagship",
+  "li-lu": "untested bear case: is the stall a pause or the end; 2026 equity raise"
+ },
+ "data": {"avl_version": "20261121_201610", "duckdb_last_end": "20251231", "cross_check_mismatches": 0},
+ "question_queue": [
+  "Does Q4 2026 revenue clear 43 亿 and does the year-end prepayment balance build by about 20 亿 as in 2024 and 2025?",
+  "What will the 99 亿 raised be used for, and why is the company still borrowing 63 亿 short-term?",
+  "How much of 2026 growth is flagship energy drink versus electrolyte and other drinks?"
+ ],
+ "rounds": 1
+}

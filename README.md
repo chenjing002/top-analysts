@@ -1,8 +1,10 @@
 # Top Analysts — multi-expert equity research on Chinese listed companies
 
 A minimal multi-agent research system. Eight investment experts, distilled from their own writings,
-examine one A-share company **one question per round**: they state positions with sourced evidence,
-challenge each other, record disagreements, and reach a conclusion with an honest confidence level.
+examine one A-share company **grounded in its 10-year financial record**. Any expert can open a
+round with whatever the record made them notice; the discussion evolves from there: they state
+positions with sourced evidence, challenge each other, record disagreements, and reach a
+conclusion with an honest confidence level.
 An independent Observer reviews each round and proposes validated improvements to the expert role
 files. Verified findings go to a shared, provenance-tagged knowledge base. Published rounds appear in
 the [discussion archive](https://chenjing002.github.io/top-analysts/).
@@ -33,8 +35,8 @@ Two primary sources, always cross-checked (`data/fetch.py`):
   working capital, cash reconciliation, residual income and valuation reverse-engineering for ~5,500
   companies. Amounts in yuan. Definitions in `data/DATA_DICTIONARY.md`.
 
-The fact sheet lists every figure with its source. A mismatch > 1% between sources becomes the panel's
-first question.
+The fact sheet lists every figure with its source. A mismatch > 1% between sources is resolved or
+explained in the round-one workpaper before the panel speaks; an unexplained one opens the round.
 
 ## Running an analysis
 

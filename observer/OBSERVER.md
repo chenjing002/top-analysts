@@ -26,7 +26,9 @@ file proposals in `observer/proposals/`. It never edits an expert file directly.
   Record a shared workflow problem here. Use §3 for a weakness traceable to an individual card.
 - Narrative substituting for arithmetic ("strong brand" where a margin series was available).
 - Confidence inflation: `high` on a conclusion that rests on one source or on an assumption (e.g. the model's default r = 8%).
-- Scope drift: the round answered a different question than it asked.
+- A dropped thread: the discussion is free to move beyond its opening topic, but abandoning a
+  consequential point without a result, a named missing fact, or an entry in `where_it_went` /
+  `open_questions` is a weakness. So is a drift that never engages the company's long record.
 - A blind spot listed in an expert's §6 that materialised and nobody caught.
 - Thinker misuse: a reasoning method presented as evidence, or invoked when the obstacle was simply missing data.
 
@@ -37,7 +39,8 @@ file proposals in `observer/proposals/`. It never edits an expert file directly.
 **Reviewed:** rounds/round-NN.json · experts: … · <timestamp>
 
 ## Verdict
-One paragraph: did the round answer its question, and is the stated confidence earned?
+One paragraph: did the round reach a result — on its opening topic or wherever the discussion
+legitimately led — and is the stated confidence earned?
 
 ## Patterns worth keeping
 - <pattern> — <expert and turn number> — why it worked

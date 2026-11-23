@@ -42,11 +42,14 @@ sessions/
 
 ## rounds/round-NN.json
 
-One round follows one question. Write turns in spoken order. Each number a speaker reports needs
-an entry in that turn's `evidence`, with a source and, for a calculation, the formula and inputs.
-Keep the spoken text focused on what those facts imply: conversational, under about 110 words per turn, at most two evidence items, with the working in `data/workpaper-round-NN.md`. A question or reply introducing no new
-figures can carry an empty evidence list. Earlier rounds use `opening`, `rebuttal` and `closing`
-as phase labels. Readers render all turns in array order.
+One round starts from one opening topic — raised by whichever expert saw it — and the discussion
+may evolve from there; `question` records where it started, `where_it_went` records where it led.
+Write turns in spoken order. Each number a speaker reports needs an entry in that turn's
+`evidence`, with a source and, for a calculation, the formula and inputs. Keep the spoken text
+conversational and in plain language, with the working in `data/workpaper-round-NN.md`; turn
+length follows the content. A question or reply introducing no new figures can carry an empty
+evidence list. Earlier rounds use `opening`, `rebuttal` and `closing` as phase labels. Readers
+render all turns in array order.
 
 ```json
 {
@@ -54,8 +57,10 @@ as phase labels. Readers render all turns in array order.
   "session_id": "2026-11-23-01",
   "ts_code": "600519.SH",
   "started_at": "...", "ended_at": "...",
-  "question": "The single question this round examines.",
-  "why_this_question": "One or two sentences: why it matters now and what prior round raised it.",
+  "question": "The opening topic, as the initiating expert put it.",
+  "initiated_by": "stephen-penman",
+  "why_this_question": "One or two sentences: why it matters now and what raised it — a prior round, or something in the 10-year record.",
+  "where_it_went": "Optional: one or two sentences on how the discussion moved beyond the opening topic.",
   "participants": ["stephen-penman", "warren-buffett"],
   "statements": [
     {

@@ -27,8 +27,19 @@ with access to the files.
 
 ## Shared rules
 
-- Discussion turns read as a group chat: short, plain and conversational. Calculations, SQL and
-  source detail go in the round's workpaper, not in the spoken text.
+- Ground every discussion in the company's long financial record — the full 10-year S1 annual
+  blocks and the S2 series back to FY2008. A recent quarter is read against the decade that
+  produced it, never as the default subject on its own.
+- Big picture first. Every round and every conclusion leads with the insight that matters for the
+  investment judgment — what the business is, what the decade shows, what the price assumes — and
+  backs it with a few anchor numbers. Detailed calculations and reconciliations support that story
+  in the workpaper; they do not become the discussion unless they change the conclusion.
+- Discussion turns read as a group chat: plain, conversational, in clear accessible language.
+  Length follows the content — a turn can be a one-line question or concession, or a worked
+  argument that takes the space it needs. Explain what each number means in plain words;
+  calculations, SQL and source detail go in the round's workpaper, not in the spoken text.
+- Any expert may initiate a topic, and the discussion follows the reasoning wherever it leads.
+  Record where it went; do not force it back to the opening topic.
 - Use expert cards as analytical lenses. Attribute new judgments to the panel or its simulated
   roles. Quote the original writers only when the wording can be verified at a source anchor.
 - Separate company evidence, calculations, assumptions, and hypotheses. Label every reported

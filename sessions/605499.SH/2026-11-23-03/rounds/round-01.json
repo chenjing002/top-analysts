@@ -1,0 +1,335 @@
+{
+ "round": 1,
+ "session_id": "2026-11-23-03",
+ "ts_code": "605499.SH",
+ "started_at": "2026-11-23T07:10:00-08:00",
+ "ended_at": "2026-11-23T07:25:00-08:00",
+ "question": "After eight years of 28% yearly growth, sales growth fell to under 1% in Q3 2026. Is this a pause or the end, and what does the price at 113.55 yuan assume?",
+ "initiated_by": "li-lu",
+ "why_this_question": "The ten-year record shows a franchise that grew with almost no capital, then a sharp stall in 2026 while the market value fell about 40%. The panel first has to say what the price assumes before arguing about the cause.",
+ "where_it_went": "It moved from the stall to what the price assumes, then to whether the 140 亿 net cash is really spare, the Q3 profit and selling-cost clue, the unexplained 99 亿 raise, and finally to two dated tests that would separate a pause from an end.",
+ "participants": [
+  "li-lu",
+  "warren-buffett",
+  "michael-mauboussin",
+  "stephen-penman"
+ ],
+ "statements": [
+  {
+   "expert": "li-lu",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:10:00-08:00",
+   "text": "Eight years of sales growing about 28% a year, and then this year it hit a wall: 21% growth in the first quarter, 11% in the second, under 1% in the third. The company's market value is down about 40% since December, even though it raised roughly 99 亿 of new money. So is this a pause, or the end of the run? Whoever thinks it is a pause should tell me what is still pushing sales.",
+   "evidence": [
+    {
+     "claim": "Revenue 28.4 → 208.8 亿, about 28% a year, FY2017–FY2025",
+     "source": "S1 annual.营业收入"
+    },
+    {
+     "claim": "2026 revenue growth by quarter: +21.5%, +11.3%, +0.75%",
+     "source": "S2 raw_income, single quarters 2025–2026"
+    },
+    {
+     "claim": "Market value 1,390 → 834 亿; 99 亿 raised in Q1 2026",
+     "source": "S2 raw_daily_basic 20251231; S1 quote 20261120; S2 raw_cashflow"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "warren-buffett",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:11:00-08:00",
+   "text": "Let me start with what this business is. It sells an energy drink at a 45% gross margin, dealers pay in advance, and that advance money is a quarter of a year's sales. So it needs almost no capital of its own. That is a good franchise. What bothers me is where 2025's growth came from. Less than half of it came from the flagship energy drink. Electrolyte drinks and other new products made up the rest, and they earn much thinner margins.",
+   "evidence": [
+    {
+     "claim": "Customer prepayments 59.7 亿 = 25.7% of FY2025 sales; gross margin 44.9%",
+     "source": "S1 annual 合同负债; S2 balance-sheet intensity; S1 销售毛利率"
+    },
+    {
+     "claim": "Of the 50.4 亿 sales gain in FY2025, energy drink 23.0, electrolyte 17.7, other 9.7",
+     "source": "S1 main_business, FY2025 vs FY2024"
+    },
+    {
+     "claim": "Gross margin by line FY2025: energy 51%, electrolyte 35%, other 16%",
+     "source": "derived: gross profit / revenue, S1 main_business"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "michael-mauboussin",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:12:00-08:00",
+   "text": "Part of the slowdown is just a tough comparison, since 2025 grew 30 to 39% a quarter. But I checked growth over two years and it still falls: up 69% in the first quarter, 49% in the second, 31% in the third. So the tough comparison does not explain it all. The real question is how long the advantage lasts. I would rather ask the price what it believes, so, Stephen, what does it assume?",
+   "evidence": [
+    {
+     "claim": "Two-year revenue growth Q1/Q2/Q3 2026 vs 2024: +69%, +49%, +31%",
+     "source": "derived: 2026 quarter / 2024 quarter, S2 raw_income and S1 quarterly revenue"
+    },
+    {
+     "claim": "2025 yoy growth: +39%, +34%, +30%",
+     "source": "S1 quarterly revenue"
+    }
+   ],
+   "confidence": "medium",
+   "challenges": [
+    {
+     "to": "stephen-penman",
+     "point": "What growth does the current price assume, once the pile of cash is taken out?"
+    }
+   ]
+  },
+  {
+   "expert": "stephen-penman",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:13:00-08:00",
+   "text": "First I clean two things, because the answer moves with them. The profit of the past twelve months includes about 4 亿 of investment gains, and those are not the drinks business. Taking them out leaves roughly 46 亿 of after-tax operating profit against 48 亿 reported. Second, the company holds about 140 亿 more in cash and investments than it owes. That money is not the beverage business either, so I take it out of the price too.",
+   "evidence": [
+    {
+     "claim": "Core operating profit after tax about 46 亿 vs reported 48 亿, last twelve months to Q3 2026",
+     "source": "derived: pretax 61.1 − investment income 1.2 − fair-value gains 2.5 + net financial cost 1.2, taxed at 21.4%; S2 raw_income"
+    },
+    {
+     "claim": "Net cash and investments about 140 亿 at Sept 2026",
+     "source": "S1 EV items: cash 141.5 + trading assets 65.7 − short-term borrowing 62.7 − leases 3.8 − 0.2"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "stephen-penman",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:14:00-08:00",
+   "text": "With that done, the operating business is priced at about 690 亿, roughly 15 times its core profit. If investors want 8% a year, that price needs profit to grow only about 1.4% a year forever. At 10% it needs about 3.4%. The 8 to 10% is my assumption, not something the data can tell us. Either way, the price is not assuming growth has ended, but it is not a bargain either.",
+   "evidence": [
+    {
+     "claim": "Operating value 693 亿 = market value 834 − net cash 140; about 15× core profit",
+     "source": "S1 quote 20261120; derived"
+    },
+    {
+     "claim": "Growth the price needs: 1.4% at 8% required return, 3.4% at 10%",
+     "source": "derived reverse curve on operating basis; r is an assumption"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "warren-buffett",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:15:00-08:00",
+   "text": "Hold on, I do not accept that all 140 亿 is spare cash. The company is borrowing 63 亿 short term while sitting on 207 亿 of cash and investments. When a company does that, some of the cash is not really free. And dealers have prepaid 51 亿. If dealers ever stop doing that, that money goes back out the door. Treat it as owed and the cash that is truly spare is more like 90 亿.",
+   "evidence": [
+    {
+     "claim": "Short-term borrowing 62.7 亿 against cash and trading assets 207.2 亿 at Sept 2026",
+     "source": "S1 EV items"
+    },
+    {
+     "claim": "Customer prepayments 50.9 亿 at Sept 2026",
+     "source": "S2 raw_balancesheet contract_liab"
+    }
+   ],
+   "confidence": "medium",
+   "challenges": [
+    {
+     "to": "stephen-penman",
+     "point": "Part of the 140 亿 is prepaid by dealers, so calling all of it excess flatters the price."
+    }
+   ]
+  },
+  {
+   "expert": "stephen-penman",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:16:00-08:00",
+   "text": "Fair. I reran it with the prepayments treated as debt. The operating business then costs about 744 亿, and the growth needed goes from 1.4% to about 2.0% at 8%, and from 3.4% to about 4.2% at 10%. That is a real shift, but it moves the answer within the same zone. It says the price needs modest growth, not none and not a lot.",
+   "evidence": [
+    {
+     "claim": "Growth needed with prepayments as debt: 2.0% at 8%, 4.2% at 10%",
+     "source": "derived: operating value 744 = 834 − (140.4 − 50.9)"
+    }
+   ],
+   "confidence": "medium",
+   "concessions": [
+    {
+     "to": "warren-buffett",
+     "point": "Prepayments can leave quickly, so the spare cash is smaller than 140 亿."
+    }
+   ]
+  },
+  {
+   "expert": "li-lu",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:17:00-08:00",
+   "text": "Here is the bear case, then. Suppose growth really has ended and profit just holds flat. Then the business is worth about 575 亿 at an 8% return, or 460 亿 at 10%. Add the spare cash back and the market value would be around 665 or 550 亿, versus 834 today. That is a loss of 20 to 34% if I am right and the cash is smaller. It is not a collapse, but it is a real loss, and a profit squeeze would make it worse.",
+   "evidence": [
+    {
+     "claim": "Flat-profit value 575 亿 at 8%, 460 亿 at 10%",
+     "source": "derived: core profit 46.0 / r"
+    },
+    {
+     "claim": "Implied market value 665 / 550 亿 vs 834, with 89.5 亿 of spare cash",
+     "source": "derived: flat-profit value + (net cash 140.4 − prepayments 50.9)"
+    }
+   ],
+   "confidence": "medium",
+   "challenges": [
+    {
+     "to": "warren-buffett",
+     "point": "If sales are flat and the new products dilute margin, the flat-profit case is too kind."
+    }
+   ]
+  },
+  {
+   "expert": "warren-buffett",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:18:00-08:00",
+   "text": "On profit, the third quarter is actually an interesting clue. Reported pretax profit fell 6%, but that is the investment gains falling away. Before those, it grew about 7% on sales that grew 0.75%. The reason is that the company spent less on selling: 13.4% of sales against 15.3% a year ago. So I cannot yet tell whether it is being smarter with its marketing money or simply holding back to protect profit.",
+   "evidence": [
+    {
+     "claim": "Q3 pretax profit 16.8 vs 17.8 亿 (−6%); before investment and financial lines 17.2 vs 16.1 亿 (+7%)",
+     "source": "derived from S2 raw_income Q3 2026 and Q3 2025"
+    },
+    {
+     "claim": "Q3 selling expense 13.4% of sales vs 15.3%",
+     "source": "S2 raw_income, single quarter"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "michael-mauboussin",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:19:00-08:00",
+   "text": "I lean to the cautious reading. For the whole first nine months, selling expense is up a little, 16.0% of sales against 15.5%. So the third-quarter cut is one quarter, not a new way of working. And the company also built less: spending on plants is down about 16% so far this year, even after raising 99 亿. If management expected growth to resume strongly, I would expect them to be building, not trimming.",
+   "evidence": [
+    {
+     "claim": "Nine-month selling expense 16.0% of sales vs 15.5%",
+     "source": "S2 raw_income, 9M 2026 vs 9M 2025"
+    },
+    {
+     "claim": "Capital spending 9M 2026 14.3 亿 vs 17.1 亿",
+     "source": "S2 raw_cashflow, single quarters"
+    }
+   ],
+   "confidence": "medium",
+   "concessions": [
+    {
+     "to": "warren-buffett",
+     "point": "The Q3 cost cut is real, but only for one quarter."
+    }
+   ]
+  },
+  {
+   "expert": "li-lu",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:20:00-08:00",
+   "text": "And that is what bothers me most about the raise. The company took in 99 亿 in the first quarter, is still borrowing 63 亿, and has not obviously spent the money on anything. I cannot say from the numbers I have what it is for. That is a question for the annual report and management, not for the data. Until I know, I treat the cash as available, but I do not give the company credit for a clever use of it.",
+   "evidence": [
+    {
+     "claim": "Capital contribution 98.9 亿 in Q1 2026; short-term borrowing 62.7 亿 at Sept 2026",
+     "source": "S2 raw_cashflow; S1 EV items"
+    }
+   ],
+   "confidence": "low"
+  },
+  {
+   "expert": "michael-mauboussin",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:21:00-08:00",
+   "text": "So how do we tell a pause from an end? Use the seasonal pattern. Fourth-quarter sales have been 82%, 70% and 66% of third-quarter sales in the past three years. Last year's fourth quarter was 40.3 亿. If this year looks like last year, it is about flat. If it looks like 2024, it is about 43 亿 or 7% growth. Flat means the stall is real. 43 or more means the third quarter was an air pocket.",
+   "evidence": [
+    {
+     "claim": "Q4 as share of Q3: 82% (2023), 70% (2024), 66% (2025)",
+     "source": "derived from S1 quarterly revenue"
+    },
+    {
+     "claim": "Q4 2026 at 66% / 70% of Q3 2026 61.5 亿: 40.6 / 43.1 亿",
+     "source": "derived; Q4 2025 base 40.3 亿"
+    }
+   ],
+   "confidence": "medium"
+  },
+  {
+   "expert": "li-lu",
+   "phase": "discussion",
+   "timestamp": "2026-11-23T07:22:00-08:00",
+   "text": "I would add the dealers' prepayments. They have always jumped in the fourth quarter, by about 24 亿 in each of the last two years. Right now the balance is 51 亿, up 43% on last September, but last September was an unusually low starting point. If the year-end balance is only about 60 亿 again, a build of only 9 亿, I would read that as dealers hesitating. A build of about 20 亿 or more, to 70 亿 or above, is what a pause would look like.",
+   "evidence": [
+    {
+     "claim": "Q3-to-Q4 build in prepayments: +6.9 (2023), +23.8 (2024), +24.1 亿 (2025)",
+     "source": "S2 raw_balancesheet contract_liab"
+    },
+    {
+     "claim": "Prepayments 50.9 亿 at Sept 2026 vs 35.6 at Sept 2025; 59.7 at year-end 2025",
+     "source": "S2 raw_balancesheet"
+    }
+   ],
+   "confidence": "medium"
+  }
+ ],
+ "disagreements": [
+  {
+   "topic": "How much of the 140 亿 net cash is truly spare",
+   "positions": {
+    "stephen-penman": "All of it is outside the business; price needs 1.4% growth at 8%",
+    "warren-buffett": "Dealer prepayments are owed money; only about 90 亿 is spare"
+   },
+   "status": "narrowed",
+   "resolution": "Penman reran with prepayments as debt: 2.0% at 8%, 4.2% at 10%. Same zone of modest growth; the dispute now only shifts the number by about 0.6 to 0.8 points."
+  },
+  {
+   "topic": "Is the Q3 cut in selling expense efficiency or harvesting",
+   "positions": {
+    "warren-buffett": "Cannot tell yet",
+    "michael-mauboussin": "One quarter only; the nine-month ratio is higher, so not a new way of working"
+   },
+   "status": "open"
+  },
+  {
+   "topic": "Pause or end",
+   "positions": {
+    "michael-mauboussin": "Leans to the cautious reading: capex trimmed, two-year growth still falling",
+    "li-lu": "Not yet answerable; Q4 sales and the year-end prepayment build decide it"
+   },
+   "status": "open"
+  }
+ ],
+ "conclusion": {
+  "answer": "The business looks like a strong franchise whose easy growth is fading, and the price already sits at a sensible midpoint. Sales grew 28% a year for eight years on almost no capital, with cash flow above profit. This year growth fell to under 1%, and 2025's growth already came more from thinner-margin products than from the flagship energy drink. At 113.55 yuan the operating business is priced at about 15 times its core profit. That needs only 1.4 to 4.2% a year of lasting profit growth, depending on whether dealers' prepayments count as debt and on whether investors want 8% or 10%. So the price does not assume growth is over, and it is not assuming strong growth either. If growth really ended, the market value would fall roughly 14 to 34%. Whether this is a pause or the end is not answerable from the data in hand. Fourth-quarter sales and the year-end prepayment build will decide it. Confidence: medium on the price-implied part, low on pause versus end.",
+  "confidence": "low",
+  "what_would_change_our_mind": [
+   "Q4 2026 revenue of 43 亿 or more (+7% on last year) with a year-end prepayment balance near 70 亿 or above: a pause.",
+   "Q4 revenue close to 40 亿 and a year-end prepayment balance near 60 亿: the stall is real.",
+   "Gross margin falling from 45% while sales stay flat: the new products or price cuts are diluting the franchise.",
+   "A required return clearly above 10%, or one below 7%, would move the growth the price needs by several points."
+  ],
+  "open_questions": [
+   "What is the 99 亿 raised in Q1 2026 for, and why is short-term borrowing still 63 亿? Needs the share issue announcement and the 2026 annual report.",
+   "What is the ×1.30 step in share count between Q1 and Q2 2026, and how does it affect per-share history? Needs the company announcement.",
+   "What is the 3.5 亿 of other financial cost in nine months 2026? Needs the interim report note.",
+   "How much of 2026 growth is flagship energy drink versus electrolyte and other drinks? Needs the interim report product split.",
+   "Do dealers carry extra stock? Needs a channel check.",
+   "The 8 to 10% required return is an assumption, not evidence."
+  ]
+ },
+ "next_question_candidates": [
+  "Does Q4 2026 revenue reach 43 亿 and does the year-end prepayment balance build by about 20 亿?",
+  "What was the 99 亿 raised for, and why still borrow 63 亿?",
+  "What does the interim report show for 2026 growth by product line?"
+ ],
+ "thinkers_consulted": [],
+ "knowledge_candidates": [
+  {
+   "kind": "hypothesis",
+   "text": "The 2025 sales growth of 东鹏饮料 came more from electrolyte and other drinks (54% of the gain) than from the flagship energy drink (46%), at lower gross margin; a flat 2026 energy line would explain the stall.",
+   "source": "S1 main_business FY2025 vs FY2024; 2026 product split not available locally",
+   "confidence": "low"
+  },
+  {
+   "kind": "fact",
+   "text": "东鹏饮料 operating business was priced at about 15 times core after-tax profit (46 亿 TTM to Q3 2026, EV 693 亿) at the S1 quote 2026-11-20; it needs 1.4% growth at 8% required return and 3.4% at 10%.",
+   "source": "derived from S1 quote 20261120, S1 EV items, S2 raw_income; see sessions/605499.SH/2026-11-23-03 workpaper",
+   "confidence": "medium"
+  }
+ ]
+}
