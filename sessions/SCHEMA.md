@@ -25,7 +25,12 @@ sessions/
   "status": "open | closed",
   "user_request": "the user's original request, verbatim",
   "experts": ["stephen-penman", "warren-buffett", "michael-mauboussin"],
-  "expert_versions": {"stephen-penman": "1.0"},
+  "expert_versions": {"stephen-penman": "1.0", "warren-buffett": "1.0", "michael-mauboussin": "1.0"},
+  "expert_selection_reason": {
+    "stephen-penman": "accounting and implied expectations",
+    "warren-buffett": "durability of pricing power",
+    "michael-mauboussin": "comparability of returns on invested capital"
+  },
   "data": {"avl_version": "20261121_201610", "duckdb_last_end": "20251231", "factsheet_generated_at": "..."},
   "question_queue": ["candidate questions not yet taken up"],
   "rounds": 1
@@ -34,7 +39,11 @@ sessions/
 
 ## rounds/round-NN.json
 
-One round = one question. Every number an expert cites must carry a `source`.
+One round follows one question. Write turns in spoken order. Each number a speaker reports needs
+an entry in that turn's `evidence`, with a source and, for a calculation, the formula and inputs.
+Keep the spoken text focused on what those facts imply. A question or reply introducing no new
+figures can carry an empty evidence list. Earlier rounds use `opening`, `rebuttal` and `closing`
+as phase labels. Readers render all turns in array order.
 
 ```json
 {
@@ -48,7 +57,7 @@ One round = one question. Every number an expert cites must carry a `source`.
   "statements": [
     {
       "expert": "stephen-penman",
-      "phase": "opening | rebuttal | closing",
+      "phase": "discussion",
       "timestamp": "...",
       "text": "The statement, in the expert's voice. Markdown allowed.",
       "evidence": [
@@ -83,7 +92,9 @@ One round = one question. Every number an expert cites must carry a `source`.
 - `S1 <block>` — AshareValueLine (e.g. `S1 annual.归母净利润`, `S1 main_business.P`)
 - `S2 <table>` — bme.duckdb (e.g. `S2 ratios_annual basis=average`, `S2 reformulated_bs`)
 - `AR <year> <section>` — the company's annual report (年度报告), when an expert reads it directly
+- `SRC <file> <locator>` — a passage read from `source-files/` in that turn (section, letter year, page or heading)
 - `KB <id>` — an entry in `knowledge/`
 - `derived: <formula>` — computed from the above; state the formula
 
-Anything without a source is an opinion and must be labelled as such in the text.
+Phrase judgments and hypotheses as the speaker's interpretation. Give verifiable claims a
+corresponding source in the same turn's evidence notes.

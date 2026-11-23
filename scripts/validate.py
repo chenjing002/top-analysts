@@ -126,7 +126,7 @@ def check_sessions(slugs):
         for i, s in enumerate(r.get("statements", [])):
             if s.get("expert") not in r.get("participants", []):
                 err(f"{rel}: statement {i} by '{s.get('expert')}' who is not a participant")
-            if s.get("phase") not in ("opening", "rebuttal", "closing"):
+            if s.get("phase") not in ("discussion", "opening", "rebuttal", "closing"):
                 err(f"{rel}: statement {i} has phase '{s.get('phase')}'")
             for j, e in enumerate(s.get("evidence", [])):
                 if not e.get("source"):

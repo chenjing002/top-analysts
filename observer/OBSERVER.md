@@ -17,6 +17,13 @@ file proposals in `observer/proposals/`. It never edits an expert file directly.
 **Analytical weaknesses** (to flag, with the statement that shows it)
 - Unsourced numbers; numbers whose source does not actually contain them; unit or basis mix-ups (元/亿元, opening/average, 营业收入/营业总收入, parent/total).
 - Agreement without engagement: experts restating each other instead of testing each other.
+- Read the turns in order. Trace one consequential inference from the speaker who made it to
+  the person who tested it and the reply or open question that followed. Cite turns by speaker
+  and position in the transcript. If an objection was left hanging, name the missing response
+  and explain how it affects the conclusion. A sustained disagreement can earn a good review.
+- Check whether the role card affected a specific inference. Identify where speakers could swap
+  names without changing the argument, or where source labels and arithmetic bury a turning point.
+  Record a shared workflow problem here. Use §3 for a weakness traceable to an individual card.
 - Narrative substituting for arithmetic ("strong brand" where a margin series was available).
 - Confidence inflation: `high` on a conclusion that rests on one source or on an assumption (e.g. the model's default r = 8%).
 - Scope drift: the round answered a different question than it asked.
@@ -33,7 +40,7 @@ file proposals in `observer/proposals/`. It never edits an expert file directly.
 One paragraph: did the round answer its question, and is the stated confidence earned?
 
 ## Patterns worth keeping
-- <pattern> — <statement reference: expert, phase> — why it worked
+- <pattern> — <expert and turn number> — why it worked
 
 ## Weaknesses
 - [severity: high|medium|low] <weakness> — <statement reference> — what should have happened
@@ -57,22 +64,23 @@ Lifecycle: `proposed → validated → applied` or `→ rejected`.
 
 **proposed** — the Observer files it. Requirements:
 - `**Target:**` one expert file and one section.
-- `**Evidence:**` at least two statement references (session/round/expert/phase) showing the weakness or the pattern. One instance is an anecdote; file it as a note in the observer report instead.
-- `**Change:**` the exact text to add, replace or remove. Additions to sections 1–7 must be marked `[observer-added, from <session> r<N>]` unless they carry a new source anchor in §8.
+- `**Evidence:**` for an improvement, at least two statement references (session, round, expert and turn number) showing the weakness or pattern. Legacy references may use an unambiguous phase. Record a single instance in the observer report. For a correction, cite the affected passage and the source locator or reproducible calculation.
+- `**Change:**` the exact text to add, replace or remove. For improvements, mark additions to sections 1–7 `[observer-added, from <session> r<N>]` unless they carry a new source anchor in §8.
 - `**Risk:**` what the change could break (e.g. makes the expert too cautious; duplicates another expert's role).
 
-**validated** — a *different* agent than the one that wrote the proposal (the orchestrator spawns a fresh reviewer with only the proposal, the target file, and the cited rounds) confirms:
-1. the cited statements exist and show what the proposal claims;
+**validated** — give a fresh reviewer the proposal, the target file, and the cited evidence. The reviewer performs four checks.
+
+1. the cited statements or source evidence show what the proposal claims;
 2. the change does not contradict the expert's source anchors (§8) or scope (§1);
 3. the change is not already covered by another expert's role (otherwise redirect);
 4. `scripts/validate.py` passes with the change applied in a scratch copy.
 The reviewer writes a `## Validation` section with the four checks and a verdict.
 
-**applied** — the orchestrator applies the change, bumps the version (1.0 → 1.1), adds a changelog line referencing the proposal file, and marks the proposal applied with the commit hash.
+**applied** — the orchestrator applies the change, bumps the version (1.0 → 1.1), adds a changelog line referencing the proposal file, and marks the proposal applied. Record the commit hash once the edit is committed.
 
 **rejected** — reason recorded; the proposal stays in the folder as a record.
 
-Hard limits: at most **one applied change per expert per session**; never change §8 source anchors except to add; never delete a blind spot from §6 (they can be reworded or extended). If the Observer finds a *factual* error in a role file (a misquote, a wrong formula), it files a proposal with `**Kind:** correction`, which skips the two-instance rule but still requires validation.
+Apply at most **one change per expert per session**. Only add to §8 source anchors. Keep the blind spots in §6 and reword or extend them as needed. Use `**Kind:** correction` for a specific factual error such as a misquote or a wrong formula. Both kinds require independent validation.
 
 ## 4. What the Observer does not do
 - Does not express a view on the company.

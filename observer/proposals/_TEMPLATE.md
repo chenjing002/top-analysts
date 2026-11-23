@@ -2,11 +2,13 @@
 
 **Status:** proposed
 **Kind:** improvement | correction
-**Filed:** YYYY-MM-DD by Observer, after <ts_code>/<session_id> round NN
+**Filed:** YYYY-MM-DD by <reviewer or Observer; session/round if applicable>
 **Target:** experts/<slug>.md → §<n> <section name>
 **Evidence:**
-- <ts_code>/<session_id> r<N> · <expert> · <phase>: "<≤30-word excerpt>" — what it shows
-- <ts_code>/<session_id> r<N> · <expert> · <phase>: "<≤30-word excerpt>" — what it shows
+- <ts_code>/<session_id> r<N> · <expert> · turn <N> — "<≤30-word excerpt>" — what it shows
+- <ts_code>/<session_id> r<N> · <expert> · turn <N> — "<≤30-word excerpt>" — what it shows
+
+For a correction, replace the two round references with the affected passage and a source locator or reproducible calculation.
 
 ## Change
 
@@ -25,7 +27,7 @@ What this could make worse, and why it is still worth doing.
 
 (filled by the independent reviewer; required before status → validated)
 
-1. Cited statements exist and show the claim: yes/no — note
+1. Cited statements or source evidence show the claim: yes/no — note
 2. No contradiction with §8 anchors or §1 scope: yes/no — note
 3. Not already covered by another expert: yes/no — note
 4. `scripts/validate.py` passes on a scratch copy: yes/no

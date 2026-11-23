@@ -4,8 +4,8 @@ A minimal multi-agent research system. Eight investment experts, distilled from 
 examine one A-share company **one question per round**: they state positions with sourced evidence,
 challenge each other, record disagreements, and reach a conclusion with an honest confidence level.
 An independent Observer reviews each round and proposes validated improvements to the expert role
-files. Verified findings go to a shared, provenance-tagged knowledge base. Every round is published to
-**https://chenjing002.github.io/top-analysts/**.
+files. Verified findings go to a shared, provenance-tagged knowledge base. Published rounds appear in
+the [discussion archive](https://chenjing002.github.io/top-analysts/).
 
 ## The experts
 
@@ -38,10 +38,19 @@ first question.
 
 ## Running an analysis
 
-Open the repo in Claude Code and ask, e.g. `analyze 600519` or `分析 美的集团`. `CLAUDE.md` is the
-orchestrator protocol: resolve company → fetch and cross-check → choose 3–4 experts → one question per
-round (opening statements in parallel, rebuttals, moderator conclusion) → Observer → knowledge
-candidates → sync to GitHub → Pages redeploys. `/analyze` and `/observe` are shortcuts.
+Open this repository and ask `analyze 600519` or `分析 美的集团`. The shared entry point is
+[`AGENTS.md`](AGENTS.md). The [Analyze skill](skills/analyze/SKILL.md) runs the panel, and the
+[Observe skill](skills/observe/SKILL.md) audits a round or reviews a proposed expert edit.
+
+| Where you work | How to use it |
+|---|---|
+| Codex | Open this repository as the workspace. Use `$analyze` or `$observe`, or ask in plain language. Codex discovers both skills through `.agents/skills/`. |
+| Claude Code | Open this repository and use `/analyze` or `/observe`. `CLAUDE.md` imports `AGENTS.md`, and `.claude/skills/` exposes the shared skills. |
+| ChatGPT or another agent | Ask it to read `AGENTS.md` and the relevant file in `skills/`. If the chat has no workspace access, attach those files, the relevant expert cards, and the fact sheet. For a round audit, include `observer/OBSERVER.md` and the round JSON. A GitHub-connected chat can retrieve the files once they are pushed to a repository it can access. |
+
+Both native skill directories link to `skills/`. Edit the visible files there to update both tools.
+If your checkout does not resolve symlinks, open the visible files directly. Live fetch and SQL
+require the local data setup below. A chat can work from a supplied fact sheet.
 
 Manual steps:
 
@@ -49,7 +58,7 @@ Manual steps:
 # fact sheet only
 /Users/lin/Desktop/business-model-explorer/.venv/bin/python data/fetch.py 600519
 
-# re-render, rebuild index, validate, commit, push
+# publish an authorized round (stages all changes, commits, and pushes main)
 scripts/sync.sh "600519.SH 2026-11-23-01 round 1: <question>"
 
 # validation only
@@ -58,9 +67,11 @@ python3 scripts/validate.py
 
 ## Self-improvement, controlled
 
-Expert files change only through `observer/proposals/`: a proposal needs two cited instances, an
-independent reviewer fills in the validation checks, and one change per expert per session is applied
-with a version bump and changelog line. `scripts/validate.py` enforces structure on every push.
+Expert files change through the [Observer proposal process](observer/OBSERVER.md#3-proposals-to-change-an-expert-file).
+Behavior changes need two cited instances. Factual corrections need directly checkable evidence.
+An independent reviewer fills in the validation checks before an edit is applied with a version
+bump and changelog line. The limit is one change per expert per session. `scripts/validate.py`
+enforces structure before publication.
 
 Knowledge is admitted by `knowledge/README.md` rules: one line, one claim, with id, date, confidence,
 and source. Hypotheses live apart from facts and can never be `high` confidence.

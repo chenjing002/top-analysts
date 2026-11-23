@@ -1,0 +1,17 @@
+{
+ "session_id": "2026-11-23-01",
+ "company": {"ts_code": "600519.SH", "name": "贵州茅台", "industry": "白酒"},
+ "started_at": "2026-11-23T02:35:00-08:00",
+ "status": "open",
+ "user_request": "System build validation run: first full round on 贵州茅台 (600519.SH) to exercise fetch → experts → observer → sync → Pages.",
+ "experts": ["stephen-penman", "warren-buffett", "jeff-bezos"],
+ "expert_selection_reason": {
+  "stephen-penman": "always on the panel (accounting backbone)",
+  "warren-buffett": "RNOA > 100% franchise with pricing power; the question is whether the economic franchise is weakening",
+  "jeff-bezos": "FY2025 CFO/NI fell to 0.72 and customer advances collapsed — a cash-vs-earnings and operating-cycle question"
+ },
+ "expert_versions": {"stephen-penman": "1.0", "warren-buffett": "1.0", "jeff-bezos": "1.0"},
+ "data": {"avl_version": "20261121_201610", "duckdb_last_end": "20251231", "cross_check_mismatches": 0},
+ "question_queue": [],
+ "rounds": 0
+}

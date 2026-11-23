@@ -5,6 +5,7 @@ Usage: python3 scripts/render_round.py sessions/600519.SH/2026-11-23-01/rounds/r
        python3 scripts/render_round.py --all
 """
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -27,34 +28,38 @@ def render(r: dict) -> str:
     L.append(f"**Participants** {', '.join(name(p) for p in r.get('participants', []))}")
     if r.get("why_this_question"):
         L += ["", f"> {r['why_this_question']}"]
-    for phase in ["opening", "rebuttal", "closing"]:
-        sts = [s for s in r.get("statements", []) if s.get("phase") == phase]
-        if not sts:
+    L += ["", "## Discussion", "", "_Simulated expert perspectives._", ""]
+    for s in r.get("statements", []):
+        L += [f"### {name(s['expert'])}", "", s["text"].strip(), ""]
+        if not any(s.get(key) for key in ("evidence", "challenges", "concessions", "thinker_used",
+                                          "confidence", "timestamp")):
             continue
-        L += ["", f"## {phase.capitalize()} statements", ""]
-        for s in sts:
-            L.append(f"### {name(s['expert'])} · confidence {s.get('confidence','?')} · {s.get('timestamp','')}")
-            L += ["", s["text"].strip(), ""]
-            if s.get("evidence"):
-                L.append("**Evidence**")
-                for e in s["evidence"]:
-                    vals = f" — {json.dumps(e['values'], ensure_ascii=False)}" if e.get("values") else ""
-                    L.append(f"- {e['claim']} _(source: {e['source']})_{vals}")
-                L.append("")
-            if s.get("challenges"):
-                L.append("**Challenges**")
-                for c in s["challenges"]:
-                    L.append(f"- → {name(c['to'])}: {c['point']}")
-                L.append("")
-            if s.get("concessions"):
-                L.append("**Concessions**")
-                for c in s["concessions"]:
-                    L.append(f"- ← {name(c['to'])}: {c['point']}")
-                L.append("")
-            if s.get("thinker_used"):
-                t = s["thinker_used"]
-                L.append(f"_[reasoning method, not evidence — {t.get('thinker')} · {t.get('method')}]_")
-                L.append("")
+        L += ["<details>", "<summary>Evidence and turn notes</summary>", ""]
+        labels = [s.get("phase") if s.get("phase") != "discussion" else "",
+                  s.get("confidence") and f"confidence {s['confidence']}", s.get("timestamp")]
+        if any(labels):
+            L += [" · ".join(filter(None, labels)), ""]
+        if s.get("evidence"):
+            L.append("**Evidence**")
+            for e in s["evidence"]:
+                vals = f" — {json.dumps(e['values'], ensure_ascii=False)}" if e.get("values") else ""
+                L.append(f"- {e['claim']} _(source: {e['source']})_{vals}")
+            L.append("")
+        if s.get("challenges"):
+            L.append("**Challenges**")
+            for c in s["challenges"]:
+                L.append(f"- → {name(c['to'])}: {c['point']}")
+            L.append("")
+        if s.get("concessions"):
+            L.append("**Concessions**")
+            for c in s["concessions"]:
+                L.append(f"- ← {name(c['to'])}: {c['point']}")
+            L.append("")
+        if s.get("thinker_used"):
+            t = s["thinker_used"]
+            L.append(f"_[reasoning method, not evidence — {t.get('thinker')} · {t.get('method')}]_")
+            L.append("")
+        L += ["</details>", ""]
     if r.get("disagreements"):
         L += ["## Disagreements", ""]
         for d in r["disagreements"]:
@@ -93,7 +98,7 @@ def main(argv):
         r = json.loads(f.read_text(encoding="utf-8"))
         out = f.with_suffix(".md")
         out.write_text(render(r), encoding="utf-8")
-        print(f"rendered {out.relative_to(ROOT)}")
+        print(f"rendered {os.path.relpath(out, ROOT)}")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-23T04:38:03-08:00",
+ "built_at": "2026-11-23T05:42:27-08:00",
  "experts": {
   "jeff-bezos": {
    "name": "Jeff Bezos",
@@ -88,11 +88,70 @@
        "json": "sessions/605499.SH/2026-11-23-01/rounds/round-01.json",
        "md": "sessions/605499.SH/2026-11-23-01/rounds/round-01.md",
        "observer": "sessions/605499.SH/2026-11-23-01/observer/round-01.md"
+      },
+      {
+       "round": 2,
+       "question": "Did consumers buy fewer energy drinks in the third quarter, or did shops and distributors order less?",
+       "participants": [
+        "stephen-penman",
+        "warren-buffett",
+        "jeff-bezos",
+        "li-lu"
+       ],
+       "started_at": "2026-11-23T05:15:00-08:00",
+       "ended_at": "2026-11-23T05:18:58-08:00",
+       "conclusion": "Dongpeng recorded lower energy-drink revenue in the summer quarter. The panel has low confidence about the cause. Dealers could have worked through existing stock, consumers could have bought fewer bottles, or the product could have been harder to find. Company-wide advances and distributor sales cannot distinguish these explanations for the core drink.",
+       "confidence": "low",
+       "n_disagreements_open": 0,
+       "thinkers": [],
+       "json": "sessions/605499.SH/2026-11-23-01/rounds/round-02.json",
+       "md": "sessions/605499.SH/2026-11-23-01/rounds/round-02.md",
+       "observer": null
+      },
+      {
+       "round": 3,
+       "question": "Restated on the 2026 share issue and the local quarterly statements: what do 2026 profit, cash flow and advances show, and what growth does the 20261120 price imply on a like-for-like definition?",
+       "participants": [
+        "stephen-penman",
+        "li-lu",
+        "warren-buffett",
+        "jeff-bezos"
+       ],
+       "started_at": "2026-11-23T06:00:00-08:00",
+       "ended_at": "2026-11-23T06:00:00-08:00",
+       "conclusion": "The 2026 share-count rise included about 99 亿 of cash capital contributions in Q1 (5.20 to 5.65 亿 shares). The further rise to 7.34 亿 in Q2 is 1.30 times the Q1 count and may be a 3-for-10 bonus issue; type, date and buyers are not in local data. If it is a bonus issue, the split-adjusted share price fell about 45% from 20251231, not the 40% market-cap fall quoted earlier; if not, the per-share fall is larger (about 58%). Q3 revenue grew 0.8%. On the panel's 'core' definition (excluding fair-value and investment gains and adding back financial expense) operating profit grew about 6.5%; reported operating profit fell 5.7% and net income to parent fell 7.8%, and the core reading leans on the financial-expense add-back, so it is provisional. Q3 operating cash flow fell 25% against a Q2 surge; nine-month operating cash flow is +13% year on year. Contract liabilities of 50.9 亿 are flat on Q2 (the usual seasonal pattern) and up 43% year on year. At r = 8% the 20261120 price implies about 1.0%–1.3% perpetual residual-income growth (range −0.9% to 3.3% across r = 6%–10%; g is about zero at r near 7%). The 2025 figure of 4.7% uses a different OI and NOA basis, so the fall is indicative, not 3.5 points exactly. It is not a zero-growth price at the 8% default. Confidence is low: it depends on the S2 default r, an unpinned NOA and a core-income definition chosen by the panel.",
+       "confidence": "low",
+       "n_disagreements_open": 0,
+       "thinkers": [],
+       "json": "sessions/605499.SH/2026-11-23-01/rounds/round-03.json",
+       "md": "sessions/605499.SH/2026-11-23-01/rounds/round-03.md",
+       "observer": "sessions/605499.SH/2026-11-23-01/observer/round-03.md"
       }
      ]
     }
    ]
+  },
+  {
+   "ts_code": "600519.SH",
+   "name": "贵州茅台",
+   "industry": "白酒",
+   "sessions": [
+    {
+     "session_id": "2026-11-23-01",
+     "started_at": "2026-11-23T02:35:00-08:00",
+     "status": "open",
+     "user_request": "System build validation run: first full round on 贵州茅台 (600519.SH) to exercise fetch → experts → observer → sync → Pages.",
+     "experts": [
+      "stephen-penman",
+      "warren-buffett",
+      "jeff-bezos"
+     ],
+     "factsheet": "sessions/600519.SH/2026-11-23-01/data/factsheet.md",
+     "summary": null,
+     "rounds": []
+    }
+   ]
   }
  ],
- "n_rounds": 1
+ "n_rounds": 3
 }

@@ -5,9 +5,11 @@
 
 > The S1/S2 cross-check has no mismatch above 1%, so no data conflict takes priority. The 2026 deceleration is the largest change since the FY2025 report, and market cap fell from 1,390.5 亿 (S2, 20251231) to 833.68 亿 (S1, 20261120).
 
-## Opening statements
+## Discussion
 
-### Stephen Penman · confidence medium · 2026-11-23T04:35:00-08:00
+_Simulated expert perspectives._
+
+### Stephen Penman
 
 **Position.** The S1 quote (20261120, price 113.55) does not price a permanent end of growth. Turn the price into value and ask what it needs. On the brief's FY2025 operating base, the price needs about 2% perpetual residual-income growth at an 8% required return (derived: reverse curve, see evidence). That is a market paying for a business that grows near inflation, not for a boom and not for zero. I cannot say the market is *over*-discounting, because there is no 2026 profit data.
 
@@ -29,6 +31,11 @@
 
 **Assumption I would challenge:** The brief's reverse curve assumes that EV (narrow financial-asset definition, S1 20260930), NOA 6.4 and OI 41.0 (broad definition, S2 FY2025) belong in one equation. They do not share a definition or a date, so the 2.0% implied g at r=8% should be read as an upper bound (about 1.7% when like-for-like financial assets are deducted). A bull framing that treats 17.37x TTM as cheap because 'growth will re-accelerate' also needs to show that TTM earnings, up about 8.7%, are still growing faster than the 2% the price needs.
 
+<details>
+<summary>Evidence and turn notes</summary>
+
+opening · confidence medium · 2026-11-23T04:35:00-08:00
+
 **Evidence**
 - S1 P/E of 18.88 is market cap over FY2025 net income, so it is consistent in total terms _(source: S1 quote 20261120; S1 annual indicators 归母净利润 2025; derived: 833.68/44.15)_ — {"note": "833.68; 44.15; 18.88"}
 - TTM net income about 48.0, +8.7% on FY2025; TTM margin intact _(source: derived: 833.68/17.37; 18.88/17.37; 48.0/226.28)_ — {"note": "48.0; +8.7%; 21.2% vs FY2025 21.1% (44.15/208.75)"}
@@ -45,7 +52,9 @@
 - Share count and price are not comparable across S1 and S2; use market cap _(source: S1 quote 20261120; S2 raw_daily_basic 20251231; derived: 7.342/5.20; 833.68/1390.5-1; 113.55/267.39-1)_ — {"note": "+41.2% shares; mkt cap -40.0%; price -57.5%"}
 - Cash and borrowings both high _(source: S1 EV items 20260930)_ — {"note": "货币资金 141.52 + 交易性金融资产 65.66 = 207.18; 短期借款 62.73"}
 
-### Warren Buffett · confidence medium · 2026-11-23T04:35:00-08:00
+</details>
+
+### Warren Buffett
 
 **Simulated perspective of the Buffett role card, not a quotation of the real writer.**
 
@@ -65,6 +74,11 @@
 
 **Assumption I would challenge:** That customer advances are permanent, costless funding, so NOA is near zero (6.4 亿) and the business needs almost no capital. If the 59.74 亿 of 合同负债 is dealer prepayment that is released when growth stops, then net cash is largely not surplus, owner earnings sit closer to the 26.5 亿 floor, and the near-zero NOA behind the reverse curve flatters the franchise.
 
+<details>
+<summary>Evidence and turn notes</summary>
+
+opening · confidence medium · 2026-11-23T04:35:00-08:00
+
 **Evidence**
 - Gross margin stayed in a 42-48% band with no widening trend _(source: S1 annual indicators 销售毛利率)_ — {"note": "47.92 (2017), 45.97, 46.74, 46.60, 44.37, 42.33 (2022), 43.07, 44.81, 44.91 (2025), in percent"}
 - Energy drink margin rose, but energy is 75% of revenue and 84% of gross profit _(source: S1 main business by product (20241231 and 20251231); derived: GP/revenue and segment share)_ — {"note": "能量饮料 GM 48.3% (2024) to 50.8% (2025); revenue 133.0 to 156.0 亿 (+17.3%); share of revenue 74.7%; share of GP 79.2/93.8 = 84.4%"}
@@ -77,7 +91,9 @@
 - Reverse curve at the S1 quote implies low but positive growth _(source: derived: brief reverse-curve calculation (S2 method, FY2025 base, no 2026 profit; S2 default tax 25%))_ — {"note": "implied g 0.1% (r=6%), 2.0% (8%), 3.9% (10%), 5.8% (12%)"}
 - Market cap fell 40% and share count rose, so per-share prices are not comparable _(source: S2 raw_daily_basic 20251231 vs S1 quote 20261120; derived: 833.68/1390.5-1)_ — {"note": "1,390.5 to 833.68 亿 (-40.0%); shares 5.20 to 7.342 亿股, reason not in the sheet"}
 
-### Jeff Bezos · confidence low · 2026-11-23T04:35:00-08:00
+</details>
+
+### Jeff Bezos
 
 **Position.** The cash statements describe a high-conversion business whose conversion has leaned on a growing customer float. A growth pause does not break that model, but it removes a cash source I would not capitalise. I cannot call this a permanent end of growth or a pause from the price alone.
 
@@ -97,6 +113,11 @@
 
 **Assumption I would challenge:** That the ~207 亿 of financial assets is free surplus that can be netted against debt in the EV bridge (NFO -140.44). Part of that cash is funded by the customer float (合同负债 59.74 at FY2025), and the company still carries 62.73 of short-term borrowings. Net of float, FY2025 surplus is about -6.15 (derived), so the bridge may overstate shareholder-owned cash.
 
+<details>
+<summary>Evidence and turn notes</summary>
+
+opening · confidence low · 2026-11-23T04:35:00-08:00
+
 **Evidence**
 - Cash conversion stayed well above 1 while FCF fell as net income rose _(source: S2 cash reconciliation)_ — {"note": "CFO/NI 1.40 (FY2025), 1.74 (FY2024), 1.61 (FY2023); FCF simple 39.1 vs 41.0; NI 44.1 vs 33.3; derived: 39.1/41.0-1 = -4.6%"}
 - Contract-liability float grew 12.13 in FY2025, a large share of the CFO-NI gap _(source: S1 full balance sheet 合同负债; S2 cash reconciliation accruals)_ — {"note": "59.74 vs 47.61; derived: 12.13/61.74 = 19.6% of CFO; 12.13/17.6 = 69% of accruals gap"}
@@ -110,7 +131,9 @@
 - Quarterly revenue growth decelerated sharply _(source: S1 quarterly revenue (brief derived from S1 period_trend))_ — {"note": "Q1 2026 +21.5%, Q2 +11.3%, Q3 +0.8% yoy; Q3 61.53 vs 61.07"}
 - Reverse curve at the S1 quote implies low single-digit growth _(source: derived: brief reverse-curve table (S2 method, FY2025 base, EV 693.66 at S1 quote 20261120, NOA 6.4, OI 41.0); 8% point re-derived)_ — {"note": "g 0.1% (r 6%), 2.0% (r 8%), 3.9% (r 10%), 5.8% (r 12%)"}
 
-### Li Lu (李录, Himalaya Capital) · confidence low · 2026-11-23T04:35:00-08:00
+</details>
+
+### Li Lu (李录, Himalaya Capital)
 
 **Simulated perspective of the Li Lu role card; not a quotation.** My first question is the bear's: why is this cheap, and is it cheap for a reason? I will state the bear case as strongly as I can. I have not read any primary document, so this is a list of what to verify, not a conclusion.
 
@@ -137,6 +160,11 @@
 
 **Assumption I would challenge:** That Q3 2026 growth of 0.8% is a one-quarter pause that the market is over-discounting. I challenge it because the deceleration is monotonic across six quarters and Q3 fell sequentially, so the burden of proof is on 'pause'. The S2 reverse-curve default (g = 3%, r = 8%) is an assumption, not evidence.
 
+<details>
+<summary>Evidence and turn notes</summary>
+
+opening · confidence low · 2026-11-23T04:35:00-08:00
+
 **Evidence**
 - Single-quarter yoy growth decelerated each quarter from Q1 2025 to Q3 2026 _(source: derived: cumulative differences of S1 period_trend 营业收入 (brief table))_ — {"note": "2025 Q1-Q3: 39.2%, 34.1%, 30.4%; 2026 Q1-Q3: 21.5%, 11.3%, 0.8% (61.53 vs 61.07 亿)"}
 - Q3 2026 revenue fell sequentially from Q2 2026 _(source: derived: 61.53/65.55 - 1 (S1 period_trend))_ — {"note": "-6.1%"}
@@ -149,10 +177,9 @@
 - Contract liabilities could account for part of the cash _(source: S1 full balance sheet 合同负债 FY2025)_ — {"note": "59.74 亿 (47.61 at FY2024)"}
 - Implied growth at the S1 quote is low _(source: derived: brief reverse curve, S2 method (EV - NOA = ReOI0(1+g)/(r-g)), FY2025 base)_ — {"note": "0.1% at r=6%; 2.0% at r=8%; 3.9% at r=10%; 5.8% at r=12%"}
 
+</details>
 
-## Rebuttal statements
-
-### Stephen Penman · confidence medium · 2026-11-23T04:35:00-08:00
+### Stephen Penman
 
 **Simulated perspective of the Penman role card, not a quotation.**
 
@@ -172,6 +199,11 @@
 **Confidence.** Medium, unchanged. The reverse-curve result (1.7% to 2.0% at r=8%) is robust, so the price does not signal permanent decline. 'Over-discounting' stays low confidence, given Li Lu's sequential point and the unconfirmed issue.
 
 **Confidence change:** Label unchanged. The verdict that the price does not imply permanent decline is firmer: implied g is 1.7% to 2.0% at r=8% across the definitions tested. The 'over-discounting' reading is weaker because of the sequential Q3 fall. The share-issue hypothesis adds uncertainty about per-share and cash interpretation, and nothing is confirmed.
+
+<details>
+<summary>Evidence and turn notes</summary>
+
+rebuttal · confidence medium · 2026-11-23T04:35:00-08:00
 
 **Evidence**
 - Energy share of gross profit is 84.4%; 50.8% is its gross margin _(source: S1 main business by product 20251231; derived: 79.2/93.8, 79.2/156.0)_ — {"note": "84.4%; 50.8%"}
@@ -194,7 +226,9 @@
 - ← Li Lu (李录, Himalaya Capital): Sequential Q3 revenue fell 6.1% while Q3 rose in 2024 and 2025. A base effect does not explain it, so my reading toward a pause is weaker.
 - ← self: My 2.7-point growth drop compared a broad S2 EV with a narrow S1 EV. On a consistent narrow EV the drop is about 2.8 points, so the conclusion holds but the comparison was loose.
 
-### Warren Buffett · confidence medium · 2026-11-23T04:35:00-08:00
+</details>
+
+### Warren Buffett
 
 **Simulated perspective of the Buffett role card, not a quotation of the real writer.**
 
@@ -213,6 +247,11 @@
 **Confidence.** It stays medium, as before. The share-issue hypothesis helps the balance-sheet reading. It does not help the 2026 earnings gap.
 
 **Confidence change:** Unchanged at medium. The likely equity issue makes the cash look like owners' capital and lowers the dealer-float concern, but it raises a capital-allocation question (why raise equity while holding 62.73 of borrowings), and the lack of 2026 profit and 合同负债 data still prevents a call on pause versus stall.
+
+<details>
+<summary>Evidence and turn notes</summary>
+
+rebuttal · confidence medium · 2026-11-23T04:35:00-08:00
 
 **Evidence**
 - Implied book equity at the S1 quote versus FY2025 parent equity _(source: S1 quote 20261120 (mkt cap 833.68, PB 4.49); S1 full balance sheet FY2025 parent equity 94.21; derived: 833.68/4.49)_ — {"note": "185.67; 94.21; +91.46"}
@@ -237,7 +276,9 @@
 - ← Li Lu (李录, Himalaya Capital): His sequential Q3 decline (-6.1%) and the multi-quarter deceleration are correct. The burden of proof is on 'pause'.
 - ← self: My opening paired operating owner earnings with a market cap that includes about 207 of financial assets. The EV-based yield is 3.8% to 6.4%, not 3.2% to 5.3%.
 
-### Jeff Bezos · confidence low · 2026-11-23T04:35:00-08:00
+</details>
+
+### Jeff Bezos
 
 **Simulated perspective of the Bezos role card, not a quotation of the real writer.**
 
@@ -252,6 +293,11 @@
 **Confidence.** It stays low. The float and the one-machine NPV remain untestable, but the cash-source question is partly answered. It is a hypothesis that the cash is largely new equity, not operating float. That weakens my float-dependence worry for the balance sheet but not for CFO.
 
 **Confidence change:** Unchanged at low. The cash-source question is now a testable hypothesis (equity issue), which eases my float-versus-borrowing worry. But I still lack 2026 CFO, 合同负债 and capex, and cannot run the one-machine NPV on the 14.14 of 在建工程.
+
+<details>
+<summary>Evidence and turn notes</summary>
+
+rebuttal · confidence low · 2026-11-23T04:35:00-08:00
 
 **Evidence**
 - Cash plus trading assets rose by about the same amount as the implied book gap _(source: S1 EV items 20260930; S1 balance sheet FY2025; derived: 207.18-119.89; 833.68/4.49-94.21)_ — {"note": "+87.29 vs implied book 185.67 less 94.21 = +91.46"}
@@ -273,7 +319,9 @@
 - ← Warren Buffett: Conceded: my own 'surplus about zero net of float' is stale. The +87 cash rise (and +91.5 implied book) points to new capital, not float, so the EV bridge is less overstated than I argued.
 - ← Stephen Penman: Conceded: his PB lead survives my arithmetic. Retained earnings cannot explain +91.5 of book, so a cash share issue is the leading hypothesis. His 'upper bound' caution on implied g is also fair.
 
-### Li Lu (李录, Himalaya Capital) · confidence low · 2026-11-23T04:35:00-08:00
+</details>
+
+### Li Lu (李录, Himalaya Capital)
 
 **Simulated perspective of the Li Lu role card; not a quotation.**
 
@@ -300,6 +348,11 @@ The numbers do not support a simple placement. If all 2.142 亿 new shares (deri
 
 **Confidence change:** Unchanged at low. The PB test makes a cash share issue the leading explanation for part of the 87 cash rise, which narrows the cash-location fear. It also shows per-share and market-cap comparisons need adjustment, and the business-side bear case (two-year stack, sequential fall) stands. No 2026 profit, advances or product data exist.
 
+<details>
+<summary>Evidence and turn notes</summary>
+
+rebuttal · confidence low · 2026-11-23T04:35:00-08:00
+
 **Evidence**
 - Implied book equity at the quote is about 185.7, up 91.5 on FY2025 parent equity _(source: derived: 833.68/4.49 (S1 quote 20261120, PB); S1 balance sheet FY2025 股东权益(不含少数股东) 94.21)_ — {"note": "185.67; 94.21; +91.46"}
 - Retained earnings cannot explain the book increase; at least about 43 comes from other capital _(source: derived: 91.46 - TTM NI 48.0 (833.68/17.37), assuming no dividend; S1 quote)_ — {"note": "91.46 - 47.99 = 43.5"}
@@ -322,6 +375,8 @@ The numbers do not support a simple placement. If all 2.142 亿 new shares (deri
 - ← Stephen Penman: The PB lead is right that the 4.49 implies a book of about 185.7, and it is not explained by retained earnings. Cash rises and the per-share price drop need the share issue examined.
 - ← Warren Buffett: Energy is 84.4% of gross profit, and my 50.8% figure was the energy gross margin.
 - ← Stephen Penman: My EV/revenue sentence mixed FY2025 and TTM bases. The correct figures are 3.07x TTM and 3.32x FY2025.
+
+</details>
 
 ## Disagreements
 

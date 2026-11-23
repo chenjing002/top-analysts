@@ -15,6 +15,6 @@ if git diff --cached --quiet; then
   echo "sync: nothing to commit"
   exit 0
 fi
-git commit -q -m "$MSG" -m "Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>"
+git commit -q -m "$MSG"
 git push -q origin main
 echo "sync: pushed '$MSG' → https://chenjing002.github.io/top-analysts/"

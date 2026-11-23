@@ -74,24 +74,28 @@
   }
 
   function renderRound(R, meta) {
-    const phase = p => R.statements.filter(s => s.phase === p);
-    const stmt = s => `
-      <div class="stmt ${s.phase}">
-        <div class="who"><b>${esc(ename(s.expert))}</b><span class="tag ${s.confidence}">${s.confidence}</span><span class="ts">${fmtTs(s.timestamp)}</span></div>
-        <div class="md">${md(s.text)}</div>
+    const stmt = s => {
+      const notes = `
+        ${s.phase && s.phase !== 'discussion' ? `<span class="tag">${esc(s.phase)}</span>` : ''}
+        ${s.confidence ? `<span class="tag">confidence ${esc(s.confidence)}</span>` : ''}
+        ${s.timestamp ? `<span class="ts">${esc(fmtTs(s.timestamp))}</span>` : ''}
         ${s.evidence?.length ? `<ul class="ev">${s.evidence.map(e => `<li>${esc(e.claim)} <span class="src">[${esc(e.source)}]</span>${e.values ? ` <span class="src">${esc(JSON.stringify(e.values))}</span>` : ''}</li>`).join('')}</ul>` : ''}
         ${s.challenges?.length ? `<ul class="chal">${s.challenges.map(c => `<li>→ <b>${esc(ename(c.to))}</b>: ${esc(c.point)}</li>`).join('')}</ul>` : ''}
         ${s.concessions?.length ? `<ul class="chal">${s.concessions.map(c => `<li>← <b>${esc(ename(c.to))}</b>: ${esc(c.point)}</li>`).join('')}</ul>` : ''}
         ${s.thinker_used ? `<div class="thinker">[reasoning method, not evidence — ${esc(s.thinker_used.thinker)} · ${esc(s.thinker_used.method)}]</div>` : ''}
+      `.trim();
+      return `<div class="stmt">
+        <div class="who"><b>${esc(ename(s.expert))}</b></div>
+        <div class="md">${md(s.text)}</div>
+        ${notes ? `<details><summary>依据与发言记录</summary>${notes}</details>` : ''}
       </div>`;
-    const sec = (title, arr) => arr.length ? `<h3>${title}</h3>${arr.map(stmt).join('')}` : '';
+    };
     return `
       <div class="round-h"><span class="tag">Round ${R.round}</span><h2>${esc(R.question)}</h2></div>
       <div class="muted">${fmtTs(R.started_at)} → ${fmtTs(R.ended_at)} · ${R.participants.map(ename).map(esc).join(', ')}</div>
       ${R.why_this_question ? `<p class="muted">${esc(R.why_this_question)}</p>` : ''}
-      ${sec('Opening statements · 开场陈述', phase('opening'))}
-      ${sec('Rebuttals · 质疑与回应', phase('rebuttal'))}
-      ${sec('Closing · 结语', phase('closing'))}
+      <h3>专家讨论</h3><div class="muted">以下发言由专家角色卡模拟。</div>
+      ${R.statements.map(stmt).join('')}
       ${R.disagreements?.length ? `<h3>Disagreements · 分歧</h3>${R.disagreements.map(d => `<div class="dis"><b>${esc(d.topic)}</b> <span class="tag">${esc(d.status)}</span>
          <ul>${Object.entries(d.positions || {}).map(([w, p]) => `<li><b>${esc(ename(w))}</b>: ${esc(p)}</li>`).join('')}</ul>${d.resolution ? `<div class="muted">resolution: ${esc(d.resolution)}</div>` : ''}</div>`).join('')}` : ''}
       <div class="concl"><b>Conclusion · 结论</b> <span class="tag ${R.conclusion.confidence}">${R.conclusion.confidence}</span><div class="md">${md(R.conclusion.answer)}</div>

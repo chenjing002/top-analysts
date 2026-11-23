@@ -1,0 +1,4392 @@
+{
+ "meta": {
+  "ts_code": "600519.SH",
+  "name": "贵州茅台",
+  "industry": "白酒",
+  "generated_at": "2026-11-23T02:09:00-08:00",
+  "avl_version": "20261121_201610",
+  "avl_url": "https://chenjing002.github.io/AshareValueLine/data/versions/a_share/20261121_201610/stocks/600519.SH.js",
+  "duckdb_path": "/Users/lin/Desktop/business-model-explorer/data/bme.duckdb"
+ },
+ "cross_check": [
+  {
+   "concept": "营业收入",
+   "year": "2025",
+   "avl": 1688.381,
+   "duckdb": 1688.381,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "营业收入",
+   "year": "2024",
+   "avl": 1708.9915,
+   "duckdb": 1708.9915,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "营业收入",
+   "year": "2023",
+   "avl": 1476.936,
+   "duckdb": 1476.936,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "营业收入",
+   "year": "2022",
+   "avl": 1240.9984,
+   "duckdb": 1240.9984,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "营业收入",
+   "year": "2021",
+   "avl": 1061.9015,
+   "duckdb": 1061.9015,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "营业收入",
+   "year": "2020",
+   "avl": 949.1538,
+   "duckdb": 949.1538,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "营业收入",
+   "year": "2019",
+   "avl": 854.2957,
+   "duckdb": 854.2957,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "营业收入",
+   "year": "2018",
+   "avl": 736.3887,
+   "duckdb": 736.3887,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "营业收入",
+   "year": "2017",
+   "avl": 582.1786,
+   "duckdb": 582.1786,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "营业收入",
+   "year": "2016",
+   "avl": 388.6219,
+   "duckdb": 388.6219,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."
+  },
+  {
+   "concept": "利润总额",
+   "year": "2025",
+   "avl": 1147.5526,
+   "duckdb": 1147.5526,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "利润总额",
+   "year": "2024",
+   "avl": 1196.3858,
+   "duckdb": 1196.3858,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "利润总额",
+   "year": "2023",
+   "avl": 1036.6255,
+   "duckdb": 1036.6255,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "利润总额",
+   "year": "2022",
+   "avl": 877.0149,
+   "duckdb": 877.0149,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "利润总额",
+   "year": "2021",
+   "avl": 745.2803,
+   "duckdb": 745.2803,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "利润总额",
+   "year": "2020",
+   "avl": 661.9694,
+   "duckdb": 661.9694,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "利润总额",
+   "year": "2019",
+   "avl": 587.8255,
+   "duckdb": 587.8255,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "利润总额",
+   "year": "2018",
+   "avl": 508.276,
+   "duckdb": 508.276,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "利润总额",
+   "year": "2017",
+   "avl": 387.4007,
+   "duckdb": 387.4007,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "利润总额",
+   "year": "2016",
+   "avl": 239.5788,
+   "duckdb": 239.5788,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2025",
+   "avl": 823.2007,
+   "duckdb": 823.2007,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2024",
+   "avl": 862.2815,
+   "duckdb": 862.2815,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2023",
+   "avl": 747.3407,
+   "duckdb": 747.3407,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2022",
+   "avl": 627.1644,
+   "duckdb": 627.1644,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2021",
+   "avl": 524.6014,
+   "duckdb": 524.6014,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2020",
+   "avl": 466.9729,
+   "duckdb": 466.9729,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2019",
+   "avl": 412.0647,
+   "duckdb": 412.0647,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2018",
+   "avl": 352.0363,
+   "duckdb": 352.0363,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2017",
+   "avl": 270.7936,
+   "duckdb": 270.7936,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "归母净利润",
+   "year": "2016",
+   "avl": 167.1836,
+   "duckdb": 167.1836,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2025",
+   "avl": 3038.3484,
+   "duckdb": 3038.3484,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2024",
+   "avl": 2989.4458,
+   "duckdb": 2989.4458,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2023",
+   "avl": 2726.9966,
+   "duckdb": 2726.9966,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2022",
+   "avl": 2543.648,
+   "duckdb": 2543.648,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2021",
+   "avl": 2551.682,
+   "duckdb": 2551.682,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2020",
+   "avl": 2133.9581,
+   "duckdb": 2133.9581,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2019",
+   "avl": 1830.4237,
+   "duckdb": 1830.4237,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2018",
+   "avl": 1598.4667,
+   "duckdb": 1598.4667,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2017",
+   "avl": 1346.1012,
+   "duckdb": 1346.1012,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总资产",
+   "year": "2016",
+   "avl": 1129.3454,
+   "duckdb": 1129.3454,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2025",
+   "avl": 498.7559,
+   "duckdb": 498.7559,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2024",
+   "avl": 569.3326,
+   "duckdb": 569.3326,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2023",
+   "avl": 490.4319,
+   "duckdb": 490.4319,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2022",
+   "avl": 494.0012,
+   "duckdb": 494.0012,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2021",
+   "avl": 582.1069,
+   "duckdb": 582.1069,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2020",
+   "avl": 456.7513,
+   "duckdb": 456.7513,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2019",
+   "avl": 411.6599,
+   "duckdb": 411.6599,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2018",
+   "avl": 424.3819,
+   "duckdb": 424.3819,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2017",
+   "avl": 385.9049,
+   "duckdb": 385.9049,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总负债",
+   "year": "2016",
+   "avl": 370.36,
+   "duckdb": 370.36,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2025",
+   "avl": 516.9061,
+   "duckdb": 516.9061,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2024",
+   "avl": 592.9582,
+   "duckdb": 592.9582,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2023",
+   "avl": 690.7014,
+   "duckdb": 690.7014,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2022",
+   "avl": 582.7432,
+   "duckdb": 582.7432,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2021",
+   "avl": 518.1024,
+   "duckdb": 518.1024,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2020",
+   "avl": 360.9109,
+   "duckdb": 360.9109,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2019",
+   "avl": 132.5182,
+   "duckdb": 132.5182,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2018",
+   "avl": 1120.7479,
+   "duckdb": 1120.7479,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2017",
+   "avl": 878.6887,
+   "duckdb": 878.6887,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "货币资金",
+   "year": "2016",
+   "avl": 668.5496,
+   "duckdb": 668.5496,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2025",
+   "avl": 614.2742,
+   "duckdb": 614.2742,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2024",
+   "avl": 543.4329,
+   "duckdb": 543.4329,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2023",
+   "avl": 464.3519,
+   "duckdb": 464.3519,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2022",
+   "avl": 388.2437,
+   "duckdb": 388.2437,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2021",
+   "avl": 333.9437,
+   "duckdb": 333.9437,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2020",
+   "avl": 288.6909,
+   "duckdb": 288.6909,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2019",
+   "avl": 252.8492,
+   "duckdb": 252.8492,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2018",
+   "avl": 235.0695,
+   "duckdb": 235.0695,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2017",
+   "avl": 220.5748,
+   "duckdb": 220.5748,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "存货",
+   "year": "2016",
+   "avl": 206.2225,
+   "duckdb": 206.2225,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2025",
+   "avl": 615.222,
+   "duckdb": 615.222,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2024",
+   "avl": 924.6369,
+   "duckdb": 924.6369,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2023",
+   "avl": 665.9325,
+   "duckdb": 665.9325,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2022",
+   "avl": 366.986,
+   "duckdb": 366.986,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2021",
+   "avl": 640.2868,
+   "duckdb": 640.2868,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2020",
+   "avl": 516.6907,
+   "duckdb": 516.6907,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2019",
+   "avl": 452.1061,
+   "duckdb": 452.1061,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2018",
+   "avl": 413.8523,
+   "duckdb": 413.8523,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2017",
+   "avl": 221.5304,
+   "duckdb": 221.5304,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "经营现金净额",
+   "year": "2016",
+   "avl": 374.5125,
+   "duckdb": 374.5125,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": ""
+  },
+  {
+   "concept": "总股本",
+   "year": "2025",
+   "avl": 12.5227,
+   "duckdb": 12.5227,
+   "pct_diff": -0.0,
+   "flag": "ok",
+   "note": "亿股"
+  },
+  {
+   "concept": "总股本",
+   "year": "2024",
+   "avl": 12.562,
+   "duckdb": 12.562,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "亿股"
+  },
+  {
+   "concept": "总股本",
+   "year": "2023",
+   "avl": 12.562,
+   "duckdb": 12.562,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "亿股"
+  },
+  {
+   "concept": "总股本",
+   "year": "2022",
+   "avl": 12.562,
+   "duckdb": 12.562,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "亿股"
+  },
+  {
+   "concept": "总股本",
+   "year": "2021",
+   "avl": 12.562,
+   "duckdb": 12.562,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "亿股"
+  },
+  {
+   "concept": "总股本",
+   "year": "2020",
+   "avl": 12.562,
+   "duckdb": 12.562,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "亿股"
+  },
+  {
+   "concept": "总股本",
+   "year": "2019",
+   "avl": 12.562,
+   "duckdb": 12.562,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "亿股"
+  },
+  {
+   "concept": "总股本",
+   "year": "2018",
+   "avl": 12.562,
+   "duckdb": 12.562,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "亿股"
+  },
+  {
+   "concept": "总股本",
+   "year": "2017",
+   "avl": 12.562,
+   "duckdb": 12.562,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "亿股"
+  },
+  {
+   "concept": "总股本",
+   "year": "2016",
+   "avl": 12.562,
+   "duckdb": 12.562,
+   "pct_diff": 0.0,
+   "flag": "ok",
+   "note": "亿股"
+  }
+ ],
+ "duckdb": {
+  "raw_annual": [
+   {
+    "end_date": "20251231",
+    "f_ann_date": "20260417",
+    "update_flag": "1",
+    "revenue_yi": 1688.3810251479001,
+    "total_revenue_yi": 1720.5417189091,
+    "operate_profit_yi": 1148.0895016424001,
+    "total_profit_yi": 1147.5526160508,
+    "ni_parent_yi": 823.2006710167999,
+    "ni_total_yi": 853.1032483367,
+    "total_assets_yi": 3038.3484402144,
+    "total_liab_yi": 498.7559011237,
+    "money_cap_yi": 516.906109465,
+    "inventories_yi": 614.2742179618,
+    "parent_equity_yi": 2446.3781103218,
+    "total_share_yi": 12.52270215,
+    "cfo_yi": 615.2220498935,
+    "capex_paid_yi": 31.2759491641,
+    "fcf_simple_yi": 583.9461007294
+   },
+   {
+    "end_date": "20241231",
+    "f_ann_date": "20250403",
+    "update_flag": "1",
+    "revenue_yi": 1708.9915227633999,
+    "total_revenue_yi": 1741.4406995825,
+    "operate_profit_yi": 1196.8857945323,
+    "total_profit_yi": 1196.3857819446,
+    "ni_parent_yi": 862.2814642162,
+    "ni_total_yi": 893.347280259,
+    "total_assets_yi": 2989.445799187,
+    "total_liab_yi": 569.332647981,
+    "money_cap_yi": 592.9582295689,
+    "inventories_yi": 543.4328515747001,
+    "parent_equity_yi": 2331.0598439947,
+    "total_share_yi": 12.561978,
+    "cfo_yi": 924.6369216843,
+    "capex_paid_yi": 46.7871205356,
+    "fcf_simple_yi": 877.8498011487
+   },
+   {
+    "end_date": "20231231",
+    "f_ann_date": "20240403",
+    "update_flag": "1",
+    "revenue_yi": 1476.9360499414001,
+    "total_revenue_yi": 1505.6033031645002,
+    "operate_profit_yi": 1037.0865520838001,
+    "total_profit_yi": 1036.6255368980999,
+    "ni_parent_yi": 747.3407155075,
+    "ni_total_yi": 775.214762778,
+    "total_assets_yi": 2726.9966009225,
+    "total_liab_yi": 490.4319079743,
+    "money_cap_yi": 690.7013637611999,
+    "inventories_yi": 464.3518506153,
+    "parent_equity_yi": 2156.6857160742998,
+    "total_share_yi": 12.561978,
+    "cfo_yi": 665.9324772109,
+    "capex_paid_yi": 26.197558887899998,
+    "fcf_simple_yi": 639.734918323
+   },
+   {
+    "end_date": "20221231",
+    "f_ann_date": "20230331",
+    "update_flag": "1",
+    "revenue_yi": 1240.9984377199,
+    "total_revenue_yi": 1275.5395935597,
+    "operate_profit_yi": 878.7952178239,
+    "total_profit_yi": 877.0148974818,
+    "ni_parent_yi": 627.1644373826999,
+    "ni_total_yi": 653.7513676675,
+    "total_assets_yi": 2543.6480499525,
+    "total_liab_yi": 494.0011674117,
+    "money_cap_yi": 582.7431873323001,
+    "inventories_yi": 388.2437423624,
+    "parent_equity_yi": 1975.06672396,
+    "total_share_yi": 12.561978,
+    "cfo_yi": 366.9859583003,
+    "capex_paid_yi": 53.0654641654,
+    "fcf_simple_yi": 313.92049413489997
+   },
+   {
+    "end_date": "20211231",
+    "f_ann_date": "20220331",
+    "update_flag": "1",
+    "revenue_yi": 1061.9015484376,
+    "total_revenue_yi": 1094.6427856389,
+    "operate_profit_yi": 747.5088077752,
+    "total_profit_yi": 745.2803189476,
+    "ni_parent_yi": 524.6014437816,
+    "ni_total_yi": 557.2052995646,
+    "total_assets_yi": 2551.681951599,
+    "total_liab_yi": 582.1068845456,
+    "money_cap_yi": 518.1024360711,
+    "inventories_yi": 333.9436508483,
+    "parent_equity_yi": 1895.3936879729001,
+    "total_share_yi": 12.561978,
+    "cfo_yi": 640.2867614737,
+    "capex_paid_yi": 34.0878453201,
+    "fcf_simple_yi": 606.1989161536
+   },
+   {
+    "end_date": "20201231",
+    "f_ann_date": "20210331",
+    "update_flag": "1",
+    "revenue_yi": 949.1538091672,
+    "total_revenue_yi": 979.9324050121,
+    "operate_profit_yi": 666.3507988238,
+    "total_profit_yi": 661.9694199111,
+    "ni_parent_yi": 466.9728542981,
+    "ni_total_yi": 495.23329882400003,
+    "total_assets_yi": 2133.9581052746,
+    "total_liab_yi": 456.7512742618,
+    "money_cap_yi": 360.910900609,
+    "inventories_yi": 288.69087678060004,
+    "parent_equity_yi": 1613.2273508756,
+    "total_share_yi": 12.561978,
+    "cfo_yi": 516.6906869303,
+    "capex_paid_yi": 20.8976949878,
+    "fcf_simple_yi": 495.7929919425
+   },
+   {
+    "end_date": "20191231",
+    "f_ann_date": "20200422",
+    "update_flag": "1",
+    "revenue_yi": 854.2957346725,
+    "total_revenue_yi": 888.5433748876,
+    "operate_profit_yi": 590.4148927614,
+    "total_profit_yi": 587.8255179772,
+    "ni_parent_yi": 412.0647101443,
+    "ni_total_yi": 439.7000079251,
+    "total_assets_yi": 1830.423720425,
+    "total_liab_yi": 411.65991813849996,
+    "money_cap_yi": 132.5181723785,
+    "inventories_yi": 252.8492080633,
+    "parent_equity_yi": 1360.1034987511,
+    "total_share_yi": 12.561978,
+    "cfo_yi": 452.1061263256,
+    "capex_paid_yi": 31.4886466138,
+    "fcf_simple_yi": 420.6174797118
+   },
+   {
+    "end_date": "20181231",
+    "f_ann_date": "20190329",
+    "update_flag": "1",
+    "revenue_yi": 736.3887238803,
+    "total_revenue_yi": 771.9938411022,
+    "operate_profit_yi": 513.4298768118,
+    "total_profit_yi": 508.2760344747,
+    "ni_parent_yi": 352.0362526322,
+    "ni_total_yi": 378.29617756809995,
+    "total_assets_yi": 1598.4667473601,
+    "total_liab_yi": 424.3818681348,
+    "money_cap_yi": 1120.7479142006,
+    "inventories_yi": 235.06950842220002,
+    "parent_equity_yi": 1128.3856433205,
+    "total_share_yi": 12.561978,
+    "cfo_yi": 413.8523440672,
+    "capex_paid_yi": 16.0675022628,
+    "fcf_simple_yi": 397.7848418044
+   },
+   {
+    "end_date": "20171231",
+    "f_ann_date": "20180328",
+    "update_flag": "0",
+    "revenue_yi": 582.1786131417,
+    "total_revenue_yi": 610.6275686616,
+    "operate_profit_yi": 389.40007533449995,
+    "total_profit_yi": 387.40072142599996,
+    "ni_parent_yi": 270.7936025574,
+    "ni_total_yi": 290.06423236,
+    "total_assets_yi": 1346.1011687508,
+    "total_liab_yi": 385.904894,
+    "money_cap_yi": 878.6886991334,
+    "inventories_yi": 220.57481376459998,
+    "parent_equity_yi": 914.5152282896,
+    "total_share_yi": 12.561978,
+    "cfo_yi": 221.53036084130002,
+    "capex_paid_yi": 11.2501719245,
+    "fcf_simple_yi": 210.2801889168
+   },
+   {
+    "end_date": "20161231",
+    "f_ann_date": "20170415",
+    "update_flag": "0",
+    "revenue_yi": 388.62189993839996,
+    "total_revenue_yi": 401.5508441293,
+    "operate_profit_yi": 242.6562516942,
+    "total_profit_yi": 239.5788095711,
+    "ni_parent_yi": 167.1836273416,
+    "ni_total_yi": 179.3064310988,
+    "total_assets_yi": 1129.3453828041,
+    "total_liab_yi": 370.35995425690004,
+    "money_cap_yi": 668.5496211822,
+    "inventories_yi": 206.2225182555,
+    "parent_equity_yi": 728.9413778325,
+    "total_share_yi": 12.561978,
+    "cfo_yi": 374.5124964705,
+    "capex_paid_yi": 10.1917813692,
+    "fcf_simple_yi": 364.32071510130004
+   }
+  ],
+  "ratios": [
+   {
+    "end_date": "20251231",
+    "basis": "average",
+    "revenue_yi": 1720.5417189091,
+    "oi_after_tax_yi": 846.414881950325,
+    "noa_yi": 689.3324682891,
+    "nfo_yi": -1790.5203768592498,
+    "cse_yi": 2479.85284514835,
+    "rnoa": 1.2278761278300125,
+    "opm": 0.4919467355240823,
+    "opm_core": 0.49209210058948655,
+    "ato": 2.495953401381813,
+    "ollev": 0.4715289544301299,
+    "flev": -0.7220268655707824,
+    "nbc": 0.003735431594532902,
+    "spread": 1.2241406962354797,
+    "rotce": 0.3440136579094738,
+    "roce_parent": 0.34462014112523365,
+    "gross_margin": 0.9117955168348006,
+    "receivables_to_sales": 0.018782036197872214,
+    "inventory_to_sales": 0.3364367910446652,
+    "ppe_to_sales": 0.13074923135562463,
+    "intangibles_to_sales": 0.05096018401308656,
+    "customer_advances_to_sales": 0.05114433611862277,
+    "op_payables_to_sales": 0.09963418160984257,
+    "ratio_flags": "net_financial_assets"
+   },
+   {
+    "end_date": "20241231",
+    "basis": "average",
+    "revenue_yi": 1741.4406995825,
+    "oi_after_tax_yi": 881.79479829855,
+    "noa_yi": 542.3442209380501,
+    "nfo_yi": -1785.9947011390498,
+    "cse_yi": 2328.3389220770996,
+    "rnoa": 1.6258950759600221,
+    "opm": 0.5063593601033645,
+    "opm_core": 0.5066731556410224,
+    "ato": 3.2109509649987,
+    "ollev": 0.646172232663433,
+    "flev": -0.7670681807551336,
+    "nbc": 0.006468374151996195,
+    "spread": 1.619426701808026,
+    "rotce": 0.3836843819378535,
+    "roce_parent": 0.38428268834516643,
+    "gross_margin": 0.9193121663606456,
+    "receivables_to_sales": 0.005965431413076867,
+    "inventory_to_sales": 0.2893537237390887,
+    "ppe_to_sales": 0.12204127040154293,
+    "intangibles_to_sales": 0.050023159413401026,
+    "customer_advances_to_sales": 0.06809938696918104,
+    "op_payables_to_sales": 0.09331843280641738,
+    "ratio_flags": "net_financial_assets"
+   },
+   {
+    "end_date": "20231231",
+    "basis": "average",
+    "revenue_yi": 1505.6033031645002,
+    "oi_after_tax_yi": 761.5146505394999,
+    "noa_yi": 416.0792706942,
+    "nfo_yi": -1727.0265170502996,
+    "cse_yi": 2143.1057877444996,
+    "rnoa": 1.8302153079363088,
+    "opm": 0.5057870482476604,
+    "opm_core": 0.5058304359826387,
+    "ato": 3.6185491785075072,
+    "ollev": 0.8744401149837715,
+    "flev": -0.8058522014762042,
+    "nbc": 0.007932774687153794,
+    "spread": 1.822282533249155,
+    "rotce": 0.36172491680584296,
+    "roce_parent": 0.36175483713215695,
+    "gross_margin": 0.9196493724135798,
+    "receivables_to_sales": 0.0006665009501113989,
+    "inventory_to_sales": 0.2831408483183125,
+    "ppe_to_sales": 0.13406140959242896,
+    "intangibles_to_sales": 0.05199060239634553,
+    "customer_advances_to_sales": 0.09829175010795058,
+    "op_payables_to_sales": 0.09807335660452315,
+    "ratio_flags": "net_financial_assets"
+   },
+   {
+    "end_date": "20221231",
+    "basis": "average",
+    "revenue_yi": 1275.5395935597,
+    "oi_after_tax_yi": 642.8340239670999,
+    "noa_yi": 329.17292655545,
+    "nfo_yi": -1680.43804824165,
+    "cse_yi": 2009.6109747971002,
+    "rnoa": 1.952876351934165,
+    "opm": 0.5039702626345899,
+    "opm_core": 0.5051021679812092,
+    "ato": 3.8749833010487036,
+    "ollev": 1.0956034836017985,
+    "flev": -0.8362006723272971,
+    "nbc": 0.006496724893740364,
+    "spread": 1.9463796270404246,
+    "rotce": 0.32531239919880806,
+    "roce_parent": 0.3240774329839975,
+    "gross_margin": 0.9186665485641154,
+    "receivables_to_sales": null,
+    "inventory_to_sales": 0.28309093534104357,
+    "ppe_to_sales": 0.14887869191268024,
+    "intangibles_to_sales": 0.05210161889054644,
+    "customer_advances_to_sales": 0.1105037677988809,
+    "op_payables_to_sales": 0.12447562677929433,
+    "ratio_flags": "net_financial_assets"
+   },
+   {
+    "end_date": "20211231",
+    "basis": "average",
+    "revenue_yi": 1094.6427856389,
+    "oi_after_tax_yi": 549.7762899362,
+    "noa_yi": 266.66153581135006,
+    "nfo_yi": -1556.7294132217498,
+    "cse_yi": 1823.3909490331,
+    "rnoa": 2.0617007558418163,
+    "opm": 0.5022426467784349,
+    "opm_core": 0.5038587309958926,
+    "ato": 4.104989429046513,
+    "ollev": 1.265266735821594,
+    "flev": -0.8537551500117108,
+    "nbc": 0.004772190700132784,
+    "spread": 2.0569285651416838,
+    "rotce": 0.30558740014590513,
+    "roce_parent": 0.2990356826645318,
+    "gross_margin": 0.9154029126035511,
+    "receivables_to_sales": null,
+    "inventory_to_sales": 0.28440078160543153,
+    "ppe_to_sales": 0.15557605845129874,
+    "intangibles_to_sales": 0.050361311730177036,
+    "customer_advances_to_sales": 0.11894297745958955,
+    "op_payables_to_sales": 0.14119078365650872,
+    "ratio_flags": "net_financial_assets"
+   },
+   {
+    "end_date": "20201231",
+    "basis": "average",
+    "revenue_yi": 979.9324050121,
+    "oi_after_tax_yi": 493.434692261525,
+    "noa_yi": 235.3136763948501,
+    "nfo_yi": -1312.6716402548002,
+    "cse_yi": 1547.9853166496503,
+    "rnoa": 2.0969231360507696,
+    "opm": 0.5035395193971897,
+    "opm_core": 0.5074390973056809,
+    "ato": 4.164366559671609,
+    "ollev": 1.2983438348020147,
+    "flev": -0.8479871392422853,
+    "nbc": 0.0013701877204613609,
+    "spread": 2.095552948330308,
+    "rotce": 0.3199211862654152,
+    "roce_parent": 0.31410756348001306,
+    "gross_margin": 0.9140918848186004,
+    "receivables_to_sales": 0.015285389121880346,
+    "inventory_to_sales": 0.2763150203391902,
+    "ppe_to_sales": 0.16005831327260098,
+    "intangibles_to_sales": 0.04870335075556634,
+    "customer_advances_to_sales": 0.13808033446029294,
+    "op_payables_to_sales": 0.13244745739492855,
+    "ratio_flags": "net_financial_assets"
+   },
+   {
+    "end_date": "20191231",
+    "basis": "average",
+    "revenue_yi": 888.5433748876,
+    "oi_after_tax_yi": 439.861081586,
+    "noa_yi": 194.07196505284995,
+    "nfo_yi": -1102.35237570305,
+    "cse_yi": 1296.4243407559,
+    "rnoa": 2.2664844016301706,
+    "opm": 0.49503613894104165,
+    "opm_core": 0.4972668946300092,
+    "ato": 4.578422105663899,
+    "ollev": 1.561089701486232,
+    "flev": -0.8503021279747854,
+    "nbc": -0.0001461181237961878,
+    "spread": 2.2666305197539667,
+    "rotce": 0.33916364735077886,
+    "roce_parent": 0.331176618919275,
+    "gross_margin": 0.9130276127625951,
+    "receivables_to_sales": 0.011404847598668895,
+    "inventory_to_sales": 0.2745610007768171,
+    "ppe_to_sales": 0.17102563684667987,
+    "intangibles_to_sales": 0.04629601071113008,
+    "customer_advances_to_sales": 0.15371701193380438,
+    "op_payables_to_sales": 0.15023793267671007,
+    "ratio_flags": "net_financial_assets"
+   },
+   {
+    "end_date": "20181231",
+    "basis": "average",
+    "revenue_yi": 771.9938411022,
+    "oi_after_tax_yi": 378.26976849887495,
+    "noa_yi": 173.86845594429994,
+    "nfo_yi": -893.27212104375,
+    "cse_yi": 1067.1405769880498,
+    "rnoa": 2.1756089478361536,
+    "opm": 0.48999065583063106,
+    "opm_core": 0.49501019638145655,
+    "ato": 4.440102932469326,
+    "ollev": 1.697457575265398,
+    "flev": -0.8370707105571462,
+    "nbc": 2.9564416713399874e-05,
+    "spread": 2.17557938341944,
+    "rotce": 0.35449516748376486,
+    "roce_parent": 0.34464349937326594,
+    "gross_margin": 0.911420128768426,
+    "receivables_to_sales": 0.011563860059109168,
+    "inventory_to_sales": 0.2951087806194556,
+    "ppe_to_sales": 0.19749285288017762,
+    "intangibles_to_sales": 0.045063815560796,
+    "customer_advances_to_sales": 0.18138502035091034,
+    "op_payables_to_sales": 0.15935180812603691,
+    "ratio_flags": "net_financial_assets"
+   },
+   {
+    "end_date": "20171231",
+    "basis": "average",
+    "revenue_yi": 610.6275686616,
+    "oi_after_tax_yi": 289.646314763575,
+    "noa_yi": 187.84659811854996,
+    "nfo_yi": -671.74425353045,
+    "cse_yi": 859.5908516489999,
+    "rnoa": 1.5419300517796934,
+    "opm": 0.4743420206173041,
+    "opm_core": 0.47669879703161555,
+    "ato": 3.2506714243301498,
+    "ollev": 1.4460511144347192,
+    "flev": -0.7814697565031159,
+    "nbc": 0.0006221379553730055,
+    "spread": 1.5413079138243204,
+    "rotce": 0.3374445316670762,
+    "roce_parent": 0.3295415303922926,
+    "gross_margin": 0.8979619615376678,
+    "receivables_to_sales": 0.016698666385714444,
+    "inventory_to_sales": 0.3494743391258708,
+    "ppe_to_sales": 0.24317010560505622,
+    "intangibles_to_sales": 0.05723916855164089,
+    "customer_advances_to_sales": 0.2617814096525616,
+    "op_payables_to_sales": 0.14379665607205952,
+    "ratio_flags": "net_financial_assets"
+   },
+   {
+    "end_date": "20161231",
+    "basis": "average",
+    "revenue_yi": 401.5508441293,
+    "oi_after_tax_yi": 179.0576171849,
+    "noa_yi": 272.6537377567,
+    "nfo_yi": -438.00982862335,
+    "cse_yi": 710.66356638005,
+    "rnoa": 0.6567216670423216,
+    "opm": 0.4459151806122046,
+    "opm_core": 0.45189334713599855,
+    "ato": 1.4727501901610462,
+    "ollev": 0.7389401121861168,
+    "flev": -0.6163392206166796,
+    "nbc": 0.0005680555495341593,
+    "spread": 0.6561536114927874,
+    "rotce": 0.25230846153003744,
+    "roce_parent": 0.24438457144713993,
+    "gross_margin": 0.9122513660061223,
+    "receivables_to_sales": 0.11700627062664344,
+    "inventory_to_sales": 0.48107916361158604,
+    "ppe_to_sales": 0.32211525647708633,
+    "intangibles_to_sales": 0.08858408792622553,
+    "customer_advances_to_sales": 0.32128763626433193,
+    "op_payables_to_sales": 0.14087101037343447,
+    "ratio_flags": "net_financial_assets"
+   }
+  ],
+  "reformulated_is": [
+   {
+    "end_date": "20251231",
+    "revenue_yi": 1688.3810251479001,
+    "oi_core_pretax_yi": 1138.9682697483,
+    "unusual_pretax_yi": -0.33347554599999996,
+    "oi_pretax_yi": 1138.6347942022999,
+    "nfe_pretax_yi": -8.917821848500001,
+    "tax_reported_yi": 294.4493677141,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 846.414881950325,
+    "oi_core_after_tax_yi": 846.664988609825,
+    "nfe_after_tax_yi": -6.688366386375001,
+    "ni_parent_yi": 823.2006710167999,
+    "minority_income_yi": 29.902577319899997,
+    "ci_total_yi": 853.1025070600999
+   },
+   {
+    "end_date": "20241231",
+    "revenue_yi": 1708.9915227633999,
+    "oi_core_pretax_yi": 1181.7110810914999,
+    "unusual_pretax_yi": -0.7286084275,
+    "oi_pretax_yi": 1180.982472664,
+    "nfe_pretax_yi": -15.403309280599997,
+    "tax_reported_yi": 303.0385016856,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 881.79479829855,
+    "oi_core_after_tax_yi": 882.341254619175,
+    "nfe_after_tax_yi": -11.552481960449999,
+    "ni_parent_yi": 862.2814642162,
+    "minority_income_yi": 31.0658160428,
+    "ci_total_yi": 893.3087352872
+   },
+   {
+    "end_date": "20231231",
+    "revenue_yi": 1476.9360499414001,
+    "oi_core_pretax_yi": 1018.4458202029001,
+    "unusual_pretax_yi": -0.08709962279999986,
+    "oi_pretax_yi": 1018.3587205801001,
+    "nfe_pretax_yi": -18.266816318,
+    "tax_reported_yi": 261.4107741201,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 761.5146505394999,
+    "oi_core_after_tax_yi": 761.5799752566,
+    "nfe_after_tax_yi": -13.7001122385,
+    "ni_parent_yi": 747.3407155075,
+    "minority_income_yi": 27.8740472705,
+    "ci_total_yi": 775.2619145762
+   },
+   {
+    "end_date": "20221231",
+    "revenue_yi": 1240.9984377199,
+    "oi_core_pretax_yi": 864.3834926623001,
+    "unusual_pretax_yi": -1.9250534477,
+    "oi_pretax_yi": 862.4584392146,
+    "nfe_pretax_yi": -14.5564582672,
+    "tax_reported_yi": 223.2635298143,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 642.8340239670999,
+    "oi_core_after_tax_yi": 644.277814052875,
+    "nfe_after_tax_yi": -10.9173437004,
+    "ni_parent_yi": 627.1644373826999,
+    "minority_income_yi": 26.5869302848,
+    "ci_total_yi": 653.773777402
+   },
+   {
+    "end_date": "20211231",
+    "revenue_yi": 1061.9015484376,
+    "oi_core_pretax_yi": 737.7336860158999,
+    "unusual_pretax_yi": -2.3587132394999997,
+    "oi_pretax_yi": 735.3749727764,
+    "nfe_pretax_yi": -9.9053461712,
+    "tax_reported_yi": 188.07501938299998,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 549.7762899362,
+    "oi_core_after_tax_yi": 551.545324865825,
+    "nfe_after_tax_yi": -7.4290096284,
+    "ni_parent_yi": 524.6014437816,
+    "minority_income_yi": 32.603855783,
+    "ci_total_yi": 557.1284344343
+   },
+   {
+    "end_date": "20201231",
+    "revenue_yi": 949.1538091672,
+    "oi_core_pretax_yi": 664.6663748390001,
+    "unusual_pretax_yi": -5.0950970112,
+    "oi_pretax_yi": 659.5712778278,
+    "nfe_pretax_yi": -2.3981420833000002,
+    "tax_reported_yi": 166.7361210871,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 493.434692261525,
+    "oi_core_after_tax_yi": 497.25601501992503,
+    "nfe_after_tax_yi": -1.798606562475,
+    "ni_parent_yi": 466.9728542981,
+    "minority_income_yi": 28.260444525900002,
+    "ci_total_yi": 495.25197236440005
+   },
+   {
+    "end_date": "20191231",
+    "revenue_yi": 854.2957346725,
+    "oi_core_pretax_yi": 590.6831137762999,
+    "unusual_pretax_yi": -2.6428309179,
+    "oi_pretax_yi": 588.0402828583999,
+    "nfe_pretax_yi": 0.2147648812,
+    "tax_reported_yi": 148.1255100521,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 439.861081586,
+    "oi_core_after_tax_yi": 441.843204774425,
+    "nfe_after_tax_yi": 0.1610736609,
+    "ni_parent_yi": 412.0647101443,
+    "minority_income_yi": 27.6352977808,
+    "ci_total_yi": 439.6986779642
+   },
+   {
+    "end_date": "20181231",
+    "revenue_yi": 736.3887238803,
+    "oi_core_pretax_yi": 513.4075615696,
+    "unusual_pretax_yi": -5.166739187199999,
+    "oi_pretax_yi": 508.2408223824,
+    "nfe_pretax_yi": -0.0352120923,
+    "tax_reported_yi": 129.9798569066,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 378.26976849887495,
+    "oi_core_after_tax_yi": 382.14482288927496,
+    "nfe_after_tax_yi": -0.026409069224999998,
+    "ni_parent_yi": 352.0362526322,
+    "minority_income_yi": 26.259924935900003,
+    "ci_total_yi": 378.29953607510004
+   },
+   {
+    "end_date": "20171231",
+    "revenue_yi": 582.1786131417,
+    "oi_core_pretax_yi": 388.76231483310005,
+    "unusual_pretax_yi": -1.918816869,
+    "oi_pretax_yi": 386.84349796410004,
+    "nfe_pretax_yi": -0.5572234618999999,
+    "tax_reported_yi": 97.336489066,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 289.646314763575,
+    "oi_core_after_tax_yi": 291.085427415325,
+    "nfe_after_tax_yi": -0.417917596425,
+    "ni_parent_yi": 270.7936025574,
+    "minority_income_yi": 19.2706298026,
+    "ci_total_yi": 290.1026250116
+   },
+   {
+    "end_date": "20161231",
+    "revenue_yi": 388.62189993839996,
+    "oi_core_pretax_yi": 242.44777477120002,
+    "unusual_pretax_yi": -3.2007170853000004,
+    "oi_pretax_yi": 239.24705768590005,
+    "nfe_pretax_yi": -0.3317518852,
+    "tax_reported_yi": 60.2723784723,
+    "tax_rate_assumed": 0.25,
+    "oi_after_tax_yi": 179.0576171849,
+    "oi_core_after_tax_yi": 181.45815499887502,
+    "nfe_after_tax_yi": -0.24881391390000002,
+    "ni_parent_yi": 167.1836273416,
+    "minority_income_yi": 12.1228037572,
+    "ci_total_yi": 179.32436343790002
+   }
+  ],
+  "reformulated_bs": [
+   {
+    "end_date": "20251231",
+    "oa_yi": 1070.2586445288,
+    "ol_yi": 316.0349515625,
+    "noa_yi": 754.2236929663001,
+    "fa_yi": 1968.0897956856,
+    "fo_yi": 182.7209495612,
+    "nfo_yi": -1785.3688461244,
+    "mi_yi": 93.21442876889999,
+    "cse_yi": 2446.3781103218,
+    "total_assets_yi": 3038.3484402144,
+    "parent_equity_yi": 2446.3781103218,
+    "r1_assets_residual": 0.0,
+    "r2_liab_residual": 3.814697265625e-06,
+    "r3_cse_residual": 0.0
+   },
+   {
+    "end_date": "20241231",
+    "oa_yi": 958.4867281036002,
+    "ol_yi": 334.0454844917,
+    "noa_yi": 624.4412436119002,
+    "fa_yi": 2030.9590710834,
+    "fo_yi": 235.2871634893,
+    "nfo_yi": -1795.6719075941,
+    "mi_yi": 89.0533072113,
+    "cse_yi": 2331.0598439947003,
+    "total_assets_yi": 2989.445799187,
+    "parent_equity_yi": 2331.0598439947,
+    "r1_assets_residual": 0.0,
+    "r2_liab_residual": -3.814697265625e-06,
+    "r3_cse_residual": -3.0517578125e-05
+   },
+   {
+    "end_date": "20231231",
+    "oa_yi": 827.0972660038001,
+    "ol_yi": 366.8500677396001,
+    "noa_yi": 460.2471982642,
+    "fa_yi": 1899.8993349186997,
+    "fo_yi": 123.58184023470001,
+    "nfo_yi": -1776.3174946839997,
+    "mi_yi": 79.8789768739,
+    "cse_yi": 2156.6857160742993,
+    "total_assets_yi": 2726.9966009225,
+    "parent_equity_yi": 2156.6857160742998,
+    "r1_assets_residual": 3.0517578125e-05,
+    "r2_liab_residual": -7.62939453125e-06,
+    "r3_cse_residual": 6.103515625e-05
+   },
+   {
+    "end_date": "20221231",
+    "oa_yi": 732.7340860009999,
+    "ol_yi": 360.8227428767999,
+    "noa_yi": 371.91134312419996,
+    "fa_yi": 1810.9139639515,
+    "fo_yi": 133.17842453490002,
+    "nfo_yi": -1677.7355394166,
+    "mi_yi": 74.5801585808,
+    "cse_yi": 1975.0667239600002,
+    "total_assets_yi": 2543.6480499525,
+    "parent_equity_yi": 1975.06672396,
+    "r1_assets_residual": 3.0517578125e-05,
+    "r2_liab_residual": 3.814697265625e-06,
+    "r3_cse_residual": -3.0517578125e-05
+   },
+   {
+    "end_date": "20211231",
+    "oa_yi": 646.897777193,
+    "ol_yi": 360.46326720630003,
+    "noa_yi": 286.4345099867,
+    "fa_yi": 1904.7841744060001,
+    "fo_yi": 221.6436173393,
+    "nfo_yi": -1683.1405570667002,
+    "mi_yi": 74.18137908050001,
+    "cse_yi": 1895.3936879729004,
+    "total_assets_yi": 2551.681951599,
+    "parent_equity_yi": 1895.3936879729001,
+    "r1_assets_residual": -3.0517578125e-05,
+    "r2_liab_residual": -7.62939453125e-06,
+    "r3_cse_residual": -3.0517578125e-05
+   },
+   {
+    "end_date": "20201231",
+    "oa_yi": 561.2212364001001,
+    "ol_yi": 314.3326747641,
+    "noa_yi": 246.88856163600013,
+    "fa_yi": 1572.7368688744998,
+    "fo_yi": 142.4185994977,
+    "nfo_yi": -1430.3182693768,
+    "mi_yi": 63.9794801372,
+    "cse_yi": 1613.2273508756,
+    "total_assets_yi": 2133.9581052746,
+    "parent_equity_yi": 1613.2273508756,
+    "r1_assets_residual": 0.0,
+    "r2_liab_residual": 3.814697265625e-06,
+    "r3_cse_residual": 0.0
+   },
+   {
+    "end_date": "20191231",
+    "oa_yi": 520.4422383733,
+    "ol_yi": 296.7034472196,
+    "noa_yi": 223.73879115370002,
+    "fa_yi": 1309.9814820517001,
+    "fo_yi": 114.95647091890001,
+    "nfo_yi": -1195.0250111328,
+    "mi_yi": 58.6603035354,
+    "cse_yi": 1360.1034987511002,
+    "total_assets_yi": 1830.423720425,
+    "parent_equity_yi": 1360.1034987511,
+    "r1_assets_residual": -1.52587890625e-05,
+    "r2_liab_residual": -1.9073486328125e-06,
+    "r3_cse_residual": -3.0517578125e-05
+   },
+   {
+    "end_date": "20181231",
+    "oa_yi": 473.62918371479986,
+    "ol_yi": 309.22404476279996,
+    "noa_yi": 164.4051389519999,
+    "fa_yi": 1124.8375636453,
+    "fo_yi": 115.15782337200001,
+    "nfo_yi": -1009.6797402733,
+    "mi_yi": 45.6992359048,
+    "cse_yi": 1128.3856433205,
+    "total_assets_yi": 1598.4667473601,
+    "parent_equity_yi": 1128.3856433205,
+    "r1_assets_residual": 3.0517578125e-05,
+    "r2_liab_residual": 3.814697265625e-06,
+    "r3_cse_residual": 0.0
+   },
+   {
+    "end_date": "20171231",
+    "oa_yi": 464.3763834584999,
+    "ol_yi": 281.0446105219,
+    "noa_yi": 183.33177293659992,
+    "fa_yi": 881.7247852923,
+    "fo_yi": 104.8602834781,
+    "nfo_yi": -776.8645018142,
+    "mi_yi": 45.6810464612,
+    "cse_yi": 914.5152282895999,
+    "total_assets_yi": 1346.1011687508,
+    "parent_equity_yi": 914.5152282896,
+    "r1_assets_residual": 1.52587890625e-05,
+    "r2_liab_residual": 1.9073486328125e-06,
+    "r3_cse_residual": 1.52587890625e-05
+   },
+   {
+    "end_date": "20161231",
+    "oa_yi": 454.5883778828,
+    "ol_yi": 262.2269545823,
+    "noa_yi": 192.36142330050004,
+    "fa_yi": 674.7570049213,
+    "fo_yi": 108.13299967459999,
+    "nfo_yi": -566.6240052467,
+    "mi_yi": 30.0440507147,
+    "cse_yi": 728.9413778325,
+    "total_assets_yi": 1129.3453828041,
+    "parent_equity_yi": 728.9413778325,
+    "r1_assets_residual": 7.62939453125e-06,
+    "r2_liab_residual": 7.62939453125e-06,
+    "r3_cse_residual": 0.0
+   }
+  ],
+  "cash": [
+   {
+    "end_date": "20251231",
+    "ni_total_yi": 853.1032483367,
+    "cfo_yi": 615.2220498935,
+    "capex_paid_yi": 31.2759491641,
+    "disposals_yi": 0.001559495,
+    "fcf_simple_yi": 583.9461007294,
+    "cash_conversion": 0.7211577861097138,
+    "accruals_yi": 237.8811984432,
+    "cf_flags": ""
+   },
+   {
+    "end_date": "20241231",
+    "ni_total_yi": 893.347280259,
+    "cfo_yi": 924.6369216843,
+    "capex_paid_yi": 46.7871205356,
+    "disposals_yi": 0.0071570843999999995,
+    "fcf_simple_yi": 877.8498011487,
+    "cash_conversion": 1.0350251711923593,
+    "accruals_yi": -31.289641425299987,
+    "cf_flags": ""
+   },
+   {
+    "end_date": "20231231",
+    "ni_total_yi": 775.214762778,
+    "cfo_yi": 665.9324772109,
+    "capex_paid_yi": 26.197558887899998,
+    "disposals_yi": 0.2494835295,
+    "fcf_simple_yi": 639.734918323,
+    "cash_conversion": 0.8590296640178982,
+    "accruals_yi": 109.28228556710006,
+    "cf_flags": ""
+   },
+   {
+    "end_date": "20221231",
+    "ni_total_yi": 653.7513676675,
+    "cfo_yi": 366.9859583003,
+    "capex_paid_yi": 53.0654641654,
+    "disposals_yi": 0.00355149,
+    "fcf_simple_yi": 313.92049413489997,
+    "cash_conversion": 0.5613540199688732,
+    "accruals_yi": 286.7654093672,
+    "cf_flags": ""
+   },
+   {
+    "end_date": "20211231",
+    "ni_total_yi": 557.2052995646,
+    "cfo_yi": 640.2867614737,
+    "capex_paid_yi": 34.0878453201,
+    "disposals_yi": 0.0246347429,
+    "fcf_simple_yi": 606.1989161536,
+    "cash_conversion": 1.1491038616718467,
+    "accruals_yi": -83.08146190910004,
+    "cf_flags": ""
+   },
+   {
+    "end_date": "20201231",
+    "ni_total_yi": 495.23329882400003,
+    "cfo_yi": 516.6906869303,
+    "capex_paid_yi": 20.8976949878,
+    "disposals_yi": 0.0049590484999999995,
+    "fcf_simple_yi": 495.7929919425,
+    "cash_conversion": 1.0433278379245772,
+    "accruals_yi": -21.457388106299973,
+    "cf_flags": ""
+   },
+   {
+    "end_date": "20191231",
+    "ni_total_yi": 439.7000079251,
+    "cfo_yi": 452.1061263256,
+    "capex_paid_yi": 31.4886466138,
+    "disposals_yi": 0.0003808,
+    "fcf_simple_yi": 420.6174797118,
+    "cash_conversion": 1.0282149606024416,
+    "accruals_yi": -12.406118400499954,
+    "cf_flags": ""
+   },
+   {
+    "end_date": "20181231",
+    "ni_total_yi": 378.29617756809995,
+    "cfo_yi": 413.8523440672,
+    "capex_paid_yi": 16.0675022628,
+    "disposals_yi": null,
+    "fcf_simple_yi": 397.7848418044,
+    "cash_conversion": 1.0939902875246454,
+    "accruals_yi": -35.55616649910004,
+    "cf_flags": ""
+   },
+   {
+    "end_date": "20171231",
+    "ni_total_yi": 290.06423236,
+    "cfo_yi": 221.53036084130002,
+    "capex_paid_yi": 11.2501719245,
+    "disposals_yi": 0.0001645,
+    "fcf_simple_yi": 210.2801889168,
+    "cash_conversion": 0.7637286370639372,
+    "accruals_yi": 68.5338715187,
+    "cf_flags": ""
+   },
+   {
+    "end_date": "20161231",
+    "ni_total_yi": 179.3064310988,
+    "cfo_yi": 374.5124964705,
+    "capex_paid_yi": 10.1917813692,
+    "disposals_yi": 0.000920845,
+    "fcf_simple_yi": 364.32071510130004,
+    "cash_conversion": 2.0886729727175215,
+    "accruals_yi": -195.20606537170002,
+    "cf_flags": ""
+   }
+  ],
+  "capital": [
+   {
+    "end_date": "20251231",
+    "noa_begin_yi": 624.4412436119002,
+    "noa_end_yi": 754.2236929663001,
+    "delta_noa_yi": 129.78244935439986,
+    "revenue_growth": -0.012000971769185353,
+    "noa_growth": 0.2078377280201909,
+    "reinvestment_rate": 0.15333195590246798,
+    "capex_paid_yi": 31.2759491641,
+    "da_yi": 22.5938705428,
+    "capex_to_da": 1.384266989795014,
+    "fcf_from_oi_yi": 716.6324325959251,
+    "cap_flags": ""
+   },
+   {
+    "end_date": "20241231",
+    "noa_begin_yi": 460.2471982642,
+    "noa_end_yi": 624.4412436119002,
+    "delta_noa_yi": 164.19404534770018,
+    "revenue_growth": 0.15663979743024825,
+    "noa_growth": 0.3567518628401218,
+    "reinvestment_rate": 0.1862043705230714,
+    "capex_paid_yi": 46.7871205356,
+    "da_yi": 20.850196151200002,
+    "capex_to_da": 2.24396548580706,
+    "fcf_from_oi_yi": 717.6007529508497,
+    "cap_flags": ""
+   },
+   {
+    "end_date": "20231231",
+    "noa_begin_yi": 371.91134312419996,
+    "noa_end_yi": 460.2471982642,
+    "delta_noa_yi": 88.33585514,
+    "revenue_growth": 0.18036579245866613,
+    "noa_growth": 0.23751858278358612,
+    "reinvestment_rate": 0.11600020443128427,
+    "capex_paid_yi": 26.197558887899998,
+    "da_yi": 19.37416307,
+    "capex_to_da": 1.3521904813770105,
+    "fcf_from_oi_yi": 673.1787953995,
+    "cap_flags": ""
+   },
+   {
+    "end_date": "20221231",
+    "noa_begin_yi": 286.4345099867,
+    "noa_end_yi": 371.91134312419996,
+    "delta_noa_yi": 85.4768331375,
+    "revenue_growth": 0.16525647480078876,
+    "noa_growth": 0.2984166717253062,
+    "reinvestment_rate": 0.13296874457577665,
+    "capex_paid_yi": 53.0654641654,
+    "da_yi": 16.8845030707,
+    "capex_to_da": 3.142850218522896,
+    "fcf_from_oi_yi": 557.3571908296,
+    "cap_flags": ""
+   },
+   {
+    "end_date": "20211231",
+    "noa_begin_yi": 246.88856163600013,
+    "noa_end_yi": 286.4345099867,
+    "delta_noa_yi": 39.545948350699845,
+    "revenue_growth": 0.11705948291952195,
+    "noa_growth": 0.16017732084730749,
+    "reinvestment_rate": 0.07193098188226531,
+    "capex_paid_yi": 34.0878453201,
+    "da_yi": 15.812142513100001,
+    "capex_to_da": 2.15580180180257,
+    "fcf_from_oi_yi": 510.2303415855002,
+    "cap_flags": ""
+   },
+   {
+    "end_date": "20201231",
+    "noa_begin_yi": 223.73879115370002,
+    "noa_end_yi": 246.88856163600013,
+    "delta_noa_yi": 23.14977048230011,
+    "revenue_growth": 0.10285263804489087,
+    "noa_growth": 0.10346784463672686,
+    "reinvestment_rate": 0.04691557129110515,
+    "capex_paid_yi": 20.8976949878,
+    "da_yi": 13.1686837936,
+    "capex_to_da": 1.5869235920112466,
+    "fcf_from_oi_yi": 470.28492177922493,
+    "cap_flags": ""
+   },
+   {
+    "end_date": "20191231",
+    "noa_begin_yi": 164.4051389519999,
+    "noa_end_yi": 223.73879115370002,
+    "delta_noa_yi": 59.33365220170013,
+    "revenue_growth": 0.15097210311807463,
+    "noa_growth": 0.360899011916065,
+    "reinvestment_rate": 0.13489179808261678,
+    "capex_paid_yi": 31.4886466138,
+    "da_yi": 12.434784468699998,
+    "capex_to_da": 2.532303369878352,
+    "fcf_from_oi_yi": 380.52742938429986,
+    "cap_flags": ""
+   },
+   {
+    "end_date": "20181231",
+    "noa_begin_yi": 183.33177293659992,
+    "noa_end_yi": 164.4051389519999,
+    "delta_noa_yi": -18.92663398460003,
+    "revenue_growth": 0.26426299879366666,
+    "noa_growth": -0.10323706404751383,
+    "reinvestment_rate": -0.05003475181140816,
+    "capex_paid_yi": 16.0675022628,
+    "da_yi": 11.754254964199998,
+    "capex_to_da": 1.3669519941278188,
+    "fcf_from_oi_yi": 397.196402483475,
+    "cap_flags": ""
+   },
+   {
+    "end_date": "20171231",
+    "noa_begin_yi": 192.36142330050004,
+    "noa_end_yi": 183.33177293659992,
+    "delta_noa_yi": -9.029650363900108,
+    "revenue_growth": 0.5206731042631727,
+    "noa_growth": -0.04694106650372573,
+    "reinvestment_rate": -0.031174746246195463,
+    "capex_paid_yi": 11.2501719245,
+    "da_yi": 11.2583454119,
+    "capex_to_da": 0.999274006339212,
+    "fcf_from_oi_yi": 298.6759651274751,
+    "cap_flags": ""
+   },
+   {
+    "end_date": "20161231",
+    "noa_begin_yi": 352.9460522129,
+    "noa_end_yi": 192.36142330050004,
+    "delta_noa_yi": -160.58462891239998,
+    "revenue_growth": 0.20056368695811777,
+    "noa_growth": -0.45498349650199227,
+    "reinvestment_rate": -0.8968321562470906,
+    "capex_paid_yi": 10.1917813692,
+    "da_yi": 9.341946722,
+    "capex_to_da": 1.0909697595682777,
+    "fcf_from_oi_yi": 339.6422460973,
+    "cap_flags": ""
+   }
+  ],
+  "working_capital": [
+   {
+    "end_date": "20251231",
+    "dso": 6.986027367376547,
+    "dio": 1418.732220000522,
+    "dpo": 62.46768799670289,
+    "ccc": 1363.2505593711955,
+    "advance_days": 19.023269258286323,
+    "ccc_net_advances": 1344.2272901129093,
+    "owc_pct_sales": 0.17666616658504028,
+    "incr_owc_per_incr_revenue": null,
+    "wc_flags": "delta_revenue_near_zero_suppressed"
+   },
+   {
+    "end_date": "20241231",
+    "dso": 2.2187251334771254,
+    "dio": 1333.7752878726606,
+    "dpo": 55.580893076761356,
+    "ccc": 1280.4131199293763,
+    "advance_days": 25.328230429687398,
+    "ccc_net_advances": 1255.0848894996889,
+    "owc_pct_sales": 0.10548813820503573,
+    "incr_owc_per_incr_revenue": 0.5401572299910723,
+    "wc_flags": ""
+   },
+   {
+    "end_date": "20231231",
+    "dso": 0.24799476030988776,
+    "dio": 1311.1578755308794,
+    "dpo": 51.54597386570299,
+    "ccc": 1259.8598964254863,
+    "advance_days": 36.572849602669606,
+    "ccc_net_advances": 1223.2870468228168,
+    "owc_pct_sales": 0.05926340412871823,
+    "incr_owc_per_incr_revenue": 0.2549560026437299,
+    "wc_flags": ""
+   },
+   {
+    "end_date": "20221231",
+    "dso": null,
+    "dio": 1305.7869823243952,
+    "dpo": 51.94210728978496,
+    "ccc": null,
+    "advance_days": 41.45650250233189,
+    "ccc_net_advances": null,
+    "owc_pct_sales": null,
+    "incr_owc_per_incr_revenue": null,
+    "wc_flags": "receivables_not_disclosed,owc_components_incomplete"
+   },
+   {
+    "end_date": "20211231",
+    "dso": null,
+    "dio": 1264.900616406116,
+    "dpo": 45.28639380135771,
+    "ccc": null,
+    "advance_days": 44.752761134111225,
+    "ccc_net_advances": null,
+    "owc_pct_sales": null,
+    "incr_owc_per_incr_revenue": null,
+    "wc_flags": "receivables_not_disclosed,owc_components_incomplete"
+   },
+   {
+    "end_date": "20201231",
+    "dso": 5.760084943414754,
+    "dio": 1212.056016564523,
+    "dpo": 44.40299504718401,
+    "ccc": 1173.4131064607536,
+    "advance_days": 52.03364135283234,
+    "ccc_net_advances": 1121.3794651079213,
+    "owc_pct_sales": 0.0009376298675774319,
+    "incr_owc_per_incr_revenue": 0.29291103231230364,
+    "wc_flags": ""
+   },
+   {
+    "end_date": "20191231",
+    "dso": 4.329649555652949,
+    "dio": 1198.452202328479,
+    "dpo": 53.354250230934404,
+    "ccc": 1149.4276016531974,
+    "advance_days": 58.3559566804885,
+    "ccc_net_advances": 1091.0716449727088,
+    "owc_pct_sales": -0.04079142891192024,
+    "incr_owc_per_incr_revenue": 0.37055320599808095,
+    "wc_flags": ""
+   },
+   {
+    "end_date": "20181231",
+    "dso": 4.424889173689547,
+    "dio": 1274.8135102368767,
+    "dpo": 49.68262153813257,
+    "ccc": 1229.5557778724337,
+    "advance_days": 69.40663487085047,
+    "ccc_net_advances": 1160.1491430015833,
+    "owc_pct_sales": -0.06578204836984183,
+    "incr_owc_per_incr_revenue": -0.10702534959835668,
+    "wc_flags": ""
+   },
+   {
+    "end_date": "20171231",
+    "dso": 6.392854402518446,
+    "dio": 1311.1917747523614,
+    "dpo": 50.29528243549765,
+    "ccc": 1267.2893467193821,
+    "advance_days": 100.21940666031588,
+    "ccc_net_advances": 1167.0699400590663,
+    "owc_pct_sales": -0.06647480604492859,
+    "incr_owc_per_incr_revenue": -0.015383116708913205,
+    "wc_flags": ""
+   },
+   {
+    "end_date": "20161231",
+    "dso": 44.128104623771954,
+    "dio": 2067.6752049343913,
+    "dpo": 58.26311666233351,
+    "ccc": 2053.5401928958295,
+    "advance_days": 121.17140689525066,
+    "ccc_net_advances": 1932.368786000579,
+    "owc_pct_sales": 0.1324212691208528,
+    "incr_owc_per_incr_revenue": -2.859225912341732,
+    "wc_flags": ""
+   }
+  ],
+  "residual_income": [
+   {
+    "end_date": "20251231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.4919467355240823,
+    "pm_core": 0.49209210058948655,
+    "rnoa_open": 1.355475620179222,
+    "ato_open": 2.7553300434755448,
+    "spread_op": 1.275475620179222,
+    "reoi_yi": 796.459582461373,
+    "reoi_core_yi": 796.709689120873,
+    "re_common_yi": 636.757257307924,
+    "roce_open": 0.3531443747090139,
+    "delta_reoi_yi": -48.51543997604095,
+    "ri_flags": ""
+   },
+   {
+    "end_date": "20241231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.5063593601033645,
+    "pm_core": 0.5066731556410224,
+    "rnoa_open": 1.9159156245256816,
+    "ato_open": 3.7837073341244865,
+    "spread_op": 1.8359156245256816,
+    "reoi_yi": 844.9750224374139,
+    "reoi_core_yi": 845.5214787580389,
+    "re_common_yi": 689.7080619584561,
+    "roce_open": 0.3998178583877141,
+    "delta_reoi_yi": 113.21327934785003,
+    "ri_flags": ""
+   },
+   {
+    "end_date": "20231231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.5057870482476604,
+    "pm_core": 0.5058304359826387,
+    "rnoa_open": 2.047570381001237,
+    "ato_open": 4.048285514813414,
+    "spread_op": 1.967570381001237,
+    "reoi_yi": 731.7617430895639,
+    "reoi_core_yi": 731.827067806664,
+    "re_common_yi": 589.3825293889,
+    "roce_open": 0.378387578729029,
+    "delta_reoi_yi": 111.84247992139991,
+    "ri_flags": ""
+   },
+   {
+    "end_date": "20221231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.5039702626345899,
+    "pm_core": 0.5051021679812092,
+    "rnoa_open": 2.2442617825517908,
+    "ato_open": 4.453163110893751,
+    "spread_op": 2.1642617825517907,
+    "reoi_yi": 619.919263168164,
+    "reoi_core_yi": 621.363053253939,
+    "re_common_yi": 475.555352079368,
+    "roce_open": 0.33088874430801996,
+    "delta_reoi_yi": 89.894058162844,
+    "ri_flags": ""
+   },
+   {
+    "end_date": "20211231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.5022426467784349,
+    "pm_core": 0.5038587309958926,
+    "rnoa_open": 2.226819607571622,
+    "ato_open": 4.433752533472107,
+    "spread_op": 2.1468196075716217,
+    "reoi_yi": 530.02520500532,
+    "reoi_core_yi": 531.794239934945,
+    "re_common_yi": 395.46639058125197,
+    "roce_open": 0.32518754625432417,
+    "delta_reoi_yi": 54.48961603609093,
+    "ri_flags": ""
+   },
+   {
+    "end_date": "20201231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.5035395193971897,
+    "pm_core": 0.5074390973056809,
+    "rnoa_open": 2.205405194678799,
+    "ato_open": 4.37980557577485,
+    "spread_op": 2.125405194678799,
+    "reoi_yi": 475.535588969229,
+    "reoi_core_yi": 479.35691172762904,
+    "re_common_yi": 358.18324793841197,
+    "roce_open": 0.34333626428201425,
+    "delta_reoi_yi": 48.82691849938904,
+    "ri_flags": ""
+   },
+   {
+    "end_date": "20191231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.49503613894104165,
+    "pm_core": 0.4972668946300092,
+    "rnoa_open": 2.6754703921659218,
+    "ato_open": 5.404596112698284,
+    "spread_op": 2.5954703921659217,
+    "reoi_yi": 426.70867046984,
+    "reoi_core_yi": 428.690793658265,
+    "re_common_yi": 321.7925287177599,
+    "roce_open": 0.3651807452385847,
+    "delta_reoi_yi": 63.10544380589302,
+    "ri_flags": ""
+   },
+   {
+    "end_date": "20181231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.48999065583063106,
+    "pm_core": 0.49501019638145655,
+    "rnoa_open": 2.063307207691101,
+    "ato_open": 4.210911337060882,
+    "spread_op": 1.9833072076911011,
+    "reoi_yi": 363.603226663947,
+    "reoi_core_yi": 367.478281054347,
+    "re_common_yi": 278.87839287603197,
+    "roce_open": 0.38494301870796244,
+    "delta_reoi_yi": 89.345825764412,
+    "ri_flags": ""
+   },
+   {
+    "end_date": "20171231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.4743420206173041,
+    "pm_core": 0.47669879703161555,
+    "rnoa_open": 1.5057401312273513,
+    "ato_open": 3.1743764325745283,
+    "spread_op": 1.4257401312273512,
+    "reoi_yi": 274.257400899535,
+    "reoi_core_yi": 275.69651355128497,
+    "re_common_yi": 212.51668498240002,
+    "roce_open": 0.37148886150845506,
+    "delta_reoi_yi": 123.43546789166699,
+    "ri_flags": ""
+   },
+   {
+    "end_date": "20161231",
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "pm": 0.4459151806122046,
+    "pm_core": 0.45189334713599855,
+    "rnoa_open": 0.5073229068925552,
+    "ato_open": 1.1377116746643228,
+    "spread_op": 0.4273229068925552,
+    "reoi_yi": 150.821933007868,
+    "reoi_core_yi": 153.222470821843,
+    "re_common_yi": 116.060776929508,
+    "roce_open": 0.26152689630109854,
+    "delta_reoi_yi": 11.973318243437005,
+    "ri_flags": ""
+   }
+  ],
+  "valuation": [
+   {
+    "end_date": "20251231",
+    "trade_date": "20251231",
+    "price": 1377.18,
+    "shares_yi": 12.52270215,
+    "market_cap_yi": 17246.01494694,
+    "market_ev_yi": 15553.8605295845,
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "g_assumed": 0.03,
+    "v_equity_book_yi": 2446.3781103218,
+    "v_equity_reoi_flat_yi": 12402.122891088962,
+    "v_equity_reoi_g_yi": 18853.445509026085,
+    "v_per_share": 1505.541318734159,
+    "v_to_p": 1.0932059126141078,
+    "trailing_pe": 20.94995248927347,
+    "forward_pe_market": 20.252017348505785,
+    "normal_pe": 12.5,
+    "implied_g_reoi": 0.024846689457114327,
+    "implied_g_fcf": 0.0324314949152051,
+    "implied_r_op": 0.08520446222204542
+   },
+   {
+    "end_date": "20241231",
+    "trade_date": "20241231",
+    "price": 1524.0,
+    "shares_yi": 12.561978,
+    "market_cap_yi": 19144.454472,
+    "market_ev_yi": 17437.8358716172,
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "g_assumed": 0.03,
+    "v_equity_book_yi": 2331.0598439947003,
+    "v_equity_reoi_flat_yi": 12893.247624462376,
+    "v_equity_reoi_g_yi": 19737.545306205426,
+    "v_per_share": 1571.2131724960373,
+    "v_to_p": 1.030979771979027,
+    "trailing_pe": 22.202094404756807,
+    "forward_pe_market": 21.345516836479522,
+    "normal_pe": 12.5,
+    "implied_g_reoi": 0.02832065234235665,
+    "implied_g_fcf": 0.037312576435745363,
+    "implied_r_op": 0.08171537982815026
+   },
+   {
+    "end_date": "20231231",
+    "trade_date": "20231229",
+    "price": 1726.0,
+    "shares_yi": 12.561978,
+    "market_cap_yi": 21681.974028,
+    "market_ev_yi": 19985.5355101899,
+    "r_op_assumed": 0.08,
+    "r_e_assumed": 0.08,
+    "g_assumed": 0.03,
+    "v_equity_book_yi": 2156.6857160742993,
+    "v_equity_reoi_flat_yi": 11303.70750469385,
+    "v_equity_reoi_g_yi": 17230.977623719315,
+    "v_per_share": 1371.6771056054479,
+    "v_to_p": 0.7947144296671194,
+    "trailing_pe": 29.01216751355013,
+    "forward_pe_market": 27.811705569835066,
+    "normal_pe": 12.5,
+    "implied_g_reoi": 0.04098628969221188,
+    "implied_g_fcf": 0.04480743727431505,
+    "implied_r_op": 0.06882128644437678
+   }
+  ],
+  "reverse_curve": [
+   {
+    "r": 0.05,
+    "implied_g_reoi": -0.004816637747184892,
+    "implied_g_fcf": 0.0037528422786716276,
+    "implied_g_equity": 0.002147045627761154
+   },
+   {
+    "r": 0.055,
+    "implied_g_reoi": 0.00012230644651937457,
+    "implied_g_fcf": 0.008532617718093875,
+    "implied_g_equity": 0.007676592536454177
+   },
+   {
+    "r": 0.06,
+    "implied_g_reoi": 0.005063226527471745,
+    "implied_g_fcf": 0.013312393157516112,
+    "implied_g_equity": 0.013214464506197803
+   },
+   {
+    "r": 0.065,
+    "implied_g_reoi": 0.010006123681627578,
+    "implied_g_fcf": 0.01809216859693837,
+    "implied_g_equity": 0.018760680351965837
+   },
+   {
+    "r": 0.07,
+    "implied_g_reoi": 0.014950999095891484,
+    "implied_g_fcf": 0.022871944036360614,
+    "implied_g_equity": 0.024315258945471582
+   },
+   {
+    "r": 0.075,
+    "implied_g_reoi": 0.019897853958118376,
+    "implied_g_fcf": 0.027651719475782852,
+    "implied_g_equity": 0.02987821921538197
+   },
+   {
+    "r": 0.08,
+    "implied_g_reoi": 0.024846689457114327,
+    "implied_g_fcf": 0.0324314949152051,
+    "implied_g_equity": 0.035449580147532536
+   },
+   {
+    "r": 0.085,
+    "implied_g_reoi": 0.029797506782637567,
+    "implied_g_fcf": 0.03721127035462735,
+    "implied_g_equity": 0.0410293607851434
+   },
+   {
+    "r": 0.09,
+    "implied_g_reoi": 0.03475030712539938,
+    "implied_g_fcf": 0.041991045794049595,
+    "implied_g_equity": 0.046617580229036226
+   },
+   {
+    "r": 0.095,
+    "implied_g_reoi": 0.0397050916770652,
+    "implied_g_fcf": 0.04677082123347183,
+    "implied_g_equity": 0.052214257637852236
+   },
+   {
+    "r": 0.1,
+    "implied_g_reoi": 0.04466186163025537,
+    "implied_g_fcf": 0.051550596672894085,
+    "implied_g_equity": 0.05781941222827111
+   },
+   {
+    "r": 0.105,
+    "implied_g_reoi": 0.049620618178546294,
+    "implied_g_fcf": 0.056330372112316326,
+    "implied_g_equity": 0.06343306327523088
+   },
+   {
+    "r": 0.11,
+    "implied_g_reoi": 0.05458136251647119,
+    "implied_g_fcf": 0.06111014755173858,
+    "implied_g_equity": 0.06905523011214901
+   },
+   {
+    "r": 0.115,
+    "implied_g_reoi": 0.05954409583952128,
+    "implied_g_fcf": 0.06588992299116082,
+    "implied_g_equity": 0.07468593213114419
+   },
+   {
+    "r": 0.12,
+    "implied_g_reoi": 0.06450881934414651,
+    "implied_g_fcf": 0.07066969843058306,
+    "implied_g_equity": 0.08032518878325937
+   }
+  ],
+  "reverse_curve_end_date": "20251231",
+  "market_latest": [
+   {
+    "trade_date": "20251231",
+    "close": 1377.18,
+    "total_share": 125227.0215,
+    "float_share": 125227.0215,
+    "total_mv": 172460149.4694,
+    "circ_mv": 172460149.4694,
+    "pe": 20.0004,
+    "pe_ttm": 19.1564,
+    "pb": 7.595,
+    "dv_ttm": 3.75
+   }
+  ],
+  "analysis_log": [
+   {
+    "status": "ok",
+    "reason": null,
+    "step": null,
+    "n_annual": 12,
+    "first_end": "20141231",
+    "last_end": "20251231",
+    "check_failures": null,
+    "finished_at": "2026-11-22T04:36:59.584325+00:00"
+   }
+  ],
+  "peers": [
+   {
+    "ts_code": "600519.SH",
+    "name": "贵州茅台",
+    "end_date": "20251231",
+    "revenue_yi": 1720.5417189091,
+    "rnoa": 1.2278761278300125,
+    "opm": 0.4919467355240823,
+    "ato": 2.495953401381813,
+    "flev": -0.7220268655707824,
+    "gross_margin": 0.9117955168348006,
+    "market_cap_yi": 17246.01494694
+   },
+   {
+    "ts_code": "000858.SZ",
+    "name": "五粮液",
+    "end_date": "20251231",
+    "revenue_yi": 405.28509770230005,
+    "rnoa": 0.6993641617777483,
+    "opm": 0.18063556455362245,
+    "ato": 3.8716858637776115,
+    "flev": -0.9190339070403858,
+    "gross_margin": 0.7754184152047013,
+    "market_cap_yi": 4112.1755205
+   },
+   {
+    "ts_code": "600809.SH",
+    "name": "山西汾酒",
+    "end_date": "20251231",
+    "revenue_yi": 387.18257657739997,
+    "rnoa": 0.41398968968535166,
+    "opm": 0.3122329575424688,
+    "ato": 1.3259000361262065,
+    "flev": -0.224797007823116,
+    "gross_margin": 0.7485250456552095,
+    "market_cap_yi": 2094.67856917
+   },
+   {
+    "ts_code": "000568.SZ",
+    "name": "泸州老窖",
+    "end_date": "20251231",
+    "revenue_yi": 257.3101064732,
+    "rnoa": 0.4320020048645397,
+    "opm": 0.4077934190685544,
+    "ato": 1.0593648270520903,
+    "flev": -0.501261356993325,
+    "gross_margin": 0.8662411815119095,
+    "market_cap_yi": 1710.6909494
+   },
+   {
+    "ts_code": "002304.SZ",
+    "name": "洋河股份",
+    "end_date": "20251231",
+    "revenue_yi": 192.1105761305,
+    "rnoa": 0.09239478544041048,
+    "opm": 0.1005517571142361,
+    "ato": 0.9188778803282517,
+    "flev": -0.5758628802846275,
+    "gross_margin": 0.716021728406869,
+    "market_cap_yi": 915.01473795
+   },
+   {
+    "ts_code": "000596.SZ",
+    "name": "古井贡酒",
+    "end_date": "20251231",
+    "revenue_yi": 188.3198259124,
+    "rnoa": 0.2928435480569261,
+    "opm": 0.17339727843519567,
+    "ato": 1.688858964221699,
+    "flev": -0.5694521165957593,
+    "gross_margin": 0.7925603546390718,
+    "market_cap_yi": 700.9236
+   },
+   {
+    "ts_code": "603369.SH",
+    "name": "今世缘",
+    "end_date": "20251231",
+    "revenue_yi": 101.8211633395,
+    "rnoa": 0.3187323757255704,
+    "opm": 0.23292314655547186,
+    "ato": 1.3684014682055765,
+    "flev": -0.5351810428674647,
+    "gross_margin": 0.7424818807209606,
+    "market_cap_yi": 433.63705287
+   },
+   {
+    "ts_code": "000860.SZ",
+    "name": "顺鑫农业",
+    "end_date": "20251231",
+    "revenue_yi": 72.2383460434,
+    "rnoa": -0.043699800284122924,
+    "opm": -0.023640100172684184,
+    "ato": 1.8485454784416462,
+    "flev": -0.43578305041981186,
+    "gross_margin": 0.3228650725168549,
+    "market_cap_yi": 108.66886389
+   },
+   {
+    "ts_code": "603198.SH",
+    "name": "迎驾贡酒",
+    "end_date": "20251231",
+    "revenue_yi": 60.1872691375,
+    "rnoa": 0.2862691089227037,
+    "opm": 0.31175032619621484,
+    "ato": 0.9182640236999355,
+    "flev": -0.3616426384798582,
+    "gross_margin": 0.7254165054532584,
+    "market_cap_yi": 316.48
+   },
+   {
+    "ts_code": "600702.SH",
+    "name": "舍得酒业",
+    "end_date": "20251231",
+    "revenue_yi": 44.1921851251,
+    "rnoa": 0.030327818293071962,
+    "opm": 0.05106883093778434,
+    "ato": 0.5938616125757696,
+    "flev": 0.03858782770244443,
+    "gross_margin": 0.6203731191542423,
+    "market_cap_yi": 186.61117934
+   },
+   {
+    "ts_code": "600559.SH",
+    "name": "老白干酒",
+    "end_date": "20251231",
+    "revenue_yi": 41.2147345604,
+    "rnoa": 0.11114564153249268,
+    "opm": 0.09780783358903858,
+    "ato": 1.1363674815607907,
+    "flev": -0.3165290124616081,
+    "gross_margin": 0.6600509413140324,
+    "market_cap_yi": 146.72549002
+   },
+   {
+    "ts_code": "603589.SH",
+    "name": "口子窖",
+    "end_date": "20251231",
+    "revenue_yi": 39.9059592188,
+    "rnoa": 0.07171942848316099,
+    "opm": 0.15864618669515534,
+    "ato": 0.45207155606565314,
+    "flev": -0.15593071758077773,
+    "gross_margin": 0.6910640051325467,
+    "market_cap_yi": 179.73490134
+   }
+  ]
+ },
+ "avl": {
+  "code": "600519.SH",
+  "name": "贵州茅台",
+  "industry": "白酒",
+  "market": "A",
+  "quote": {
+   "trade_date": "20261120",
+   "price": 1485.75,
+   "pe": 22.56,
+   "pe_ttm": 22.61,
+   "pb": 6.85,
+   "total_mv_yi": 18573.09,
+   "circ_mv_yi": 18573.09,
+   "total_share_yi": 12.5008
+  },
+  "employees": 34992,
+  "annual": {
+   "营业收入": {
+    "2025": 1688.381,
+    "2024": 1708.9915,
+    "2023": 1476.936,
+    "2022": 1240.9984,
+    "2021": 1061.9015,
+    "2020": 949.1538,
+    "2019": 854.2957,
+    "2018": 736.3887,
+    "2017": 582.1786,
+    "2016": 388.6219
+   },
+   "利润总额": {
+    "2025": 1147.5526,
+    "2024": 1196.3858,
+    "2023": 1036.6255,
+    "2022": 877.0149,
+    "2021": 745.2803,
+    "2020": 661.9694,
+    "2019": 587.8255,
+    "2018": 508.276,
+    "2017": 387.4007,
+    "2016": 239.5788
+   },
+   "归母净利润": {
+    "2025": 823.2007,
+    "2024": 862.2815,
+    "2023": 747.3407,
+    "2022": 627.1644,
+    "2021": 524.6014,
+    "2020": 466.9729,
+    "2019": 412.0647,
+    "2018": 352.0363,
+    "2017": 270.7936,
+    "2016": 167.1836
+   },
+   "销售毛利率": {
+    "2025": 91.18,
+    "2024": 91.93,
+    "2023": 91.96,
+    "2022": 91.87,
+    "2021": 91.54,
+    "2020": 91.41,
+    "2019": 91.3,
+    "2018": 91.14,
+    "2017": 89.8,
+    "2016": 91.23
+   },
+   "ROE": {
+    "2025": 34.46,
+    "2024": 38.43,
+    "2023": 36.18,
+    "2022": 32.41,
+    "2021": 29.9,
+    "2020": 31.41,
+    "2019": 33.12,
+    "2018": 34.46,
+    "2017": 32.95,
+    "2016": 24.44
+   },
+   "总资产": {
+    "2025": 3038.3484,
+    "2024": 2989.4458,
+    "2023": 2726.9966,
+    "2022": 2543.648,
+    "2021": 2551.682,
+    "2020": 2133.9581,
+    "2019": 1830.4237,
+    "2018": 1598.4667,
+    "2017": 1346.1012,
+    "2016": 1129.3454
+   },
+   "总负债": {
+    "2025": 498.7559,
+    "2024": 569.3326,
+    "2023": 490.4319,
+    "2022": 494.0012,
+    "2021": 582.1069,
+    "2020": 456.7513,
+    "2019": 411.6599,
+    "2018": 424.3819,
+    "2017": 385.9049,
+    "2016": 370.36
+   },
+   "流动资产": {
+    "2025": 2525.1866,
+    "2024": 2517.2667,
+    "2023": 2251.7252,
+    "2022": 2166.1144,
+    "2021": 2207.6569,
+    "2020": 1856.5215,
+    "2019": 1590.2447,
+    "2018": 1378.6184,
+    "2017": 1122.4919,
+    "2016": 901.8055
+   },
+   "流动负债": {
+    "2025": 496.1048,
+    "2024": 565.1599,
+    "2023": 486.9761,
+    "2022": 490.6567,
+    "2021": 579.1422,
+    "2020": 456.7367,
+    "2019": 410.933,
+    "2018": 424.3819,
+    "2017": 385.7492,
+    "2016": 370.2043
+   },
+   "存货": {
+    "2025": 614.2742,
+    "2024": 543.4329,
+    "2023": 464.3519,
+    "2022": 388.2437,
+    "2021": 333.9437,
+    "2020": 288.6909,
+    "2019": 252.8492,
+    "2018": 235.0695,
+    "2017": 220.5748,
+    "2016": 206.2225
+   },
+   "货币资金": {
+    "2025": 516.9061,
+    "2024": 592.9582,
+    "2023": 690.7014,
+    "2022": 582.7432,
+    "2021": 518.1024,
+    "2020": 360.9109,
+    "2019": 132.5182,
+    "2018": 1120.7479,
+    "2017": 878.6887,
+    "2016": 668.5496
+   },
+   "交易性金融资产": {
+    "2024": 2.4851,
+    "2023": 4.0071
+   },
+   "经营现金净额": {
+    "2025": 615.222,
+    "2024": 924.6369,
+    "2023": 665.9325,
+    "2022": 366.986,
+    "2021": 640.2868,
+    "2020": 516.6907,
+    "2019": 452.1061,
+    "2018": 413.8523,
+    "2017": 221.5304,
+    "2016": 374.5125
+   },
+   "总股本": {
+    "2025": 12.5227,
+    "2024": 12.562,
+    "2023": 12.562,
+    "2022": 12.562,
+    "2021": 12.562,
+    "2020": 12.562,
+    "2019": 12.562,
+    "2018": 12.562,
+    "2017": 12.562,
+    "2016": 12.562
+   },
+   "分红": {
+    "2025": 650.3321,
+    "2024": 646.7168,
+    "2023": 627.8728,
+    "2022": 600.7263,
+    "2021": 272.2809,
+    "2020": 242.3582,
+    "2019": 213.8677,
+    "2018": 182.6386,
+    "2017": 138.1692,
+    "2016": 85.2581
+   },
+   "存货周转天数": {
+    "2025": 1399.3,
+    "2024": 1315.5,
+    "2023": 1293.2,
+    "2022": 1287.9,
+    "2021": 1247.6,
+    "2020": 1195.5,
+    "2019": 1182.0,
+    "2018": 1257.4,
+    "2017": 1293.2,
+    "2016": 2177.1
+   }
+  },
+  "quarterly_revenue": {
+   "years": [
+    2026,
+    2025,
+    2024,
+    2023
+   ],
+   "data": {
+    "2026": {
+     "Q1": 539.0925,
+     "Q2": 367.9401,
+     "Q3": 402.6748,
+     "Q4": null,
+     "FY": null
+    },
+    "2025": {
+     "Q1": 506.0096,
+     "Q2": 387.884,
+     "Q3": 390.6435,
+     "Q4": 403.8439,
+     "FY": 1688.381
+    },
+    "2024": {
+     "Q1": 457.7552,
+     "Q2": 361.5546,
+     "Q3": 388.4515,
+     "Q4": 501.2302,
+     "FY": 1708.9915
+    },
+    "2023": {
+     "Q1": 387.5581,
+     "Q2": 308.2021,
+     "Q3": 336.9234,
+     "Q4": 444.2525,
+     "FY": 1476.936
+    }
+   }
+  },
+  "period_trend": {
+   "20260930": {
+    "营业收入": 1309.7074,
+    "存货": 613.9082,
+    "应收账款": 3.6454,
+    "应收票据及应收账款": 3.6454
+   },
+   "20260630": {
+    "营业收入": 907.0326,
+    "存货": 613.1721,
+    "应收账款": 0.0057,
+    "应收票据及应收账款": 0.0057
+   },
+   "20260331": {
+    "营业收入": 539.0925,
+    "存货": 606.9232,
+    "应收账款": 0.3234,
+    "应收票据及应收账款": 0.3234
+   },
+   "20251231": {
+    "营业收入": 1688.381,
+    "存货": 614.2742,
+    "应收账款": 0.0261,
+    "应收票据及应收账款": 0.0261
+   },
+   "20250930": {
+    "营业收入": 1284.5371,
+    "存货": 558.5886,
+    "应收票据": 52.0953,
+    "应收账款": 0.2553,
+    "应收票据及应收账款": 52.3506
+   },
+   "20250630": {
+    "营业收入": 893.8935,
+    "存货": 549.7173,
+    "应收票据": 28.1578,
+    "应收账款": 0.3796,
+    "应收票据及应收账款": 28.5374
+   },
+   "20250331": {
+    "营业收入": 506.0096,
+    "存货": 547.9846,
+    "应收票据": 21.2746,
+    "应收账款": 0.152,
+    "应收票据及应收账款": 21.4266
+   },
+   "20241231": {
+    "营业收入": 1708.9915,
+    "存货": 543.4329,
+    "应收票据": 19.8441,
+    "应收账款": 0.1897,
+    "应收票据及应收账款": 20.0338
+   },
+   "20240930": {
+    "营业收入": 1207.7613,
+    "存货": 482.2488,
+    "应收票据": 11.4905,
+    "应收账款": 0.1013,
+    "应收票据及应收账款": 11.5918
+   },
+   "20240630": {
+    "营业收入": 819.3098,
+    "存货": 477.6648,
+    "应收票据": 3.3174,
+    "应收账款": 0.0136,
+    "应收票据及应收账款": 3.331
+   },
+   "20240331": {
+    "营业收入": 457.7552,
+    "存货": 468.5223,
+    "应收票据": 1.4068,
+    "应收账款": 0.7312,
+    "应收票据及应收账款": 2.138
+   },
+   "20231231": {
+    "营业收入": 1476.936,
+    "存货": 464.3519,
+    "应收票据": 0.1393,
+    "应收账款": 0.6037,
+    "应收票据及应收账款": 0.7431
+   },
+   "20230930": {
+    "营业收入": 1032.6835,
+    "存货": 409.9048,
+    "应收账款": 1.3121,
+    "应收票据及应收账款": 1.3121
+   },
+   "20230630": {
+    "营业收入": 695.7602,
+    "存货": 408.6843,
+    "应收账款": 0.3257,
+    "应收票据及应收账款": 0.3257
+   },
+   "20230331": {
+    "营业收入": 387.5581,
+    "存货": 400.5282,
+    "应收账款": 0.5841,
+    "应收票据及应收账款": 0.5841
+   },
+   "20221231": {
+    "营业收入": 1240.9984,
+    "存货": 388.2437,
+    "应收票据": 1.0545,
+    "应收账款": 0.2094,
+    "应收票据及应收账款": 1.2639
+   },
+   "20220930": {
+    "营业收入": 871.6023,
+    "存货": 351.8257,
+    "应收票据": 1.4606,
+    "应收票据及应收账款": 1.4606
+   },
+   "20220630": {
+    "营业收入": 576.1687,
+    "存货": 349.061,
+    "应收票据": 1.4418,
+    "应收票据及应收账款": 1.4418
+   },
+   "20220331": {
+    "营业收入": 322.9576,
+    "存货": 337.7853
+   },
+   "20211231": {
+    "营业收入": 1061.9015,
+    "存货": 333.9437
+   },
+   "20210930": {
+    "营业收入": 746.422,
+    "存货": 303.9211,
+    "应收票据": 5.4012,
+    "应收票据及应收账款": 5.4012
+   },
+   "20210630": {
+    "营业收入": 490.8728,
+    "存货": 306.5521,
+    "应收票据": 12.3253,
+    "应收票据及应收账款": 12.3253
+   },
+   "20210331": {
+    "营业收入": 272.7088,
+    "存货": 296.1372,
+    "应收票据": 11.8566,
+    "应收票据及应收账款": 11.8566
+   }
+  },
+  "ev_items": {
+   "报告期": "20260930",
+   "短期借款": 0,
+   "一年内到期的非流动负债": 0.66,
+   "长期借款": 0,
+   "应付债券": 0,
+   "租赁负债": 1.96,
+   "少数股东权益": 92.17,
+   "货币资金": 499.27,
+   "交易性金融资产": 0
+  },
+  "balance_sheet": {
+   "comp_type": "1",
+   "comp_type_name": "一般工商业",
+   "fields": [
+    {
+     "key": "money_cap",
+     "label": "货币资金"
+    },
+    {
+     "key": "trad_asset",
+     "label": "交易性金融资产"
+    },
+    {
+     "key": "notes_receiv",
+     "label": "应收票据"
+    },
+    {
+     "key": "accounts_receiv",
+     "label": "应收账款"
+    },
+    {
+     "key": "accounts_receiv_bill",
+     "label": "应收票据及应收账款"
+    },
+    {
+     "key": "receiv_financing",
+     "label": "应收款项融资"
+    },
+    {
+     "key": "prepayment",
+     "label": "预付款项"
+    },
+    {
+     "key": "oth_receiv",
+     "label": "其他应收款"
+    },
+    {
+     "key": "oth_rcv_total",
+     "label": "其他应收款(合计)"
+    },
+    {
+     "key": "int_receiv",
+     "label": "应收利息"
+    },
+    {
+     "key": "inventories",
+     "label": "存货"
+    },
+    {
+     "key": "nca_within_1y",
+     "label": "一年内到期的非流动资产"
+    },
+    {
+     "key": "oth_cur_assets",
+     "label": "其他流动资产"
+    },
+    {
+     "key": "total_cur_assets",
+     "label": "流动资产合计"
+    },
+    {
+     "key": "debt_invest",
+     "label": "债权投资"
+    },
+    {
+     "key": "oth_debt_invest",
+     "label": "其他债权投资"
+    },
+    {
+     "key": "fa_avail_for_sale",
+     "label": "可供出售金融资产"
+    },
+    {
+     "key": "oth_illiq_fin_assets",
+     "label": "其他非流动金融资产"
+    },
+    {
+     "key": "lt_eqt_invest",
+     "label": "长期股权投资"
+    },
+    {
+     "key": "invest_real_estate",
+     "label": "投资性房地产"
+    },
+    {
+     "key": "fix_assets",
+     "label": "固定资产"
+    },
+    {
+     "key": "fix_assets_total",
+     "label": "固定资产(合计)"
+    },
+    {
+     "key": "cip",
+     "label": "在建工程"
+    },
+    {
+     "key": "cip_total",
+     "label": "在建工程(合计)"
+    },
+    {
+     "key": "use_right_assets",
+     "label": "使用权资产"
+    },
+    {
+     "key": "intan_assets",
+     "label": "无形资产"
+    },
+    {
+     "key": "r_and_d",
+     "label": "研发支出"
+    },
+    {
+     "key": "lt_amor_exp",
+     "label": "长期待摊费用"
+    },
+    {
+     "key": "defer_tax_assets",
+     "label": "递延所得税资产"
+    },
+    {
+     "key": "oth_nca",
+     "label": "其他非流动资产"
+    },
+    {
+     "key": "total_nca",
+     "label": "非流动资产合计"
+    },
+    {
+     "key": "total_assets",
+     "label": "资产总计"
+    },
+    {
+     "key": "acct_payable",
+     "label": "应付账款"
+    },
+    {
+     "key": "accounts_pay",
+     "label": "应付票据及应付账款"
+    },
+    {
+     "key": "adv_receipts",
+     "label": "预收款项"
+    },
+    {
+     "key": "contract_liab",
+     "label": "合同负债"
+    },
+    {
+     "key": "payroll_payable",
+     "label": "应付职工薪酬"
+    },
+    {
+     "key": "taxes_payable",
+     "label": "应交税费"
+    },
+    {
+     "key": "int_payable",
+     "label": "应付利息"
+    },
+    {
+     "key": "div_payable",
+     "label": "应付股利"
+    },
+    {
+     "key": "oth_payable",
+     "label": "其他应付款"
+    },
+    {
+     "key": "oth_pay_total",
+     "label": "其他应付款(合计)"
+    },
+    {
+     "key": "non_cur_liab_due_1y",
+     "label": "一年内到期的非流动负债"
+    },
+    {
+     "key": "oth_cur_liab",
+     "label": "其他流动负债"
+    },
+    {
+     "key": "total_cur_liab",
+     "label": "流动负债合计"
+    },
+    {
+     "key": "lease_liab",
+     "label": "租赁负债"
+    },
+    {
+     "key": "long_pay_total",
+     "label": "长期应付款(合计)"
+    },
+    {
+     "key": "specific_payables",
+     "label": "专项应付款"
+    },
+    {
+     "key": "defer_tax_liab",
+     "label": "递延所得税负债"
+    },
+    {
+     "key": "total_ncl",
+     "label": "非流动负债合计"
+    },
+    {
+     "key": "total_liab",
+     "label": "负债合计"
+    },
+    {
+     "key": "total_share",
+     "label": "期末总股本(亿股)"
+    },
+    {
+     "key": "cap_rese",
+     "label": "资本公积金"
+    },
+    {
+     "key": "treasury_share",
+     "label": "减:库存股"
+    },
+    {
+     "key": "surplus_rese",
+     "label": "盈余公积金"
+    },
+    {
+     "key": "ordin_risk_reser",
+     "label": "一般风险准备"
+    },
+    {
+     "key": "undistr_porfit",
+     "label": "未分配利润"
+    },
+    {
+     "key": "oth_comp_income",
+     "label": "其他综合收益"
+    },
+    {
+     "key": "total_hldr_eqy_exc_min_int",
+     "label": "股东权益合计(不含少数股东)"
+    },
+    {
+     "key": "minority_int",
+     "label": "少数股东权益"
+    },
+    {
+     "key": "total_hldr_eqy_inc_min_int",
+     "label": "股东权益合计(含少数股东)"
+    },
+    {
+     "key": "total_liab_hldr_eqy",
+     "label": "负债及股东权益总计"
+    },
+    {
+     "key": "loanto_oth_bank_fi",
+     "label": "拆出资金"
+    },
+    {
+     "key": "pur_resale_fa",
+     "label": "买入返售金融资产"
+    },
+    {
+     "key": "decr_in_disbur",
+     "label": "发放贷款及垫款"
+    },
+    {
+     "key": "depos_ib_deposits",
+     "label": "吸收存款及同业存放"
+    }
+   ],
+   "years": [
+    2025,
+    2024,
+    2023,
+    2022,
+    2021,
+    2020,
+    2019,
+    2018,
+    2017,
+    2016
+   ],
+   "data": {
+    "money_cap": {
+     "2025": 516.9061,
+     "2024": 592.9582,
+     "2023": 690.7014,
+     "2022": 582.7432,
+     "2021": 518.1024,
+     "2020": 360.9109,
+     "2019": 132.5182,
+     "2018": 1120.7479,
+     "2017": 878.6887,
+     "2016": 668.5496
+    },
+    "trad_asset": {
+     "2024": 2.4851,
+     "2023": 4.0071
+    },
+    "notes_receiv": {
+     "2024": 19.8441,
+     "2023": 0.1393,
+     "2022": 1.0545,
+     "2020": 15.3273,
+     "2019": 14.63,
+     "2018": 5.6374,
+     "2017": 12.2171,
+     "2016": 8.1763
+    },
+    "accounts_receiv": {
+     "2025": 0.0261,
+     "2024": 0.1897,
+     "2023": 0.6037,
+     "2022": 0.2094
+    },
+    "accounts_receiv_bill": {
+     "2025": 0.0261,
+     "2024": 20.0338,
+     "2023": 0.7431,
+     "2022": 1.2639,
+     "2020": 15.3273,
+     "2019": 14.63,
+     "2018": 5.6374,
+     "2017": 12.2171,
+     "2016": 8.1763
+    },
+    "receiv_financing": {
+     "2025": 44.5706
+    },
+    "prepayment": {
+     "2025": 0.0664,
+     "2024": 0.2698,
+     "2023": 0.3459,
+     "2022": 8.9738,
+     "2021": 3.8911,
+     "2020": 8.9844,
+     "2019": 15.4948,
+     "2018": 11.8238,
+     "2017": 7.9081,
+     "2016": 10.461
+    },
+    "oth_receiv": {
+     "2025": 0.3628,
+     "2024": 0.2996,
+     "2023": 0.275,
+     "2022": 0.3182,
+     "2021": 0.3316,
+     "2020": 0.3449,
+     "2019": 0.7654,
+     "2018": 0.5,
+     "2017": 0.3132,
+     "2016": 0.7723
+    },
+    "oth_rcv_total": {
+     "2025": 0.3628,
+     "2024": 0.2996,
+     "2023": 0.275,
+     "2022": 0.3182,
+     "2021": 0.3316,
+     "2020": 0.3449,
+     "2019": 0.7654,
+     "2018": 3.9389,
+     "2017": 2.7278,
+     "2016": 2.1813
+    },
+    "int_receiv": {
+     "2018": 3.4389,
+     "2017": 2.4146,
+     "2016": 1.409
+    },
+    "inventories": {
+     "2025": 614.2742,
+     "2024": 543.4329,
+     "2023": 464.3519,
+     "2022": 388.2437,
+     "2021": 333.9437,
+     "2020": 288.6909,
+     "2019": 252.8492,
+     "2018": 235.0695,
+     "2017": 220.5748,
+     "2016": 206.2225
+    },
+    "nca_within_1y": {
+     "2025": 268.7111,
+     "2024": 12.1096,
+     "2022": 21.236
+    },
+    "oth_cur_assets": {
+     "2025": 0.5103,
+     "2024": 1.6018,
+     "2023": 0.714,
+     "2022": 1.6084,
+     "2021": 0.7153,
+     "2020": 0.2674,
+     "2019": 0.209,
+     "2018": 1.4008,
+     "2017": 0.3754,
+     "2016": 2.3147
+    },
+    "total_cur_assets": {
+     "2025": 2525.1866,
+     "2024": 2517.2667,
+     "2023": 2251.7252,
+     "2022": 2166.1144,
+     "2021": 2207.6569,
+     "2020": 1856.5215,
+     "2019": 1590.2447,
+     "2018": 1378.6184,
+     "2017": 1122.4919,
+     "2016": 901.8055
+    },
+    "debt_invest": {
+     "2025": 11.1303,
+     "2024": 15.1517,
+     "2023": 53.23,
+     "2022": 3.8069,
+     "2021": 1.7047,
+     "2020": 0.2014
+    },
+    "oth_debt_invest": {
+     "2025": 34.9654
+    },
+    "fa_avail_for_sale": {
+     "2018": 0.29,
+     "2017": 0.29,
+     "2016": 0.29
+    },
+    "oth_illiq_fin_assets": {
+     "2025": 41.0514,
+     "2024": 40.2898,
+     "2023": 40.0244,
+     "2020": 0.0983,
+     "2019": 3.1977
+    },
+    "lt_eqt_invest": {
+     "2025": 1.4718
+    },
+    "invest_real_estate": {
+     "2025": 0.0311,
+     "2024": 0.0763,
+     "2023": 0.0414,
+     "2022": 0.0534,
+     "2021": 0.0524
+    },
+    "fix_assets": {
+     "2025": 224.8812,
+     "2024": 218.7145,
+     "2023": 199.0928,
+     "2022": 197.4262,
+     "2021": 174.7217,
+     "2020": 162.2508,
+     "2019": 151.4418,
+     "2018": 152.4856,
+     "2017": 152.441,
+     "2016": 144.5318
+    },
+    "fix_assets_total": {
+     "2025": 224.8812,
+     "2024": 218.7145,
+     "2023": 199.0928,
+     "2022": 197.4262,
+     "2021": 174.7217,
+     "2020": 162.2508,
+     "2019": 151.4418,
+     "2018": 152.4856,
+     "2017": 152.441,
+     "2016": 144.5318
+    },
+    "cip": {
+     "2025": 24.7189,
+     "2024": 21.4962,
+     "2023": 21.3746,
+     "2022": 22.0833,
+     "2021": 23.2199,
+     "2020": 24.4744,
+     "2019": 25.1894,
+     "2018": 19.5432,
+     "2017": 20.1641,
+     "2016": 27.4558
+    },
+    "cip_total": {
+     "2025": 24.7189,
+     "2024": 21.4962,
+     "2023": 21.3746,
+     "2022": 22.0833,
+     "2021": 23.2199,
+     "2020": 24.4744,
+     "2019": 25.1894,
+     "2018": 19.5432,
+     "2017": 20.1641,
+     "2016": 27.4558
+    },
+    "use_right_assets": {
+     "2025": 2.2174,
+     "2024": 4.1059,
+     "2023": 3.1421,
+     "2022": 4.0255,
+     "2021": 3.6279
+    },
+    "intan_assets": {
+     "2025": 86.8562,
+     "2024": 88.5021,
+     "2023": 85.7227,
+     "2022": 70.8318,
+     "2021": 62.0836,
+     "2020": 48.1717,
+     "2019": 47.2803,
+     "2018": 34.9918,
+     "2017": 34.5862,
+     "2016": 35.3174
+    },
+    "r_and_d": {
+     "2025": 1.1701,
+     "2024": 0.9852,
+     "2023": 2.1802,
+     "2022": 1.9054
+    },
+    "lt_amor_exp": {
+     "2025": 1.3532,
+     "2024": 1.5211,
+     "2023": 1.6006,
+     "2022": 1.4646,
+     "2021": 1.3934,
+     "2020": 1.4772,
+     "2019": 1.5828,
+     "2018": 1.6841,
+     "2017": 1.7786,
+     "2016": 1.8812
+    },
+    "defer_tax_assets": {
+     "2025": 66.0247,
+     "2024": 55.2001,
+     "2023": 46.4589,
+     "2022": 34.5893,
+     "2021": 22.3721,
+     "2020": 11.2323,
+     "2019": 10.9995,
+     "2018": 10.4929,
+     "2017": 14.018,
+     "2016": 17.4554
+    },
+    "oth_nca": {
+     "2025": 1.7547,
+     "2024": 2.324,
+     "2023": 1.0956,
+     "2021": 20.5976
+    },
+    "total_nca": {
+     "2025": 513.1618,
+     "2024": 472.1791,
+     "2023": 475.2714,
+     "2022": 377.5337,
+     "2021": 344.025,
+     "2020": 277.4366,
+     "2019": 240.179,
+     "2018": 219.8484,
+     "2017": 223.6093,
+     "2016": 227.5399
+    },
+    "total_assets": {
+     "2025": 3038.3484,
+     "2024": 2989.4458,
+     "2023": 2726.9966,
+     "2022": 2543.648,
+     "2021": 2551.682,
+     "2020": 2133.9581,
+     "2019": 1830.4237,
+     "2018": 1598.4667,
+     "2017": 1346.1012,
+     "2016": 1129.3454
+    },
+    "acct_payable": {
+     "2025": 40.0731,
+     "2024": 35.1497,
+     "2023": 30.9309,
+     "2022": 24.0837,
+     "2021": 20.0983,
+     "2020": 13.4227,
+     "2019": 15.1368,
+     "2018": 11.783,
+     "2017": 9.9206,
+     "2016": 10.4061
+    },
+    "accounts_pay": {
+     "2025": 40.0731,
+     "2024": 35.1497,
+     "2023": 30.9309,
+     "2022": 24.0837,
+     "2021": 20.0983,
+     "2020": 13.4227,
+     "2019": 15.1368,
+     "2018": 11.783,
+     "2017": 9.9206,
+     "2016": 10.4061
+    },
+    "adv_receipts": {
+     "2019": 137.4033,
+     "2018": 135.7652,
+     "2017": 144.2911,
+     "2016": 175.4108
+    },
+    "contract_liab": {
+     "2025": 80.0674,
+     "2024": 95.9245,
+     "2023": 141.2576,
+     "2022": 154.7192,
+     "2021": 127.1847,
+     "2020": 133.2155
+    },
+    "payroll_payable": {
+     "2025": 55.2345,
+     "2024": 58.2437,
+     "2023": 54.0192,
+     "2022": 47.8231,
+     "2021": 36.7785,
+     "2020": 29.8113,
+     "2019": 24.4507,
+     "2018": 20.3451,
+     "2017": 19.0164,
+     "2016": 16.2851
+    },
+    "taxes_payable": {
+     "2025": 76.9717,
+     "2024": 77.1769,
+     "2023": 69.4966,
+     "2022": 68.9656,
+     "2021": 119.798,
+     "2020": 89.1982,
+     "2019": 87.5595,
+     "2018": 107.7108,
+     "2017": 77.2614,
+     "2016": 42.7229
+    },
+    "int_payable": {
+     "2019": 0.0001,
+     "2018": 0.4277,
+     "2017": 0.2341,
+     "2016": 0.3448
+    },
+    "div_payable": {
+     "2019": 4.4688
+    },
+    "oth_payable": {
+     "2025": 52.9826,
+     "2024": 54.2901,
+     "2023": 52.1313,
+     "2022": 45.4384,
+     "2021": 41.244,
+     "2020": 32.5725,
+     "2019": 31.4263,
+     "2018": 33.62,
+     "2017": 30.3995,
+     "2016": 17.2464
+    },
+    "oth_pay_total": {
+     "2025": 52.9826,
+     "2024": 54.2901,
+     "2023": 52.1313,
+     "2022": 45.4384,
+     "2021": 41.244,
+     "2020": 32.5725,
+     "2019": 35.8952,
+     "2018": 34.0477,
+     "2017": 30.6336,
+     "2016": 17.5912
+    },
+    "non_cur_liab_due_1y": {
+     "2025": 0.4421,
+     "2024": 1.1195,
+     "2023": 0.5705,
+     "2022": 1.0935,
+     "2021": 1.0432
+    },
+    "oth_cur_liab": {
+     "2025": 9.9496,
+     "2024": 12.2269,
+     "2023": 18.225,
+     "2022": 19.7927,
+     "2021": 15.3598,
+     "2020": 16.098
+    },
+    "total_cur_liab": {
+     "2025": 496.1048,
+     "2024": 565.1599,
+     "2023": 486.9761,
+     "2022": 490.6567,
+     "2021": 579.1422,
+     "2020": 456.7367,
+     "2019": 410.933,
+     "2018": 424.3819,
+     "2017": 385.7492,
+     "2016": 370.2043
+    },
+    "lease_liab": {
+     "2025": 1.895,
+     "2024": 3.1391,
+     "2023": 2.6664,
+     "2022": 3.3445,
+     "2021": 2.9647
+    },
+    "long_pay_total": {
+     "2017": 0.1557,
+     "2016": 0.1557
+    },
+    "specific_payables": {
+     "2017": 0.1557,
+     "2016": 0.1557
+    },
+    "defer_tax_liab": {
+     "2025": 0.7561,
+     "2024": 1.0337,
+     "2023": 0.7894,
+     "2020": 0.0146,
+     "2019": 0.7269
+    },
+    "total_ncl": {
+     "2025": 2.6511,
+     "2024": 4.1727,
+     "2023": 3.4558,
+     "2022": 3.3445,
+     "2021": 2.9647,
+     "2020": 0.0146,
+     "2019": 0.7269,
+     "2017": 0.1557,
+     "2016": 0.1557
+    },
+    "total_liab": {
+     "2025": 498.7559,
+     "2024": 569.3326,
+     "2023": 490.4319,
+     "2022": 494.0012,
+     "2021": 582.1069,
+     "2020": 456.7513,
+     "2019": 411.6599,
+     "2018": 424.3819,
+     "2017": 385.9049,
+     "2016": 370.36
+    },
+    "total_share": {
+     "2025": 12.5227,
+     "2024": 12.562,
+     "2023": 12.562,
+     "2022": 12.562,
+     "2021": 12.562,
+     "2020": 12.562,
+     "2019": 12.562,
+     "2018": 12.562,
+     "2017": 12.562,
+     "2016": 12.562
+    },
+    "cap_rese": {
+     "2025": 0.0158,
+     "2024": 13.7496,
+     "2023": 13.7496,
+     "2022": 13.7496,
+     "2021": 13.7496,
+     "2020": 13.7496,
+     "2019": 13.7496,
+     "2018": 13.7496,
+     "2017": 13.7496,
+     "2016": 13.7496
+    },
+    "treasury_share": {
+     "2025": 1.2011
+    },
+    "surplus_rese": {
+     "2025": 505.4318,
+     "2024": 466.3579,
+     "2023": 389.9876,
+     "2022": 325.2278,
+     "2021": 251.4283,
+     "2020": 201.7492,
+     "2019": 165.957,
+     "2018": 134.4422,
+     "2017": 82.156,
+     "2016": 71.3565
+    },
+    "ordin_risk_reser": {
+     "2025": 10.6153,
+     "2024": 10.6153,
+     "2023": 10.6153,
+     "2022": 10.6153,
+     "2021": 10.6153,
+     "2020": 9.2758,
+     "2019": 8.9835,
+     "2018": 7.883,
+     "2017": 6.0086,
+     "2016": 4.2076
+    },
+    "undistr_porfit": {
+     "2025": 1919.0515,
+     "2024": 1827.8742,
+     "2023": 1729.8318,
+     "2022": 1613.0198,
+     "2021": 1607.1686,
+     "2020": 1375.944,
+     "2019": 1158.9234,
+     "2018": 959.8194,
+     "2017": 800.1131,
+     "2016": 627.1781
+    },
+    "oth_comp_income": {
+     "2025": -0.0578,
+     "2024": -0.0992,
+     "2023": -0.0606,
+     "2022": -0.1078,
+     "2021": -0.1302,
+     "2020": -0.0533,
+     "2019": -0.072,
+     "2018": -0.0707,
+     "2017": -0.074,
+     "2016": -0.1124
+    },
+    "total_hldr_eqy_exc_min_int": {
+     "2025": 2446.3781,
+     "2024": 2331.0598,
+     "2023": 2156.6857,
+     "2022": 1975.0667,
+     "2021": 1895.3937,
+     "2020": 1613.2274,
+     "2019": 1360.1035,
+     "2018": 1128.3856,
+     "2017": 914.5152,
+     "2016": 728.9414
+    },
+    "minority_int": {
+     "2025": 93.2144,
+     "2024": 89.0533,
+     "2023": 79.879,
+     "2022": 74.5802,
+     "2021": 74.1814,
+     "2020": 63.9795,
+     "2019": 58.6603,
+     "2018": 45.6992,
+     "2017": 45.681,
+     "2016": 30.0441
+    },
+    "total_hldr_eqy_inc_min_int": {
+     "2025": 2539.5925,
+     "2024": 2420.1132,
+     "2023": 2236.5647,
+     "2022": 2049.6469,
+     "2021": 1969.5751,
+     "2020": 1677.2068,
+     "2019": 1418.7638,
+     "2018": 1174.0849,
+     "2017": 960.1963,
+     "2016": 758.9854
+    },
+    "total_liab_hldr_eqy": {
+     "2025": 3038.3484,
+     "2024": 2989.4458,
+     "2023": 2726.9966,
+     "2022": 2543.648,
+     "2021": 2551.682,
+     "2020": 2133.9581,
+     "2019": 1830.4237,
+     "2018": 1598.4667,
+     "2017": 1346.1012,
+     "2016": 1129.3454
+    },
+    "loanto_oth_bank_fi": {
+     "2025": 990.9619,
+     "2024": 1271.8729,
+     "2023": 1055.5384,
+     "2022": 1161.7271,
+     "2021": 1350.6729,
+     "2020": 1181.9959,
+     "2019": 1173.7781,
+     "2016": 3.9
+    },
+    "pur_resale_fa": {
+     "2025": 88.7971,
+     "2024": 72.2031,
+     "2023": 35.0485
+    },
+    "decr_in_disbur": {
+     "2025": 15.5354,
+     "2024": 23.8123,
+     "2023": 21.3082,
+     "2022": 41.3474,
+     "2021": 34.2518,
+     "2020": 29.5304,
+     "2019": 0.4875,
+     "2018": 0.3608,
+     "2017": 0.3315,
+     "2016": 0.6083
+    },
+    "depos_ib_deposits": {
+     "2025": 180.3838,
+     "2024": 231.0286,
+     "2023": 120.3449,
+     "2022": 128.7404,
+     "2021": 217.6358,
+     "2020": 142.4186,
+     "2019": 110.4876,
+     "2018": 114.7301,
+     "2017": 104.6261,
+     "2016": 107.7882
+    }
+   }
+  },
+  "units": {
+   "金额": "亿元",
+   "销售毛利率": "%",
+   "ROE": "%"
+  },
+  "version": "20261121_201610",
+  "fetched_at": "2026-11-08 18:45:05",
+  "website": "http://www.moutaichina.com",
+  "quote_refreshed_at": "2026-11-21 20:16:10",
+  "main_business": {
+   "P": {
+    "20201231": {
+     "total": 979.9324,
+     "items": [
+      [
+       "茅台酒",
+       848.3094,
+       797.306
+      ],
+      [
+       "合计特别调整",
+       30.7786,
+       null
+      ],
+      [
+       "其他系列酒",
+       99.9106,
+       70.0803
+      ],
+      [
+       "其他业务",
+       0.9338,
+       0.2275
+      ]
+     ]
+    },
+    "20210630": {
+     "total": 507.2158,
+     "items": [
+      [
+       "茅台酒",
+       429.494,
+       null
+      ],
+      [
+       "系列酒",
+       60.6045,
+       null
+      ],
+      [
+       "合计特别调整",
+       16.3431,
+       null
+      ],
+      [
+       "其他业务",
+       0.7743,
+       null
+      ]
+     ]
+    },
+    "20211231": {
+     "total": 1094.6428,
+     "items": [
+      [
+       "茅台酒",
+       934.6451,
+       878.866
+      ],
+      [
+       "合计特别调整",
+       32.7412,
+       null
+      ],
+      [
+       "其他系列酒",
+       125.9478,
+       92.817
+      ],
+      [
+       "其他业务",
+       1.3086,
+       0.3848
+      ]
+     ]
+    },
+    "20220630": {
+     "total": 594.4352,
+     "items": [
+      [
+       "茅台酒",
+       499.6501,
+       null
+      ],
+      [
+       "系列酒",
+       75.9824,
+       null
+      ],
+      [
+       "合计特别调整",
+       18.2665,
+       null
+      ],
+      [
+       "其他业务",
+       0.5362,
+       null
+      ]
+     ]
+    },
+    "20221231": {
+     "total": 1275.5396,
+     "items": [
+      [
+       "茅台酒",
+       1078.3369,
+       1015.6787
+      ],
+      [
+       "合计特别调整",
+       34.5412,
+       null
+      ],
+      [
+       "其他系列酒",
+       159.3865,
+       123.0834
+      ],
+      [
+       "其他业务",
+       3.2751,
+       1.3016
+      ]
+     ]
+    },
+    "20230630": {
+     "total": 709.8721,
+     "items": [
+      [
+       "茅台酒",
+       592.786,
+       null
+      ],
+      [
+       "系列酒",
+       100.7387,
+       null
+      ],
+      [
+       "合计特别调整",
+       14.1119,
+       null
+      ],
+      [
+       "其他业务",
+       2.2355,
+       null
+      ]
+     ]
+    },
+    "20231231": {
+     "total": 1505.6033,
+     "items": [
+      [
+       "茅台酒",
+       1265.8907,
+       1191.436
+      ],
+      [
+       "合计特别调整",
+       28.6673,
+       null
+      ],
+      [
+       "其他系列酒",
+       206.2993,
+       164.552
+      ],
+      [
+       "其他业务",
+       4.7461,
+       2.2754
+      ]
+     ]
+    },
+    "20240630": {
+     "total": 834.5116,
+     "items": [
+      [
+       "茅台酒",
+       685.6691,
+       645.4157
+      ],
+      [
+       "合计特别调整",
+       15.2019,
+       null
+      ],
+      [
+       "其他系列酒",
+       131.4703,
+       105.305
+      ],
+      [
+       "其他业务",
+       2.1704,
+       1.0803
+      ]
+     ]
+    },
+    "20241231": {
+     "total": 1741.4407,
+     "items": [
+      [
+       "茅台酒",
+       1459.2808,
+       1372.66
+      ],
+      [
+       "合计特别调整",
+       32.4492,
+       null
+      ],
+      [
+       "其他系列酒",
+       246.8376,
+       197.1585
+      ],
+      [
+       "其他业务",
+       2.8731,
+       1.2783
+      ]
+     ]
+    },
+    "20250630": {
+     "total": 910.9376,
+     "items": [
+      [
+       "茅台酒",
+       755.8995,
+       709.4065
+      ],
+      [
+       "系列酒",
+       137.6253,
+       106.7853
+      ],
+      [
+       "合计特别调整",
+       17.0441,
+       null
+      ],
+      [
+       "其他业务",
+       0.3688,
+       -0.0732
+      ]
+     ]
+    },
+    "20251231": {
+     "total": 1720.5417,
+     "items": [
+      [
+       "茅台酒",
+       1464.9991,
+       1370.1515
+      ],
+      [
+       "合计特别调整",
+       32.1607,
+       null
+      ],
+      [
+       "其他系列酒",
+       222.7468,
+       169.5354
+      ],
+      [
+       "其他业务",
+       0.6352,
+       -0.2286
+      ]
+     ]
+    },
+    "20260630": {
+     "total": 938.5289,
+     "items": [
+      [
+       "茅台酒",
+       777.2444,
+       717.2355
+      ],
+      [
+       "合计特别调整",
+       15.7481,
+       null
+      ],
+      [
+       "其他系列酒",
+       129.3419,
+       95.1839
+      ],
+      [
+       "其他业务",
+       16.1945,
+       15.6236
+      ]
+     ]
+    }
+   },
+   "D": {
+    "20201231": {
+     "total": 979.9324,
+     "items": [
+      [
+       "国外",
+       24.3226,
+       22.2382
+      ],
+      [
+       "国内",
+       923.8974,
+       845.1481
+      ],
+      [
+       "合计特别调整",
+       30.7786,
+       null
+      ],
+      [
+       "其他业务",
+       0.9338,
+       0.2275
+      ]
+     ]
+    },
+    "20210630": {
+     "total": 507.2158,
+     "items": [
+      [
+       "国外",
+       12.0012,
+       null
+      ],
+      [
+       "国内",
+       478.0973,
+       null
+      ],
+      [
+       "合计特别调整",
+       16.3431,
+       null
+      ],
+      [
+       "其他业务",
+       0.7743,
+       null
+      ]
+     ]
+    },
+    "20211231": {
+     "total": 1094.6428,
+     "items": [
+      [
+       "国外",
+       26.1847,
+       23.7677
+      ],
+      [
+       "国内",
+       1034.4082,
+       947.9153
+      ],
+      [
+       "合计特别调整",
+       32.7412,
+       null
+      ],
+      [
+       "其他业务",
+       1.3086,
+       0.3848
+      ]
+     ]
+    },
+    "20220630": {
+     "total": 594.4352,
+     "items": [
+      [
+       "国外",
+       20.6611,
+       null
+      ],
+      [
+       "国内",
+       554.9714,
+       null
+      ],
+      [
+       "合计特别调整",
+       18.2665,
+       null
+      ],
+      [
+       "其他业务",
+       0.5362,
+       null
+      ]
+     ]
+    },
+    "20221231": {
+     "total": 1275.5396,
+     "items": [
+      [
+       "国外",
+       42.3958,
+       39.0215
+      ],
+      [
+       "国内",
+       1195.3275,
+       1099.7407
+      ],
+      [
+       "合计特别调整",
+       34.5412,
+       null
+      ],
+      [
+       "其他业务",
+       3.2751,
+       1.3016
+      ]
+     ]
+    },
+    "20230630": {
+     "total": 709.8721,
+     "items": [
+      [
+       "国外",
+       20.4177,
+       null
+      ],
+      [
+       "国内",
+       673.107,
+       null
+      ],
+      [
+       "合计特别调整",
+       14.1119,
+       null
+      ],
+      [
+       "其他业务",
+       2.2355,
+       null
+      ]
+     ]
+    },
+    "20231231": {
+     "total": 1505.6033,
+     "items": [
+      [
+       "国外",
+       43.5011,
+       40.1012
+      ],
+      [
+       "国内",
+       1428.6889,
+       1315.8867
+      ],
+      [
+       "合计特别调整",
+       28.6673,
+       null
+      ],
+      [
+       "其他业务",
+       4.7461,
+       2.2754
+      ]
+     ]
+    },
+    "20240630": {
+     "total": 834.5116,
+     "items": [
+      [
+       "国外",
+       22.1336,
+       20.4954
+      ],
+      [
+       "国内",
+       797.1762,
+       731.3056
+      ],
+      [
+       "合计特别调整",
+       15.2019,
+       null
+      ]
+     ]
+    },
+    "20241231": {
+     "total": 1741.4407,
+     "items": [
+      [
+       "国外",
+       51.8853,
+       47.8541
+      ],
+      [
+       "国内",
+       1654.2331,
+       1521.9643
+      ],
+      [
+       "合计特别调整",
+       32.4492,
+       null
+      ],
+      [
+       "其他业务",
+       2.8731,
+       1.2783
+      ]
+     ]
+    },
+    "20250630": {
+     "total": 910.9376,
+     "items": [
+      [
+       "国外",
+       28.9925,
+       26.6612
+      ],
+      [
+       "国内",
+       864.9011,
+       789.4574
+      ],
+      [
+       "合计特别调整",
+       17.0441,
+       null
+      ]
+     ]
+    },
+    "20251231": {
+     "total": 1720.5417,
+     "items": [
+      [
+       "国外",
+       48.5014,
+       44.4718
+      ],
+      [
+       "国内",
+       1639.2444,
+       1495.215
+      ],
+      [
+       "合计特别调整",
+       32.1607,
+       null
+      ],
+      [
+       "其他业务",
+       0.6352,
+       -0.2286
+      ]
+     ]
+    },
+    "20260630": {
+     "total": 922.7807,
+     "items": [
+      [
+       "国外",
+       10.3709,
+       9.5178
+      ],
+      [
+       "国内",
+       896.6617,
+       802.7772
+      ],
+      [
+       "合计特别调整",
+       15.7481,
+       null
+      ]
+     ]
+    }
+   }
+  }
+ }
+}
