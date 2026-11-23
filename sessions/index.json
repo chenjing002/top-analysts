@@ -1,0 +1,98 @@
+{
+ "built_at": "2026-11-23T04:38:03-08:00",
+ "experts": {
+  "jeff-bezos": {
+   "name": "Jeff Bezos",
+   "tagline": "An operator's lens on whether a business model turns growth into cash: judges a company by long-term free cash flow per share, not earnings, and by whether management thinks and invests like an owner.",
+   "version": "1.0 (2026-11-23)",
+   "file": "experts/jeff-bezos.md"
+  },
+  "joekray-mond": {
+   "name": "Joekray Mond (Joe K. Raymond)",
+   "tagline": "A pattern-recognition historian of micro-cap, OTC, bankruptcy and controlled-company investments: he contributes a library of priced, dated *setups* (what the balance sheet, income statement and shareholder register looked like before an extraordinary outcome) and the discipline of comparing today's company to the nearest historical analogue instead of to a narrative.",
+   "version": "1.0 (2026-11-23)",
+   "file": "experts/joekray-mond.md"
+  },
+  "joel-greenblatt": {
+   "name": "Joel Greenblatt",
+   "tagline": "Reduces every company to two pre-tax numbers — what you pay (EBIT / enterprise value) and what the business earns on the tangible capital it actually needs (EBIT / (NWC + NFA)) — then asks whether normalized EBIT two to three years out can be estimated with confidence, and refuses to opine when it cannot.",
+   "version": "1.0 (2026-11-23)",
+   "file": "experts/joel-greenblatt.md"
+  },
+  "li-lu": {
+   "name": "Li Lu (李录, Himalaya Capital)",
+   "tagline": "The investigative researcher: earns the right to disagree with Mr. Market by knowing the business, its",
+   "version": "1.0 (2026-11-23)",
+   "file": "experts/li-lu.md"
+  },
+  "michael-mauboussin": {
+   "name": "Michael Mauboussin",
+   "tagline": "The ROIC discipline: computes return on invested capital so that NOPAT and invested capital are mutually consistent, independent of financing, and comparable across companies, then uses the ROIC–WACC spread to say whether growth is creating or destroying value.",
+   "version": "1.0 (2026-11-23)",
+   "file": "experts/michael-mauboussin.md"
+  },
+  "rockwood": {
+   "name": "Rockwood (Rockwood Notes) — Content & Capitalized-Asset Cash Accounting",
+   "tagline": "Rebuilds the cash flow statement by hand so that cash spent on a capitalized, judgmentally-amortized",
+   "version": "1.0 (2026-11-23)",
+   "file": "experts/rockwood.md"
+  },
+  "stephen-penman": {
+   "name": "Stephen Penman",
+   "tagline": "The accounting backbone: reformulates the financial statements to separate operations from financing, anchors value on book value and current earnings (\"what you know\"), and treats everything beyond that as speculation about growth to be challenged, not paid for.",
+   "version": "1.0 (2026-11-23)",
+   "file": "experts/stephen-penman.md"
+  },
+  "warren-buffett": {
+   "name": "Warren Buffett",
+   "tagline": "Converts reported accounting into \"owner earnings\" and intrinsic value, then asks whether a durable franchise run by owner-minded managers is available at a sensible price — and refuses to pay for anything else.",
+   "version": "1.0 (2026-11-23)",
+   "file": "experts/warren-buffett.md"
+  }
+ },
+ "companies": [
+  {
+   "ts_code": "605499.SH",
+   "name": "东鹏饮料",
+   "industry": "软饮料",
+   "sessions": [
+    {
+     "session_id": "2026-11-23-01",
+     "started_at": "2026-11-23T04:15:00-08:00",
+     "status": "open",
+     "user_request": "analysis 东鹏饮料\n  605499.SH and push the sessions to github pages after experts",
+     "experts": [
+      "stephen-penman",
+      "warren-buffett",
+      "jeff-bezos",
+      "li-lu"
+     ],
+     "factsheet": "sessions/605499.SH/2026-11-23-01/data/factsheet.md",
+     "summary": null,
+     "rounds": [
+      {
+       "round": 1,
+       "question": "Single-quarter revenue growth fell from 21.5% (Q1 2026) to 11.3% (Q2) to 0.8% (Q3). Does the S1 quote (20261120, 113.55, PE 18.88) price a permanent end of growth, or is it over-discounting a pause?",
+       "participants": [
+        "stephen-penman",
+        "warren-buffett",
+        "jeff-bezos",
+        "li-lu"
+       ],
+       "started_at": "2026-11-23T04:20:00-08:00",
+       "ended_at": "2026-11-23T04:35:00-08:00",
+       "conclusion": "The S1 quote does not price a permanent end of growth. On the FY2025 base, the EV at 20261120 needs about 1.7%–2.0% perpetual residual-income growth at r=8% (0.1% at 6%, 3.9% at 10%), against 4.7% at the 20251231 close. Whether it over-discounts a pause cannot be decided. Q3 growth of 0.8% is not a base effect, since Q3 fell 6.1% below Q2 against rises in 2024 and 2025. The sheet has no 2026 profit, operating cash flow, contract liabilities or product split. The panel also flags a possible 2026 share issue: PB-implied book equity rose about 91.5 亿 to 185.7, close to the 87.3 亿 rise in a narrow set of cash and trading assets. If it is a cash issue, the 40% market-cap fall and the 18.88 PE are distorted. This is a hypothesis and no filing confirms it. Confidence is medium that the price is not a zero-growth price (capped by S2 defaults and an FY2025 base) and low that it over-discounts a pause. The round is rated low overall. Two caveats from the Observer: the curve is sensitive to the base (1.86% at r=8% with ReOI0 of 41.4, and about 1.5% on a +8.7% TTM base), and true year-on-year TTM revenue growth at 20260930 is +12.4% (226.28 vs 201.25), not the 8.4% step against FY2025 used in one opening.",
+       "confidence": "low",
+       "n_disagreements_open": 2,
+       "thinkers": [],
+       "json": "sessions/605499.SH/2026-11-23-01/rounds/round-01.json",
+       "md": "sessions/605499.SH/2026-11-23-01/rounds/round-01.md",
+       "observer": "sessions/605499.SH/2026-11-23-01/observer/round-01.md"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "n_rounds": 1
+}
