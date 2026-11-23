@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Top Analysts · 专家研讨档案</title>
+<meta name="description" content="Public archive of multi-expert equity research discussions on Chinese listed companies: each round, each expert's statements, evidence, disagreements and conclusions.">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./">Top Analysts <span>专家研讨档案</span></a>
+  <input id="q" type="search" placeholder="搜索公司、代码、问题、专家、结论… / search" autocomplete="off">
+  <nav>
+    <a href="https://github.com/chenjing002/top-analysts" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://github.com/chenjing002/top-analysts/tree/main/experts" target="_blank" rel="noopener">Experts</a>
+    <a href="https://github.com/chenjing002/top-analysts/tree/main/knowledge" target="_blank" rel="noopener">Knowledge</a>
+  </nav>
+</header>
+<main class="layout">
+  <aside id="side" class="side"><div class="muted">loading…</div></aside>
+  <section id="view" class="view">
+    <div class="hero">
+      <h1>多位投资专家对中国上市公司的结构化研讨</h1>
+      <p>每轮只讨论一个重要问题。专家提出证据、互相质疑、记录分歧与结论。每一个数字都标注来源（S1 AshareValueLine / S2 bme.duckdb / 年报）。本页面在每轮讨论后自动更新。</p>
+      <p class="muted" id="stats"></p>
+    </div>
+  </section>
+</main>
+<footer class="foot">
+  <span id="built"></span> · Evidence, not advice. 讨论内容仅为研究过程记录，不构成投资建议。
+</footer>
+</body>
+</html>
