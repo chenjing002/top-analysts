@@ -45,7 +45,11 @@ Use the user's company name or code, round count, or session reference. Examples
   series built on it. A mismatch in a series nobody will use is a one-line note, not a topic.
   Banks, insurers, and brokers (`comp_type` 2/3/4/7) have raw S2 statements only.
   Disclose that coverage and use S1 plus raw statements with sector-appropriate measures.
-- Read company facts and hypotheses in `knowledge/` if present. When the run repeats a company
+- Read `knowledge/playbook.md`, `knowledge/methods/`, and the company's `knowledge/facts/` and
+  `knowledge/hypotheses/` files if present; cite entries as `KB F-…`, `KB M-…`, `P-…`. Run
+  `python3 scripts/improve.py report` and show the trend table to the user: it lists recurring
+  weaknesses to avoid this round and any proposals waiting (`drafting` ones are yours to fill,
+  see §3 step 6). When the run repeats a company
   after changes to the workflow or role cards, start a fresh session ID and delete the superseded
   session only when the user asks. The goal of such a run is to test the system, so record
   `run_purpose` and the git revision of the workflow files in `session.json`, and compare the new
@@ -164,7 +168,10 @@ the reason and the role version.
    most one to three rounded numbers and their period. No tables, formulas, SQL, field names or
    source codes in `text`. Name accounting terms in plain words. Intermediate arithmetic stays in
    the workpaper; the turn's `evidence[]` carries one short item per figure, with a source label such
-   as `S2 raw_income FY2016–FY2025`. Identify assumptions in the spoken text. Run-level notes on how
+   as `S2 raw_income FY2016–FY2025`. A computed figure uses the function in `scripts/calc.py`
+   (`python3 scripts/calc.py implied_growth_re price=… book=… earnings_next=… r=…`) and carries
+   `formula`, `inputs` and `result`; a figure that cannot be checked locally carries
+   `unverifiable` with the reason. Identify assumptions in the spoken text. Run-level notes on how
    the system performed belong in `session.json` `run_notes`, not in the chat.
 
    **Keep asking.** The panel makes progress by questions. Every turn except a closing one ends
@@ -176,7 +183,11 @@ the reason and the role version.
    topic at a time; when a new topic opens, record it in `where_it_went` or queue it as the next
    round's question instead of running two threads at once.
    If reasoning stalls despite usable evidence, consult a method in `Thinkers/README.md`, attach
-   its required label in the turn record, and return to verification.
+   its required label in the turn record, and return to verification. Four stall signals are
+   detected by the checker (open disagreement, unexplained S1/S2 mismatch on a cited series, a
+   conclusion repeating the last round, single-quarter evidence under high confidence); when one
+   fires, the round either consults a method or records `{"thinker": null, "declined_because": …}`
+   in `thinkers_consulted`.
 4. **Close the round.** If the conclusion relies on an objection raised in the last turn, give
    the affected speaker a chance to address it or record how the unresolved point limits the answer.
    Record disagreements as open, narrowed, or resolved, with the evidence that
@@ -189,10 +200,23 @@ the reason and the role version.
    verdict in one line each: business type, cash backing, return driver, cheap or not and the floor. Use the lowest confidence of the evidence the
    conclusion depends on. High confidence requires a direct statement line or two independent
    sources. A finding that depends on an S2 default (r = 8%, g = 3%, or tax = 25%) is at most medium.
-5. **Save and review.** Write `rounds/round-NN.json`, run `python3 scripts/render_round.py <file>`,
-   and update the session's `rounds` and `question_queue`. Run the `skills/observe/SKILL.md` round
-   review with the exact round inputs, read its verdict before the next round, and drop any
-   `knowledge_candidates` the review flags as unsupported. Run `python3 scripts/validate.py`.
+5. **Gate, save and review.** Write `rounds/round-NN.json` and run
+   `python3 scripts/check_round.py <file>` (rules in `skills/analyze/CHECKLIST.md`). Fix every
+   error and the warnings you can; a gated round with errors cannot be published. Then run
+   `python3 scripts/render_round.py <file>` and update the session's `rounds` and
+   `question_queue`. Run the `skills/observe/SKILL.md` round review with the exact round inputs,
+   read its verdict before the next round, and fix what it finds in the round file (record the
+   resolution at the end of the observer note). Run `python3 scripts/validate.py`.
+6. **Improve.** Run `python3 scripts/improve.py ingest <round.json>`: it files the observer's
+   tagged findings in `observer/log.jsonl`, the round's three numbers in `observer/metrics.jsonl`,
+   writes the surviving knowledge candidates into `knowledge/` (an unverified fact becomes a
+   hypothesis), and promotes playbook entries. Then `python3 scripts/improve.py proposals`. For
+   each proposal it leaves at `drafting`, read the cited turns and the target section, write the
+   Change and Risk, set `proposed`, and hand it to the Observe workflow's proposal review (an
+   independent reviewer; apply on `validated`). If the ingest reports a workflow pitfall promoted
+   to the playbook, add the rule to `CHECKLIST.md` and, when it can be computed, to
+   `scripts/check_round.py`. Report the trend line (errors, weaknesses, knowledge cited) with the
+   round result.
 
 If delegation is unavailable, work through the roles individually and label them as simulated
 perspectives. Record how the review was conducted. If the host lacks a writable checkout, return

@@ -9,8 +9,12 @@ Checks
                       hypotheses never carry confidence "high"
   sessions/**/round-*.json  required keys; every evidence item has a source; statements have expert in
                       participants; participants exist in experts/
-  observer/proposals/*.md   status is one of proposed|validated|applied|rejected; applied proposals
+  observer/proposals/*.md   status is one of drafting|proposed|validated|applied|rejected; applied proposals
                       reference a validation note
+  knowledge/playbook.md     P-NNN entries well formed, ids unique, tags known
+  observer/log.jsonl        tags are in observer/TAGS.md
+  scripts/check_round.py    run on every round; errors fail validation for sessions started on or
+                      after check_round.GATE_FROM, and are reported for older rounds
 
 Usage: python3 scripts/validate.py [--quiet]
 Exit code 1 on any error.
@@ -21,6 +25,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+import check_round  # noqa: E402
 ERR, WARN = [], []
 
 EXPERT_SECTIONS = [
@@ -30,7 +36,7 @@ EXPERT_SECTIONS = [
 ]
 THINKER_SECTIONS = ["## 1. When to consult", "## 2. Methods", "## 3. Anti-patterns", "Source anchors"]
 KB_LINE = re.compile(
-    r"^- \[(?P<id>[A-Z]+-[A-Za-z0-9.]+-\d{3})\] \((?P<date>\d{4}-\d{2}-\d{2}), confidence: (?P<conf>high|medium|low), source: (?P<src>[^)]+)\) (?P<text>.+)$"
+    r"^- \[(?P<id>[A-Z]+-(?:[A-Za-z0-9.]+-)?\d{3})\] \((?P<date>\d{4}-\d{2}-\d{2}), confidence: (?P<conf>high|medium|low), source: (?P<src>[^)]+)\) (?P<text>.+)$"
 )
 
 
@@ -88,7 +94,7 @@ def check_thinkers():
 def check_knowledge():
     ids = {}
     for p in sorted((ROOT / "knowledge").rglob("*.md")):
-        if p.name == "README.md":
+        if p.name in ("README.md", "playbook.md"):
             continue
         is_hyp = "hypotheses" in p.parts
         for i, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
@@ -142,12 +148,74 @@ def check_sessions(slugs):
             err(f"{rel}: no session.json")
 
 
+PB_LINE = re.compile(
+    r"^- \[(?P<id>P-\d{3})\] \((?P<date>\d{4}-\d{2}-\d{2}), kind: (?P<kind>pattern|pitfall), tag: (?P<tag>[a-z0-9-]+), source: (?P<src>[^)]+)\) (?P<text>.+)$"
+)
+
+
+def known_tags():
+    p = ROOT / "observer" / "TAGS.md"
+    return set(re.findall(r"^\| `([a-z0-9-]+)` \|", p.read_text(encoding="utf-8"), re.M)) if p.exists() else set()
+
+
+def check_playbook_and_log():
+    tags = known_tags()
+    pb = ROOT / "knowledge" / "playbook.md"
+    ids = set()
+    if pb.exists():
+        for i, line in enumerate(pb.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.startswith("- ["):
+                continue
+            m = PB_LINE.match(line)
+            if not m:
+                err(f"knowledge/playbook.md:{i}: entry does not match the P-NNN format")
+                continue
+            if m.group("id") in ids:
+                err(f"knowledge/playbook.md:{i}: duplicate id {m.group('id')}")
+            ids.add(m.group("id"))
+            if tags and m.group("tag") not in tags:
+                warn(f"knowledge/playbook.md:{i}: unknown tag {m.group('tag')}")
+    log = ROOT / "observer" / "log.jsonl"
+    if log.exists():
+        for i, line in enumerate(log.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.strip():
+                continue
+            try:
+                e = json.loads(line)
+            except json.JSONDecodeError:
+                err(f"observer/log.jsonl:{i}: invalid JSON")
+                continue
+            if e.get("kind") not in ("weakness", "pattern"):
+                err(f"observer/log.jsonl:{i}: kind must be weakness|pattern")
+            if tags and e.get("tag") not in tags:
+                warn(f"observer/log.jsonl:{i}: unknown tag {e.get('tag')!r}")
+            if e.get("kind") == "weakness" and e.get("severity") not in ("high", "medium", "low"):
+                err(f"observer/log.jsonl:{i}: weakness without severity")
+
+
+def check_rounds_gate():
+    for rf in sorted((ROOT / "sessions").glob("*/*/rounds/round-*.json")):
+        rel = rf.relative_to(ROOT)
+        try:
+            rep, summary = check_round.run(rf)
+        except Exception as ex:  # noqa: BLE001
+            err(f"{rel}: check_round crashed ({ex})")
+            continue
+        if summary["gated"]:
+            for e in rep.errors:
+                err(f"{rel}: {e}")
+            for w in rep.warnings:
+                warn(f"{rel}: {w}")
+        elif rep.errors or rep.warnings:
+            warn(f"{rel}: check_round {summary['errors']} errors, {summary['warnings']} warnings (pre-{check_round.GATE_FROM}, report only)")
+
+
 def check_proposals():
     for p in sorted((ROOT / "observer" / "proposals").glob("*.md")):
         t = p.read_text(encoding="utf-8")
-        m = re.search(r"^\*\*Status:\*\*\s*(proposed|validated|applied|rejected)", t, flags=re.M)
+        m = re.search(r"^\*\*Status:\*\*\s*(drafting|proposed|validated|applied|rejected)", t, flags=re.M)
         if not m:
-            err(f"observer/proposals/{p.name}: missing '**Status:** proposed|validated|applied|rejected'")
+            err(f"observer/proposals/{p.name}: missing '**Status:** drafting|proposed|validated|applied|rejected'")
             continue
         if m.group(1) in ("validated", "applied") and "## Validation" not in t:
             err(f"observer/proposals/{p.name}: status {m.group(1)} but no '## Validation' section")
@@ -161,6 +229,8 @@ def main():
     check_thinkers()
     check_knowledge()
     check_sessions(slugs)
+    check_rounds_gate()
+    check_playbook_and_log()
     check_proposals()
     for w in WARN:
         print("WARN ", w)

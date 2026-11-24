@@ -69,11 +69,29 @@ python3 scripts/validate.py
 
 ## Self-improvement, controlled
 
-Expert files change through the [Observer proposal process](observer/OBSERVER.md#3-proposals-to-change-an-expert-file).
-Behavior changes need two cited instances. Factual corrections need directly checkable evidence.
-An independent reviewer fills in the validation checks before an edit is applied with a version
-bump and changelog line. The limit is one change per expert per session. `scripts/validate.py`
-enforces structure before publication.
+The system learns one round at a time, through a loop of deterministic scripts and one independent
+judgment:
+
+1. **Gate.** `scripts/check_round.py` reads the round JSON against the session's local data: every
+   figure with an S1/S2 source must exist there, every `derived:` figure must recompute from its
+   formula and inputs (the formulas live in `scripts/calc.py`, with doctests), every figure spoken in
+   a turn must have an evidence item, amounts are in 亿, and `high` confidence cannot rest on a model
+   default. Rules are listed in [`skills/analyze/CHECKLIST.md`](skills/analyze/CHECKLIST.md). Errors
+   block `scripts/sync.sh`.
+2. **Observe.** The Observer reviews the round and tags each weakness and each pattern worth keeping
+   with the vocabulary in [`observer/TAGS.md`](observer/TAGS.md), in a `## Log` block.
+3. **Ingest.** `scripts/improve.py ingest` files the tags in `observer/log.jsonl`, three numbers per
+   round in `observer/metrics.jsonl`, and the surviving knowledge candidates in `knowledge/` (an
+   unverified fact enters as a hypothesis). A pattern or a shared pitfall seen in two rounds becomes a
+   rule in [`knowledge/playbook.md`](knowledge/playbook.md), which every expert reads at session start.
+4. **Propose.** `scripts/improve.py proposals` drafts a card change when the same weakness tag recurs
+   on the same expert in two rounds, with the evidence filled from the log. The orchestrator writes the
+   change, a fresh reviewer that has not read the discussion runs the four checks in
+   [`observer/OBSERVER.md`](observer/OBSERVER.md#3-proposals-to-change-an-expert-file), and a
+   validated change is applied with a version bump and changelog line — one change per expert per
+   session, auditable in `git log`. Cards stay source-based; cross-expert lessons live in the playbook.
+5. **Measure.** `scripts/improve.py report` shows the trend (check errors, weaknesses by severity,
+   knowledge cited) and the recurring tags, so the next round starts knowing what to avoid.
 
 Knowledge is admitted by `knowledge/README.md` rules: one line, one claim, with id, date, confidence,
 and source. Hypotheses live apart from facts and can never be `high` confidence.

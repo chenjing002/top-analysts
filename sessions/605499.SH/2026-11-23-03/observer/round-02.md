@@ -30,5 +30,18 @@ The round reached a result on its opening topic and on the thread it legitimatel
 ## Proposals filed
 - none (no card-specific factual error or misquote; the Buffett SRC fragment was read and matches).
 
+## Log
+```jsonl
+{"kind": "weakness", "severity": "low", "expert": "li-lu", "tag": "like-for-like", "ref": "t4", "note": "home-market region about −3% is not like for like because regions were reclassified; caveated, but a reader may anchor on it"}
+{"kind": "weakness", "severity": "low", "expert": "michael-mauboussin", "tag": "assumption-as-finding", "ref": "t5", "note": "'regress toward the mean' is a base-rate prior from the card, not local evidence; it cannot give the speed of fade"}
+{"kind": "weakness", "severity": "low", "expert": "michael-mauboussin", "tag": "window-conflation", "ref": "t9", "note": "'margin already fading' is a sequential fall from the H1 peak while Q3 is still above Q3 2025; sequential and year-on-year should stay explicit"}
+{"kind": "pattern", "expert": "michael-mauboussin", "tag": "challenge-changed-number", "ref": "t1", "note": "When new data falsifies last round's hypothesis, say so in the opening turn instead of defending the old view."}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "challenge-changed-number", "ref": "t2→t3", "note": "Ask whether a profit rise comes from the business or from something cheaper; it forces the price-versus-cost decomposition a margin story needs."}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "source-passage-applied", "ref": "t6", "note": "Read the source passage in the turn and apply its test to this company (keep or pass through a cost saving), labelling the result plausible, not proven."}
+{"kind": "pattern", "expert": "stephen-penman", "tag": "peak-earnings-normalized", "ref": "t7", "note": "Normalize a cost windfall in the margin before rerunning the reverse curve, so a borrowed cushion becomes a number the price must earn back."}
+{"kind": "pattern", "expert": "li-lu", "tag": "hypothesis-names-verifier", "ref": "t8", "note": "Admit the evidence that cuts against your own case and name the check that would settle it."}
+{"kind": "verify", "candidate": 1, "note": "every figure reproduced in the evidence audit above"}
+```
+
 ## Suggested next question
 What was the 99 亿 raised for, and does the 2026 buyback-and-dividend record show owner-minded allocation? It is the highest-value open question because the growth thesis now hinges on whether management can redeploy the flagship's cash into the thinner-margin portfolio at a decent return — and the company raised 99 亿 while cutting capex, which the panel has not yet explained.

@@ -52,26 +52,40 @@ legitimately led — and is the stated confidence earned?
 | claim | expert | source cited | checked | result |
 (spot-check at least 3 numeric claims against the fact sheet; mark ok / mismatch / unverifiable)
 
-## Proposals filed
-- observer/proposals/<file>.md (or "none")
+## Log
+```jsonl
+{"kind": "weakness", "severity": "high|medium|low", "expert": "<slug>|null", "tag": "<observer/TAGS.md>", "ref": "tN", "note": "..."}
+{"kind": "pattern", "expert": "<slug>|null", "tag": "<tag>", "ref": "tN", "note": "<the rule, written to be reused>"}
+{"kind": "drop", "candidate": N, "note": "why this knowledge candidate is withheld"}
+```
 
 ## Suggested next question
 One sentence, with the reason it is the highest-value open question.
 ```
 
+The `## Log` block is the machine-readable half of the note: `scripts/improve.py ingest` files it
+in `observer/log.jsonl`, where tags accumulate across sessions. One line per weakness and per
+pattern; `expert: null` marks a shared workflow problem. When a tag recurs, the playbook
+(`knowledge/playbook.md`) carries the tag's rule with the observer's note as the example.
+
 ## 3. Proposals to change an expert file
 
 A proposal is the only path by which an expert role file changes. Template: `proposals/_TEMPLATE.md`.
 
-Lifecycle: `proposed → validated → applied` or `→ rejected`.
+Lifecycle: `drafting → proposed → validated → applied` or `→ rejected`.
 
-**proposed** — the Observer files it. Requirements:
+**drafting** — `scripts/improve.py proposals` writes it when the log shows the same weakness tag
+on the same expert in two different rounds (any sessions). The evidence lines are filled from the
+log; the orchestrator writes the Change and Risk, then sets `proposed`. A `correction` for a factual
+error in a card may still be filed by hand at `proposed`.
+
+**proposed** — ready for review. Requirements:
 - `**Target:**` one expert file and one section.
 - `**Evidence:**` for an improvement, at least two statement references (session, round, expert and turn number) showing the weakness or pattern. Legacy references may use an unambiguous phase. Record a single instance in the observer report. For a correction, cite the affected passage and the source locator or reproducible calculation.
 - `**Change:**` the exact text to add, replace or remove. For improvements, mark additions to sections 1–7 `[observer-added, from <session> r<N>]` unless they carry a new source anchor in §8.
 - `**Risk:**` what the change could break (e.g. makes the expert too cautious; duplicates another expert's role).
 
-**validated** — give a fresh reviewer the proposal, the target file, and the cited evidence. The reviewer performs four checks.
+**validated** — give a fresh reviewer (an independent subagent that has not read the discussion) the proposal, the target file, and the cited evidence. The reviewer performs four checks.
 
 1. the cited statements or source evidence show what the proposal claims;
 2. the change does not contradict the expert's source anchors (§8) or scope (§1);
@@ -79,7 +93,7 @@ Lifecycle: `proposed → validated → applied` or `→ rejected`.
 4. `scripts/validate.py` passes with the change applied in a scratch copy.
 The reviewer writes a `## Validation` section with the four checks and a verdict.
 
-**applied** — the orchestrator applies the change, bumps the version (1.0 → 1.1), adds a changelog line referencing the proposal file, and marks the proposal applied. Record the commit hash once the edit is committed.
+**applied** — the orchestrator applies a validated change at once, bumps the version (1.0 → 1.1), adds a changelog line referencing the proposal file, and marks the proposal applied. Record the commit hash once the edit is committed. The user audits after the fact through the proposal file and `git log`.
 
 **rejected** — reason recorded; the proposal stays in the folder as a record.
 
@@ -88,4 +102,5 @@ Apply at most **one change per expert per session**. Only add to §8 source anch
 ## 4. What the Observer does not do
 - Does not express a view on the company.
 - Does not propose new experts. If a recurring gap has no owner, it writes that as a weakness and lets the user decide.
-- Does not write knowledge entries. It flags `knowledge_candidates` it considers unsupported, and the orchestrator drops them.
+- Does not write knowledge entries. It withholds a `knowledge_candidates` entry with a `drop` log line; `scripts/improve.py` writes the rest.
+- Does not file improvement proposals by hand; it tags, and the threshold drafts. It may still file a `correction` for a factual error in a card.

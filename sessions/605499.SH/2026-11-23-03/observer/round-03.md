@@ -30,5 +30,16 @@ The round reached a result on its opening topic and legitimately widened into a 
 ## Proposals filed
 - none (the weaknesses are low-severity spoken-caveat issues, not role-card defects; no individual card traceable pattern meets the two-statement threshold)
 
+## Log
+```jsonl
+{"kind": "weakness", "severity": "low", "expert": "michael-mauboussin", "tag": "assumption-as-finding", "ref": "t7", "note": "'2.6% on cash and more on the trading book' leaves the trading yield (about 7% annualized, partly fair-value marks) unspoken; it could be read as recurring income"}
+{"kind": "weakness", "severity": "low", "expert": "li-lu", "tag": "assumption-as-finding", "ref": "t9", "note": "foreign-currency/H-share inference rests on a single −2.08亿 FX line; labelled a guess and routed to open questions"}
+{"kind": "weakness", "severity": "low", "expert": "warren-buffett", "tag": "dropped-thread", "ref": "t6", "note": "buyback discipline left open without noting the bonus-adjusted 2025 price (205.68) against the current 113.55 as a later anchor"}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "reconciliation-derivation", "ref": "t2", "note": "Resolve a share-count or cash puzzle with a closing bridge of equity and interest movements, not an assertion; a ×1.30 step with no cash is a bonus issue, not dilution."}
+{"kind": "pattern", "expert": "stephen-penman", "tag": "operating-financing-separated", "ref": "t3,t8", "note": "Parked cash is worth about face value and its carry is excluded from core profit; deployment, not the raise, is the swing factor for value."}
+{"kind": "pattern", "expert": "michael-mauboussin", "tag": "reconciliation-derivation", "ref": "t4", "note": "Decompose a falling ROE into operating return and cash drag before calling it franchise decay."}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "disagreement-narrowed", "ref": "t6", "note": "Concede what the record supports and isolate the unexplained sequence as the remaining question."}
+```
+
 ## Suggested next question
 Does Q4 2026 revenue clear 43 亿 and does the year-end dealer prepayment balance build by about 20 亿 — because it is the one dated, locally-testable observation that decides pause versus end, whereas the governance and baton questions both need documents or quarters we do not yet have.

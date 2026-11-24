@@ -48,5 +48,26 @@ The round answers its question in a usable way: the price at 8% needs modest per
 ## Proposals filed
 - none. The Penman cash-split lapse (t6 and t8) is a failure to apply §3.1 of the card, not a flaw in the card. It is a single-round instance, so it stays in this note.
 
+## Log
+```jsonl
+{"kind": "weakness", "severity": "medium", "expert": null, "tag": "required-return-unargued", "ref": "t8,conclusion", "note": "8% is the model default and never argued; the headline 'does not assume growth ends' flips at 10% and with the cash treatment, and the no-growth value (600 at 8%, 480 at 10% vs 834) never reached the chat"}
+{"kind": "weakness", "severity": "medium", "expert": "warren-buffett", "tag": "like-for-like", "ref": "t9", "note": "ex-raise implied growth 1.6% removes 98.85 from price and book but keeps the cash's interest in earnings; like for like gives about 1.9–2.0%"}
+{"kind": "weakness", "severity": "medium", "expert": "stephen-penman", "tag": "card-not-applied", "ref": "t8", "note": "residual earnings charged on reported TTM profit including about 3.7 pretax of fair-value and investment gains; the card's core-vs-unusual split was not done"}
+{"kind": "weakness", "severity": "medium", "expert": "stephen-penman", "tag": "cash-split", "ref": "t6,t8", "note": "equity-basis reverse curve with 99亿 of raised cash inside book value; Buffett did the split for him and Penman never replied"}
+{"kind": "weakness", "severity": "medium", "expert": "stephen-penman", "tag": "cash-split", "ref": "t6", "note": "the +1.7 'operating gain' includes +0.55 of net interest on the raised cash; operating is about +1.1"}
+{"kind": "weakness", "severity": "medium", "expert": "jeff-bezos", "tag": "single-quarter-read", "ref": "t4,t10", "note": "+43% dealer prepayments read against a seasonally low September base while sales were flat; consistent with a loaded channel as well as confidence"}
+{"kind": "weakness", "severity": "medium", "expert": "jeff-bezos", "tag": "selective-evidence", "ref": "t4,t10", "note": "nine-month CFO +13% cited, Q3 alone −25% omitted; the card's FCF-per-share check with 41% more shares was not run"}
+{"kind": "weakness", "severity": "medium", "expert": "warren-buffett", "tag": "narrative-for-arithmetic", "ref": "t3", "note": "'same price sells fewer bottles' inferred from a stable gross margin without product or cost-line data; mix or cost shifts give the same margin"}
+{"kind": "weakness", "severity": "medium", "expert": "stephen-penman", "tag": "assumption-as-finding", "ref": "t8", "note": "gain 'comes from product mix and cost side' and the marketing dispute marked resolved on a hypothesis nobody tested"}
+{"kind": "weakness", "severity": "low", "expert": "warren-buffett", "tag": "window-conflation", "ref": "t7", "note": "'the gain is gross margin' is true for nine months and not for Q3, where selling expense drove the net-margin gain"}
+{"kind": "weakness", "severity": "low", "expert": null, "tag": "multi-idea-turn", "ref": "t1,t2,t6,t7,t8,t9,t10", "note": "three-figure cap broken: t7 about 16 figures, t1 about 11, t6 about 10"}
+{"kind": "weakness", "severity": "low", "expert": "warren-buffett", "tag": "concession-without-referent", "ref": "t7", "note": "answers a claim Li Lu did not make; Penman's base-effect challenge to t2 never got a reply"}
+{"kind": "weakness", "severity": "low", "expert": "stephen-penman", "tag": "scope-mismatch", "ref": "t1", "note": "share count 5.2→7.3 includes a ×1.30 bonus step; read as dilution before the step was identified"}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "challenge-changed-number", "ref": "t7→t8", "note": "Net the gross margin against the selling ratio before calling a cost line a cut: when costs are reclassified the two move in opposite directions and the sum is what changed."}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "cross-expert-cover", "ref": "t9", "note": "Before an equity-basis reverse curve, take excess cash out of price and book and its after-tax interest out of earnings; otherwise raised cash looks like an operating asset earning the hurdle."}
+{"kind": "pattern", "expert": "stephen-penman", "tag": "reconciliation-derivation", "ref": "t6", "note": "Give a profit change as a line-by-line bridge that closes to the reported total, so every line can be checked and the financing lines can be pulled out."}
+{"kind": "pattern", "expert": "li-lu", "tag": "hypothesis-names-verifier", "ref": "t5,t11", "note": "State what would change your mind as a dated, numeric test, and put a cost or balance you cannot explain into open questions instead of guessing its cause."}
+```
+
 ## Suggested next question
 Does the 99 亿 raised show up as business use (capex, acquisitions, dividends) or as idle cash, and what do core earnings and equity look like with excess cash stripped out of book value? This settles whether the price needs about 1.6%, 2% or 3%, which decides whether the answer is "no growth priced" or "modest growth priced", and Q4 revenue and the year-end prepayment build against the seasonal pattern follow after it.

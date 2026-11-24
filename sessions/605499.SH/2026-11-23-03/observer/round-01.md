@@ -29,3 +29,17 @@ The round answers its question usably. It opens on the decade, separates core pr
 
 ## Proposals filed
 None.
+
+## Log
+```jsonl
+{"kind": "weakness", "severity": "medium", "expert": null, "tag": "required-return-unargued", "ref": "t5,t7,conclusion", "note": "the 8–10% hurdle is stated as an assumption and never argued although the whole implied-growth range depends on it"}
+{"kind": "weakness", "severity": "medium", "expert": "michael-mauboussin", "tag": "single-quarter-read", "ref": "t10", "note": "capex down 16% in a quarter read as a management signal; quarterly capex is lumpy and the 99亿 raise may change plans for other reasons"}
+{"kind": "weakness", "severity": "low", "expert": null, "tag": "selective-evidence", "ref": "t7", "note": "prepayments treated as debt is one of two cases; no middle case was run"}
+{"kind": "weakness", "severity": "low", "expert": null, "tag": "scope-mismatch", "ref": "t4,t5", "note": "net cash leaves out about 18亿 of financial assets due within a year, so spare cash may be understated"}
+{"kind": "weakness", "severity": "low", "expert": null, "tag": "source-not-opened", "ref": "all", "note": "no source-files passage was opened; one model played four roles"}
+{"kind": "pattern", "expert": "stephen-penman", "tag": "operating-financing-separated", "ref": "t4,t5", "note": "Clean the earnings and split the cash before the valuation turn: core profit and net cash first, then the reverse curve on the operating business."}
+{"kind": "pattern", "expert": "stephen-penman", "tag": "challenge-changed-number", "ref": "t6→t7", "note": "When a colleague rejects your cash treatment, rerun the valuation under their case in the next turn and show both numbers; the disagreement becomes a range, not a standoff."}
+{"kind": "pattern", "expert": "michael-mauboussin", "tag": "hypothesis-names-verifier", "ref": "t12,t13", "note": "Turn pause-versus-end into a dated test built from the seasonal pattern (Q4/Q3 ratio, year-end prepayment build), not a fixed level."}
+{"kind": "verify", "candidate": 2, "note": "every figure reproduced in the evidence audit above"}
+```
+

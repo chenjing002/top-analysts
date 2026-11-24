@@ -125,6 +125,27 @@ role-card defect; AGENTS.md already requires unit discipline. Penman's window co
 Greenblatt's skipped EBIT rebuild are single instances — recorded here per protocol; a proposal
 needs a second instance or a factual error in a card, and neither card is wrong.
 
+## Log
+```jsonl
+{"kind": "weakness", "severity": "high", "expert": null, "tag": "units", "ref": "t1-t14", "note": "every spoken amount said 'billion' for 亿 (a 10× mislabel) in all five speakers' turns; evidence and conclusion were in 亿"}
+{"kind": "weakness", "severity": "low", "expert": "stephen-penman", "tag": "window-conflation", "ref": "t2", "note": "'about half' conflates the full decade (~49% margin) with 2021–25 (~84% turnover) and the bleed-back size is unknown"}
+{"kind": "weakness", "severity": "low", "expert": "stephen-penman", "tag": "confidence-inflation", "ref": "t2", "note": "high confidence on a clause whose window and bleed-back size were not established; should be medium"}
+{"kind": "weakness", "severity": "low", "expert": "joel-greenblatt", "tag": "ebit-proxy", "ref": "t3,t8", "note": "营业利润 used as EBIT without the card's core-EBIT rebuild; gap small here (88.9 vs 86.5) but the definitional step was skipped"}
+{"kind": "weakness", "severity": "low", "expert": null, "tag": "challenge-unrecorded", "ref": "t7,t10", "note": "two challenges in text (EV double-count, spike rolling over) absent from challenges[]"}
+{"kind": "weakness", "severity": "low", "expert": null, "tag": "multi-idea-turn", "ref": "t5,t7", "note": "Penman t7 and Bezos t5 each carry three or more ideas"}
+{"kind": "weakness", "severity": "low", "expert": "li-lu", "tag": "selective-evidence", "ref": "t9", "note": "'dividends up from nothing' ignored the 2017 dividend of 1.82亿; the zero stretch is 2018–2020"}
+{"kind": "weakness", "severity": "low", "expert": null, "tag": "knowledge-overreach", "ref": "candidate 3", "note": "a fact candidate embedded the panel's inference that the market prices spread normalization"}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "scorecard-first", "ref": "t1", "note": "Split the decade where the capital story changes (build-out vs harvest) and deliver the great/good/gruesome verdict off both halves before the news."}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "challenge-changed-number", "ref": "t1→t2", "note": "Ask how much of a high operating return is a shrinking, written-down base; if half, underwrite normalized profit, not the reported return."}
+{"kind": "pattern", "expert": "jeff-bezos", "tag": "disagreement-narrowed", "ref": "t5,t6", "note": "When FCF and owner earnings disagree, agree the cash is real, record which one the conclusion carries, and name the note (maintenance capex) that settles the gap."}
+{"kind": "pattern", "expert": "joel-greenblatt", "tag": "peak-earnings-normalized", "ref": "t3,t8", "note": "Refuse the trailing EBIT/EV of a cyclical; bracket a normal-year band and test that the low end clears the hurdle after tax."}
+{"kind": "pattern", "expert": "li-lu", "tag": "hypothesis-names-verifier", "ref": "t4,t9,t13", "note": "Label background knowledge as a hypothesis, name the document that would verify it, and decline a strong view until it is seen."}
+{"kind": "pattern", "expert": null, "tag": "point-to-point-honesty", "ref": "workpaper §G", "note": "A price move between two closes is two points, not a path, when the daily series is not in the data."}
+{"kind": "verify", "candidate": 1, "note": "every figure reproduced in the evidence audit above"}
+{"kind": "verify", "candidate": 2, "note": "every figure reproduced in the evidence audit above"}
+{"kind": "verify", "candidate": 3, "note": "every figure reproduced in the evidence audit above"}
+```
+
 ## Suggested next question
 "What do AR2025's 关联方及关联交易 note and the 实际控制人 chain say about alumina purchase pricing
 and the intended use of the 231.8亿 cash hoard?" — it is the highest-weighted unresolved fact that

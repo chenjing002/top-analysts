@@ -18,11 +18,11 @@ with access to the files.
 |---|---|
 | [`experts/`](experts/) | Eight source-based role cards. See the [expert directory](README.md#the-experts) and [role template](experts/_TEMPLATE.md). |
 | [`Thinkers/`](Thinkers/README.md) | Reasoning methods to consult when analysis stalls. |
-| [`knowledge/`](knowledge/README.md) | Shared facts, methods, and hypotheses with provenance. |
-| [`observer/`](observer/OBSERVER.md) | Review protocol and versioned proposals for changes to role cards. |
+| [`knowledge/`](knowledge/README.md) | Shared facts, methods, hypotheses and the panel [playbook](knowledge/playbook.md), with provenance. |
+| [`observer/`](observer/OBSERVER.md) | Review protocol, [tag vocabulary](observer/TAGS.md), the cross-session log and metrics, and versioned proposals for changes to role cards. |
 | [`data/`](data/DATA_DICTIONARY.md) | Fact-sheet generator and S1/S2 definitions. |
 | [`sessions/`](sessions/SCHEMA.md) | Session and round schema. `sessions/index.json` feeds the site. |
-| `site/`, `scripts/` | Static viewer, renderer, index builder, validator, and publishing script. |
+| `site/`, `scripts/` | Static viewer, renderer, index builder, validator, and publishing script. `scripts/calc.py` holds the shared formulas, `scripts/check_round.py` the round gate, `scripts/improve.py` the improvement loop. |
 | `source-files/` | Expert source material. Treat it as read-only. |
 
 ## Shared rules
@@ -62,5 +62,11 @@ with access to the files.
   For valuation, use the reverse curve (implied growth across required returns) and justify the inputs.
 - Use the [proposal process](observer/OBSERVER.md#3-proposals-to-change-an-expert-file) for changes
   to expert role cards. Keep the scope of changes tied to the research or maintenance request.
+- Every computed figure comes from a named function in `scripts/calc.py` (or states its formula and
+  inputs in the evidence item), so the same formula is used in the chat, the workpaper and the
+  checker. `skills/analyze/CHECKLIST.md` lists the rules `scripts/check_round.py` enforces.
+- The system improves itself one round at a time: the Observer tags what it finds, the ingest step
+  files it in `observer/log.jsonl`, and recurrence drafts card proposals or playbook entries. Do not
+  skip the ingest; a round without it leaves no memory.
 - Run `python3 scripts/validate.py` after changing structured project files. Publish only when
   authorized for the session. `scripts/sync.sh` stages the entire working tree and pushes `main`.

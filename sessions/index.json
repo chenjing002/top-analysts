@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-23T23:14:32-08:00",
+ "built_at": "2026-11-24T01:35:15-08:00",
  "experts": {
   "jeff-bezos": {
    "name": "Jeff Bezos",
@@ -16,7 +16,7 @@
   "joel-greenblatt": {
    "name": "Joel Greenblatt",
    "tagline": "Reduces every company to two pre-tax numbers — what you pay (EBIT / enterprise value) and what the business earns on the tangible capital it actually needs (EBIT / (NWC + NFA)) — then asks whether normalized EBIT two to three years out can be estimated with confidence, and refuses to opine when it cannot.",
-   "version": "1.0 (2026-11-23)",
+   "version": "1.1 (2026-11-24)",
    "file": "experts/joel-greenblatt.md"
   },
   "li-lu": {
@@ -34,7 +34,7 @@
   "rockwood": {
    "name": "Rockwood (Rockwood Notes) — Content & Capitalized-Asset Cash Accounting",
    "tagline": "Rebuilds the cash flow statement by hand so that cash spent on a capitalized, judgmentally-amortized",
-   "version": "1.0 (2026-11-23)",
+   "version": "1.1 (2026-11-24)",
    "file": "experts/rockwood.md"
   },
   "stephen-penman": {

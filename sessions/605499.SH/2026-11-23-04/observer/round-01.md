@@ -40,5 +40,18 @@ The round did what the revised workflow asks. It judged the business before the 
 ## Proposals filed
 - none (the weaknesses are labelled-assumption issues, not role-card defects; the Buffett v1.1 See's test worked as written)
 
+## Log
+```jsonl
+{"kind": "weakness", "severity": "medium", "expert": "li-lu", "tag": "assumption-as-finding", "ref": "t7", "note": "the floor rests on plants at 50% and all dealer prepayments deducted; both stated, but '16%' can be quoted as a fact"}
+{"kind": "weakness", "severity": "medium", "expert": "warren-buffett", "tag": "assumption-as-finding", "ref": "t4", "note": "upkeep capex of 5 to 7亿 is an estimate from depreciation, not a reported figure; the annual-report capex note would close it"}
+{"kind": "weakness", "severity": "low", "expert": "michael-mauboussin", "tag": "like-for-like", "ref": "t8", "note": "implied growth treats TTM operating profit and FCF as fully distributable although FCF is flattered by the dealer float; the workpaper says so, the turn does not"}
+{"kind": "weakness", "severity": "low", "expert": "li-lu", "tag": "unsourced-number", "ref": "t10", "note": "the ×1.30 bonus adjustment to the issue price comes from another session's data, not this session's evidence"}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "scorecard-first", "ref": "t1", "note": "Open round one with the business verdict off the full record (great/good/gruesome and the one scorecard line that surprised you) before any recent event."}
+{"kind": "pattern", "expert": "warren-buffett", "tag": "source-passage-applied", "ref": "t1", "note": "Read the See's passage in the turn and compare its capital-need pattern to this company's sales-versus-NOA record."}
+{"kind": "pattern", "expert": "michael-mauboussin", "tag": "reconciliation-derivation", "ref": "t5", "note": "Tie a three-factor ROE decomposition to the published ROE every year before reading the drivers."}
+{"kind": "pattern", "expert": "li-lu", "tag": "reconciliation-derivation", "ref": "t3", "note": "Measure how much of cumulative operating cash is customer float before calling FCF conversion good."}
+{"kind": "verify", "candidate": 1, "note": "every figure reproduced in the evidence audit above"}
+```
+
 ## Suggested next question
 Does the year-end 2026 dealer prepayment balance build by about 20 亿 and does Q4 sales clear 43 亿? It is the one dated, locally testable observation that separates a pause from an end, and it decides whether the float caveat turns great into good.

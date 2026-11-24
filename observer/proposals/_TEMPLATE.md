@@ -1,7 +1,8 @@
 # Proposal: <short title>
 
-**Status:** proposed
+**Status:** drafting | proposed
 **Kind:** improvement | correction
+**Tag:** <expert-slug>/<tag from observer/TAGS.md> (improvements drafted from the log)
 **Filed:** YYYY-MM-DD by <reviewer or Observer; session/round if applicable>
 **Target:** experts/<slug>.md → §<n> <section name>
 **Evidence:**

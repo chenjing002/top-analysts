@@ -9,7 +9,7 @@
 Notes, 23 Oct 2025, rockwoodnotes.com, with 8 images in `images/media-accounting/`);
 `source-files/Rockwood/IR-Content-Accounting-Slides-May-2025.pdf` (Netflix Investor Relations,
 "Overview of Content Accounting", May 2025, 28 slides — the management-side deck the article cites).
-**Version:** 1.0 (2026-11-23) · **Changelog:** see bottom.
+**Version:** 1.1 (2026-11-24) · **Changelog:** see bottom.
 
 **Who this actually is.** "Rockwood" is the pseudonymous author of *Rockwood Notes*, a public
 research journal by an individual investor who "sell[s] access to historical research" and is "not a
@@ -72,13 +72,14 @@ or demand; the role is to make the cash reality legible, then hand off.
 
 ### 3.3 Restate the cash flow statement
 
-```
-Adjusted OCF        = Reported OCF  −  (content/asset spend lines sitting in operating)
-                      [Netflix: − (Additions to content assets + Change in content liabilities)]
-                      [Disney FY24: 13,971 + 23,435 = 37,406 ≈ "$37.4B adjusted"]
-Content capex       = cash spend on content, moved to investing
-Adjusted FCF        = Adjusted OCF − PP&E capex − Content capex  (= reported FCF; the total is
-                      unchanged — only the location and the picture of capital intensity change)
+```text
+Reclassified spend = magnitude of the cash outflow included in reported OCF
+                     Netflix: negate the sum of the two signed content cash-flow lines
+                     Disney FY24: use the footnote spend of 23,435 million dollars
+Adjusted OCF       = Reported OCF + Reclassified spend
+Content capex      = Reclassified spend, shown as a positive outflow
+Adjusted FCF       = Adjusted OCF − PP&E capex − Content capex
+                     PP&E capex is a positive outflow separate from content capex.
 ```
 
 Rockwood's Netflix result, cumulative 2011–2024: EBITDA $148B; adjusted OCF $142B vs as-reported
@@ -311,3 +312,4 @@ Article = `media-accounting.md`; images = `images/media-accounting/`; Deck = `IR
 ## 9. Changelog
 
 - 1.0 (2026-11-23): initial distillation from the Rockwood Notes "Media Accounting" article and the Netflix IR content-accounting deck it cites; A-share/CAS application notes added as a flagged extension.
+- 1.1 (2026-11-24): §3.3 cash-flow bridge rewritten with explicit signs (reclassified content spend as a positive magnitude) so the Netflix 10 + 132 = 142 and Disney 13,971 + 23,435 = 37,406 figures reproduce. Correction, independently validated. Proposal: `observer/proposals/2026-11-23-rockwood-cash-signs.md`.
