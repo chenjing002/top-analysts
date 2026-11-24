@@ -1,82 +1,56 @@
 #!/usr/bin/env python
 """
-fetch.py — pull one A-share company's financial data from the two primary sources,
-cross-check them, and write a fact sheet for the expert panel.
+fetch.py — read one A-share company's financial data from the two local JSON sources,
+cross-check them, and write a fact sheet for the expert panel. No network, no database
+needed for the default run.
 
-Sources
-  1. AshareValueLine (static GitHub Pages site, JSONP files, amounts in 亿元)
-     https://chenjing002.github.io/AshareValueLine/
-  2. bme.duckdb (Tushare raw statements + Penman reformulation, amounts in yuan)
-     /Users/lin/Desktop/business-model-explorer/data/bme.duckdb
+Sources (both are static agent-friendly JSON APIs, read from their local build folders)
+  S1  AshareValueLine   /Users/lin/Desktop/AshareValueLine/_site/api/v1/a_share/companies/<ts_code>.json
+      (published at https://chenjing002.github.io/AshareValueLine/api/v1/ ; yuan, shares)
+  S2  business-model-explorer   /Users/lin/Desktop/business-model-explorer/build/pages/
+      business-model-explorer[-data]/api/v1/companies/<ts_code>.json   (SZ companies live in the
+      `-data` site; published at https://chenjing002.github.io/business-model-explorer/ ; yuan)
+  Optional S2 supplement (--duckdb): bme.duckdb for what the JSON lacks — quarterly 归母净利润 /
+  CFO / capex / OI, the required-return reverse curve, raw_daily_basic.
 
 Usage
-  python data/fetch.py 600519            # bare code, resolved to 600519.SH
-  python data/fetch.py 600519.SH --out sessions/600519.SH/2026-11-23-01/data
-  python data/fetch.py 贵州茅台           # Chinese name also works (via duckdb raw_stock_basic)
+  python3 data/fetch.py 600519            # bare code, resolved to 600519.SH
+  python3 data/fetch.py 600519.SH --out sessions/600519.SH/2026-11-23-01/data
+  python3 data/fetch.py 贵州茅台           # Chinese name, resolved from the BME company index
+  /Users/lin/Desktop/business-model-explorer/.venv/bin/python data/fetch.py 600519 --duckdb
 
-Run with the interpreter that has duckdb>=2.0:
-  /Users/lin/Desktop/business-model-explorer/.venv/bin/python data/fetch.py 600519
+Override locations with BME_PAGES_ROOT / AVL_API_ROOT (or --bme-root / --avl-root).
 
 Outputs (in --out, default data/cache/<ts_code>/)
   factsheet.md    human-readable sheet the experts read; every number labelled with its source
   factsheet.json  the same data, machine-readable, with provenance per block
-  avl_raw.json    raw AshareValueLine stock payload (for traceability)
+  avl_raw.json    S1 JSON as read (yuan), for traceability
+  bme_raw.json    S2 JSON as read (yuan), for traceability
 
 Design rules
   - Never silently merge the two sources. Each table says where it came from.
-  - Cross-check block flags any |diff| > 1% between sources on the same concept and
-    explains known definitional differences (e.g. duckdb ratios use 营业总收入).
-    Covers annual concepts and the latest single-quarter 营业收入.
-  - The sheet carries the latest 8 quarterly filings (YTD + de-cumulated single quarter)
-    and an S2 coverage line (latest filed period per table).
-  - AshareValueLine: reuse the cached payload when the published version is unchanged;
-    on network failure fall back to the cached copy and state its as-of date.
+  - Cross-check flags any |diff| > 1% between sources on the same annual concept and explains
+    known definitional differences. S1 amounts are rounded to 0.01 亿元 upstream.
+  - The local JSON folders are build products: the sheet states each source's version / export
+    time so a stale copy is visible. Missing values stay missing (never zero).
   - Nothing here is a conclusion. The sheet is evidence; experts reason.
 """
 from __future__ import annotations
 
 import argparse
-import gzip
 import json
 import os
 import re
 import sys
-import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
 DUCKDB_PATH = "/Users/lin/Desktop/business-model-explorer/data/bme.duckdb"
-AVL_BASE = "https://chenjing002.github.io/AshareValueLine/"
+BME_PAGES_ROOT = os.environ.get("BME_PAGES_ROOT", "/Users/lin/Desktop/business-model-explorer/build/pages")
+AVL_API_ROOT = os.environ.get("AVL_API_ROOT", "/Users/lin/Desktop/AshareValueLine/_site/api/v1/a_share")
 YI = 1e8  # 1 亿元 = 100,000,000 元
 
 # --------------------------------------------------------------------------- helpers
-
-
-def _get(url: str, timeout: int = 15, attempts: int = 2) -> str:
-    # Short timeout + one retry: GitHub Pages latency is bimodal (≈1 s or tens of s).
-    last = None
-    for _ in range(attempts):
-        try:
-            req = urllib.request.Request(
-                url, headers={"User-Agent": "top-analysts/0.2", "Accept-Encoding": "gzip"}
-            )
-            with urllib.request.urlopen(req, timeout=timeout) as r:
-                data = r.read()
-                if r.headers.get("Content-Encoding") == "gzip":
-                    data = gzip.decompress(data)
-                return data.decode("utf-8")
-        except Exception as e:
-            last = e
-    raise last
-
-
-def _jsonp(text: str) -> dict:
-    """Strip `window.X = {...};` or `window.X({...});` wrappers."""
-    i = text.find("{")
-    j = text.rfind("}")
-    if i < 0 or j < 0:
-        raise ValueError("no JSON object found in JSONP payload")
-    return json.loads(text[i : j + 1])
 
 
 def _r(x, nd=2):
@@ -96,20 +70,254 @@ def _pct_diff(a, b):
     return (a - b) / abs(b)
 
 
-# --------------------------------------------------------------------------- AshareValueLine
+def _yi(x):
+    return None if x is None else x / YI
 
 
-def avl_latest_version() -> dict:
-    v = _jsonp(_get(AVL_BASE + "data/versions.js"))
-    return v["a_share"][0]
+def _load(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
-def avl_stock(ts_code: str, version: str) -> dict:
-    url = f"{AVL_BASE}data/versions/a_share/{version}/stocks/{ts_code}.js"
-    return _jsonp(_get(url)), url
+# --------------------------------------------------------------------------- company lookup
 
 
-# --------------------------------------------------------------------------- duckdb
+def bme_site_dirs(root: Path) -> list[Path]:
+    return [root / "business-model-explorer", root / "business-model-explorer-data"]
+
+
+def bme_index(root: Path) -> list[dict]:
+    p = root / "business-model-explorer" / "api" / "v1" / "companies.json"
+    if not p.exists():
+        sys.exit(f"BME company index not found: {p}\nBuild it with `.venv/bin/python -m pipeline.cli pages` in business-model-explorer.")
+    return _load(p)["companies"]
+
+
+def resolve_code(index: list[dict], query: str) -> dict:
+    """Return the BME index row for a code / 6-digit symbol / Chinese name."""
+    q = query.strip().upper()
+    if re.fullmatch(r"\d{6}\.(SH|SZ|BJ)", q):
+        rows = [c for c in index if c["ts_code"] == q]
+    elif re.fullmatch(r"\d{6}", q):
+        rows = [c for c in index if c["ts_code"].startswith(q + ".")]
+    else:
+        rows = [c for c in index if query.strip() in c["name"]]
+        exact = [c for c in rows if c["name"] == query.strip()]
+        if len(rows) > 1 and len(exact) == 1:
+            rows = exact
+        if len(rows) > 1:
+            sys.exit("ambiguous name, candidates: " + ", ".join(f"{c['ts_code']} {c['name']}" for c in rows[:10]))
+    if not rows:
+        sys.exit(f"company not found in the BME company index: {query}")
+    return rows[0]
+
+
+def bme_company_path(root: Path, ts_code: str) -> Path:
+    for d in bme_site_dirs(root):
+        p = d / "api" / "v1" / "companies" / f"{ts_code}.json"
+        if p.exists():
+            return p
+    return bme_site_dirs(root)[1 if ts_code.endswith(".SZ") else 0] / "api" / "v1" / "companies" / f"{ts_code}.json"
+
+
+# --------------------------------------------------------------------------- S1 (AshareValueLine)
+
+
+def avl_to_yi(a: dict) -> dict:
+    """Return a copy of the S1 payload with yuan/shares converted to 亿元/亿股, so the sheet and the
+    cross-check keep the units the experts already read. Percent, days and multiples are unchanged."""
+    out = json.loads(json.dumps(a))
+    fields = a.get("annual_fields", {})
+    for k, series in out.get("annual", {}).items():
+        if fields.get(k, {}).get("unit") in ("CNY_yuan", "shares"):
+            out["annual"][k] = {y: _yi(v) for y, v in series.items()}
+    q = out.get("quote") or {}
+    if q:
+        q["total_mv_yi"] = _yi(q.get("total_mv"))
+        q["total_share_yi"] = _yi(q.get("total_share"))
+    qr = out.get("quarterly_revenue") or {}
+    for y, d in qr.get("data", {}).items():
+        qr["data"][y] = {k: _yi(v) for k, v in d.items()}
+    for p, d in (out.get("period_trend") or {}).items():
+        out["period_trend"][p] = {k: _yi(v) for k, v in d.items()}
+    for p, d in (out.get("main_business") or {}).get("P", {}).items():
+        d["total"] = _yi(d.get("total"))
+        d["items"] = [[i[0], _yi(i[1]), _yi(i[2])] for i in d.get("items", [])]
+    ev = out.get("ev_items")
+    if ev:
+        out["ev_items"] = {k: (v if k == "报告期" else _yi(v)) for k, v in ev.items()}
+    bs = out.get("balance_sheet") or {}
+    for k, series in bs.get("data", {}).items():
+        bs["data"][k] = {y: _yi(v) for y, v in series.items()}
+    return out
+
+
+# --------------------------------------------------------------------------- S2 (BME JSON)
+
+
+class Bme:
+    def __init__(self, h: dict):
+        self.h = h
+        self.years = h["years"]  # ascending 'YYYYMMDD'
+        self.m = h["metrics"]
+
+    def v(self, key: str, year: str):
+        met = self.m.get(key)
+        if not met:
+            return None
+        try:
+            return met["values"][self.years.index(year)]
+        except (ValueError, IndexError):
+            return None
+
+    def why(self, key: str, year: str):
+        met = self.m.get(key) or {}
+        return (met.get("missing_reasons") or {}).get(year)
+
+    def flags(self, key: str, year: str):
+        r = self.why(key, year)
+        return r if r else ""
+
+
+def _sum(*xs):
+    xs = [x for x in xs if x is not None]
+    return sum(xs) if xs else None
+
+
+def _ratio(a, b):
+    return None if a is None or not b else a / b
+
+
+def bme_blocks(h: dict, years: int = 10) -> dict:
+    B = Bme(h)
+    ys = sorted(B.years, reverse=True)
+    if years > 0:
+        ys = ys[:years]
+    yi = lambda k, y: _yi(B.v(k, y))  # noqa: E731
+    b: dict = {}
+    b["raw_annual"] = [
+        {
+            "end_date": y,
+            "revenue_yi": yi("raw:revenue", y), "total_revenue_yi": yi("raw:total_revenue", y),
+            "operate_profit_yi": yi("raw:operating_profit_reported", y), "total_profit_yi": yi("raw:pretax_profit", y),
+            "ni_parent_yi": yi("raw:net_income_parent", y), "ni_total_yi": yi("raw:net_income_total", y),
+            "total_assets_yi": yi("raw:total_assets", y), "total_liab_yi": yi("raw:total_liabilities", y),
+            "money_cap_yi": yi("raw:cash_and_equivalents", y), "inventories_yi": yi("raw:inventory", y),
+            "parent_equity_yi": yi("raw:parent_equity", y), "total_share_yi": yi("shares", y),
+            "cfo_yi": yi("raw:cfo", y), "capex_paid_yi": yi("raw:capex_paid", y), "fcf_simple_yi": yi("fcf_simple", y),
+        }
+        for y in ys
+    ]
+    ratio_cols = ["rnoa", "opm", "opm_core", "ato", "ollev", "flev", "nbc", "spread", "gross_margin", "roce_parent"]
+    b["ratios"] = []
+    for y in ys:
+        rev = B.v("raw:total_revenue", y)
+        b["ratios"].append({
+            "end_date": y, "revenue_yi": _yi(rev), "oi_after_tax_yi": yi("oi_after_tax", y),
+            "noa_yi": yi("noa_capital", y), "nfo_yi": yi("nfo_capital", y), "cse_yi": yi("te_capital", y),
+            **{c: B.v(c, y) for c in ratio_cols}, "rotce": B.v("rotce_direct", y),
+            "receivables_to_sales": _ratio(B.v("raw:receivables_combined", y), rev),
+            "inventory_to_sales": _ratio(B.v("raw:inventory", y), rev),
+            "ppe_to_sales": _ratio(B.v("raw:ppe", y), rev),
+            "intangibles_to_sales": _ratio(B.v("raw:intangible_assets", y), rev),
+            "customer_advances_to_sales": _ratio(_sum(B.v("raw:contract_liabilities", y), B.v("raw:advances_from_customers", y)), rev),
+            "op_payables_to_sales": _ratio(B.v("raw:payables_combined", y), rev),
+            "ratio_flags": B.flags("rnoa", y),
+        })
+    b["reformulated_is"] = [
+        {
+            "end_date": y, "revenue_yi": yi("raw:revenue", y), "oi_core_pretax_yi": yi("oi_core_pretax", y),
+            "unusual_pretax_yi": yi("unusual_pretax", y), "oi_pretax_yi": yi("oi_pretax", y),
+            "nfe_pretax_yi": yi("nfe_pretax", y), "tax_reported_yi": yi("raw:income_tax_expense", y),
+            "tax_rate_assumed": B.v("tax_rate_assumed", y), "oi_after_tax_yi": yi("oi_after_tax", y),
+            "oi_core_after_tax_yi": yi("oi_core_after_tax", y), "nfe_after_tax_yi": yi("nfe_after_tax", y),
+            "ni_parent_yi": yi("raw:net_income_parent", y), "minority_income_yi": yi("raw:minority_income", y),
+            "ci_total_yi": yi("raw:total_comprehensive_income", y),
+        }
+        for y in ys
+    ]
+    b["reformulated_bs"] = [
+        {
+            "end_date": y, "oa_yi": yi("oa", y), "ol_yi": yi("ol", y), "noa_yi": yi("noa", y), "fa_yi": yi("fa", y),
+            "fo_yi": yi("fo", y), "nfo_yi": yi("nfo", y), "mi_yi": yi("minority_interests", y), "cse_yi": yi("cse_calc", y),
+            "total_assets_yi": yi("raw:total_assets", y), "parent_equity_yi": yi("raw:parent_equity", y),
+        }
+        for y in ys
+    ]
+    b["cash"] = [
+        {
+            "end_date": y, "ni_total_yi": yi("raw:net_income_total", y), "cfo_yi": yi("raw:cfo", y),
+            "capex_paid_yi": yi("raw:capex_paid", y), "disposals_yi": yi("raw:cash_from_asset_disposals", y),
+            "fcf_simple_yi": yi("fcf_simple", y), "cash_conversion": B.v("cash_conversion", y),
+            "cf_flags": B.flags("cash_conversion", y),
+        }
+        for y in ys
+    ]
+    prev = {B.years[i]: (B.years[i - 1] if i else None) for i in range(len(B.years))}
+    b["capital"] = [
+        {
+            "end_date": y, "noa_begin_yi": _yi(B.v("noa", prev[y])) if prev[y] else None, "noa_end_yi": yi("noa", y),
+            "delta_noa_yi": yi("delta_noa", y), "revenue_growth": B.v("revenue_growth", y), "noa_growth": B.v("noa_growth", y),
+            "reinvestment_rate": B.v("reinvestment_rate", y), "capex_paid_yi": yi("raw:capex_paid", y),
+            "da_yi": yi("da_total", y), "capex_to_da": B.v("capex_to_da", y), "fcf_from_oi_yi": yi("fcf_from_oi", y),
+            "cap_flags": B.flags("reinvestment_rate", y),
+        }
+        for y in ys
+    ]
+    b["working_capital"] = [
+        {"end_date": y, **{c: B.v(c, y) for c in ["dso", "dio", "dpo", "ccc", "advance_days", "ccc_net_advances", "owc_pct_sales", "incr_owc_per_incr_revenue"]},
+         "wc_flags": B.flags("ccc", y)}
+        for y in ys
+    ]
+    b["residual_income"] = [
+        {
+            "end_date": y, **{c: B.v(c, y) for c in ["r_op_assumed", "r_e_assumed", "pm", "pm_core", "rnoa_open", "ato_open", "spread_op", "roce_open"]},
+            "reoi_yi": yi("reoi", y), "reoi_core_yi": yi("reoi_core", y), "re_common_yi": yi("re_common", y),
+            "delta_reoi_yi": yi("delta_reoi", y), "ri_flags": B.flags("reoi", y),
+        }
+        for y in ys
+    ]
+    b["valuation"] = [
+        {
+            "end_date": y, "price": B.v("price", y), "shares_yi": yi("shares", y), "market_cap_yi": yi("market_cap", y),
+            "market_ev_yi": yi("market_ev", y), **{c: B.v(c, y) for c in ["r_op_assumed", "r_e_assumed", "g_assumed"]},
+            "v_equity_reoi_flat_yi": yi("v_equity_reoi_flat", y), "v_equity_reoi_g_yi": yi("v_equity_reoi_g", y),
+            "v_per_share": B.v("v_per_share", y), "v_to_p": B.v("v_to_p", y), "trailing_pe": B.v("trailing_pe", y),
+            "forward_pe_market": B.v("forward_pe_market", y), "normal_pe": B.v("normal_pe", y),
+            "implied_g_reoi": B.v("implied_g_reoi", y), "implied_g_fcf": B.v("implied_g_fcf", y),
+            "implied_r_op": B.v("implied_r_op", y),
+        }
+        for y in ys[:3]
+    ]
+    b["coverage"] = []
+    b["reverse_curve"] = []
+    b["market_latest"] = []
+    b["latest_quarters"] = []
+    return b
+
+
+def bme_peers(root: Path, index: list[dict], me: dict, year: str, limit: int = 12) -> list[dict]:
+    """Same Tushare industry, same fiscal year, from the local per-company JSON (average basis)."""
+    rows = []
+    for c in index:
+        if c.get("industry") != me.get("industry") or not c.get("available") or year[:4] not in [y[:4] for y in c.get("years", [])]:
+            continue
+        p = bme_company_path(root, c["ts_code"])
+        if not p.exists():
+            continue
+        B = Bme(_load(p))
+        if year not in B.years:
+            continue
+        rows.append({
+            "ts_code": c["ts_code"], "name": c["name"], "end_date": year,
+            "revenue_yi": _yi(B.v("raw:total_revenue", year)), "rnoa": B.v("rnoa", year), "opm": B.v("opm", year),
+            "ato": B.v("ato", year), "flev": B.v("flev", year), "gross_margin": B.v("gross_margin", year),
+            "market_cap_yi": _yi(B.v("market_cap", year)),
+        })
+    rows.sort(key=lambda r: -(r["revenue_yi"] or 0))
+    return rows[:limit]
+
+
+# --------------------------------------------------------------------------- optional DuckDB supplement
 
 
 def open_db():
@@ -118,39 +326,11 @@ def open_db():
     except ImportError:
         sys.exit(
             "duckdb python module not found. Run with "
-            "/Users/lin/Desktop/business-model-explorer/.venv/bin/python"
+            "/Users/lin/Desktop/business-model-explorer/.venv/bin/python or drop --duckdb"
         )
     import duckdb
 
     return duckdb.connect(DUCKDB_PATH, read_only=True)
-
-
-def resolve_code(con, query: str) -> tuple[str, str, str]:
-    """Return (ts_code, name, industry) for a code / 6-digit symbol / Chinese name."""
-    q = query.strip().upper()
-    if re.fullmatch(r"\d{6}\.(SH|SZ|BJ)", q):
-        row = con.execute(
-            "select ts_code,name,industry from raw_stock_basic where ts_code=?", [q]
-        ).fetchone()
-    elif re.fullmatch(r"\d{6}", q):
-        row = con.execute(
-            "select ts_code,name,industry from raw_stock_basic where symbol=?", [q]
-        ).fetchone()
-    else:
-        rows = con.execute(
-            "select ts_code,name,industry from raw_stock_basic where name like ? order by ts_code",
-            [f"%{query.strip()}%"],
-        ).fetchall()
-        if len(rows) > 1:
-            exact = [r for r in rows if r[1] == query.strip()]
-            if len(exact) == 1:
-                rows = exact
-            else:
-                sys.exit("ambiguous name, candidates: " + ", ".join(f"{r[0]} {r[1]}" for r in rows[:10]))
-        row = rows[0] if rows else None
-    if not row:
-        sys.exit(f"company not found in duckdb raw_stock_basic: {query}")
-    return row
 
 
 def df_rows(con, sql, params=()):
@@ -159,41 +339,10 @@ def df_rows(con, sql, params=()):
     return [dict(zip(cols, r)) for r in cur.fetchall()]
 
 
-def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
+def duck_extras(con, ts_code: str) -> dict:
+    """What the S2 JSON does not carry: quarterly filings, reverse curve, daily_basic, coverage."""
     b: dict = {}
-    lim = f"limit {years}" if years > 0 else ""  # 0 = full history (FY2008 onward)
-    # Dedupe rule from bme module-02: update_flag desc, f_ann_date desc, fetch time desc.
     dedupe = "update_flag desc, f_ann_date desc, _fetched_at desc"
-    # Raw statements, annual, de-duplicated (raw tables hold repeated rows for the same period).
-    b["raw_annual"] = df_rows(
-        con,
-        f"""
-        with i as (select * from (select end_date, f_ann_date, update_flag, revenue, total_revenue, operate_profit,
-                       total_profit, n_income, n_income_attr_p, ebit,
-                       row_number() over (partition by end_date order by {dedupe}) rn
-                   from raw_income where ts_code=? and end_date like '%1231') where rn=1),
-             bs as (select * from (select end_date, total_assets, total_liab, total_cur_assets, total_cur_liab,
-                        money_cap, inventories, total_hldr_eqy_exc_min_int, total_hldr_eqy_inc_min_int, total_share,
-                        row_number() over (partition by end_date order by {dedupe}) rn
-                    from raw_balancesheet where ts_code=? and end_date like '%1231') where rn=1),
-             cf as (select * from (select end_date, n_cashflow_act, c_pay_acq_const_fiolta,
-                        row_number() over (partition by end_date order by {dedupe}) rn
-                    from raw_cashflow where ts_code=? and end_date like '%1231') where rn=1)
-        select i.end_date, i.f_ann_date, i.update_flag,
-               i.revenue/1e8 as revenue_yi, i.total_revenue/1e8 as total_revenue_yi,
-               i.operate_profit/1e8 as operate_profit_yi, i.total_profit/1e8 as total_profit_yi,
-               i.n_income_attr_p/1e8 as ni_parent_yi, i.n_income/1e8 as ni_total_yi,
-               bs.total_assets/1e8 as total_assets_yi, bs.total_liab/1e8 as total_liab_yi,
-               bs.money_cap/1e8 as money_cap_yi, bs.inventories/1e8 as inventories_yi,
-               bs.total_hldr_eqy_exc_min_int/1e8 as parent_equity_yi,
-               bs.total_share/1e8 as total_share_yi,
-               cf.n_cashflow_act/1e8 as cfo_yi, cf.c_pay_acq_const_fiolta/1e8 as capex_paid_yi,
-               (cf.n_cashflow_act - cf.c_pay_acq_const_fiolta)/1e8 as fcf_simple_yi
-        from i left join bs on i.end_date=bs.end_date left join cf on i.end_date=cf.end_date
-        order by i.end_date desc {lim}
-        """,
-        [ts_code, ts_code, ts_code],
-    )
     # Latest quarterly filings: cumulative YTD as filed, plus single-quarter revenue/NI
     # de-cumulated only when the immediately preceding quarter of the same year exists
     # (missing stays missing). BS items are point-in-time; OI sq from the Penman table.
@@ -246,77 +395,6 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
                   (select max(trade_date) from raw_daily_basic where ts_code=?) as daily_basic_last_trade""",
         [ts_code] * 5,
     )
-    b["ratios"] = df_rows(
-        con,
-        f"""select end_date, basis, revenue/1e8 as revenue_yi, oi_after_tax/1e8 as oi_after_tax_yi,
-                   noa_capital/1e8 as noa_yi, nfo_capital/1e8 as nfo_yi, te_capital/1e8 as cse_yi,
-                   rnoa, opm, opm_core, ato, ollev, flev, nbc, spread, rotce, roce_parent, gross_margin,
-                   receivables_to_sales, inventory_to_sales, ppe_to_sales, intangibles_to_sales,
-                   customer_advances_to_sales, op_payables_to_sales, ratio_flags
-            from ratios_annual where ts_code=? and basis='average' order by end_date desc {lim}""",
-        [ts_code],
-    )
-    b["reformulated_is"] = df_rows(
-        con,
-        f"""select end_date, revenue/1e8 as revenue_yi, oi_core_pretax/1e8 as oi_core_pretax_yi,
-                   unusual_pretax/1e8 as unusual_pretax_yi, oi_pretax/1e8 as oi_pretax_yi,
-                   nfe_pretax/1e8 as nfe_pretax_yi, tax_reported/1e8 as tax_reported_yi, tax_rate_assumed,
-                   oi_after_tax/1e8 as oi_after_tax_yi, oi_core_after_tax/1e8 as oi_core_after_tax_yi,
-                   nfe_after_tax/1e8 as nfe_after_tax_yi, ni_parent/1e8 as ni_parent_yi,
-                   minority_income/1e8 as minority_income_yi, comprehensive_income_total/1e8 as ci_total_yi
-            from reformulated_is where ts_code=? and period_kind='cumulative' and end_date like '%1231' order by end_date desc {lim}""",
-        [ts_code],
-    )
-    b["reformulated_bs"] = df_rows(
-        con,
-        f"""select end_date, oa/1e8 as oa_yi, ol/1e8 as ol_yi, noa/1e8 as noa_yi, fa/1e8 as fa_yi, fo/1e8 as fo_yi,
-                   nfo/1e8 as nfo_yi, minority_interests/1e8 as mi_yi, cse_calc/1e8 as cse_yi,
-                   total_assets_reported/1e8 as total_assets_yi, parent_equity_reported/1e8 as parent_equity_yi,
-                   r1_assets_residual, r2_liab_residual, r3_cse_residual
-            from reformulated_bs where ts_code=? and end_date like '%1231' order by end_date desc {lim}""",
-        [ts_code],
-    )
-    b["cash"] = df_rows(
-        con,
-        f"""select end_date, ni_total/1e8 as ni_total_yi, cfo/1e8 as cfo_yi, capex_paid/1e8 as capex_paid_yi,
-                   asset_disposal_proceeds/1e8 as disposals_yi, fcf_simple/1e8 as fcf_simple_yi,
-                   cash_conversion, accruals/1e8 as accruals_yi, cf_flags
-            from cash_summary_annual where ts_code=? order by end_date desc {lim}""",
-        [ts_code],
-    )
-    b["capital"] = df_rows(
-        con,
-        f"""select end_date, noa_begin/1e8 as noa_begin_yi, noa_end/1e8 as noa_end_yi, delta_noa/1e8 as delta_noa_yi,
-                   revenue_growth, noa_growth, reinvestment_rate, capex_paid/1e8 as capex_paid_yi,
-                   da_total/1e8 as da_yi, capex_to_da, fcf_from_oi/1e8 as fcf_from_oi_yi, cap_flags
-            from capital_summary_annual where ts_code=? order by end_date desc {lim}""",
-        [ts_code],
-    )
-    b["working_capital"] = df_rows(
-        con,
-        f"""select end_date, dso, dio, dpo, ccc, advance_days, ccc_net_advances, owc_pct_sales,
-                   incr_owc_per_incr_revenue, wc_flags
-            from working_capital_annual where ts_code=? order by end_date desc {lim}""",
-        [ts_code],
-    )
-    b["residual_income"] = df_rows(
-        con,
-        f"""select end_date, r_op_assumed, r_e_assumed, pm, pm_core, rnoa_open, ato_open, spread_op,
-                   reoi/1e8 as reoi_yi, reoi_core/1e8 as reoi_core_yi, re_common/1e8 as re_common_yi,
-                   roce_open, delta_reoi/1e8 as delta_reoi_yi, ri_flags
-            from residual_income_annual where ts_code=? order by end_date desc {lim}""",
-        [ts_code],
-    )
-    b["valuation"] = df_rows(
-        con,
-        """select end_date, trade_date, price, shares/1e8 as shares_yi, market_cap/1e8 as market_cap_yi,
-                  market_ev/1e8 as market_ev_yi, r_op_assumed, r_e_assumed, g_assumed,
-                  v_equity_book/1e8 as v_equity_book_yi, v_equity_reoi_flat/1e8 as v_equity_reoi_flat_yi,
-                  v_equity_reoi_g/1e8 as v_equity_reoi_g_yi, v_per_share, v_to_p,
-                  trailing_pe, forward_pe_market, normal_pe, implied_g_reoi, implied_g_fcf, implied_r_op
-           from valuation_annual where ts_code=? order by end_date desc limit 3""",
-        [ts_code],
-    )
     latest = con.execute(
         "select max(end_date) from valuation_reverse_curve where ts_code=?", [ts_code]
     ).fetchone()[0]
@@ -343,19 +421,6 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
            from analysis_log where ts_code=? order by finished_at desc limit 1""",
         [ts_code],
     )
-    # Industry peers: same Tushare industry, latest year, average basis.
-    b["peers"] = df_rows(
-        con,
-        """with ind as (select industry from raw_stock_basic where ts_code=?),
-                ly as (select max(end_date) e from ratios_annual where ts_code=?)
-           select r.ts_code, s.name, r.end_date, r.revenue/1e8 as revenue_yi, r.rnoa, r.opm, r.ato, r.flev,
-                  r.gross_margin, m.market_cap/1e8 as market_cap_yi
-           from ratios_annual r join raw_stock_basic s on s.ts_code=r.ts_code
-           left join market_snapshot_annual m on m.ts_code=r.ts_code and m.end_date=r.end_date
-           where s.industry=(select industry from ind) and r.basis='average' and r.end_date=(select e from ly)
-           order by r.revenue desc nulls last limit 12""",
-        [ts_code, ts_code],
-    )
     return b
 
 
@@ -363,13 +428,13 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
 
 
 def cross_check(avl: dict, duck: dict) -> list[dict]:
-    """Compare the same concepts across sources for overlapping years. AVL in 亿元."""
+    """Compare the same concepts across sources for overlapping years. S1 in 亿元."""
     ann = avl.get("annual", {})
     rows = {r["end_date"][:4]: r for r in duck["raw_annual"]}
     checks = []
     pairs = [
-        # (AVL key, duckdb field, note)
-        ("营业收入", "revenue_yi", "AVL 营业收入 vs duckdb raw_income.revenue (营业收入). duckdb *ratios* use 营业总收入 instead."),
+        # (S1 key, duckdb field, note)
+        ("营业收入", "revenue_yi", "S1 营业收入 vs S2 raw_income.revenue (营业收入). S2 *ratios* use 营业总收入 instead."),
         ("利润总额", "total_profit_yi", ""),
         ("归母净利润", "ni_parent_yi", ""),
         ("总资产", "total_assets_yi", ""),
@@ -377,7 +442,7 @@ def cross_check(avl: dict, duck: dict) -> list[dict]:
         ("货币资金", "money_cap_yi", ""),
         ("存货", "inventories_yi", ""),
         ("经营现金净额", "cfo_yi", ""),
-        ("总股本", "total_share_yi", "亿股"),
+        ("总股本", "total_share_yi", "亿股; S2 = year-end share count at price date (daily_basic), S1 = reported 总股本"),
     ]
     for akey, dkey, note in pairs:
         series = ann.get(akey, {})
@@ -392,13 +457,13 @@ def cross_check(avl: dict, duck: dict) -> list[dict]:
                     "concept": akey,
                     "year": year,
                     "avl": _r(aval, 4),
-                    "duckdb": _r(dval, 4),
+                    "bme": _r(dval, 4),
                     "pct_diff": _r(diff, 4) if diff is not None else None,
                     "flag": "MISMATCH" if (diff is not None and abs(diff) > 0.01) else ("n/a" if diff is None else "ok"),
                     "note": note,
                 }
             )
-    # Latest quarters: AVL quarterly_revenue is single-quarter 营业收入; duckdb side is
+    # Latest quarters: S1 quarterly_revenue is single-quarter 营业收入; S2 side is
     # de-cumulated from raw_income cumulative 营业收入 (Qn − Qn−1, Q1 as filed).
     qrows = {r["end_date"]: r for r in duck.get("latest_quarters", [])}
     qr = avl.get("quarterly_revenue", {})
@@ -416,10 +481,10 @@ def cross_check(avl: dict, duck: dict) -> list[dict]:
                     "concept": f"营业收入单季{qk}",
                     "year": str(y),
                     "avl": _r(aval, 4),
-                    "duckdb": _r(dval, 4),
+                    "bme": _r(dval, 4),
                     "pct_diff": _r(diff, 4) if diff is not None else None,
                     "flag": "MISMATCH" if (diff is not None and abs(diff) > 0.01) else ("n/a" if diff is None else "ok"),
-                    "note": "AVL single-quarter 营业收入 vs duckdb raw_income de-cumulated 营业收入.",
+                    "note": "S1 single-quarter 营业收入 vs S2 raw_income de-cumulated 营业收入.",
                 }
             )
     return checks
@@ -457,17 +522,15 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
     L.append(f"Generated {meta['generated_at']} by `data/fetch.py`. Amounts in **亿元 (1e8 CNY)** unless stated; ratios as decimals.")
     L.append("")
     L.append("## Sources")
-    L.append(f"- **S1 AshareValueLine** version `{meta['avl_version']}` (financials fetched {avl.get('fetched_at')}, quote {avl.get('quote_refreshed_at')}): `{avl_url}`")
-    if meta.get("avl_note"):
-        L.append(f"  - {meta['avl_note']}")
-    L.append(f"- **S2 bme.duckdb** `{DUCKDB_PATH}` (Tushare raw statements + Penman reformulation). Analysis log: {duck['analysis_log'][0] if duck['analysis_log'] else 'none'}")
-    cov = duck["coverage"][0] if duck.get("coverage") else {}
-    if cov:
-        L.append(f"- **S2 coverage (this company):** raw income filed through {cov.get('income_last_end')}, balance sheet {cov.get('bs_last_end')}, cash flow {cov.get('cf_last_end')}; Penman tables through {cov.get('penman_last_end')}; raw_daily_basic last trade {cov.get('daily_basic_last_trade')} (December windows only, not a live quote).")
+    L.append(f"- **S1 AshareValueLine** version `{meta['avl_version']}` (financials fetched {avl.get('fetched_at')}, quote {avl.get('quote_refreshed_at')}), local JSON `{avl_url}`; S1 amounts converted from yuan to 亿元 here.")
+    L.append(f"- **S2 business-model-explorer** local JSON `{meta['bme_path']}` exported {meta['bme_exported_at']} (Tushare annual statements + Penman reformulation); amounts converted from yuan to 亿元 here. Annual periods {meta['bme_first_year']}–{meta['bme_last_year']} only: no quarterly rows, no filing dates, no required-return reverse curve (see the `--duckdb` supplement).")
+    if duck.get("extras"):
+        cov = duck["coverage"][0] if duck.get("coverage") else {}
+        L.append(f"- **S2 DuckDB supplement** (`--duckdb`): raw income filed through {cov.get('income_last_end')}, balance sheet {cov.get('bs_last_end')}, cash flow {cov.get('cf_last_end')}; Penman tables through {cov.get('penman_last_end')}; raw_daily_basic last trade {cov.get('daily_basic_last_trade')} (December windows only, not a live quote).")
     L.append("")
     # Quote
     q = avl.get("quote", {})
-    m = duck["market_latest"][0] if duck["market_latest"] else {}
+    m = duck["market_latest"][0] if duck.get("market_latest") else {}
     L.append("## Market snapshot")
     L.append(f"- S1 quote {q.get('trade_date')}: price {q.get('price')} · PE {q.get('pe')} · PE(TTM) {q.get('pe_ttm')} · PB {q.get('pb')} · total mkt cap {q.get('total_mv_yi')} 亿 · shares {q.get('total_share_yi')} 亿股")
     if m:
@@ -479,7 +542,7 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
     L.append(f"{len(checks)} comparisons, **{len(bad)} mismatches >1%**." + (" All matched." if not bad else ""))
     if bad:
         L.append("")
-        L.append(_table(bad, [("concept", "concept", {"raw": True}), ("year", "year", {"raw": True}), ("S1 AVL", "avl", {"nd": 2}), ("S2 duckdb", "duckdb", {"nd": 2}), ("diff", "pct_diff", {"pct": True}), ("note", "note", {"raw": True})]))
+        L.append(_table(bad, [("concept", "concept", {"raw": True}), ("year", "year", {"raw": True}), ("S1 AVL", "avl", {"nd": 2}), ("S2 BME", "bme", {"nd": 2}), ("diff", "pct_diff", {"pct": True}), ("note", "note", {"raw": True})]))
     L.append("")
     # AVL annual
     L.append("## S1 · AshareValueLine annual indicators (亿元; %, days, 亿股 where labelled)")
@@ -500,6 +563,15 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
             d = qr["data"].get(str(y), {})
             L.append(f"| {y} | " + " | ".join(_fmt(d.get(k), 1) for k in ["Q1", "Q2", "Q3", "Q4", "FY"]) + " |")
         L.append("")
+    pt = avl.get("period_trend", {})
+    if pt:
+        L.append("### S1 · Latest periods (period_trend; 营业收入 is cumulative YTD, 存货/应收 point-in-time, 亿元)")
+        L.append("| period | 营业收入 YTD | 存货 | 应收账款 | 应收票据及应收账款 |")
+        L.append("|---|---|---|---|---|")
+        for p in sorted(pt, reverse=True)[:8]:
+            d = pt[p]
+            L.append(f"| {p} | " + " | ".join(_fmt(d.get(k), 2) for k in ["营业收入", "存货", "应收账款", "应收票据及应收账款"]) + " |")
+        L.append("")
     mb = avl.get("main_business", {}).get("P", {})
     if mb:
         L.append("### S1 · Main business by product (latest annual; revenue, gross profit 亿元)")
@@ -513,25 +585,30 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
         L.append(", ".join(f"{k} {v}" for k, v in ev.items() if k != "报告期"))
         L.append("")
     # duckdb raw
-    L.append("## S2 · Raw annual statements (亿元; preferred filing per period: update_flag desc, f_ann_date desc, fetch time desc)")
+    L.append("## S2 · Raw annual statements (亿元; BME annual consolidated, `raw:*` metrics)")
     L.append(_table(duck["raw_annual"], [
         ("FY", "end_date", {"raw": True}), ("营业收入", "revenue_yi", {}), ("营业总收入", "total_revenue_yi", {}),
         ("营业利润", "operate_profit_yi", {}), ("归母净利润", "ni_parent_yi", {}), ("总资产", "total_assets_yi", {}),
         ("货币资金", "money_cap_yi", {}), ("存货", "inventories_yi", {}), ("归母权益", "parent_equity_yi", {}),
         ("CFO", "cfo_yi", {}), ("capex paid", "capex_paid_yi", {}), ("FCF simple", "fcf_simple_yi", {}),
-        ("股本(亿)", "total_share_yi", {"nd": 2}), ("announced", "f_ann_date", {"raw": True}),
+        ("股本(亿,年末)", "total_share_yi", {"nd": 2}),
     ]))
-    L.append("## S2 · Latest quarterly filings (亿元; YTD = cumulative as filed, sq = single quarter; BS items point-in-time)")
-    L.append("Single-quarter 营业收入/归母净利润 de-cumulated from raw_income (Qn − Qn−1; Q1 as filed; missing prior quarter → —). OI after tax sq from `reformulated_is` single_quarter rows. update_flag 1 = revised filing.")
-    L.append(_table(duck.get("latest_quarters", []), [
-        ("period", "end_date", {"raw": True}), ("营业收入YTD", "revenue_ytd_yi", {}), ("营业收入sq", "revenue_sq_yi", {}),
-        ("归母净利YTD", "ni_parent_ytd_yi", {}), ("归母净利sq", "ni_parent_sq_yi", {}), ("OI after tax sq", "oi_after_tax_sq_yi", {}),
-        ("货币资金", "money_cap_yi", {}), ("存货", "inventories_yi", {}), ("总资产", "total_assets_yi", {}),
-        ("归母权益", "parent_equity_yi", {}), ("股本(亿)", "total_share_yi", {"nd": 2}),
-        ("CFO YTD", "cfo_ytd_yi", {}), ("capex YTD", "capex_ytd_yi", {}),
-        ("announced", "f_ann_date", {"raw": True}), ("upd", "update_flag", {"raw": True}),
-    ]))
-    L.append("## S2 · Penman ratios (basis = average capital; `ratios_annual`)")
+    if duck.get("latest_quarters"):
+        L.append("## S2 · Latest quarterly filings (亿元; YTD = cumulative as filed, sq = single quarter; BS items point-in-time)")
+        L.append("Single-quarter 营业收入/归母净利润 de-cumulated from raw_income (Qn − Qn−1; Q1 as filed; missing prior quarter → —). OI after tax sq from `reformulated_is` single_quarter rows. update_flag 1 = revised filing.")
+        L.append(_table(duck.get("latest_quarters", []), [
+            ("period", "end_date", {"raw": True}), ("营业收入YTD", "revenue_ytd_yi", {}), ("营业收入sq", "revenue_sq_yi", {}),
+            ("归母净利YTD", "ni_parent_ytd_yi", {}), ("归母净利sq", "ni_parent_sq_yi", {}), ("OI after tax sq", "oi_after_tax_sq_yi", {}),
+            ("货币资金", "money_cap_yi", {}), ("存货", "inventories_yi", {}), ("总资产", "total_assets_yi", {}),
+            ("归母权益", "parent_equity_yi", {}), ("股本(亿)", "total_share_yi", {"nd": 2}),
+            ("CFO YTD", "cfo_ytd_yi", {}), ("capex YTD", "capex_ytd_yi", {}),
+            ("announced", "f_ann_date", {"raw": True}), ("upd", "update_flag", {"raw": True}),
+        ]))
+    else:
+        L.append("## S2 · Latest quarterly filings")
+        L.append("_Not in the S2 JSON (annual only). S1 period_trend above carries 营业收入 YTD, 存货 and 应收账款 by period; run with `--duckdb` for 归母净利润, CFO, capex and OI by quarter._")
+        L.append("")
+    L.append("## S2 · Penman ratios (average-capital basis: BME `rnoa`, `noa_capital` …)")
     L.append("Definitions: OI = operating income after tax (reformulated, ≠ 营业利润); NOA = OA − OL; NFO = FO − FA (negative = net financial assets); RNOA = OI/NOA; OPM = OI/营业总收入; ATO = 营业总收入/NOA; FLEV = NFO/CSE; spread = RNOA − NBC; ROCE = RNOA + FLEV × spread.")
     L.append(_table(duck["ratios"], [
         ("FY", "end_date", {"raw": True}), ("营业总收入", "revenue_yi", {}), ("OI after tax", "oi_after_tax_yi", {}),
@@ -541,7 +618,7 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
         ("spread", "spread", {"pct": True}), ("ROCE", "rotce", {"pct": True}), ("GM", "gross_margin", {"pct": True}),
         ("flags", "ratio_flags", {"raw": True}),
     ]))
-    L.append("### S2 · Balance-sheet intensity (share of 营业总收入)")
+    L.append("### S2 · Balance-sheet intensity (share of 营业总收入; simple ratios computed in fetch.py from raw lines: receivables = raw:receivables_combined, PP&E = raw:ppe, customer advances = raw:contract_liabilities + raw:advances_from_customers, op. payables = raw:payables_combined)")
     L.append(_table(duck["ratios"], [
         ("FY", "end_date", {"raw": True}), ("receivables", "receivables_to_sales", {"pct": True}),
         ("inventory", "inventory_to_sales", {"pct": True}), ("PP&E", "ppe_to_sales", {"pct": True}),
@@ -561,13 +638,12 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
         ("FY", "end_date", {"raw": True}), ("OA", "oa_yi", {}), ("OL", "ol_yi", {}), ("NOA", "noa_yi", {}),
         ("FA", "fa_yi", {}), ("FO", "fo_yi", {}), ("NFO", "nfo_yi", {}), ("MI", "mi_yi", {}), ("CSE", "cse_yi", {}),
         ("total assets", "total_assets_yi", {}), ("parent equity", "parent_equity_yi", {}),
-        ("r1", "r1_assets_residual", {"nd": 0}), ("r2", "r2_liab_residual", {"nd": 0}), ("r3", "r3_cse_residual", {"nd": 0}),
-    ]))
+            ]))
     L.append("## S2 · Cash reconciliation (亿元)")
     L.append(_table(duck["cash"], [
         ("FY", "end_date", {"raw": True}), ("NI total", "ni_total_yi", {}), ("CFO", "cfo_yi", {}), ("capex paid", "capex_paid_yi", {}),
         ("disposals", "disposals_yi", {}), ("FCF simple", "fcf_simple_yi", {}), ("CFO/NI", "cash_conversion", {"nd": 2}),
-        ("accruals", "accruals_yi", {}), ("flags", "cf_flags", {"raw": True}),
+        ("flags", "cf_flags", {"raw": True}),
     ]))
     L.append("## S2 · Capital & reinvestment")
     L.append(_table(duck["capital"], [
@@ -591,19 +667,22 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
     ]))
     L.append("## S2 · Valuation anchors (model defaults r_op/r_e/g are assumptions; use the reverse curve, not the point value)")
     L.append(_table(duck["valuation"], [
-        ("FY", "end_date", {"raw": True}), ("trade date", "trade_date", {"raw": True}), ("price", "price", {"nd": 2}),
+        ("FY", "end_date", {"raw": True}), ("price (year-end)", "price", {"nd": 2}),
         ("mkt cap", "market_cap_yi", {}), ("EV", "market_ev_yi", {}), ("r_op", "r_op_assumed", {"pct": True}), ("g", "g_assumed", {"pct": True}),
-        ("V book", "v_equity_book_yi", {}), ("V ReOI flat", "v_equity_reoi_flat_yi", {}), ("V ReOI g", "v_equity_reoi_g_yi", {}),
+        ("V ReOI flat", "v_equity_reoi_flat_yi", {}), ("V ReOI g", "v_equity_reoi_g_yi", {}),
         ("V/P", "v_to_p", {"nd": 2}), ("trailing PE", "trailing_pe", {}), ("fwd PE mkt", "forward_pe_market", {}),
         ("normal PE", "normal_pe", {}), ("implied g (ReOI)", "implied_g_reoi", {"pct": True}), ("implied g (FCF)", "implied_g_fcf", {"pct": True}),
     ]))
-    if duck["reverse_curve"]:
+    if duck.get("reverse_curve"):
         L.append(f"### S2 · Reverse-engineered growth the market price implies, by required return (end {duck['reverse_curve_end_date']})")
         L.append(_table(duck["reverse_curve"], [
             ("r", "r", {"pct": True}), ("implied g ReOI", "implied_g_reoi", {"pct": True}),
             ("implied g FCF", "implied_g_fcf", {"pct": True}), ("implied g equity", "implied_g_equity", {"pct": True}),
         ]))
-    L.append("## S2 · Industry peers (same Tushare industry, latest FY, average basis)")
+    if not duck.get("reverse_curve"):
+        L.append("_S2 reverse curve (implied growth across required returns) is not in the JSON; only the implied g at the assumed r above. Run with `--duckdb` for the curve._")
+        L.append("")
+    L.append("## S2 · Industry peers (same Tushare industry, same FY, average basis; top 12 by 营业总收入, from local BME JSON)")
     L.append(_table(duck["peers"], [
         ("code", "ts_code", {"raw": True}), ("name", "name", {"raw": True}), ("FY", "end_date", {"raw": True}),
         ("营业总收入", "revenue_yi", {}), ("RNOA", "rnoa", {"pct": True}), ("OPM", "opm", {"pct": True}), ("ATO", "ato", {"nd": 2}),
@@ -633,55 +712,52 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("company", help="ts_code (600519.SH), 6-digit code, or Chinese name")
     ap.add_argument("--out", help="output directory (default data/cache/<ts_code>)")
-    ap.add_argument("--years", type=int, default=10, help="S2 annual history depth; 0 = full history back to FY2008")
-    ap.add_argument("--no-avl", action="store_true", help="skip AshareValueLine (offline)")
+    ap.add_argument("--years", type=int, default=10, help="S2 annual history depth; 0 = every year in the JSON (FY2014 onward)")
+    ap.add_argument("--bme-root", default=BME_PAGES_ROOT, help="folder holding business-model-explorer[-data] Pages builds")
+    ap.add_argument("--avl-root", default=AVL_API_ROOT, help="AshareValueLine api/v1/a_share folder")
+    ap.add_argument("--no-avl", action="store_true", help="skip S1 AshareValueLine")
+    ap.add_argument("--duckdb", action="store_true", help="add quarterly NI/CFO/capex/OI, reverse curve and daily_basic from bme.duckdb")
     args = ap.parse_args()
 
-    con = open_db()
-    ts_code, name, industry = resolve_code(con, args.company)
+    bme_root, avl_root = Path(args.bme_root), Path(args.avl_root)
+    index = bme_index(bme_root)
+    me = resolve_code(index, args.company)
+    ts_code, name, industry = me["ts_code"], me["name"], me["industry"]
+    if not me.get("available"):
+        reason = (me.get("unavailable") or {}).get("reason")
+        sys.exit(f"{ts_code} {name}: no S2 history in the BME JSON (reason: {reason}). Financial-format and new listings are excluded.")
     cache_dir = Path(__file__).resolve().parent / "cache" / ts_code
     out = Path(args.out) if args.out else cache_dir
     out.mkdir(parents=True, exist_ok=True)
 
-    avl, avl_url, version, avl_note = {}, "", "offline", ""
-    if not args.no_avl:
-        cached = None
-        for p in (out / "avl_raw.json", cache_dir / "avl_raw.json"):
-            if p.exists():
-                try:
-                    cached = json.loads(p.read_text(encoding="utf-8"))
-                    break
-                except (ValueError, OSError):
-                    pass
-        try:
-            v = avl_latest_version()
-            version = v["version"]
-            avl_url = f"{AVL_BASE}data/versions/a_share/{version}/stocks/{ts_code}.js"
-            if cached and cached.get("version") == version:
-                avl = cached  # same published version → identical payload, skip the download
-            else:
-                avl, avl_url = avl_stock(ts_code, version)
-        except Exception as e:  # fall back to the cached copy if there is one, else duckdb only
-            if cached:
-                avl = cached
-                version = cached.get("version", "unknown")
-                avl_note = (
-                    f"Live fetch failed ({e}); using cached copy: financials fetched {cached.get('fetched_at')}, "
-                    f"quote {cached.get('quote_refreshed_at')}. Treat the quote as of that date."
-                )
-                avl_url = f"CACHED {AVL_BASE}data/versions/a_share/{version}/stocks/{ts_code}.js"
-                print(f"WARNING: AshareValueLine fetch failed: {e}; using cached version {version}", file=sys.stderr)
-            else:
-                print(f"WARNING: AshareValueLine fetch failed: {e}", file=sys.stderr)
-                avl, avl_url, version = {}, f"FAILED: {e}", "unavailable"
-        if avl:
-            payload = json.dumps(avl, ensure_ascii=False, indent=1)
-            (out / "avl_raw.json").write_text(payload, encoding="utf-8")
-            if cache_dir != out:
-                cache_dir.mkdir(parents=True, exist_ok=True)
-                (cache_dir / "avl_raw.json").write_text(payload, encoding="utf-8")
+    bme_path = bme_company_path(bme_root, ts_code)
+    if not bme_path.exists():
+        sys.exit(f"S2 JSON missing: {bme_path}")
+    h = _load(bme_path)
+    duck = bme_blocks(h, args.years)
 
-    duck = duck_blocks(con, ts_code, args.years)
+    avl, avl_raw, avl_path, version, avl_note = {}, {}, "", "offline", ""
+    if not args.no_avl:
+        p = avl_root / "companies" / f"{ts_code}.json"
+        if p.exists():
+            avl_raw = _load(p)
+            avl, avl_path, version = avl_to_yi(avl_raw), str(p), avl_raw.get("version", "unknown")
+        else:
+            avl_note = f"S1 JSON not found: {p}"
+            print(f"WARNING: {avl_note}", file=sys.stderr)
+            version, avl_path = "unavailable", f"MISSING {p}"
+        if avl_raw:
+            (out / "avl_raw.json").write_text(json.dumps(avl_raw, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "bme_raw.json").write_text(json.dumps(h, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    latest_year = max(h["years"])
+    duck["peers"] = bme_peers(bme_root, index, me, latest_year)
+
+    if args.duckdb:
+        con = open_db()
+        extras = duck_extras(con, ts_code)
+        duck.update(extras)
+        duck["extras"] = True
     checks = cross_check(avl, duck) if avl else []
     meta = {
         "ts_code": ts_code,
@@ -689,26 +765,26 @@ def main():
         "industry": industry,
         "generated_at": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
         "avl_version": version,
-        "avl_url": avl_url,
+        "avl_path": avl_path,
         "avl_note": avl_note,
-        "duckdb_path": DUCKDB_PATH,
-        "coverage": duck["coverage"][0] if duck["coverage"] else {},
+        "bme_path": str(bme_path),
+        "bme_exported_at": h.get("exported_at"),
+        "bme_first_year": min(h["years"])[:4],
+        "bme_last_year": latest_year[:4],
+        "duckdb_used": bool(args.duckdb),
     }
-    md = render_md(meta, avl, avl_url, duck, checks)
+    md = render_md(meta, avl, avl_path, duck, checks)
     (out / "factsheet.md").write_text(md, encoding="utf-8")
     (out / "factsheet.json").write_text(
-        json.dumps({"meta": meta, "cross_check": checks, "duckdb": duck, "avl": avl}, ensure_ascii=False, indent=1, default=str),
+        json.dumps({"meta": meta, "cross_check": checks, "bme": duck, "avl": avl}, ensure_ascii=False, indent=1, default=str),
         encoding="utf-8",
     )
     bad = [c for c in checks if c["flag"] == "MISMATCH"]
     print(f"{ts_code} {name} ({industry}) → {out}")
-    print(f"  AVL version {version}; duckdb years {duck['raw_annual'][-1]['end_date'][:4] if duck['raw_annual'] else '?'}–{duck['raw_annual'][0]['end_date'][:4] if duck['raw_annual'] else '?'}")
-    cov = duck["coverage"][0] if duck["coverage"] else {}
-    if cov:
-        print(f"  S2 coverage: income through {cov.get('income_last_end')}, BS {cov.get('bs_last_end')}, CF {cov.get('cf_last_end')}, Penman {cov.get('penman_last_end')}")
+    print(f"  S1 AVL version {version} (quote {avl.get('quote', {}).get('trade_date')}); S2 BME exported {h.get('exported_at')}, FY{meta['bme_first_year']}–FY{meta['bme_last_year']}")
     print(f"  cross-check: {len(checks)} comparisons, {len(bad)} mismatches >1%")
     for c in bad[:10]:
-        print(f"    {c['concept']} {c['year']}: AVL {c['avl']} vs duckdb {c['duckdb']} ({c['pct_diff']:+.1%})")
+        print(f"    {c['concept']} {c['year']}: S1 {c['avl']} vs S2 {c['bme']} ({c['pct_diff']:+.1%})")
 
 
 if __name__ == "__main__":

@@ -11,30 +11,34 @@ Use the user's company name or code, round count, or session reference. Examples
 
 ## 1. Prepare the session
 
-- For a new session, run `data/fetch.py <code|name>` to resolve the ticker through DuckDB's
-  `raw_stock_basic`. The default output is `data/cache/<ts_code>/`. Use a new `YYYY-MM-DD-NN`
-  session ID and put the fetched artifacts in `sessions/<ts_code>/<session_id>/data/`. You can
-  use `--out` directly when the full ticker and session ID are known.
-- On the original workstation, run the fetcher and read-only DuckDB queries with
-  `/Users/lin/Desktop/business-model-explorer/.venv/bin/python`. The fetcher uses the local
-  `bme.duckdb` listed in `data/DATA_DICTIONARY.md` and needs network access for AshareValueLine.
-  Use `python3` for rendering, indexing, and validation.
-- **Data scope.** Work from the local data layer: S1 (`avl_raw.json`), the fact sheet, and S2
-  `bme.duckdb`. The fact sheet's Sources section states the S2 coverage (latest filed period per
-  raw table and the Penman tables), and its "Latest quarterly filings" block carries the last 8
-  quarters — cumulative YTD as filed plus de-cumulated single-quarter 营业收入/归母净利润 and
-  single-quarter Penman OI. The latest filed quarter can be later than the annual
-  `duckdb_last_end`. Query `raw_income`, `raw_balancesheet` and `raw_cashflow` directly only for
-  periods or lines beyond that block (cumulative within a year, `report_type='1'`; dedupe by
-  `update_flag DESC, f_ann_date DESC, _fetched_at DESC`). Do not search the
-  web or download filings unless the user asks. A gap that only outside material can fill goes to
-  `open_questions` with the document that would close it. Say so when a quarterly figure is not in
-  the local tables.
-- When live data is unavailable, the fetcher falls back to the cached AshareValueLine copy and
-  records its as-of date in the sheet; treat the quote as of that date. Otherwise use a supplied or
-  existing fact sheet for the same ticker and state its as-of date and any missing checks. If no
-  usable sheet exists, ask for the sheet or the data needed for the question. An empty cross-check
-  with one source unavailable is an unperformed check.
+- For a new session, run `python3 data/fetch.py <code|name>`. It reads the local JSON of the two
+  data projects, with no network and no database: S1 is AshareValueLine
+  (`/Users/lin/Desktop/AshareValueLine/_site/api/v1/a_share/companies/<ts_code>.json`), S2 is
+  business-model-explorer (`/Users/lin/Desktop/business-model-explorer/build/pages/
+  business-model-explorer[-data]/api/v1/companies/<ts_code>.json`; SZ companies sit in the `-data`
+  site). Names and codes resolve through the BME `companies.json` index. The default output is
+  `data/cache/<ts_code>/`. Use a new `YYYY-MM-DD-NN` session ID and put the fetched artifacts in
+  `sessions/<ts_code>/<session_id>/data/`. You can use `--out` directly when the full ticker and
+  session ID are known. Outputs: `factsheet.md`, `factsheet.json`, and the two raw JSON copies
+  `avl_raw.json` (S1) and `bme_raw.json` (S2), both in yuan as published.
+- Both folders are build products. The sheet's Sources section states the S1 version and quote date
+  and the S2 export time; if either looks stale, say so and rebuild the source project before
+  relying on it. `--years 0` returns every S2 year in the JSON (FY2014 onward).
+- **Data scope.** Work from the local data layer: S1 (`avl_raw.json`), S2 (`bme_raw.json`) and the
+  fact sheet. S2 JSON is annual only. For the latest quarters the sheet carries S1's `period_trend`
+  (营业收入 YTD, 存货, 应收账款) and single-quarter revenue. When a live question needs 归母净利润,
+  CFO, capex or OI by quarter, the required-return reverse curve, `raw_daily_basic`, or S2 history
+  before FY2014, rerun with `--duckdb` using
+  `/Users/lin/Desktop/business-model-explorer/.venv/bin/python` (reads `bme.duckdb`, see
+  `data/DATA_DICTIONARY.md`) or query `raw_income`, `raw_balancesheet` and `raw_cashflow` directly
+  (cumulative within a year, `report_type='1'`; dedupe by `update_flag DESC, f_ann_date DESC,
+  _fetched_at DESC`). Do not search the web or download filings unless the user asks. A gap that
+  only outside material can fill goes to `open_questions` with the document that would close it.
+  Say so when a figure is not in the local data.
+- If a source file is missing the fetcher says so and the sheet carries that source as unavailable;
+  an empty cross-check with one source unavailable is an unperformed check. Otherwise use a supplied
+  or existing fact sheet for the same ticker and state its as-of date and any missing checks. If no
+  usable sheet exists, ask for the sheet or the data needed for the question.
 - Read the cross-check first. Resolve or explain any comparable S1/S2 mismatch over 1% that touches
   a series the story rests on, in the round-one workpaper, before the panel speaks. If it cannot be
   explained from the data, it becomes the opening topic, because an unexplained mismatch taints every

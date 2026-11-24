@@ -1,5 +1,12 @@
 # bme.duckdb — Data Dictionary for Equity Research Queries
 
+> **Default fact-sheet source is now local JSON, not this database.** `data/fetch.py` reads the
+> agent-friendly JSON of AshareValueLine (S1) and business-model-explorer (S2): per-company files
+> with `years` and `metrics[key].values` (S2, keys such as `raw:revenue`, `oi_after_tax`, `rnoa`,
+> `reoi`, `implied_g_reoi`) in yuan. S2 JSON metric names match the table columns below; it has no
+> quarterly rows, filing dates, reverse curve or flags. This dictionary applies to `--duckdb`
+> supplements and direct SQL.
+
 Source database: `/Users/lin/Desktop/business-model-explorer/data/bme.duckdb` (DuckDB, ~1.7 GB, **read-only**).
 Built by the project at `/Users/lin/Desktop/business-model-explorer/` from Tushare raw financial statements for 5,580 listed A-share companies (SSE/SZSE/BSE, FY2008–2026Q3) plus Penman-style reformulated statements, ratios, residual income and valuation tables. Metric definitions below quote the project docs (`docs/module-02…12.md`, `AGENTS.md`); everything marked *verified* was checked against the database on 2026-11-23 for 600519.SH (贵州茅台) and 000333.SZ (美的集团).
 
