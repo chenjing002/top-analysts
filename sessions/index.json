@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-23T21:40:21-08:00",
+ "built_at": "2026-11-23T23:14:32-08:00",
  "experts": {
   "jeff-bezos": {
    "name": "Jeff Bezos",
@@ -51,6 +51,50 @@
   }
  },
  "companies": [
+  {
+   "ts_code": "000807.SZ",
+   "name": "云铝股份",
+   "industry": "铝",
+   "sessions": [
+    {
+     "session_id": "2026-11-23-05",
+     "started_at": "2026-11-23T22:40:00+08:00",
+     "status": "open",
+     "user_request": "深度分析 000807.SZ\t云铝股份，多人多说",
+     "experts": [
+      "warren-buffett",
+      "stephen-penman",
+      "joel-greenblatt",
+      "jeff-bezos",
+      "li-lu"
+     ],
+     "factsheet": "sessions/000807.SZ/2026-11-23-05/data/factsheet.md",
+     "summary": null,
+     "rounds": [
+      {
+       "round": 1,
+       "question": "Is 云铝股份 a good business now that growth stopped needing capital — and is 21.01 yuan cheap on normalized, mid-cycle earnings rather than on the 2026 peak?",
+       "participants": [
+        "warren-buffett",
+        "stephen-penman",
+        "joel-greenblatt",
+        "jeff-bezos",
+        "li-lu"
+       ],
+       "started_at": "2026-11-23T23:00:00+08:00",
+       "ended_at": "2026-11-23T23:40:00+08:00",
+       "conclusion": "云铝股份 is a good, harvest-phase commodity business, not a great franchise. The decade splits in two: a gruesome 2016–2020 build-out (7亿 parent profit on 167亿 capex, three placements totaling ~87亿, shares +33%) and a 2021–2025 harvest (223亿 profit on 43亿 capex, net debt of 134亿 turned into net cash of 212亿). The 2026 profit spike (9M parent 116亿; gross margin 10%→32% in four quarters) is cost-driven — revenue +19% while cost of sales fell 4% — consistent with an alumina-price-collapse hypothesis, and the market knows it: the stock fell 36% YTD to 21.01 even as TTM earnings tripled. So PE(TTM) 5.5 and a 21% FCF yield are peak mirages; on mid-cycle profit of 55–60亿 the price is 12–13×, implying ~1% perpetual growth at an 8% hurdle (zero-growth return 7.5–8.2%), with net cash equal to 29% of market cap as cushion and an asset floor near 36% of cap. Verdict: reasonably cheap on normalized earnings, not on peak; the reader should remember that the price already pays for the bust, not the boom. The swing facts are alumina-price persistence and whether the 232亿 cash hoard reaches owners. Scorecard: business type — good in harvest, commodity spread not franchise; cash backing — 10y FCF 261亿 = 1.13× parent NI, but current FCF overstates owner cash if maintenance ≈ D&A; return driver — margin 0.7%→10.1% and turnover 0.49→1.36 on a shrinking base, leverage gone (multiplier 3.5→1.4); cheap/floor — priced at mid-cycle no-growth, floor ~264亿 protects about a third. Confidence: medium (normalized-earnings assumptions, 25% tax default, unverified controller/related-party facts, no local commodity price series).",
+       "confidence": "medium",
+       "n_disagreements_open": 1,
+       "thinkers": [],
+       "json": "sessions/000807.SZ/2026-11-23-05/rounds/round-01.json",
+       "md": "sessions/000807.SZ/2026-11-23-05/rounds/round-01.md",
+       "observer": "sessions/000807.SZ/2026-11-23-05/observer/round-01.md"
+      }
+     ]
+    }
+   ]
+  },
   {
    "ts_code": "605499.SH",
    "name": "东鹏饮料",
@@ -223,5 +267,5 @@
    ]
   }
  ],
- "n_rounds": 5
+ "n_rounds": 6
 }

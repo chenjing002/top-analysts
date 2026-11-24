@@ -1,0 +1,25 @@
+{
+  "session_id": "2026-11-23-05",
+  "company": {"ts_code": "000807.SZ", "name": "云铝股份", "industry": "铝"},
+  "started_at": "2026-11-23T22:40:00+08:00",
+  "status": "open",
+  "user_request": "深度分析 000807.SZ\t云铝股份，多人多说",
+  "experts": ["warren-buffett", "stephen-penman", "joel-greenblatt", "jeff-bezos", "li-lu"],
+  "expert_versions": {"warren-buffett": "1.1", "stephen-penman": "1.0", "joel-greenblatt": "1.0", "jeff-bezos": "1.0", "li-lu": "1.0"},
+  "expert_selection_reason": {
+    "warren-buffett": "round-one great/good/gruesome verdict; the decade splits into a capital-guzzling build-out and a harvest, and maintenance capex vs depreciation is the owner-earnings question",
+    "stephen-penman": "accounting backbone; RNOA rise is half shrinkage of the operating base, and the price must be reverse-engineered off peak earnings",
+    "joel-greenblatt": "cyclicality is the core issue: gross margin 10%→32% in four quarters makes trailing EBIT/EV a mirage; normalized-EBIT band and EV yield are his tools",
+    "jeff-bezos": "cash vs earnings, the placement/dilution history (+33% shares), FCF per share, and the 232亿 idle-cash question",
+    "li-lu": "the stock fell 36% while earnings tripled — the bear case must be stated and tested; state controller, related-party alumina purchases and cash reachability need his verification lens"
+  },
+  "data": {"avl_version": "20261121_201610", "duckdb_last_end": "20251231", "duckdb_filings_through": "20260930", "factsheet_generated_at": "2026-11-23T22:40:35-08:00", "s1_quote_date": "2026-11-20"},
+  "question_queue": [
+    "Alumina and aluminum price series: is the 2026 spread spike cost-driven and how durable is alumina oversupply? (needs external data or user input)",
+    "Related-party note, controller chain, and the use of the 231.8亿 cash hoard (AR2025, 2026 interim report)",
+    "Maintenance capex: pot-relining cycle and 大修 treatment — is owner earnings ≈ NI or higher? (AR notes)",
+    "2026 dividend plan and any acquisition announcement",
+    "What assets did the FY2021 19.85亿 impairment write down, and how much lower depreciation did it create?"
+  ],
+  "rounds": 1
+}
