@@ -43,4 +43,4 @@ Independent reviewer, 2026-11-24 (had not read the discussion; read only the cit
 
 ## Applied
 
-2026-11-24: edit applied to the target card, version bumped to 1.1, changelog recorded. Independent validation above. Commit hash: pending (publication not authorized this session).
+2026-11-24: edit applied to the target card, version bumped to 1.1, changelog recorded. Independent validation above. Commit hash: 4bb967b3becb94012b0311cc21c613452c390f32.
