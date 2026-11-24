@@ -16,6 +16,10 @@ example `observe 600519.SH 2026-11-23-01 1`. Use `observe proposals` for pending
   `sessions/<ts_code>/<session_id>/observer/round-NN.md`. Follow the proposal criteria in the
   Observer protocol for any proposed role-card change. Return the verdict, severity of weaknesses,
   proposals filed, and next question.
+- Check the workflow rules the round should have met: in round one, the business scorecard
+  (great/good/gruesome, 10-year FCF vs profit, capex and depreciation, DuPont, valuation against
+  book and the downside floor) was done before the news topic; turns are short, one idea each, and
+  end with one concrete question; the round stayed on one topic. Report each miss as a weakness.
 - If an independent reviewer is unavailable, do a self-review and label it as such. Leave any
   proposals pending independent validation. If the inputs are supplied in chat, return the review
   there when the host has no writable checkout.

@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-23T18:20:11-08:00",
+ "built_at": "2026-11-23T19:27:08-08:00",
  "experts": {
   "jeff-bezos": {
    "name": "Jeff Bezos",
@@ -46,7 +46,7 @@
   "warren-buffett": {
    "name": "Warren Buffett",
    "tagline": "Converts reported accounting into \"owner earnings\" and intrinsic value, then asks whether a durable franchise run by owner-minded managers is available at a sensible price — and refuses to pay for anything else.",
-   "version": "1.0 (2026-11-23)",
+   "version": "1.1 (2026-11-23)",
    "file": "experts/warren-buffett.md"
   }
  },
@@ -163,6 +163,41 @@
        "observer": "sessions/605499.SH/2026-11-23-03/observer/round-03.md"
       }
      ]
+    },
+    {
+     "session_id": "2026-11-23-04",
+     "started_at": "2026-11-23T19:17:00-08:00",
+     "status": "open",
+     "user_request": "重跑 东鹏饮料,验证新流程",
+     "experts": [
+      "warren-buffett",
+      "stephen-penman",
+      "li-lu",
+      "michael-mauboussin"
+     ],
+     "factsheet": "sessions/605499.SH/2026-11-23-04/data/factsheet.md",
+     "summary": null,
+     "rounds": [
+      {
+       "round": 1,
+       "question": "Is 东鹏饮料 a great, good or gruesome business, and does the price of 113.55 protect an owner if growth stays near 1%?",
+       "participants": [
+        "warren-buffett",
+        "stephen-penman",
+        "li-lu",
+        "michael-mauboussin"
+       ],
+       "started_at": "2026-11-23T19:20:00-08:00",
+       "ended_at": "2026-11-23T19:55:00-08:00",
+       "conclusion": "It is a great franchise priced as if growth ends. Sales grew almost seven times since 2018 with almost no net capital added, because dealers prepay about 60 亿 a year ahead; the return is a margin story, with net margin up from 7% to 21%. Cash backs profit, but about a quarter of eight years of operating cash was dealer float; without it free cash flow was 60% of profit. At 113.55 the operating business is 15 times its after-tax operating profit (a 6.7% yield), which needs only about 1% to 3% perpetual growth, and book value is no floor: net cash is 17% of the price and a conservative floor 16 to 21%. Scorecard: business type great with a float caveat; cash backing about 100% with the float and 60% without; return driver margin; cheap only if the franchise lasts; floor 16–21% of price.",
+       "confidence": "medium",
+       "n_disagreements_open": 0,
+       "thinkers": [],
+       "json": "sessions/605499.SH/2026-11-23-04/rounds/round-01.json",
+       "md": "sessions/605499.SH/2026-11-23-04/rounds/round-01.md",
+       "observer": "sessions/605499.SH/2026-11-23-04/observer/round-01.md"
+      }
+     ]
     }
    ]
   },
@@ -188,5 +223,5 @@
    ]
   }
  ],
- "n_rounds": 4
+ "n_rounds": 5
 }

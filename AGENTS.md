@@ -31,13 +31,19 @@ with access to the files.
   blocks and the S2 series over the same recent 10 years (older S2 history back to FY2008 is
   queried only when a live question needs it). A recent quarter is read against the decade that
   produced it, never as the default subject on its own.
+- Business before news. A new session's first round judges the business as a whole before any
+  recent event: great, good or gruesome; ten-year free cash flow against profit, capex and
+  depreciation; DuPont; price against market value, book value, what the book holds and the
+  downside floor. The latest quarter is read against that picture, not instead of it.
+- Ask, then answer. Discussion turns are short (a few sentences), carry one idea, and end with one
+  concrete question to a colleague or the user; rounds stay on one topic.
 - Big picture first. Every round and every conclusion leads with the insight that matters for the
   investment judgment — what the business is, what the decade shows, what the price assumes — and
   backs it with a few anchor numbers. Detailed calculations and reconciliations support that story
   in the workpaper; they do not become the discussion unless they change the conclusion.
 - Discussion turns read as a group chat: plain, conversational, in clear accessible language.
-  Length follows the content — a turn can be a one-line question or concession, or a worked
-  argument that takes the space it needs. Explain what each number means in plain words;
+  Keep them short — a one-line question or concession is a whole turn; a worked argument runs
+  longer only when it cannot be split. Explain what each number means in plain words;
   calculations, SQL and source detail go in the round's workpaper, not in the spoken text.
 - Any expert may initiate a topic, and the discussion follows the reasoning wherever it leads.
   Record where it went; do not force it back to the opening topic.

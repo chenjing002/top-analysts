@@ -54,7 +54,8 @@ Use the user's company name or code, round count, or session reference. Examples
 ## 2. Choose the panel
 
 Choose three to five experts. Always include `stephen-penman` for accounting, residual income, and
-implied expectations. Pick the others by what the 10-year record shows — the series that moved,
+implied expectations. In a new session also include `warren-buffett`: round one's first job is his
+great, good or gruesome verdict on the business. Pick the others by what the 10-year record shows — the series that moved,
 broke trend, or diverged from each other are the signals.
 
 | Signal in the 10-year record or question | Expert |
@@ -72,18 +73,40 @@ the reason and the role version.
 
 ## 3. Run one round
 
-1. **Read the big picture first, then go deep only where it pays.** For a new session, before
-   anyone speaks, write a one-page decade read at the top of `data/workpaper-round-01.md`: what kind
-   of business this is, what the 10 years show (growth, margins, returns on capital, cash conversion,
-   capex against depreciation, share count, capital allocation), where the story bends or breaks
-   trend, and the few headline numbers (about five) that carry that story. This record, not the
-   latest quarter, is what the panel reads. Below it, keep the supporting series and calculations as
+1. **Read the business first, then the news.** A new session's round one is a business-overview
+   round, not a reaction to the latest quarter. Before anyone speaks, write the **business
+   scorecard** at the top of `data/workpaper-round-01.md`: one line per question, each with its
+   few anchor numbers over the full 10 years.
+   1. **What kind of business?** Great, good or gruesome (`experts/warren-buffett.md` §3 Step 2):
+      compare the 10-year rise in operating profit with the rise in capital it needed (fixed assets
+      plus working capital), and whether cash was left for owners.
+   2. **Does cash back the profit?** Ten-year free cash flow (operating cash flow less capex)
+      against net profit, capex against depreciation and amortization (折旧摊销), and the
+      cash-conversion ratio. Say what part of capex looks like maintenance and what part looks like
+      growth, labelled as an estimate.
+   3. **What drives the return?** DuPont: net margin × asset turnover × equity multiplier, 10 years.
+      Add Penman's RNOA/OPM/ATO when net operating assets are large enough to read; when the fact
+      sheet suppresses RNOA (net operating assets near zero or negative, as with large customer
+      advances), say so and rely on the three-factor DuPont plus the operating-margin and
+      working-capital lines.
+   4. **Is it cheap, and what is the floor?** Market value, book value, price to book, earnings yield
+      and free-cash-flow yield at the S1 quote date. Then open the book: how much is cash and
+      financial assets, receivables, inventory, fixed assets, goodwill and intangibles, less debt
+      and customer advances. Give a rough floor (net cash plus tangible assets, with the haircut
+      stated) and say whether it protects the downside. End with what the price assumes
+      (the reverse curve).
+   5. **What did management do with the cash?** Ten-year payout, buybacks, issuance and share count.
+   6. **Where does the story bend or break trend?** The headline numbers (about five) and the
+      one-line verdict.
+
+   This record, not the latest quarter, is what the panel reads. Below the scorecard, keep the supporting series and calculations as
    a reference appendix. Compute more only when a live question needs it: de-cumulate quarters,
    bridge balance-sheet or equity movements, split growth into price, volume and mix, reconcile S1
    to S2. Stop a calculation when its answer cannot change the conclusion. A bridge that does not
    close is a finding only if it affects the story; otherwise note it in the appendix. In later
    rounds, extend the workpaper with what the live topic needs and correct earlier derived figures
-   that used non-comparable share counts or definitions.
+   that used non-comparable share counts or definitions. The latest quarter or news item enters
+   round one only if it changes the scorecard's verdict; otherwise it is queued for round two.
 2. **Let an expert open.** Give the panel the fact sheet, the decade workpaper, the data
    dictionary, relevant company knowledge and prior rounds. Each speaker has their full role card.
    When the host supports and authorizes delegation, keep a separate context for each expert.
@@ -92,7 +115,9 @@ the reason and the role version.
    price should be understood: a puzzle, a break in a long series, an assumption the record
    contradicts, a question to a specific colleague. Prefer a question about what the business is
    and where it is heading over a question about how one figure was computed. A question or tentative explanation
-   is enough to begin. In round one the unexplained cross-check mismatch, if any, opens instead.
+   is enough to begin. In round one the unexplained cross-check mismatch, if any, opens instead; otherwise Buffett opens
+   with the great/good/gruesome verdict and the single scorecard line that most surprised him, and
+   the rest of the round works through valuation and floor, cash and returns in turn.
    In later rounds an expert may pick up a `next_question_candidates` thread, answer a standing
    objection, or open something new the record justifies — unless the user redirects. Record the
    opening topic as the round's `question` and the opener as `initiated_by`. Leave subsequent
@@ -128,17 +153,24 @@ the reason and the role version.
 
    Append each turn to `statements[]` in spoken order with `phase: "discussion"`.
 
-   **Chat register.** The round is read as a group chat, so write each turn as one person talking
-   to the others, in clear accessible language: no tables, no formulas, no SQL, no field names and
-   no source codes in `text`. Length follows the content — a one-line question and a worked
-   argument are both fine turns, but every turn carries one main idea and answers the previous one
-   before it adds anything. Lead with the point, then give the one to three numbers that make it
-   convincing, rounded and with their period. Name accounting terms in plain words so a reader
-   outside finance can follow, without blunting the analysis. Intermediate arithmetic stays in the
-   workpaper. The turn's `evidence[]` carries one short item per figure the
-   reader may want to check, with a short source label such as `S2 raw_income FY2016–FY2025`.
-   A question can have empty evidence. Identify assumptions in the spoken text. Run-level notes on
-   how the system performed belong in `session.json` `run_notes`, not in the chat.
+   **Chat register.** The round is read as a group chat: short, clear, one idea per turn, in the
+   words a smart non-specialist uses. Aim for two to four sentences (about 40 to 90 words); a
+   one-line question or concession is a whole turn, and a turn may run longer only when a worked
+   argument cannot be split. Each turn answers the previous one first, then adds one point with at
+   most one to three rounded numbers and their period. No tables, formulas, SQL, field names or
+   source codes in `text`. Name accounting terms in plain words. Intermediate arithmetic stays in
+   the workpaper; the turn's `evidence[]` carries one short item per figure, with a source label such
+   as `S2 raw_income FY2016–FY2025`. Identify assumptions in the spoken text. Run-level notes on how
+   the system performed belong in `session.json` `run_notes`, not in the chat.
+
+   **Keep asking.** The panel makes progress by questions. Every turn except a closing one ends
+   with one question — to a named colleague, or to the user when the answer depends on their
+   horizon, risk tolerance or knowledge — and the next speaker answers it before adding anything.
+   A good question is single, concrete and answerable from the data or from a named missing fact
+   ("Is the 2023 rise in fixed assets growth capex or catch-up?", not "What about capital
+   allocation?"). Do not stack questions in one turn. Aim for eight to twelve turns per round, one
+   topic at a time; when a new topic opens, record it in `where_it_went` or queue it as the next
+   round's question instead of running two threads at once.
    If reasoning stalls despite usable evidence, consult a method in `Thinkers/README.md`, attach
    its required label in the turn record, and return to verification.
 4. **Close the round.** If the conclusion relies on an objection raised in the last turn, give
@@ -147,8 +179,10 @@ the reason and the role version.
    shifted them. Write the conclusion — covering where the discussion actually went, not only the
    opening topic. Start it with the big-picture verdict in two or three plain sentences: what
    the business is, what the decade says, what the price implies, and the insight a reader
-   should remember. Then give the handful of numbers that anchor it. Add what would change it, open questions, ranked next questions, Thinkers
-   consulted, and knowledge candidates. Use the lowest confidence of the evidence the
+   should remember. Then give the handful of numbers that anchor it. Add what would change it, open questions, ranked next questions (at most three, each single and
+   answerable, the first being what to ask next round or what the user should tell us), Thinkers
+   consulted, and knowledge candidates. After round one, the conclusion also states the scorecard
+   verdict in one line each: business type, cash backing, return driver, cheap or not and the floor. Use the lowest confidence of the evidence the
    conclusion depends on. High confidence requires a direct statement line or two independent
    sources. A finding that depends on an S2 default (r = 8%, g = 3%, or tax = 25%) is at most medium.
 5. **Save and review.** Write `rounds/round-NN.json`, run `python3 scripts/render_round.py <file>`,
