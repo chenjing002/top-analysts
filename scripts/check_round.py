@@ -18,6 +18,7 @@ Checks (ids are referenced from skills/analyze/CHECKLIST.md):
   R1 the required return appears at a single rate; show two others (reverse curve)
   D1 turn longer than 110 words; D2 non-closing turn without exactly one question;
   D3 round one conclusion must carry the scorecard (great/good/gruesome + floor)
+  D4 round one workpaper must carry the paired-line divergence scan (question menu)
   T1 open disagreement, T2 unexplained S1/S2 cross-check mismatch on a cited series,
   T3 conclusion repeats the previous round, T4 single-quarter evidence under a high-confidence
      conclusion — each needs a Thinker consulted or an explicit decline in `thinkers_consulted`
@@ -304,6 +305,13 @@ def check(round_path: Path, rep: Report) -> dict:
         low = answer.lower()
         if not any(k in low for k in ("great", "good", "gruesome")) or "floor" not in low:
             rep.warn("D3", "round one conclusion lacks the scorecard verdict (great/good/gruesome) and/or the downside floor")
+        wp = data_dir / "workpaper-round-01.md"
+        if wp.exists():
+            wtxt = wp.read_text(encoding="utf-8").lower()
+            if "divergence" not in wtxt or "growth_gap" not in wtxt:
+                rep.warn("D4", "round one workpaper has no paired-line divergence scan (section naming the pairs and calc.growth_gap); see SKILL §3 step 1.7")
+        else:
+            rep.warn("D4", f"no {wp.name} under {data_dir}; the divergence scan cannot be checked")
 
     # knowledge candidates
     for k, c in enumerate(r.get("knowledge_candidates", []) or []):

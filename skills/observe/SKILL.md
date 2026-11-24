@@ -23,8 +23,11 @@ example `observe 600519.SH 2026-11-23-01 1`. Use `observe proposals` for pending
   expert across rounds. Return the verdict, severity of weaknesses, tags logged, and next question.
 - Check the workflow rules the round should have met: in round one, the business scorecard
   (great/good/gruesome, 10-year FCF vs profit, capex and depreciation, DuPont, valuation against
-  book and the downside floor) was done before the news topic; turns are short, one idea each, and
-  end with one concrete question; the round stayed on one topic. Report each miss as a weakness.
+  book and the downside floor) was done before the news topic, and the workpaper carries the
+  paired-line divergence scan with an owner per item; the round's questions reach the balance-sheet
+  and cash-flow gaps the scan ranked among the largest, not only the income statement; a growth
+  rate for a small line travels with its absolute change; turns are short, one idea each, and end
+  with one concrete question; the round stayed on one topic. Report each miss as a weakness.
 - If an independent reviewer is unavailable, do a self-review and label it as such. Leave any
   proposals pending independent validation. If the inputs are supplied in chat, return the review
   there when the host has no writable checkout.

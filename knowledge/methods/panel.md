@@ -2,3 +2,4 @@
 
 One line, one claim; see knowledge/README.md for the admission rules.
 - [M-001] (2026-11-24, confidence: medium, source: panel method this round [Penman reverse curve + Greenblatt normalization + Penman conservatism check]) For a peak-earnings cyclical, anchor on [a] zero-RE-growth implied return r = E/P across a normalized-E band and [b] normalized EBIT/EV with cash stripped and MI added, instead of trailing PE or FCF yield; check how much of an RNOA rise is base shrinkage [D&A > capex, impairments] before reading it as quality. Session 000807.SZ/2026-11-23-05 r1.
+- [M-002] (2026-11-24, confidence: medium, source: SRC Lecture 11 pp.1-2 + joel-greenblatt card 1.1; panel round 1) For a state-controlled harvester with an idle hoard, show EV at full vs partial cash recovery and value the operating business ex-cash like-for-like, instead of a flat cash haircut or a headline yield that keeps the carry in earnings Session 000807.SZ/2026-11-24-01 r1.

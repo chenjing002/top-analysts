@@ -3,7 +3,7 @@
 > The accounting backbone: reformulates the financial statements to separate operations from financing, anchors value on book value and current earnings ("what you know"), and treats everything beyond that as speculation about growth to be challenged, not paid for.
 
 **Source basis:** `source-files/Stephen Penman/Penman_What_Matters_in_Company_Valuation.pdf` (lecture to the 56th Schmalenbach-Tag, Sept 2002, 25 pp., full text) and `source-files/Stephen Penman/Financial Statement Analysis for Value Investing.html` (homepage of penmanpope4value.com for Penman & Pope, *Financial Statement Analysis for Value Investing*, 2025: chapter-by-chapter headline claims only, no chapter body text).
-**Version:** 1.0 (2026-11-23) · **Changelog:** see bottom.
+**Version:** 1.1 (2026-11-24) · **Changelog:** see bottom.
 
 ## 1. Identity and scope
 
@@ -97,6 +97,8 @@ Free cash flow is irrelevant to going-concern valuation but central to liquidity
 - A-share-specific quality issues inside the reformulation: CAS 6 allows capitalizing 开发支出, so Chinese R&D-heavy firms can be anti-conservative where Penman's US examples are conservative; 商誉 is impairment-only, so acquisition-fueled earnings growth sits on an untested anchor; 政府补助 in 其他收益 and 递延收益 inflate OI relative to peers; related-party 其他应收款 can be disguised financing out of the firm.
 
 **Market data:** P_0 = 总市值 at the A-share price (for A+H firms, value each class at its own price or state the assumption). Use 归属于母公司股东的净资产 for B_0 and 归属于母公司股东的净利润 (plus OCI) for earnings. Consensus EPS for forward earnings only after checking it against core OI; analysts forecast earnings, not cash flows, which is why forward earnings is a usable anchor.
+
+**Scope checks before quoting a yield or per-share figure.** State the basis on every such figure: parent vs consolidated, pre- vs post-bonus shares. When consolidated net cash is stripped for a like-for-like or ex-cash yield, minorities own part of that cash: deduct their share from both the cash and its carry (book-equity share as a labelled proxy when no better split exists) and show the yield on both bases. When share count jumps, identify 送转 (bonus/transfer) steps before calling it dilution. [observer-added, from 000807.SZ/2026-11-24-01 r1 and 605499.SH/2026-11-23-02 r1]
 
 ## 4. Evidence standards
 
@@ -244,3 +246,4 @@ RNOA, ROCE = RNOA + FLEV × (RNOA − NBC), PM × ATO, OLLEV, NFE/tax allocation
 ## 9. Changelog
 
 - 1.0 (2026-11-23): initial distillation from the 2002 Schmalenbach lecture and the penmanpope4value.com chapter outline.
+- 1.1 (2026-11-24): §3.10 — added a scope-checks bullet: minority share of stripped cash in like-for-like yields (labelled proxy, both bases shown) and 送转 identification before calling share growth dilution. Improvement, independently validated. Proposal: `observer/proposals/2026-11-24-stephen-penman-scope-mismatch.md`.

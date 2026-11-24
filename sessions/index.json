@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-24T01:35:26-08:00",
+ "built_at": "2026-11-24T02:29:29-08:00",
  "experts": {
   "jeff-bezos": {
    "name": "Jeff Bezos",
@@ -16,7 +16,7 @@
   "joel-greenblatt": {
    "name": "Joel Greenblatt",
    "tagline": "Reduces every company to two pre-tax numbers — what you pay (EBIT / enterprise value) and what the business earns on the tangible capital it actually needs (EBIT / (NWC + NFA)) — then asks whether normalized EBIT two to three years out can be estimated with confidence, and refuses to opine when it cannot.",
-   "version": "1.1 (2026-11-24)",
+   "version": "1.2 (2026-11-24)",
    "file": "experts/joel-greenblatt.md"
   },
   "li-lu": {
@@ -40,7 +40,7 @@
   "stephen-penman": {
    "name": "Stephen Penman",
    "tagline": "The accounting backbone: reformulates the financial statements to separate operations from financing, anchors value on book value and current earnings (\"what you know\"), and treats everything beyond that as speculation about growth to be challenged, not paid for.",
-   "version": "1.0 (2026-11-23)",
+   "version": "1.1 (2026-11-24)",
    "file": "experts/stephen-penman.md"
   },
   "warren-buffett": {
@@ -90,6 +90,46 @@
        "json": "sessions/000807.SZ/2026-11-23-05/rounds/round-01.json",
        "md": "sessions/000807.SZ/2026-11-23-05/rounds/round-01.md",
        "observer": "sessions/000807.SZ/2026-11-23-05/observer/round-01.md"
+      }
+     ]
+    },
+    {
+     "session_id": "2026-11-24-01",
+     "started_at": "2026-11-24T01:45:00-08:00",
+     "status": "open",
+     "user_request": "重新讨论分析 000807.SZ\t云铝股份",
+     "experts": [
+      "warren-buffett",
+      "stephen-penman",
+      "joel-greenblatt",
+      "jeff-bezos",
+      "li-lu"
+     ],
+     "factsheet": "sessions/000807.SZ/2026-11-24-01/data/factsheet.md",
+     "summary": null,
+     "rounds": [
+      {
+       "round": 1,
+       "question": "Is the harvest's free cash real owner cash, and what normal earning power should today's price be tested against?",
+       "participants": [
+        "warren-buffett",
+        "joel-greenblatt",
+        "stephen-penman",
+        "li-lu",
+        "jeff-bezos"
+       ],
+       "started_at": "2026-11-24T10:00:00+08:00",
+       "ended_at": "2026-11-24T10:55:00+08:00",
+       "conclusion": "Yunnan Aluminium is a good business in harvest, not a great one: a cost-position commodity smelter whose decade splits into a capital-hungry build-out (FY2016-20 parent profit 6.99亿 on capex 167.3亿) and a cash-rich harvest (FY2021-25 profit 223.1亿, free cash 308.6亿). The decade's cash backs the profit (10y FCF 260.8亿 = 1.13x parent NI 230.1亿), but harvest capex at 0.47x depreciation means today's free cash overstates owner cash unless maintenance is genuinely cheap. At 728.6亿 (S1 quote 2026-11-20, 21.01元) the price is not buying the 2026 peak: on the mechanical harvest median 44.1亿 it pays 6.1% with no growth and needs 4.6% perpetual growth at an 8% hurdle; stripping the 211.8亿 hoard and its assumed carry, the operating business yields about 7.9% with no growth, or about 7.7% once minorities' book share of the cash is deducted — at or below the hurdle, not above it. The insight to remember: the market's 36% fall against trailing profit up ~166% is a bet that the cost-side windfall reverses, and the price already sits at mid-cycle no-growth, so the upside depends on alumina persistence or the hoard reaching owners, not on the boom continuing. Scorecard: business type GOOD in harvest (commodity spread, no franchise moat); cash backing YES over the decade (1.13x) but current FCF flattered by deferred maintenance; return driver margin and turnover up on a growing base over FY2016-25 (RNOA 5.0% to 28.6%, NOA 170.5亿 to 254.3亿), with base shrinkage (291.6亿 to 254.3亿) only in FY2021-25; leverage gone; cheap or not FAIR at mid-cycle no-growth — the ex-cash operating yield meets the 8% hurdle only at the mid band and only on the consolidated-cash basis; floor about 272亿 (37% of cap) with stated haircuts protects roughly a third of the price. Confidence medium: the mid-cycle base is mechanical, the carry yield and maintenance (c) are labelled assumptions, and the bear case is unrefuted locally.",
+       "confidence": "medium",
+       "n_disagreements_open": 1,
+       "thinkers": [
+        "richard-hamming",
+        null
+       ],
+       "json": "sessions/000807.SZ/2026-11-24-01/rounds/round-01.json",
+       "md": "sessions/000807.SZ/2026-11-24-01/rounds/round-01.md",
+       "observer": "sessions/000807.SZ/2026-11-24-01/observer/round-01.md"
       }
      ]
     }
@@ -267,5 +307,5 @@
    ]
   }
  ],
- "n_rounds": 6
+ "n_rounds": 7
 }

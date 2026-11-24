@@ -210,6 +210,7 @@ Other tables (not detailed): `cash_bridge_annual`, `capital_bridge_annual`, `val
 - **Revenue columns**: `ratios_annual`, `capital_summary_annual`, `residual_income_annual`, `valuation_annual` `.revenue` = **营业总收入** (`total_revenue`); `working_capital_annual.revenue` and `reformulated_is.revenue` = **营业收入**. Differences matter for groups with interest/fee income (Moutai 174.1 vs 170.9 bn).
 - **Gross margin** = (营业收入 − 营业成本)/营业收入, excluding 税金及附加 — a "product-business proxy".
 - **DPO** uses purchases ≈ COGS + ΔInventory, not COGS; **CCC excludes customer advances** (reported separately as `advance_days`).
+- **Paired-line divergence scan** (fact sheet section, `fetch.py` `DIVERGENCE_PAIRS`, formula `scripts/calc.py growth_gap`): for each pair (A follows B) the gap is `100 × (A_t/A_t−1 − B_t/B_t−1)` in percentage points per fiscal year, and `excess_a = A_t−1 × (growth_a − growth_b)` is the part of ΔA that B's growth does not explain, in 亿. Rank by `excess_a`; the percentage alone is misleading for small lines. A cell is `—` when a base is ≤ 0 or the line is absent. Pairs mix 营业收入 (IS/BS/CF lines) and 营业总收入 (NOA); `其他应收款` prefers `*_combined`. Evidence only: a gap is a question, not a finding.
 
 ---
 

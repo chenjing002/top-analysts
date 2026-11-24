@@ -51,6 +51,27 @@ def cagr(begin: float, end: float, years: float) -> float:
     return (end / begin) ** (1 / years) - 1
 
 
+def growth_gap(a_new: float, a_old: float, b_new: float, b_old: float) -> dict:
+    """Paired-line divergence: growth of line A minus growth of line B over the same period, in
+    percentage points, with both absolute changes so a percentage never travels without its base.
+    A is the line that should follow B (cost of sales follows revenue, receivables follow revenue,
+    inventory follows cost of sales, capex follows D&A, CFO follows net income). A positive gap
+    means A outgrew B. `excess_a` = a_old × (growth_a − growth_b) is the part of ΔA that following
+    B would not explain, in A's own unit: rank divergences by it, not by the percentage, because a
+    small base turns any move into a huge percentage. Undefined when either old value is not
+    positive (sign change, zero base).
+
+    >>> g = growth_gap(a_new=88.9, a_old=61.5, b_new=600.4, b_old=544.5)
+    >>> round(g['gap_pp'], 1), round(g['delta_a'], 1), round(g['delta_b'], 1), round(g['excess_a'], 1)
+    (34.3, 27.4, 55.9, 21.1)
+    """
+    if a_old <= 0 or b_old <= 0:
+        raise ValueError("growth_gap needs positive bases for both lines")
+    ga, gb = pct_change(a_new, a_old), pct_change(b_new, b_old)
+    return {"growth_a": ga, "growth_b": gb, "gap_pp": 100 * (ga - gb),
+            "delta_a": a_new - a_old, "delta_b": b_new - b_old, "excess_a": a_old * (ga - gb)}
+
+
 # ---------- cash and owner earnings ----------
 
 def fcf(cfo: float, capex: float) -> float:

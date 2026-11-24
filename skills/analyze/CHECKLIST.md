@@ -31,12 +31,24 @@ playbook, add a rule here and, where it can be computed, a check in `check_round
 - **D2** Every non-closing turn ends with exactly one question. [question-discipline]
 - **D3** Round one's conclusion carries the scorecard: great/good/gruesome, cash backing, return
   driver, cheap or not, floor. [scorecard-missing]
+- **D4** Round one's workpaper carries the paired-line divergence scan (`## Divergence scan`
+  heading, or a line per pair under scorecard item 7) with an owner for each item.
+  [divergence-unscanned]
+- A growth rate spoken for a line smaller than about a tenth of revenue, or for a pair whose two
+  lines differ by an order of magnitude, carries its absolute change in the same sentence
+  (`calc.growth_gap` `excess_a`). [percent-without-base]
+- A round's questions span the statements the scan flagged: when a balance-sheet or cash-flow
+  excess move ranks among the five largest and nobody asks about it, log the miss.
+  [statement-blind-spot]
 - Challenges and concessions made in the text are recorded in `challenges[]` / `concessions[]`.
   [challenge-unrecorded]
 - A spoken estimate carries its assumption in the same sentence as the number: a floor names its
   haircut, a cause read from one line item says so, an annualized yield names the part that is
   fair-value marks. The workpaper label is not enough; the spoken figure is what gets quoted.
   [assumption-as-finding]
+- A spoken multiplier word (doubled, tripled, quadrupled) is a figure: it needs an evidence item
+  with the matching ratio within rounding ("tripled" for 2.66× is a miss; say "more than doubled"
+  or give the percent). Observer-checked. [unsourced-number]
 
 ## Financial definitions (Observer-checked)
 

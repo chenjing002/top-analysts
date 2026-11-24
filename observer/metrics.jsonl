@@ -1,4 +1,5 @@
 {"session": "000807.SZ/2026-11-23-05", "round": 1, "ts_code": "000807.SZ", "date": "2026-11-23", "check_errors": 2, "check_warnings": 19, "weak_high": 1, "weak_medium": 0, "weak_low": 5, "kb_cited": 0, "thinkers": 0, "candidates": 5}
+{"session": "000807.SZ/2026-11-24-01", "round": 1, "ts_code": "000807.SZ", "date": "2026-11-24", "check_errors": 0, "check_warnings": 0, "weak_high": 0, "weak_medium": 3, "weak_low": 5, "kb_cited": 3, "thinkers": 2, "candidates": 5}
 {"session": "605499.SH/2026-11-23-02", "round": 1, "ts_code": "605499.SH", "date": "2026-11-23", "check_errors": 11, "check_warnings": 24, "weak_high": 0, "weak_medium": 8, "weak_low": 4, "kb_cited": 0, "thinkers": 0, "candidates": 0}
 {"session": "605499.SH/2026-11-23-03", "round": 1, "ts_code": "605499.SH", "date": "2026-11-23", "check_errors": 3, "check_warnings": 22, "weak_high": 0, "weak_medium": 2, "weak_low": 3, "kb_cited": 0, "thinkers": 0, "candidates": 2}
 {"session": "605499.SH/2026-11-23-03", "round": 2, "ts_code": "605499.SH", "date": "2026-11-23", "check_errors": 0, "check_warnings": 13, "weak_high": 0, "weak_medium": 0, "weak_low": 3, "kb_cited": 0, "thinkers": 0, "candidates": 2}

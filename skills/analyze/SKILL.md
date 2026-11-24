@@ -106,6 +106,30 @@ the reason and the role version.
    5. **What did management do with the cash?** Ten-year payout, buybacks, issuance and share count.
    6. **Where does the story bend or break trend?** The headline numbers (about five) and the
       one-line verdict.
+   7. **Which paired lines diverged, and whose question is each?** Read the fact sheet's
+      paired-line divergence scan (`calc.growth_gap`): every row pairs a line with the line it
+      should follow across all three statements — cost of sales, selling and admin expense and tax
+      against revenue or pre-tax profit; receivables, inventory, payables, customer advances,
+      other receivables, fixed assets and intangibles against the flow that drives them; cash
+      collected, cash paid, CFO, capex, dividends and borrowings against revenue, cost of sales,
+      net income, D&A and capex. Take the three to five largest **excess moves in 亿** (not the
+      largest percentages: a small base makes any move look huge) and the gaps that changed sign
+      between years. Write one line per item: the pair, the gap and both absolute changes, what
+      would be surprising about it, and the colleague whose lens owns it:
+
+      | pair that diverged | owner |
+      |---|---|
+      | CFO vs net income, cash collected vs revenue, tax or minority leakage, any accrual line | `stephen-penman` |
+      | receivables, inventory, payables or advances vs their flow; dividends or borrowings vs CFO and capex | `jeff-bezos` |
+      | capex vs D&A, fixed assets vs revenue, cost of sales vs revenue (pricing power or cost position) | `warren-buffett` |
+      | goodwill or intangibles vs revenue, cash vs interest-bearing debt (存贷双高), capitalized development | `michael-mauboussin` / `rockwood` |
+      | other receivables vs revenue, prepayments vs cost of sales, minority share of profit, related-party channels | `li-lu` |
+      | a cost line that jumped or collapsed in one year (reclassification, windfall, cycle) | `joel-greenblatt` |
+
+      These lines are the round's question menu: the opener may start from the largest one, and
+      the ones not reached go to `next_question_candidates` with the pair named. A divergence
+      that the data already explains (a reclassification visible in the series, a disposal) is a
+      one-line note, not a question.
 
    This record, not the latest quarter, is what the panel reads. Below the scorecard, keep the supporting series and calculations as
    a reference appendix. Compute more only when a live question needs it: de-cumulate quarters,
@@ -179,7 +203,13 @@ the reason and the role version.
    horizon, risk tolerance or knowledge — and the next speaker answers it before adding anything.
    A good question is single, concrete and answerable from the data or from a named missing fact
    ("Is the 2023 rise in fixed assets growth capex or catch-up?", not "What about capital
-   allocation?"). Do not stack questions in one turn. Aim for eight to twelve turns per round, one
+   allocation?"). The sharpest questions name two lines that should move together and did not,
+   with the gap in both percentage and 亿 ("Cash paid to suppliers rose 45亿 more than cost of
+   sales last year — prepaying alumina, or inventory built in transit?"), and go to the colleague
+   whose lens owns the pair (the table in step 1.7). Do not let an income-statement thread run the
+   whole round when the scan shows a balance-sheet or cash-flow gap of the same size; the next
+   speaker may cross statements by naming the pair. A growth rate spoken for a small line carries
+   its absolute change in the same sentence. Do not stack questions in one turn. Aim for eight to twelve turns per round, one
    topic at a time; when a new topic opens, record it in `where_it_went` or queue it as the next
    round's question instead of running two threads at once.
    If reasoning stalls despite usable evidence, consult a method in `Thinkers/README.md`, attach

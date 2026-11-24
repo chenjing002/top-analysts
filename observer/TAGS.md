@@ -39,6 +39,9 @@ unknown tag is a validation warning. `Check` names the deterministic rule that a
 | `agreement-without-engagement` | restating instead of testing a colleague | §5 | — |
 | `thinker-missed` | a stall signal fired and no method was consulted or declined | — (workflow) | T1–T4 |
 | `scorecard-missing` | round one skipped a scorecard line | — (workflow) | D3 |
+| `divergence-unscanned` | round one's workpaper has no paired-line divergence scan, or items without an owner | — (workflow) | D4 |
+| `percent-without-base` | a growth rate spoken for a small line or a mismatched pair without its absolute change | §4 | — |
+| `statement-blind-spot` | a top-five balance-sheet or cash-flow excess move in the scan that no turn asked about | — (workflow) | — |
 | `source-not-opened` | a role card quoted without reading the `source-files/` passage | §8 | — |
 | `knowledge-overreach` | a knowledge candidate that embeds inference in a fact | — (workflow) | C2 |
 
@@ -60,6 +63,7 @@ The meaning is written as the rule the playbook will carry; the observer's note 
 | `thinker-applied` | When a stall signal fires, apply one named Thinker method and bring back a verifiable next step. |
 | `operating-financing-separated` | Take financial assets, debt and their income out of operations before any return or valuation. |
 | `source-passage-applied` | Read the source passage in the turn and apply its test to this company, labelling the result plausible or proven. |
+| `divergence-routed` | Ask about two lines that should move together and did not, with the gap in both percent and 亿, and put it to the colleague whose lens owns the pair. |
 
 ## Log line format
 

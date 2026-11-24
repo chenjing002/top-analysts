@@ -79,7 +79,12 @@ def render(r: dict) -> str:
         L += [f"- {x}" for x in c["open_questions"]] + [""]
     if r.get("thinkers_consulted"):
         L += ["## Thinkers consulted (reasoning methods, not evidence)", ""]
-        L += [f"- {t['thinker']} · {t['method']} — {t['used_for']}" for t in r["thinkers_consulted"]] + [""]
+        L += [
+            f"- {t['thinker']} · {t['method']} — {t['used_for']}"
+            if t.get("thinker")
+            else f"- declined — {t.get('declined_because', '')}"
+            for t in r["thinkers_consulted"]
+        ] + [""]
     if r.get("next_question_candidates"):
         L += ["## Candidate questions for the next round", ""]
         L += [f"- {q}" for q in r["next_question_candidates"]] + [""]

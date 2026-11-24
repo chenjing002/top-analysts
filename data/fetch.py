@@ -187,6 +187,94 @@ def _ratio(a, b):
     return None if a is None or not b else a / b
 
 
+# Paired-line divergence scan: line A should follow line B. The sheet reports growth(A) − growth(B)
+# in percentage points per year plus the latest absolute changes, so a percentage never travels
+# without its base. Keys are BME metric ids; a list is summed, None entries are skipped.
+# Formula: scripts/calc.py growth_gap. Evidence only — the panel decides what a gap means.
+DIVERGENCE_PAIRS = [
+    # income statement
+    ("IS", "营业成本", ["raw:cost_of_goods_sold"], "营业收入", ["raw:revenue"]),
+    ("IS", "销售费用", ["raw:selling_expenses"], "营业收入", ["raw:revenue"]),
+    ("IS", "管理费用", ["raw:admin_expenses"], "营业收入", ["raw:revenue"]),
+    ("IS", "研发费用", ["raw:rd_expenses"], "营业收入", ["raw:revenue"]),
+    ("IS", "所得税费用", ["raw:income_tax_expense"], "利润总额", ["raw:pretax_profit"]),
+    ("IS", "少数股东损益", ["raw:minority_income"], "净利润", ["raw:net_income_total"]),
+    # balance sheet against the flow that drives it
+    ("BS", "应收票据及应收账款", ["raw:receivables_combined"], "营业收入", ["raw:revenue"]),
+    ("BS", "存货", ["raw:inventory"], "营业成本", ["raw:cost_of_goods_sold"]),
+    ("BS", "预付款项", ["raw:prepayments"], "营业成本", ["raw:cost_of_goods_sold"]),
+    ("BS", "其他应收款", ["raw:other_receivables_combined", "raw:other_receivables"], "营业收入", ["raw:revenue"]),
+    ("BS", "应付票据及应付账款", ["raw:payables_combined"], "营业成本", ["raw:cost_of_goods_sold"]),
+    ("BS", "合同负债+预收款项", ["raw:contract_liabilities", "raw:advances_from_customers"], "营业收入", ["raw:revenue"]),
+    ("BS", "固定资产+在建工程", ["raw:ppe", "raw:construction_in_progress"], "营业收入", ["raw:revenue"]),
+    ("BS", "无形资产+商誉+开发支出", ["raw:intangible_assets", "raw:goodwill", "raw:development_expenditure"], "营业收入", ["raw:revenue"]),
+    ("BS", "货币资金", ["raw:cash_and_equivalents"], "有息负债", ["raw:short_term_borrowings", "raw:current_portion_lt_debt", "raw:long_term_borrowings", "raw:bonds_payable", "raw:short_term_bonds_payable", "raw:lease_liabilities"]),
+    ("BS", "净经营资产 NOA", ["noa"], "营业总收入", ["raw:total_revenue"]),
+    # cash flow against the accrual line it should track
+    ("CF", "经营现金流净额 CFO", ["raw:cfo"], "净利润", ["raw:net_income_total"]),
+    ("CF", "销售商品收到的现金", ["raw:cash_received_from_sales"], "营业收入", ["raw:revenue"]),
+    ("CF", "购买商品支付的现金", ["raw:cash_paid_for_goods"], "营业成本", ["raw:cost_of_goods_sold"]),
+    ("CF", "支付给职工的现金", ["raw:cash_paid_to_employees"], "营业收入", ["raw:revenue"]),
+    ("CF", "支付的各项税费", ["raw:cash_paid_for_taxes"], "利润总额", ["raw:pretax_profit"]),
+    ("CF", "购建长期资产支付 capex", ["raw:capex_paid"], "折旧摊销 D&A", ["da_total"]),
+    ("CF", "分配股利利润或偿付利息支付", ["raw:dividends_and_interest_paid"], "经营现金流净额 CFO", ["raw:cfo"]),
+    ("CF", "取得借款收到的现金", ["raw:cash_from_borrowings"], "购建长期资产支付 capex", ["raw:capex_paid"]),
+]
+
+
+def _val(B: "Bme", keys: list[str], year: str):
+    """Sum of the listed metrics for a year (yuan); None when none of them is present.
+    For an alias list (first key preferred) pass the alias first: the first present value wins
+    when the keys describe the same line (`*_combined` over its component)."""
+    if keys and keys[0].endswith("_combined"):
+        for k in keys:
+            v = B.v(k, year)
+            if v is not None:
+                return v
+        return None
+    return _sum(*(B.v(k, year) for k in keys))
+
+
+def divergence_block(B: "Bme", ys: list[str], window: int = 5) -> dict:
+    """Rows of DIVERGENCE_PAIRS × the last `window` fiscal years: gap in percentage points
+    (growth A − growth B, `calc.growth_gap`), plus latest-year levels and absolute changes in 亿元."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("calc", Path(__file__).resolve().parent.parent / "scripts" / "calc.py")
+    calc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(calc)
+    full = B.years
+    prev = {full[i]: (full[i - 1] if i else None) for i in range(len(full))}
+    fys = ys[:window]  # descending
+    rows = []
+    for group, a_label, a_keys, b_label, b_keys in DIVERGENCE_PAIRS:
+        gaps, latest = {}, None
+        for y in fys:
+            py = prev.get(y)
+            if not py:
+                gaps[y] = None
+                continue
+            a1, a0, b1, b0 = _val(B, a_keys, y), _val(B, a_keys, py), _val(B, b_keys, y), _val(B, b_keys, py)
+            if None in (a1, a0, b1, b0) or a0 <= 0 or b0 <= 0:
+                gaps[y] = None
+                g = None
+            else:
+                g = calc.growth_gap(a_new=a1, a_old=a0, b_new=b1, b_old=b0)
+                gaps[y] = g["gap_pp"]
+            if y == fys[0]:
+                latest = {"a_yi": _yi(a1), "b_yi": _yi(b1),
+                          "delta_a_yi": _yi(a1 - a0) if None not in (a1, a0) else None,
+                          "delta_b_yi": _yi(b1 - b0) if None not in (b1, b0) else None,
+                          "growth_a": g["growth_a"] if g else None, "growth_b": g["growth_b"] if g else None,
+                          "excess_a_yi": _yi(g["excess_a"]) if g else None}
+        if all(v is None for v in gaps.values()) and (latest is None or latest["a_yi"] is None):
+            continue  # line absent for this company (e.g. no R&D, no goodwill)
+        rows.append({"group": group, "a": a_label, "b": b_label, "gaps_pp": gaps, **(latest or {})})
+    ranked = sorted((r for r in rows if r.get("excess_a_yi") is not None), key=lambda r: -abs(r["excess_a_yi"]))
+    return {"years": fys, "rows": rows,
+            "largest_latest": [f"{r['a']} vs {r['b']} ({r['excess_a_yi']:+.1f}亿)" for r in ranked[:5]],
+            "formula": "calc.growth_gap: gap_pp = 100 × (A_t/A_t−1 − B_t/B_t−1); excess_a = A_t−1 × (growth_a − growth_b); — when a base is ≤ 0 or a line is missing"}
+
+
 def bme_blocks(h: dict, years: int = 10) -> dict:
     B = Bme(h)
     ys = sorted(B.years, reverse=True)
@@ -288,6 +376,7 @@ def bme_blocks(h: dict, years: int = 10) -> dict:
         }
         for y in ys[:3]
     ]
+    b["divergence"] = divergence_block(B, ys)
     b["coverage"] = []
     b["reverse_curve"] = []
     b["market_latest"] = []
@@ -658,6 +747,24 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
         ("advance days", "advance_days", {}), ("CCC net adv.", "ccc_net_advances", {}), ("OWC % sales", "owc_pct_sales", {"pct": True}),
         ("ΔOWC/ΔRev", "incr_owc_per_incr_revenue", {"nd": 2}), ("flags", "wc_flags", {"raw": True}),
     ]))
+    dv = duck.get("divergence") or {}
+    if dv.get("rows"):
+        fys = dv["years"]
+        L.append("## S2 · Paired-line divergence scan (question generator; `calc.growth_gap`)")
+        L.append("Each row pairs a line A with the line B it should follow. Cells are growth(A) − growth(B) in percentage points for that fiscal year; "
+                 "— means a base ≤ 0 or a missing line. The last five columns give the latest fiscal year in 亿元: levels, absolute changes, and "
+                 "the excess move of A (A_t−1 × gap), i.e. how much of ΔA following B would not explain — rank by that column, not by the "
+                 "percentage, because a small base turns any move into a large gap. A gap is a question to ask, not a finding.")
+        L.append("| group | A | follows B | " + " | ".join(f"gap {y[:4]}" for y in fys) + " | A latest | ΔA | B latest | ΔB | excess ΔA |")
+        L.append("|---|---|---|" + "---|" * len(fys) + "---|---|---|---|---|")
+        for r in dv["rows"]:
+            cells = [("—" if r["gaps_pp"].get(y) is None else f"{r['gaps_pp'][y]:+.1f}") for y in fys]
+            L.append(f"| {r['group']} | {r['a']} | {r['b']} | " + " | ".join(cells)
+                     + f" | {_fmt(r.get('a_yi'))} | {_fmt(r.get('delta_a_yi'))} | {_fmt(r.get('b_yi'))} | {_fmt(r.get('delta_b_yi'))} | {_fmt(r.get('excess_a_yi'))} |")
+        L.append("")
+        if dv.get("largest_latest"):
+            L.append(f"Largest excess moves in FY{fys[0][:4]} (by 亿, not by %): " + "; ".join(dv["largest_latest"]) + ".")
+        L.append("")
     L.append("## S2 · Residual operating income (亿元; r_op assumed, not a conclusion)")
     L.append(_table(duck["residual_income"], [
         ("FY", "end_date", {"raw": True}), ("r_op", "r_op_assumed", {"pct": True}), ("PM", "pm", {"pct": True}),
