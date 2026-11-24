@@ -56,7 +56,7 @@
       <h1>${esc(c.name)} <span class="muted">${c.ts_code} · ${esc(c.industry)}</span></h1>
       <div class="card">
         <div class="cast">${s.experts.map(e => `<span class="chip" title="${esc(INDEX.experts[e]?.tagline || '')}">${avatar(e)}${esc(shortName(e))}</span>`).join('')}</div>
-        <div class="muted" style="margin-top:6px">Session ${s.session_id} · <a href="https://github.com/chenjing002/top-analysts/tree/main/sessions/${co}/${s.session_id}" target="_blank">原始文件与数据</a></div>
+        <div class="muted">Session ${s.session_id} · <a href="https://github.com/chenjing002/top-analysts/tree/main/sessions/${co}/${s.session_id}" target="_blank">原始文件与数据</a></div>
       </div>
       <div id="rounds"></div>`;
     const wrap = $('#rounds');
@@ -109,7 +109,7 @@
         ${dis.length ? `<div class="md"><b>仍未解决的分歧</b><ul>${dis.map(d => `<li>${esc(d.topic)}</li>`).join('')}</ul></div>` : ''}
         ${R.conclusion.what_would_change_our_mind?.length ? `<details><summary>什么会改变我们的看法</summary><ul>${R.conclusion.what_would_change_our_mind.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>` : ''}
       </div>
-      <div class="muted" style="margin-top:8px">完整记录（含依据）：<a href="${meta.md}" target="_blank">markdown</a> · <a href="${meta.json}" target="_blank">json</a>${meta.observer ? ` · <a href="${meta.observer}" target="_blank">observer</a>` : ''}</div>`;
+      <div class="muted" style="margin-top:14px">完整记录（含依据）：<a href="${meta.md}" target="_blank">markdown</a> · <a href="${meta.json}" target="_blank">json</a>${meta.observer ? ` · <a href="${meta.observer}" target="_blank">observer</a>` : ''}</div>`;
   }
 
   // ---- search: index fields first, then full statement text once rounds are prefetched
