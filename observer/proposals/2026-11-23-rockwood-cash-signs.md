@@ -38,4 +38,4 @@ Independent review 2026-11-24 (reviewer had not read any discussion rounds; judg
 
 ## Applied
 
-Applied 2026-11-24 by the orchestrator: `experts/rockwood.md` version 1.0 → 1.1, changelog line added. Commit: see git log (recorded after commit).
+Applied 2026-11-24 by the orchestrator: `experts/rockwood.md` version 1.0 → 1.1, changelog line added. Commit: 10fe8a0.

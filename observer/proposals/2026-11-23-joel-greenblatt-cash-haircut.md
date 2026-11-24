@@ -31,4 +31,4 @@ Independent review 2026-11-24 (reviewer did not read any discussion rounds; judg
 
 ## Applied
 
-Applied 2026-11-24 by the orchestrator: `experts/joel-greenblatt.md` version 1.0 → 1.1, changelog line added. The reviewer's follow-up on §7 is filed as `observer/proposals/2026-11-24-joel-greenblatt-excess-cash-vocabulary.md` (one change per expert per session). Commit: see git log.
+Applied 2026-11-24 by the orchestrator: `experts/joel-greenblatt.md` version 1.0 → 1.1, changelog line added. The reviewer's follow-up on §7 is filed as `observer/proposals/2026-11-24-joel-greenblatt-excess-cash-vocabulary.md` (one change per expert per session). Commit: 10fe8a0.
