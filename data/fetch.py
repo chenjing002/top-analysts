@@ -26,11 +26,17 @@ Design rules
   - Never silently merge the two sources. Each table says where it came from.
   - Cross-check block flags any |diff| > 1% between sources on the same concept and
     explains known definitional differences (e.g. duckdb ratios use 营业总收入).
+    Covers annual concepts and the latest single-quarter 营业收入.
+  - The sheet carries the latest 8 quarterly filings (YTD + de-cumulated single quarter)
+    and an S2 coverage line (latest filed period per table).
+  - AshareValueLine: reuse the cached payload when the published version is unchanged;
+    on network failure fall back to the cached copy and state its as-of date.
   - Nothing here is a conclusion. The sheet is evidence; experts reason.
 """
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 import os
 import re
@@ -46,10 +52,22 @@ YI = 1e8  # 1 亿元 = 100,000,000 元
 # --------------------------------------------------------------------------- helpers
 
 
-def _get(url: str, timeout: int = 30) -> str:
-    req = urllib.request.Request(url, headers={"User-Agent": "top-analysts/0.1"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read().decode("utf-8")
+def _get(url: str, timeout: int = 15, attempts: int = 2) -> str:
+    # Short timeout + one retry: GitHub Pages latency is bimodal (≈1 s or tens of s).
+    last = None
+    for _ in range(attempts):
+        try:
+            req = urllib.request.Request(
+                url, headers={"User-Agent": "top-analysts/0.2", "Accept-Encoding": "gzip"}
+            )
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = r.read()
+                if r.headers.get("Content-Encoding") == "gzip":
+                    data = gzip.decompress(data)
+                return data.decode("utf-8")
+        except Exception as e:
+            last = e
+    raise last
 
 
 def _jsonp(text: str) -> dict:
@@ -143,20 +161,23 @@ def df_rows(con, sql, params=()):
 
 def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
     b: dict = {}
+    lim = f"limit {years}" if years > 0 else ""  # 0 = full history (FY2008 onward)
+    # Dedupe rule from bme module-02: update_flag desc, f_ann_date desc, fetch time desc.
+    dedupe = "update_flag desc, f_ann_date desc, _fetched_at desc"
     # Raw statements, annual, de-duplicated (raw tables hold repeated rows for the same period).
     b["raw_annual"] = df_rows(
         con,
         f"""
         with i as (select * from (select end_date, f_ann_date, update_flag, revenue, total_revenue, operate_profit,
                        total_profit, n_income, n_income_attr_p, ebit,
-                       row_number() over (partition by end_date order by f_ann_date desc, update_flag desc) rn
+                       row_number() over (partition by end_date order by {dedupe}) rn
                    from raw_income where ts_code=? and end_date like '%1231') where rn=1),
              bs as (select * from (select end_date, total_assets, total_liab, total_cur_assets, total_cur_liab,
                         money_cap, inventories, total_hldr_eqy_exc_min_int, total_hldr_eqy_inc_min_int, total_share,
-                        row_number() over (partition by end_date order by f_ann_date desc, update_flag desc) rn
+                        row_number() over (partition by end_date order by {dedupe}) rn
                     from raw_balancesheet where ts_code=? and end_date like '%1231') where rn=1),
              cf as (select * from (select end_date, n_cashflow_act, c_pay_acq_const_fiolta,
-                        row_number() over (partition by end_date order by f_ann_date desc, update_flag desc) rn
+                        row_number() over (partition by end_date order by {dedupe}) rn
                     from raw_cashflow where ts_code=? and end_date like '%1231') where rn=1)
         select i.end_date, i.f_ann_date, i.update_flag,
                i.revenue/1e8 as revenue_yi, i.total_revenue/1e8 as total_revenue_yi,
@@ -169,9 +190,61 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
                cf.n_cashflow_act/1e8 as cfo_yi, cf.c_pay_acq_const_fiolta/1e8 as capex_paid_yi,
                (cf.n_cashflow_act - cf.c_pay_acq_const_fiolta)/1e8 as fcf_simple_yi
         from i left join bs on i.end_date=bs.end_date left join cf on i.end_date=cf.end_date
-        order by i.end_date desc limit {years}
+        order by i.end_date desc {lim}
         """,
         [ts_code, ts_code, ts_code],
+    )
+    # Latest quarterly filings: cumulative YTD as filed, plus single-quarter revenue/NI
+    # de-cumulated only when the immediately preceding quarter of the same year exists
+    # (missing stays missing). BS items are point-in-time; OI sq from the Penman table.
+    b["latest_quarters"] = df_rows(
+        con,
+        f"""
+        with i as (select * from (select end_date, f_ann_date, update_flag, revenue, n_income_attr_p,
+                       row_number() over (partition by end_date order by {dedupe}) rn
+                   from raw_income where ts_code=? and substr(end_date,5,4) in ('0331','0630','0930','1231')) where rn=1),
+             sq as (select end_date, f_ann_date, update_flag, revenue, n_income_attr_p,
+                       case substr(end_date,5,4) when '0331' then revenue
+                            else case when lag(end_date) over w = substr(end_date,1,4) ||
+                                 (case substr(end_date,5,4) when '0630' then '0331' when '0930' then '0630' else '0930' end)
+                                 then revenue - lag(revenue) over w end end as revenue_sq,
+                       case substr(end_date,5,4) when '0331' then n_income_attr_p
+                            else case when lag(end_date) over w = substr(end_date,1,4) ||
+                                 (case substr(end_date,5,4) when '0630' then '0331' when '0930' then '0630' else '0930' end)
+                                 then n_income_attr_p - lag(n_income_attr_p) over w end end as ni_parent_sq
+                   from i window w as (partition by substr(end_date,1,4) order by end_date)),
+             bs as (select * from (select end_date, money_cap, inventories, total_assets,
+                        total_hldr_eqy_exc_min_int, total_share,
+                        row_number() over (partition by end_date order by {dedupe}) rn
+                    from raw_balancesheet where ts_code=? and substr(end_date,5,4) in ('0331','0630','0930','1231')) where rn=1),
+             cf as (select * from (select end_date, n_cashflow_act, c_pay_acq_const_fiolta,
+                        row_number() over (partition by end_date order by {dedupe}) rn
+                    from raw_cashflow where ts_code=? and substr(end_date,5,4) in ('0331','0630','0930','1231')) where rn=1),
+             pi as (select end_date, oi_after_tax from reformulated_is
+                    where ts_code=? and period_kind='single_quarter')
+        select sq.end_date, sq.f_ann_date, sq.update_flag,
+               sq.revenue/1e8 as revenue_ytd_yi, sq.revenue_sq/1e8 as revenue_sq_yi,
+               sq.n_income_attr_p/1e8 as ni_parent_ytd_yi, sq.ni_parent_sq/1e8 as ni_parent_sq_yi,
+               pi.oi_after_tax/1e8 as oi_after_tax_sq_yi,
+               bs.money_cap/1e8 as money_cap_yi, bs.inventories/1e8 as inventories_yi,
+               bs.total_assets/1e8 as total_assets_yi,
+               bs.total_hldr_eqy_exc_min_int/1e8 as parent_equity_yi,
+               bs.total_share/1e8 as total_share_yi,
+               cf.n_cashflow_act/1e8 as cfo_ytd_yi, cf.c_pay_acq_const_fiolta/1e8 as capex_ytd_yi
+        from sq left join bs on sq.end_date=bs.end_date left join cf on sq.end_date=cf.end_date
+                left join pi on sq.end_date=pi.end_date
+        order by sq.end_date desc limit 8
+        """,
+        [ts_code, ts_code, ts_code, ts_code],
+    )
+    b["coverage"] = df_rows(
+        con,
+        """select (select max(end_date) from raw_income where ts_code=?) as income_last_end,
+                  (select max(end_date) from raw_balancesheet where ts_code=?) as bs_last_end,
+                  (select max(end_date) from raw_cashflow where ts_code=?) as cf_last_end,
+                  (select max(end_date) from reformulated_bs where ts_code=?) as penman_last_end,
+                  (select max(trade_date) from raw_daily_basic where ts_code=?) as daily_basic_last_trade""",
+        [ts_code] * 5,
     )
     b["ratios"] = df_rows(
         con,
@@ -180,7 +253,7 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
                    rnoa, opm, opm_core, ato, ollev, flev, nbc, spread, rotce, roce_parent, gross_margin,
                    receivables_to_sales, inventory_to_sales, ppe_to_sales, intangibles_to_sales,
                    customer_advances_to_sales, op_payables_to_sales, ratio_flags
-            from ratios_annual where ts_code=? and basis='average' order by end_date desc limit {years}""",
+            from ratios_annual where ts_code=? and basis='average' order by end_date desc {lim}""",
         [ts_code],
     )
     b["reformulated_is"] = df_rows(
@@ -191,7 +264,7 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
                    oi_after_tax/1e8 as oi_after_tax_yi, oi_core_after_tax/1e8 as oi_core_after_tax_yi,
                    nfe_after_tax/1e8 as nfe_after_tax_yi, ni_parent/1e8 as ni_parent_yi,
                    minority_income/1e8 as minority_income_yi, comprehensive_income_total/1e8 as ci_total_yi
-            from reformulated_is where ts_code=? and period_kind='cumulative' and end_date like '%1231' order by end_date desc limit {years}""",
+            from reformulated_is where ts_code=? and period_kind='cumulative' and end_date like '%1231' order by end_date desc {lim}""",
         [ts_code],
     )
     b["reformulated_bs"] = df_rows(
@@ -200,7 +273,7 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
                    nfo/1e8 as nfo_yi, minority_interests/1e8 as mi_yi, cse_calc/1e8 as cse_yi,
                    total_assets_reported/1e8 as total_assets_yi, parent_equity_reported/1e8 as parent_equity_yi,
                    r1_assets_residual, r2_liab_residual, r3_cse_residual
-            from reformulated_bs where ts_code=? and end_date like '%1231' order by end_date desc limit {years}""",
+            from reformulated_bs where ts_code=? and end_date like '%1231' order by end_date desc {lim}""",
         [ts_code],
     )
     b["cash"] = df_rows(
@@ -208,7 +281,7 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
         f"""select end_date, ni_total/1e8 as ni_total_yi, cfo/1e8 as cfo_yi, capex_paid/1e8 as capex_paid_yi,
                    asset_disposal_proceeds/1e8 as disposals_yi, fcf_simple/1e8 as fcf_simple_yi,
                    cash_conversion, accruals/1e8 as accruals_yi, cf_flags
-            from cash_summary_annual where ts_code=? order by end_date desc limit {years}""",
+            from cash_summary_annual where ts_code=? order by end_date desc {lim}""",
         [ts_code],
     )
     b["capital"] = df_rows(
@@ -216,14 +289,14 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
         f"""select end_date, noa_begin/1e8 as noa_begin_yi, noa_end/1e8 as noa_end_yi, delta_noa/1e8 as delta_noa_yi,
                    revenue_growth, noa_growth, reinvestment_rate, capex_paid/1e8 as capex_paid_yi,
                    da_total/1e8 as da_yi, capex_to_da, fcf_from_oi/1e8 as fcf_from_oi_yi, cap_flags
-            from capital_summary_annual where ts_code=? order by end_date desc limit {years}""",
+            from capital_summary_annual where ts_code=? order by end_date desc {lim}""",
         [ts_code],
     )
     b["working_capital"] = df_rows(
         con,
         f"""select end_date, dso, dio, dpo, ccc, advance_days, ccc_net_advances, owc_pct_sales,
                    incr_owc_per_incr_revenue, wc_flags
-            from working_capital_annual where ts_code=? order by end_date desc limit {years}""",
+            from working_capital_annual where ts_code=? order by end_date desc {lim}""",
         [ts_code],
     )
     b["residual_income"] = df_rows(
@@ -231,7 +304,7 @@ def duck_blocks(con, ts_code: str, years: int = 10) -> dict:
         f"""select end_date, r_op_assumed, r_e_assumed, pm, pm_core, rnoa_open, ato_open, spread_op,
                    reoi/1e8 as reoi_yi, reoi_core/1e8 as reoi_core_yi, re_common/1e8 as re_common_yi,
                    roce_open, delta_reoi/1e8 as delta_reoi_yi, ri_flags
-            from residual_income_annual where ts_code=? order by end_date desc limit {years}""",
+            from residual_income_annual where ts_code=? order by end_date desc {lim}""",
         [ts_code],
     )
     b["valuation"] = df_rows(
@@ -325,6 +398,30 @@ def cross_check(avl: dict, duck: dict) -> list[dict]:
                     "note": note,
                 }
             )
+    # Latest quarters: AVL quarterly_revenue is single-quarter 营业收入; duckdb side is
+    # de-cumulated from raw_income cumulative 营业收入 (Qn − Qn−1, Q1 as filed).
+    qrows = {r["end_date"]: r for r in duck.get("latest_quarters", [])}
+    qr = avl.get("quarterly_revenue", {})
+    qsuffix = {"Q1": "0331", "Q2": "0630", "Q3": "0930", "Q4": "1231"}
+    for y in qr.get("years", []):
+        for qk, suf in qsuffix.items():
+            aval = qr.get("data", {}).get(str(y), {}).get(qk)
+            d = qrows.get(f"{y}{suf}")
+            if aval is None or d is None:
+                continue
+            dval = d.get("revenue_sq_yi")
+            diff = _pct_diff(aval, dval)
+            checks.append(
+                {
+                    "concept": f"营业收入单季{qk}",
+                    "year": str(y),
+                    "avl": _r(aval, 4),
+                    "duckdb": _r(dval, 4),
+                    "pct_diff": _r(diff, 4) if diff is not None else None,
+                    "flag": "MISMATCH" if (diff is not None and abs(diff) > 0.01) else ("n/a" if diff is None else "ok"),
+                    "note": "AVL single-quarter 营业收入 vs duckdb raw_income de-cumulated 营业收入.",
+                }
+            )
     return checks
 
 
@@ -361,7 +458,12 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
     L.append("")
     L.append("## Sources")
     L.append(f"- **S1 AshareValueLine** version `{meta['avl_version']}` (financials fetched {avl.get('fetched_at')}, quote {avl.get('quote_refreshed_at')}): `{avl_url}`")
+    if meta.get("avl_note"):
+        L.append(f"  - {meta['avl_note']}")
     L.append(f"- **S2 bme.duckdb** `{DUCKDB_PATH}` (Tushare raw statements + Penman reformulation). Analysis log: {duck['analysis_log'][0] if duck['analysis_log'] else 'none'}")
+    cov = duck["coverage"][0] if duck.get("coverage") else {}
+    if cov:
+        L.append(f"- **S2 coverage (this company):** raw income filed through {cov.get('income_last_end')}, balance sheet {cov.get('bs_last_end')}, cash flow {cov.get('cf_last_end')}; Penman tables through {cov.get('penman_last_end')}; raw_daily_basic last trade {cov.get('daily_basic_last_trade')} (December windows only, not a live quote).")
     L.append("")
     # Quote
     q = avl.get("quote", {})
@@ -372,7 +474,7 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
         L.append(f"- S2 raw_daily_basic {m.get('trade_date')}: close {m.get('close')} · PE(TTM) {m.get('pe_ttm')} · PB {m.get('pb')} · total_mv {_fmt((m.get('total_mv') or 0)/1e4,1)} 亿 (Tushare 万元 converted) · dv_ttm {m.get('dv_ttm')}%")
     L.append("")
     # Cross-check
-    L.append("## Cross-check S1 vs S2 (same concept, same fiscal year)")
+    L.append("## Cross-check S1 vs S2 (same concept, same period; annual and latest single quarters)")
     bad = [c for c in checks if c["flag"] == "MISMATCH"]
     L.append(f"{len(checks)} comparisons, **{len(bad)} mismatches >1%**." + (" All matched." if not bad else ""))
     if bad:
@@ -411,13 +513,23 @@ def render_md(meta: dict, avl: dict, avl_url: str, duck: dict, checks: list[dict
         L.append(", ".join(f"{k} {v}" for k, v in ev.items() if k != "报告期"))
         L.append("")
     # duckdb raw
-    L.append("## S2 · Raw annual statements (亿元; latest filing per period from raw_income/raw_balancesheet/raw_cashflow)")
+    L.append("## S2 · Raw annual statements (亿元; preferred filing per period: update_flag desc, f_ann_date desc, fetch time desc)")
     L.append(_table(duck["raw_annual"], [
         ("FY", "end_date", {"raw": True}), ("营业收入", "revenue_yi", {}), ("营业总收入", "total_revenue_yi", {}),
         ("营业利润", "operate_profit_yi", {}), ("归母净利润", "ni_parent_yi", {}), ("总资产", "total_assets_yi", {}),
         ("货币资金", "money_cap_yi", {}), ("存货", "inventories_yi", {}), ("归母权益", "parent_equity_yi", {}),
         ("CFO", "cfo_yi", {}), ("capex paid", "capex_paid_yi", {}), ("FCF simple", "fcf_simple_yi", {}),
         ("股本(亿)", "total_share_yi", {"nd": 2}), ("announced", "f_ann_date", {"raw": True}),
+    ]))
+    L.append("## S2 · Latest quarterly filings (亿元; YTD = cumulative as filed, sq = single quarter; BS items point-in-time)")
+    L.append("Single-quarter 营业收入/归母净利润 de-cumulated from raw_income (Qn − Qn−1; Q1 as filed; missing prior quarter → —). OI after tax sq from `reformulated_is` single_quarter rows. update_flag 1 = revised filing.")
+    L.append(_table(duck.get("latest_quarters", []), [
+        ("period", "end_date", {"raw": True}), ("营业收入YTD", "revenue_ytd_yi", {}), ("营业收入sq", "revenue_sq_yi", {}),
+        ("归母净利YTD", "ni_parent_ytd_yi", {}), ("归母净利sq", "ni_parent_sq_yi", {}), ("OI after tax sq", "oi_after_tax_sq_yi", {}),
+        ("货币资金", "money_cap_yi", {}), ("存货", "inventories_yi", {}), ("总资产", "total_assets_yi", {}),
+        ("归母权益", "parent_equity_yi", {}), ("股本(亿)", "total_share_yi", {"nd": 2}),
+        ("CFO YTD", "cfo_ytd_yi", {}), ("capex YTD", "capex_ytd_yi", {}),
+        ("announced", "f_ann_date", {"raw": True}), ("upd", "update_flag", {"raw": True}),
     ]))
     L.append("## S2 · Penman ratios (basis = average capital; `ratios_annual`)")
     L.append("Definitions: OI = operating income after tax (reformulated, ≠ 营业利润); NOA = OA − OL; NFO = FO − FA (negative = net financial assets); RNOA = OI/NOA; OPM = OI/营业总收入; ATO = 营业总收入/NOA; FLEV = NFO/CSE; spread = RNOA − NBC; ROCE = RNOA + FLEV × spread.")
@@ -521,25 +633,53 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("company", help="ts_code (600519.SH), 6-digit code, or Chinese name")
     ap.add_argument("--out", help="output directory (default data/cache/<ts_code>)")
-    ap.add_argument("--years", type=int, default=10)
+    ap.add_argument("--years", type=int, default=10, help="S2 annual history depth; 0 = full history back to FY2008")
     ap.add_argument("--no-avl", action="store_true", help="skip AshareValueLine (offline)")
     args = ap.parse_args()
 
     con = open_db()
     ts_code, name, industry = resolve_code(con, args.company)
-    out = Path(args.out) if args.out else Path(__file__).resolve().parent / "cache" / ts_code
+    cache_dir = Path(__file__).resolve().parent / "cache" / ts_code
+    out = Path(args.out) if args.out else cache_dir
     out.mkdir(parents=True, exist_ok=True)
 
-    avl, avl_url, version = {}, "", "offline"
+    avl, avl_url, version, avl_note = {}, "", "offline", ""
     if not args.no_avl:
+        cached = None
+        for p in (out / "avl_raw.json", cache_dir / "avl_raw.json"):
+            if p.exists():
+                try:
+                    cached = json.loads(p.read_text(encoding="utf-8"))
+                    break
+                except (ValueError, OSError):
+                    pass
         try:
             v = avl_latest_version()
             version = v["version"]
-            avl, avl_url = avl_stock(ts_code, version)
-            (out / "avl_raw.json").write_text(json.dumps(avl, ensure_ascii=False, indent=1), encoding="utf-8")
-        except Exception as e:  # keep going with duckdb only, but say so loudly
-            print(f"WARNING: AshareValueLine fetch failed: {e}", file=sys.stderr)
-            avl, avl_url, version = {}, f"FAILED: {e}", "unavailable"
+            avl_url = f"{AVL_BASE}data/versions/a_share/{version}/stocks/{ts_code}.js"
+            if cached and cached.get("version") == version:
+                avl = cached  # same published version → identical payload, skip the download
+            else:
+                avl, avl_url = avl_stock(ts_code, version)
+        except Exception as e:  # fall back to the cached copy if there is one, else duckdb only
+            if cached:
+                avl = cached
+                version = cached.get("version", "unknown")
+                avl_note = (
+                    f"Live fetch failed ({e}); using cached copy: financials fetched {cached.get('fetched_at')}, "
+                    f"quote {cached.get('quote_refreshed_at')}. Treat the quote as of that date."
+                )
+                avl_url = f"CACHED {AVL_BASE}data/versions/a_share/{version}/stocks/{ts_code}.js"
+                print(f"WARNING: AshareValueLine fetch failed: {e}; using cached version {version}", file=sys.stderr)
+            else:
+                print(f"WARNING: AshareValueLine fetch failed: {e}", file=sys.stderr)
+                avl, avl_url, version = {}, f"FAILED: {e}", "unavailable"
+        if avl:
+            payload = json.dumps(avl, ensure_ascii=False, indent=1)
+            (out / "avl_raw.json").write_text(payload, encoding="utf-8")
+            if cache_dir != out:
+                cache_dir.mkdir(parents=True, exist_ok=True)
+                (cache_dir / "avl_raw.json").write_text(payload, encoding="utf-8")
 
     duck = duck_blocks(con, ts_code, args.years)
     checks = cross_check(avl, duck) if avl else []
@@ -550,7 +690,9 @@ def main():
         "generated_at": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
         "avl_version": version,
         "avl_url": avl_url,
+        "avl_note": avl_note,
         "duckdb_path": DUCKDB_PATH,
+        "coverage": duck["coverage"][0] if duck["coverage"] else {},
     }
     md = render_md(meta, avl, avl_url, duck, checks)
     (out / "factsheet.md").write_text(md, encoding="utf-8")
@@ -561,6 +703,9 @@ def main():
     bad = [c for c in checks if c["flag"] == "MISMATCH"]
     print(f"{ts_code} {name} ({industry}) → {out}")
     print(f"  AVL version {version}; duckdb years {duck['raw_annual'][-1]['end_date'][:4] if duck['raw_annual'] else '?'}–{duck['raw_annual'][0]['end_date'][:4] if duck['raw_annual'] else '?'}")
+    cov = duck["coverage"][0] if duck["coverage"] else {}
+    if cov:
+        print(f"  S2 coverage: income through {cov.get('income_last_end')}, BS {cov.get('bs_last_end')}, CF {cov.get('cf_last_end')}, Penman {cov.get('penman_last_end')}")
     print(f"  cross-check: {len(checks)} comparisons, {len(bad)} mismatches >1%")
     for c in bad[:10]:
         print(f"    {c['concept']} {c['year']}: AVL {c['avl']} vs duckdb {c['duckdb']} ({c['pct_diff']:+.1%})")

@@ -28,7 +28,8 @@ with access to the files.
 ## Shared rules
 
 - Ground every discussion in the company's long financial record — the full 10-year S1 annual
-  blocks and the S2 series back to FY2008. A recent quarter is read against the decade that
+  blocks and the S2 series over the same recent 10 years (older S2 history back to FY2008 is
+  queried only when a live question needs it). A recent quarter is read against the decade that
   produced it, never as the default subject on its own.
 - Big picture first. Every round and every conclusion leads with the insight that matters for the
   investment judgment — what the business is, what the decade shows, what the price assumes — and

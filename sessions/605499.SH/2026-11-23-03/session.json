@@ -9,7 +9,10 @@
   "Experts were run as simulated perspectives by one model, not separate contexts.",
   "Local quarterly data runs to 20260930, so the round did not treat 2026 data as missing.",
   "Compared with session -02: the cash split and core-earnings cleaning were done before the reverse curve, and the prepayment test uses the seasonal Q3-to-Q4 build instead of a fixed threshold.",
-  "Source files under source-files/ were not opened this run; method references come from the role cards and are labelled as such."
+  "Source files under source-files/ were not opened in round 1; method references there come from the role cards and are labelled as such.",
+  "Continuation request (2026-11-23): '继续开启多轮次多角色的分析 关于 东鹏饮料 605499.SH，结束后发布到github pages'. Rounds 2-3 added to this session; experts still run as simulated perspectives by one model.",
+  "Round 2 found the H1 2026 product split in S1 main_business (20260630), correcting round 1's '2026 product split not local' note. Buffett's 1986 franchise passage was read from source-files/ in round 2 (SRC cited); Mauboussin's regression base rate is paraphrased from the role card because the local HTML carries only the abstract.",
+  "Round 3 resolved two round-1 open questions from S2 bridges: the Q2 share step is a ×1.30 bonus issue (转增), not dilution, and the borrowing-while-cash-rich pattern is a positive carry (~1.4% cost vs ~2.6%+ yield), not distress. Cash and equity bridges close. The raise's use of proceeds, loan terms, buyback price, and 2026 prices are not local and stay in open_questions. Observer reviews for rounds 2 and 3 are self-reviews by the orchestrating model; no independent reviewer was authorized."
  ],
  "experts": ["li-lu", "warren-buffett", "michael-mauboussin", "stephen-penman"],
  "expert_versions": {"li-lu": "1.0", "warren-buffett": "1.0", "michael-mauboussin": "1.0", "stephen-penman": "1.0"},
@@ -22,8 +25,8 @@
  "data": {"avl_version": "20261121_201610", "duckdb_last_end": "20251231", "cross_check_mismatches": 0},
  "question_queue": [
   "Does Q4 2026 revenue clear 43 亿 and does the year-end prepayment balance build by about 20 亿 as in 2024 and 2025?",
-  "What will the 99 亿 raised be used for, and why is the company still borrowing 63 亿 short-term?",
-  "How much of 2026 growth is flagship energy drink versus electrolyte and other drinks?"
+  "Can electrolyte and tea take the growth baton at a decent margin, or is the portfolio diluting the franchise?",
+  "What does the issue announcement say the 99 亿 is for, and does the stated use earn the business's old return?"
  ],
- "rounds": 1
+ "rounds": 3
 }

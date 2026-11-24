@@ -20,15 +20,21 @@ Use the user's company name or code, round count, or session reference. Examples
   `bme.duckdb` listed in `data/DATA_DICTIONARY.md` and needs network access for AshareValueLine.
   Use `python3` for rendering, indexing, and validation.
 - **Data scope.** Work from the local data layer: S1 (`avl_raw.json`), the fact sheet, and S2
-  `bme.duckdb`. The `raw_income`, `raw_balancesheet` and `raw_cashflow` tables hold quarterly
-  filings (cumulative within a year, `report_type='1'`) up to the latest filed quarter, which can be
-  later than the annual `duckdb_last_end`; check `SELECT DISTINCT end_date` first. Do not search the
+  `bme.duckdb`. The fact sheet's Sources section states the S2 coverage (latest filed period per
+  raw table and the Penman tables), and its "Latest quarterly filings" block carries the last 8
+  quarters — cumulative YTD as filed plus de-cumulated single-quarter 营业收入/归母净利润 and
+  single-quarter Penman OI. The latest filed quarter can be later than the annual
+  `duckdb_last_end`. Query `raw_income`, `raw_balancesheet` and `raw_cashflow` directly only for
+  periods or lines beyond that block (cumulative within a year, `report_type='1'`; dedupe by
+  `update_flag DESC, f_ann_date DESC, _fetched_at DESC`). Do not search the
   web or download filings unless the user asks. A gap that only outside material can fill goes to
   `open_questions` with the document that would close it. Say so when a quarterly figure is not in
   the local tables.
-- When live data is unavailable, use a supplied or existing fact sheet for the same ticker and state
-  its as-of date and any missing checks. If no usable sheet exists, ask for the sheet or the data
-  needed for the question. An empty cross-check with one source unavailable is an unperformed check.
+- When live data is unavailable, the fetcher falls back to the cached AshareValueLine copy and
+  records its as-of date in the sheet; treat the quote as of that date. Otherwise use a supplied or
+  existing fact sheet for the same ticker and state its as-of date and any missing checks. If no
+  usable sheet exists, ask for the sheet or the data needed for the question. An empty cross-check
+  with one source unavailable is an unperformed check.
 - Read the cross-check first. Resolve or explain any comparable S1/S2 mismatch over 1% that touches
   a series the story rests on, in the round-one workpaper, before the panel speaks. If it cannot be
   explained from the data, it becomes the opening topic, because an unexplained mismatch taints every
