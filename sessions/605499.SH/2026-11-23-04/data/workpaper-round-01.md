@@ -42,9 +42,25 @@ All amounts 亿元 unless stated. S1 quote 2026-11-20: price 113.55, market cap 
 **4. Is it cheap, and what is the floor?**
 - Market cap 833.68 (113.55 × 7.342). Book (parent equity 20260930) 185.55 = 25.3/share; PB 4.49. TTM NI 47.99 (44.15 − 37.61 + 41.45): PE 17.4, earnings yield 5.8%.
 - TTM CFO 65.8, capex 19.9, FCF 46.0: FCF yield 5.5% of market cap.
-- **What is in the 185.55 book (20260930, S2 raw_balancesheet):** cash 141.52; trading assets 65.66; non-current assets due within a year 18.02 (mostly deposits/bonds; composition not local); other financial 5.53 → financial assets ≈ 231. Short-term loans 62.73 + lease 3.84 + due-1y 0.17 = 66.74. Net cash after loans and leases and minority = 140.0 (S1 EV items 141.52+65.66−62.73−0.17−3.84−0.42) = 19.07/share. Fixed assets 67.39 + construction in progress 8.70 = 76.1; intangibles 11.30; inventory 6.65; receivables 1.74. Contract liabilities 50.9; payables 15.6; taxes 8.55. No goodwill.
-- **Floor (assumption-driven):** net cash 140.0 − all dealer prepayments 50.9 + inventory 6.65 + receivables 1.74 + plants at 50% (38.1) = 135.6 = 18.5/share = 16% of price. Plants at 100%: 173.6 = 23.6/share = 21%. Net cash alone, no advance deduction: 19.07/share = 17%. The haircut on plants (50%) and the full deduction of prepayments are my assumptions, not facts.
-- **Reverse curve** (EV = 833.68 − 140.0 = 693.7; TTM OI after tax 46.2 = 6.2+12.3+14.6+13.1 from S2 reformulated_is single quarters; TTM FCF 46.0; g = (r·EV − X)/(EV + X), one-stage perpetuity, FCF/OI treated as distributable):
+- **Two balance-sheet bases (all 亿元; today's price 113.55 and 7.342 亿 shares used for both so the % of price is comparable):**
+| | FY2025 year-end, as filed | FY2025 + 99.3 raise (pro forma) | Sept 2026, as filed |
+|---|---|---|---|
+| Cash + trading assets (core) | 56.80 + 63.09 = 119.9 | 219.2 | 141.52 + 65.66 = 207.2 |
+| Loans + leases + due in 1y | 66.30 + 4.04 + 0.21 = 70.6 | 70.6 | 62.73 + 3.84 + 0.17 = 66.74 |
+| Minority | 0.03 | 0.03 | 0.42 |
+| **Net cash (core)** | **49.3** | **148.6** (20.2/share, 17.8%) | **140.0** (19.07/share, 16.8%) |
+| Other financial assets not in core | due-1y 13.79, debt invest 17.57, other non-current 7.12 = 38.5 | same | due-1y 18.02, other 5.53 = 23.6 (makeup not local) |
+| Net cash wide (core + other) | 87.8 | 187.1 | 163.6 |
+| Contract liabilities (dealer prepayments) | 59.74 | 59.74 | 50.9 |
+| Inventory + receivables | 6.57 + 0.91 | same | 6.65 + 1.74 |
+| Plants + construction in progress | 49.47 + 14.14 = 63.6 | 63.6 | 67.39 + 8.70 = 76.1 |
+| **Floor, plants at 50%** | 28.8 (3.5% of mkt cap) | **128.1** (17.4/share, 15.4%) | **135.5** (18.46/share, 16.3%) |
+| **Floor, plants at 100%** | 60.6 (7.3%) | **159.9** (21.8/share, 19.2%) | **173.6** (23.64/share, 20.8%) |
+- Why both: FY2025 is the audited annual balance and sits in the ten-year series; September 2026 is the balance the current price buys. The 99.3 raise (S2 raw_cashflow c_recp_cap_contrib, 9M 2026) is the whole difference in net cash. FY2025 + raise = 148.6 vs 140.0 filed: the 8.6 gap is nine months of cash flow (CFO 35.4, capex 14.3, dividends and interest paid 34.6, debt and lease moves), not reconciled line by line.
+- Earlier wording "231 against 67, net cash 140" mixed bases. 140.0 uses cash and trading assets only (207.2 − 66.74 − 0.42). Adding the 23.6 of other financial assets gives 163.6 (22.3/share, 19.6%). The core figure is used for EV and the floor because the makeup of the other items is not local.
+- Book (parent equity 20260930) 185.55 = 25.3/share; Sept 2026 other lines: payables 15.6; taxes 8.55; intangibles 11.30; no goodwill. FY2025 equity 94.21.
+- The floor deducts all dealer prepayments and counts plants at 50% or 100%; the pro forma raise and both haircuts are my assumptions, not facts. Conclusion: on any basis that includes the raise the floor is 15–21% of price.
+- **Reverse curve** (base case Sept 2026 core net cash: EV = 833.68 − 140.0 = 693.7; FY2025 + raise: EV 685.1 gives g 1.18% at 8%, 3.05% at 10%; wider cash EV 670.1 gives 1.03% and 2.91%; TTM OI after tax 46.2 = 6.2+12.3+14.6+13.1 from S2 reformulated_is single quarters; TTM FCF 46.0; g = (r·EV − X)/(EV + X), one-stage perpetuity, FCF/OI treated as distributable):
 | r | 7% | 8% | 9% | 10% |
 |---|---|---|---|---|
 | implied g (OI) | 0.3% | 1.3% | 2.2% | 3.1% |
@@ -59,7 +75,7 @@ EV/OI after tax = 15.0×; OI yield on EV 6.7%. The perpetuity treats flow as ful
 **6. Where does the story bend?**
 - Sales growth +28% a year for eight years; Q3 2026 single-quarter sales 61.5 vs 61.1 (+0.7%), 9M +10.4%; Q3 net profit 12.8 vs 13.9 (−8%). Price 267.39 → 113.55 (−45% on bonus-adjusted 205.7).
 - Mix: energy drink 84% of sales in 2024 (133.0), 75% in 2025 (156.0); gross margin energy 50.8% (79.2/156.0), electrolyte 34.9%, other 15.6% (S1 main_business FY2025).
-- Verdict: Great franchise, ~6.7% owner-cash yield at a no-growth price, floor only 16–21% of price. The price assumes growth ends.
+- Verdict: Great franchise, ~6.7% owner-cash yield at a no-growth price, floor only 15–21% of price. The price assumes growth ends.
 
 ## Reference appendix
 - Cross-check 89 comparisons, 0 mismatches over 1%. S1 revenue = S2 营业收入 = 营业总收入 for every year.

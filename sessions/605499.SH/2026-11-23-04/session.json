@@ -13,7 +13,8 @@
   "Experts were run as simulated perspectives by one model, not separate contexts.",
   "Warren Buffett's See's Candy passage was read from source-files/ in round 1 (SRC cited); other method references are from role cards.",
   "Maintenance capex, the floor haircuts and the prepayment deduction are assumptions, labelled in the turns and workpaper.",
-  "Round 1: 11 turns, median 59 words (session 03 round 1: 13 turns, median 78; rounds 2–3 median 99–120). 10 of 11 turns end in a question (03 round 1: 1 of 13). Round 1 took the business-scorecard topic; the Q3 stall and the 99 亿 raise appear only as scorecard lines and are queued."
+  "Round 1: 11 turns, median 59 words (session 03 round 1: 13 turns, median 78; rounds 2–3 median 99–120). 10 of 11 turns end in a question (03 round 1: 1 of 13). Round 1 took the business-scorecard topic; the Q3 stall and the 99 亿 raise appear only as scorecard lines and are queued.",
+  "Round 1 rewrite (user review): the floor and net cash are shown on two bases, FY2025 year-end (+99 亿 raise pro forma) and Sept 2026 as filed; the earlier '231 against 67, net cash 140' wording mixed core and wide financial assets and was corrected."
  ],
  "experts": [
   "warren-buffett",
