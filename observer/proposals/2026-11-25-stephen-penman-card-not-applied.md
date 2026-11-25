@@ -31,4 +31,4 @@ Optional tightening: two rules in one bullet; could split "ΔNOA into ΔOA/ΔOL"
 **Verdict:** validated. Priority 1 if only one change per expert is applied this session (two medium-severity hits, Penman-specific, directly operationalises existing card text).
 ## Applied
 
-2026-11-25 — experts/stephen-penman.md 1.1 → 1.2, §3.3 bullet added verbatim; changelog line added. Commit: recorded after publish.
+2026-11-25 — experts/stephen-penman.md 1.1 → 1.2, §3.3 bullet added verbatim; changelog line added. Commit: 21bec91.
