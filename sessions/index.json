@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-25T00:33:25-08:00",
+ "built_at": "2026-11-25T01:56:49-08:00",
  "experts": {
   "jeff-bezos": {
    "name": "Jeff Bezos",
@@ -40,7 +40,7 @@
   "stephen-penman": {
    "name": "Stephen Penman",
    "tagline": "The accounting backbone: reformulates the financial statements to separate operations from financing, anchors value on book value and current earnings (\"what you know\"), and treats everything beyond that as speculation about growth to be challenged, not paid for.",
-   "version": "1.1 (2026-11-24)",
+   "version": "1.2 (2026-11-25)",
    "file": "experts/stephen-penman.md"
   },
   "warren-buffett": {
@@ -51,6 +51,53 @@
   }
  },
  "companies": [
+  {
+   "ts_code": "000915.SZ",
+   "name": "华特达因",
+   "industry": "化学制药",
+   "sessions": [
+    {
+     "session_id": "2026-11-25-01",
+     "started_at": "2026-11-25T01:26:00-08:00",
+     "status": "open",
+     "user_request": "分析讨论 华特达因\n000915.SZ   然后push到github pages",
+     "experts": [
+      "warren-buffett",
+      "stephen-penman",
+      "jeff-bezos",
+      "li-lu",
+      "joekray-mond"
+     ],
+     "factsheet": "sessions/000915.SZ/2026-11-25-01/data/factsheet.md",
+     "summary": null,
+     "rounds": [
+      {
+       "round": 1,
+       "question": "Great, good or gruesome on the decade — and does the 2026 break change the verdict or only the price?",
+       "participants": [
+        "warren-buffett",
+        "stephen-penman",
+        "jeff-bezos",
+        "li-lu",
+        "joekray-mond"
+       ],
+       "started_at": "2026-11-25T02:05:00-08:00",
+       "ended_at": "2026-11-25T02:50:00-08:00",
+       "conclusion": "华特达因 is a great business on its decade that broke in 2026 for reasons the local record cannot show. Its pediatric-pharma subsidiary nearly tripled operating profit after tax (3.69亿 FY2016 → 9.96亿 FY2025) while net operating assets shrank (12.21亿 → 8.55亿), and free cash flow (66.07亿) matched total profit (67.97亿) over ten years; about half of the capital release was operating liabilities that reversed in 2026 (6.36亿 → 2.84亿). In 2026, 9M revenue fell 45%, Q3 revenue (0.33亿) came in below its cost of sales, and operating cash flow turned negative (−3.32亿). At 43.52亿 (S1 quote 2026-11-20, 18.57元) the price is not betting on a return to 2025. Valuing the parent's cash at face (central estimate about 17.9亿 of parent net financial assets, assuming minorities own their 48% profit share of a subsidiary holding all operations; limits 10.8–21.7亿), it asks the roughly 26亿 operating stake for about 2.6亿 a year at a 10% hurdle (2.1亿 at 8%, 3.1亿 at 12%). That is about the trailing parent profit of 2.8亿, but that year still holds three pre-break quarters and Q3 alone lost 0.67亿, so the price bets that Q3 was a one-off; FY2025 parent operating profit was at least 5.0亿. The insight to remember: the decisive questions are measurement and cause, not the multiple. Revenue looks booked net of rebates paid back in cash (from 2020 to 2025 the excess of cash collected over revenue grew 8.8亿 while other operating cash paid grew 7.9亿; VAT and expense growth explain only part — a hypothesis until the notes are read), so a single accrual can swing a whole quarter. The panel passes until the 2026 Q3 report names the cause. Scorecard: business type GREAT on the decade (operating profit ×2.7 while gross operating assets also fell, 16.8 → 14.9亿; the consolidated gross-margin climb from 60.9% to 85.1% is the exit from low-margin side businesses, the pharma segment held near 84%); cash backing YES through FY2025 (FCF/NI 0.97; capex front-loaded in 2016–19, recent capex below depreciation), NO in 2026 (9M operating cash −3.32亿 while 9.73亿 of dividends went out); return driver MARGIN on an almost capital-free operation (RNOA 102% in FY2025 = margin 44.7% × turnover 2.29, partly levered by operating-liability float), with the parent's ROE (18.7%) diluted by a cash pile and by minorities taking 46.9% of the decade's profit; cheap or not CHEAP on FY2025 (12.3% earnings yield), FAIR on the trailing year (6.5%) and not cheap on the Q3 run-rate; floor PARTIAL: about two-fifths of the price in parent net financial assets at book (central case), a quarter to a half at the limits. Capital allocation: 64% of the decade's parent profit was declared as dividends, FY2024–25 payouts exceeded profit (114%, 110%); no raises or buybacks. Confidence medium: the business verdict rests on direct S2 series, but the valuation depends on an argued hurdle, an estimated ownership split, unverified rebate mechanics, and documents not in the local data.",
+       "confidence": "medium",
+       "n_disagreements_open": 0,
+       "thinkers": [
+        "john-tukey",
+        null
+       ],
+       "json": "sessions/000915.SZ/2026-11-25-01/rounds/round-01.json",
+       "md": "sessions/000915.SZ/2026-11-25-01/rounds/round-01.md",
+       "observer": "sessions/000915.SZ/2026-11-25-01/observer/round-01.md"
+      }
+     ]
+    }
+   ]
+  },
   {
    "ts_code": "000002.SZ",
    "name": "万科A",
@@ -353,5 +400,5 @@
    ]
   }
  ],
- "n_rounds": 8
+ "n_rounds": 9
 }

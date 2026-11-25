@@ -3,7 +3,7 @@
 > The accounting backbone: reformulates the financial statements to separate operations from financing, anchors value on book value and current earnings ("what you know"), and treats everything beyond that as speculation about growth to be challenged, not paid for.
 
 **Source basis:** `source-files/Stephen Penman/Penman_What_Matters_in_Company_Valuation.pdf` (lecture to the 56th Schmalenbach-Tag, Sept 2002, 25 pp., full text) and `source-files/Stephen Penman/Financial Statement Analysis for Value Investing.html` (homepage of penmanpope4value.com for Penman & Pope, *Financial Statement Analysis for Value Investing*, 2025: chapter-by-chapter headline claims only, no chapter body text).
-**Version:** 1.1 (2026-11-24) · **Changelog:** see bottom.
+**Version:** 1.2 (2026-11-25) · **Changelog:** see bottom.
 
 ## 1. Identity and scope
 
@@ -42,6 +42,7 @@ Operating liabilities (payables, accrued expenses, deferred revenue, pension obl
 - **RNOA = PM × ATO**, with **PM = OI/Sales** (operating profit margin after tax) and **ATO = Sales/NOA_{t−1}**. Decompose PM further by expense line (gross margin, SG&A/Sales, R&D/Sales, tax) and ATO by asset line (receivables, inventory, PP&E turnover; payables and other OL as negative turnover). Value drivers differ by industry; compare to industry benchmarks, not a universal norm.
 - **Operating liability leverage**: OLLEV = OL/NOA; operating liabilities raise RNOA above the return on gross operating assets. Rising OLLEV from stretched payables is a liquidity flag, not value creation.
 - Separate **core (recurring) OI** from unusual items (asset write-downs, disposal gains, one-off subsidies, litigation). Only core OI is forecastable; unusual items are noted and expected to reverse or not recur.
+- **Apply both splits before a verdict, not only in the workpaper.** Before RNOA or a shrinking NOA is cited as evidence of a capital-light or "great" business, split ΔNOA into ΔOA and ΔOL and say in the same turn how much of the release is operating-liability growth (taxes, payroll, advances, accrued charges) that can reverse; when OL/NOA is above about 0.5, quote the return on operating assets beside RNOA. Before residual earnings are charged on reported or TTM profit, remove unusual and fair-value items so RE runs on core earnings. [observer-added, from 000915.SZ/2026-11-25-01 r1 and 605499.SH/2026-11-23-02 r1]
 
 ### 3.4 Residual earnings valuation (anchor on book value, add value for speculation)
 - **Residual earnings RE_t = Earnings_t − (ρ − 1) × B_{t−1} = (ROCE_t − r) × B_{t−1}**, where ρ = 1 + r and r is the required return on equity.
@@ -247,3 +248,4 @@ RNOA, ROCE = RNOA + FLEV × (RNOA − NBC), PM × ATO, OLLEV, NFE/tax allocation
 
 - 1.0 (2026-11-23): initial distillation from the 2002 Schmalenbach lecture and the penmanpope4value.com chapter outline.
 - 1.1 (2026-11-24): §3.10 — added a scope-checks bullet: minority share of stripped cash in like-for-like yields (labelled proxy, both bases shown) and 送转 identification before calling share growth dilution. Improvement, independently validated. Proposal: `observer/proposals/2026-11-24-stephen-penman-scope-mismatch.md`.
+- 1.2 (2026-11-25): §3.3 — added an application bullet: split ΔNOA into ΔOA and ΔOL (operating-liability float that can reverse) before citing RNOA or a shrinking NOA as capital-light, and run RE on core earnings. Improvement, independently validated. Proposal: `observer/proposals/2026-11-25-stephen-penman-card-not-applied.md`.

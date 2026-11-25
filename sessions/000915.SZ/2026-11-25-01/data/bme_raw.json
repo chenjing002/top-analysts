@@ -1,0 +1,9149 @@
+{
+ "schema_version": 1,
+ "ts_code": "000915.SZ",
+ "unit": "CNY_yuan",
+ "exported_at": "2026-11-22T04:52:13.344746+00:00",
+ "source_url": "https://chenjing002.github.io/business-model-explorer-data/data/000915.SZ.json.gz",
+ "conventions": {
+  "capital_basis": "rows labeled 'average' or 'opening' in ratios",
+  "tax_rate": "statutory-rate assumption column tax_rate_assumed",
+  "cfo": "CAS: interest received=investing, interest/dividends paid=financing",
+  "missing": "null means not disclosed — never zero"
+ },
+ "missing_default": "未披露或源数据未提供计算结果；详见原始数据包",
+ "years": [
+  "20141231",
+  "20151231",
+  "20161231",
+  "20171231",
+  "20181231",
+  "20191231",
+  "20201231",
+  "20211231",
+  "20221231",
+  "20231231",
+  "20241231",
+  "20251231"
+ ],
+ "metrics": {
+  "raw:cash_and_equivalents": {
+   "label": "货币资金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.money_cap",
+   "values": [
+    426238494.15,
+    414619669.52,
+    616189740.9,
+    706857849.28,
+    1011234922.01,
+    953895051.24,
+    1492016051.09,
+    1223433930.52,
+    1844666392.31,
+    2048054775.95,
+    2118737556.58,
+    2014493418.93
+   ]
+  },
+  "raw:trading_financial_assets": {
+   "label": "交易性金融资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.trad_asset",
+   "values": [
+    null,
+    null,
+    1433561.65,
+    null,
+    null,
+    26000000.0,
+    null,
+    721609733.74,
+    948854974.72,
+    1214036082.89,
+    960040738.6,
+    1249290198.26
+   ]
+  },
+  "raw:notes_receivable": {
+   "label": "应收票据",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.notes_receiv",
+   "values": [
+    318140137.02,
+    220399588.52,
+    274937358.38,
+    353715849.49,
+    125747810.11,
+    320647549.92,
+    302430598.76,
+    179879043.99,
+    193448285.75,
+    251817969.74,
+    247786732.47,
+    143590216.44
+   ]
+  },
+  "raw:accounts_receivable": {
+   "label": "应收账款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.accounts_receiv",
+   "values": [
+    168142778.49,
+    225807850.7,
+    191232015.19,
+    230681037.5,
+    212531939.51,
+    283304362.32,
+    243901506.25,
+    59248051.24,
+    54198826.87,
+    61813023.66,
+    70426177.9,
+    67335258.54
+   ]
+  },
+  "raw:other_receivables": {
+   "label": "其他应收款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_receiv",
+   "values": [
+    60048367.81,
+    35521515.09,
+    24072755.57,
+    20400117.74,
+    14950912.05,
+    22850187.41,
+    10078348.95,
+    99380187.52,
+    9474628.84,
+    2544866.08,
+    2209219.1,
+    34662242.52
+   ]
+  },
+  "raw:interest_receivable": {
+   "label": "应收利息",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.int_receiv",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:prepayments": {
+   "label": "预付款项",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.prepayment",
+   "values": [
+    47009530.12,
+    30663683.44,
+    55480796.33,
+    43406255.65,
+    36255950.7,
+    24911991.31,
+    18490004.61,
+    20247889.47,
+    26980680.58,
+    36082789.29,
+    34399409.89,
+    28541362.18
+   ]
+  },
+  "raw:inventory": {
+   "label": "存货",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.inventories",
+   "values": [
+    100402425.29,
+    118929451.96,
+    142549386.83,
+    113077996.67,
+    128774152.6,
+    117024914.5,
+    134720911.39,
+    102158964.32,
+    87056225.58,
+    86546405.67,
+    70619222.26,
+    78410036.18
+   ]
+  },
+  "raw:noncurrent_assets_due_1y": {
+   "label": "一年内到期的非流动资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.nca_within_1y",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    7500600.0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:receivables_financing": {
+   "label": "应收款项融资",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.receiv_financing",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:contract_assets": {
+   "label": "合同资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.contract_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    68675133.12,
+    null,
+    null,
+    null,
+    null,
+    0.0
+   ]
+  },
+  "raw:dividends_receivable": {
+   "label": "应收股利",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.div_receiv",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:held_for_sale_assets": {
+   "label": "持有待售资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.hfs_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:settlement_reserves": {
+   "label": "结算备付金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.sett_rsrv",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:deposits_with_banks": {
+   "label": "存放同业款项",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.depos_in_oth_bfi",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:derivative_assets": {
+   "label": "衍生金融资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.deriv_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:cash_and_central_bank_deposits": {
+   "label": "现金及存放中央银行款项",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.cash_reser_cb",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:refundable_deposits_placed": {
+   "label": "存出保证金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.refund_depos",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:amortised_cost_financial_assets": {
+   "label": "以摊余成本计量的金融资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.cost_fin_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:premiums_receivable": {
+   "label": "应收保费",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.premium_receiv",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:reinsurance_receivable": {
+   "label": "应收分保账款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.reinsur_receiv",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:reinsurance_reserves_receivable": {
+   "label": "应收分保合同准备金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.reinsur_res_receiv",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:lending_funds": {
+   "label": "融出资金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.lending_funds",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:precious_metals": {
+   "label": "贵金属",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.prec_metals",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:interbank_lending": {
+   "label": "拆出资金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.loanto_oth_bank_fi",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:reverse_repo_assets": {
+   "label": "买入返售金融资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.pur_resale_fa",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:loans_and_advances_issued": {
+   "label": "发放贷款及垫款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.decr_in_disbur",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_current_assets": {
+   "label": "其他流动资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_cur_assets",
+   "values": [
+    null,
+    129468.38,
+    3901949.78,
+    1739016.85,
+    79032739.02,
+    18399254.28,
+    13210693.51,
+    5205989.94,
+    3181272.9,
+    3989008.48,
+    6518193.24,
+    10759141.89
+   ]
+  },
+  "raw:total_current_assets": {
+   "label": "流动资产合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_cur_assets",
+   "values": [
+    1119981732.88,
+    1046071227.61,
+    1309797564.63,
+    1469878123.18,
+    1616029026.0,
+    1767033310.98,
+    2283523247.68,
+    2411163790.74,
+    3167861287.55,
+    3704884921.76,
+    3510737250.04,
+    3627081874.94
+   ]
+  },
+  "raw:afs_financial_assets": {
+   "label": "可供出售金融资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.fa_avail_for_sale",
+   "values": [
+    2526522.25,
+    102526522.25,
+    102526522.25,
+    102526522.25,
+    102526522.25,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:htm_investments": {
+   "label": "持有至到期投资",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.htm_invest",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:debt_investments": {
+   "label": "债权投资",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.debt_invest",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_debt_investments": {
+   "label": "其他债权投资",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_debt_invest",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:long_term_equity_investments": {
+   "label": "长期股权投资",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.lt_eqt_invest",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    106428324.53,
+    90486320.03,
+    91156505.42,
+    96534865.96,
+    104033118.73
+   ]
+  },
+  "raw:other_equity_investments": {
+   "label": "其他权益工具投资",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_eq_invest",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_illiquid_financial_assets": {
+   "label": "其他非流动金融资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_illiq_fin_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    102526522.25,
+    112259826.63,
+    112242505.84,
+    100565362.53,
+    100565362.53,
+    100565362.53,
+    100565362.53
+   ]
+  },
+  "raw:perpetual_bonds_in_equity": {
+   "label": "其他权益工具-永续债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_eq_ppbond",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:time_deposits": {
+   "label": "定期存款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.time_deposits",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:long_term_receivables": {
+   "label": "长期应收款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.lt_rec",
+   "values": [
+    36562367.0,
+    62431134.0,
+    41637894.0,
+    22907682.0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:right_of_use_assets": {
+   "label": "使用权资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.use_right_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:goodwill": {
+   "label": "商誉",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.goodwill",
+   "values": [
+    28133365.56,
+    28133365.56,
+    28133365.56,
+    26133365.56,
+    26133365.56,
+    26133365.56,
+    26133365.56,
+    26133365.56,
+    26133365.56,
+    26133365.56,
+    26133365.56,
+    26133365.56
+   ]
+  },
+  "raw:productive_biological_assets": {
+   "label": "生产性生物资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.produc_bio_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:oil_and_gas_assets": {
+   "label": "油气资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oil_and_gas_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_assets": {
+   "label": "其他资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:investment_real_estate": {
+   "label": "投资性房地产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.invest_real_estate",
+   "values": [
+    89819087.53,
+    86599626.61,
+    83380165.69,
+    80358937.34,
+    89528176.82,
+    153423049.03,
+    148135803.02,
+    169555964.12,
+    162916442.76,
+    156276923.0,
+    149637403.24,
+    142997883.48
+   ]
+  },
+  "raw:ppe": {
+   "label": "固定资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.fix_assets",
+   "values": [
+    437691574.82,
+    535190817.47,
+    522331176.54,
+    642612138.53,
+    650666825.04,
+    786104961.35,
+    904803652.03,
+    877745043.36,
+    877856438.91,
+    903967062.82,
+    853613592.33,
+    767156402.14
+   ]
+  },
+  "raw:construction_in_progress": {
+   "label": "在建工程",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.cip",
+   "values": [
+    77507306.12,
+    23978559.32,
+    199063451.19,
+    121723717.3,
+    190697743.54,
+    55281091.95,
+    1118377.28,
+    3740603.04,
+    40273683.39,
+    4826279.54,
+    840415.44,
+    14197678.28
+   ]
+  },
+  "raw:construction_materials": {
+   "label": "工程物资",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.const_materials",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    0.0,
+    0.0,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:assets_held_for_disposal": {
+   "label": "固定资产清理",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.fixed_assets_disp",
+   "values": [
+    901.3,
+    null,
+    null,
+    null,
+    18004.93,
+    null,
+    62395.8,
+    1248.73,
+    200017.06,
+    330852.63,
+    409590.93,
+    419262.8
+   ]
+  },
+  "raw:intangible_assets": {
+   "label": "无形资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.intan_assets",
+   "values": [
+    144977926.27,
+    151452853.13,
+    147479878.76,
+    86353403.78,
+    165329926.39,
+    166389811.54,
+    156935463.67,
+    174097474.59,
+    174189162.55,
+    167764118.78,
+    156165227.29,
+    183900876.41
+   ]
+  },
+  "raw:development_expenditure": {
+   "label": "开发支出",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.r_and_d",
+   "values": [
+    11393480.5,
+    26897084.16,
+    22844394.56,
+    21983962.06,
+    21493962.06,
+    19918490.39,
+    6452830.02,
+    6452830.02,
+    6452830.02,
+    6452830.02,
+    9245466.39,
+    null
+   ]
+  },
+  "raw:long_term_deferred_expenses": {
+   "label": "长期待摊费用",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.lt_amor_exp",
+   "values": [
+    144263.28,
+    70210.0,
+    184616.22,
+    13308157.51,
+    16779329.18,
+    32187173.71,
+    28537780.54,
+    24622071.26,
+    20789327.18,
+    16942265.75,
+    13142763.14,
+    9343260.49
+   ]
+  },
+  "raw:deferred_tax_assets": {
+   "label": "递延所得税资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.defer_tax_assets",
+   "values": [
+    5927092.41,
+    6603672.08,
+    8439762.43,
+    9868842.66,
+    14232462.39,
+    11881700.46,
+    11572249.69,
+    4272102.05,
+    5111987.3,
+    8482321.96,
+    12148422.01,
+    13008753.91
+   ]
+  },
+  "raw:other_noncurrent_assets": {
+   "label": "其他非流动资产",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_nca",
+   "values": [
+    null,
+    10954350.0,
+    16391350.0,
+    177353331.59,
+    6275860.64,
+    31583690.14,
+    15442612.89,
+    18971552.8,
+    17656598.06,
+    10511670.12,
+    1762866.87,
+    9357210.41
+   ]
+  },
+  "raw:total_noncurrent_assets": {
+   "label": "非流动资产合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_nca",
+   "values": [
+    834683887.04,
+    1034838194.58,
+    1172412577.2,
+    1305130060.58,
+    1283682178.8,
+    1385429856.38,
+    1411454357.13,
+    1524263085.9,
+    1522631535.35,
+    1493409558.13,
+    1420199341.69,
+    1371113174.74
+   ]
+  },
+  "raw:total_assets": {
+   "label": "资产总计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_assets",
+   "values": [
+    1954665619.92,
+    2080909422.19,
+    2482210141.83,
+    2775008183.76,
+    2899711204.8,
+    3152463167.36,
+    3694977604.81,
+    3935426876.64,
+    4690492822.9,
+    5198294479.89,
+    4930936591.73,
+    4998195049.68
+   ]
+  },
+  "raw:short_term_borrowings": {
+   "label": "短期借款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.st_borr",
+   "values": [
+    71580000.0,
+    52740000.0,
+    40000000.0,
+    21000000.0,
+    20000000.0,
+    20000000.0,
+    null,
+    null,
+    7892299.0,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:central_bank_borrowings": {
+   "label": "向中央银行借款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.cb_borr",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:interbank_borrowings": {
+   "label": "拆入资金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.loan_oth_bank",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:trading_financial_liabilities": {
+   "label": "交易性金融负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.trading_fl",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:derivative_liabilities": {
+   "label": "衍生金融负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.deriv_liab",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:client_brokerage_deposits": {
+   "label": "代理买卖证券款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.acting_trading_sec",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:insurance_contract_reserves": {
+   "label": "保险合同准备金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.rsrv_insur_cont",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:reinsurance_payable": {
+   "label": "应付分保账款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.payable_to_reinsurer",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:repo_liabilities": {
+   "label": "卖出回购金融资产款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.sold_for_repur_fa",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:notes_payable": {
+   "label": "应付票据",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.notes_payable",
+   "values": [
+    21382707.8,
+    3272080.0,
+    34798884.94,
+    3166285.21,
+    null,
+    null,
+    3903400.0,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:fees_commission_payable": {
+   "label": "应付手续费及佣金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.comm_payable",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:accrued_expenses": {
+   "label": "预提费用",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.acc_exp",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:deferred_income_current": {
+   "label": "递延收益-流动负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.deferred_inc",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:short_term_bonds_payable": {
+   "label": "应付短期债券",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.st_bonds_payable",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:held_for_sale_liabilities": {
+   "label": "持有待售负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.hfs_sales",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:deposits_taken": {
+   "label": "吸收存款及同业存放",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.depos_ib_deposits",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:accounts_payable": {
+   "label": "应付账款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.acct_payable",
+   "values": [
+    128988831.42,
+    166142004.94,
+    164149168.31,
+    144824061.47,
+    137854571.07,
+    169869459.63,
+    181237029.74,
+    70563649.54,
+    40703241.03,
+    32190726.47,
+    25820585.61,
+    36868645.68
+   ]
+  },
+  "raw:advances_from_customers": {
+   "label": "预收款项",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.adv_receipts",
+   "values": [
+    70483895.07,
+    34898492.92,
+    81085458.26,
+    89202146.73,
+    159317526.45,
+    83395846.7,
+    4177679.17,
+    4172812.45,
+    403387.43,
+    401479.48,
+    1136478.86,
+    1468814.25
+   ]
+  },
+  "raw:contract_liabilities": {
+   "label": "合同负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.contract_liab",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    165450349.25,
+    109262789.05,
+    161799170.96,
+    108840188.56,
+    56174657.08,
+    107281762.25
+   ]
+  },
+  "raw:employee_benefits_payable": {
+   "label": "应付职工薪酬",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.payroll_payable",
+   "values": [
+    23174617.68,
+    28516738.9,
+    49196671.37,
+    57323138.38,
+    65421021.1,
+    118806267.9,
+    125204918.87,
+    140501643.45,
+    168549034.52,
+    173681277.11,
+    116498425.25,
+    106004415.06
+   ]
+  },
+  "raw:taxes_payable": {
+   "label": "应交税费",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.taxes_payable",
+   "values": [
+    28604634.98,
+    28128286.06,
+    55932196.79,
+    51844946.53,
+    12031747.72,
+    15702677.48,
+    19870383.28,
+    25586107.62,
+    41186182.83,
+    74603500.61,
+    137689190.47,
+    128488180.24
+   ]
+  },
+  "raw:interest_payable": {
+   "label": "应付利息",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.int_payable",
+   "values": [
+    2024238.67,
+    3944803.56,
+    2113600.0,
+    2041425.0,
+    2041425.0,
+    2041425.0,
+    2041425.0,
+    2041425.0,
+    2041425.0,
+    2041425.0,
+    2041425.0,
+    2041425.0
+   ]
+  },
+  "raw:dividends_payable": {
+   "label": "应付股利",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.div_payable",
+   "values": [
+    26025557.51,
+    26025557.51,
+    32547211.86,
+    72399217.86,
+    41711241.93,
+    40403289.26,
+    58836838.66,
+    13363311.66,
+    9237561.66,
+    9237561.66,
+    9237561.66,
+    9237561.66
+   ]
+  },
+  "raw:other_payables": {
+   "label": "其他应付款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_payable",
+   "values": [
+    68238167.0,
+    43000864.47,
+    63453620.63,
+    106125909.97,
+    44295181.05,
+    58600574.03,
+    62729487.48,
+    69200619.83,
+    102543878.9,
+    189419419.23,
+    62837272.28,
+    144745230.81
+   ]
+  },
+  "raw:current_portion_lt_debt": {
+   "label": "一年内到期的非流动负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.non_cur_liab_due_1y",
+   "values": [
+    20000000.0,
+    null,
+    500000.0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_current_liabilities": {
+   "label": "其他流动负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_cur_liab",
+   "values": [
+    1179351.45,
+    4969181.01,
+    41399.41,
+    49099.4,
+    94905.4,
+    83799.91,
+    41759047.2,
+    9970595.31,
+    3650474.54,
+    2162396.35,
+    6575884.06,
+    15192936.14
+   ]
+  },
+  "raw:total_current_liabilities": {
+   "label": "流动负债合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_cur_liab",
+   "values": [
+    461682001.58,
+    391638009.37,
+    523818211.57,
+    547976230.55,
+    482767619.72,
+    508903339.91,
+    665210558.65,
+    444662953.91,
+    538006655.87,
+    592577974.47,
+    418011480.27,
+    551328971.09
+   ]
+  },
+  "raw:specific_payables": {
+   "label": "专项应付款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.specific_payables",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:deferred_tax_liabilities": {
+   "label": "递延所得税负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.defer_tax_liab",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    17525387.78,
+    20642867.07,
+    22455750.92,
+    31217049.64,
+    31062875.77,
+    29234877.77
+   ]
+  },
+  "raw:deferred_income_noncurrent": {
+   "label": "递延收益-非流动负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.defer_inc_non_cur_liab",
+   "values": [
+    8239651.76,
+    8208085.05,
+    9076082.18,
+    8389182.4,
+    76151139.7,
+    76413329.52,
+    76986973.51,
+    70722414.9,
+    68565032.78,
+    77857130.64,
+    69425397.24,
+    66888240.1
+   ]
+  },
+  "raw:long_term_borrowings": {
+   "label": "长期借款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.lt_borr",
+   "values": [
+    2500000.0,
+    1500000.0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:bonds_payable": {
+   "label": "应付债券",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.bond_payable",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:lease_liabilities": {
+   "label": "租赁负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.lease_liab",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:long_term_payables": {
+   "label": "长期应付款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.lt_payable",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:provisions": {
+   "label": "预计负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.estimated_liab",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:long_term_employee_benefits": {
+   "label": "长期应付职工薪酬",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.lt_payroll_payable",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_noncurrent_liabilities": {
+   "label": "其他非流动负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_ncl",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_liabilities": {
+   "label": "其他负债",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_liab",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:total_noncurrent_liabilities": {
+   "label": "非流动负债合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_ncl",
+   "values": [
+    10739651.76,
+    9708085.05,
+    9076082.18,
+    8389182.4,
+    76151139.7,
+    76413329.52,
+    94512361.29,
+    91365281.97,
+    91020783.7,
+    109074180.28,
+    100488273.01,
+    96123117.87
+   ]
+  },
+  "raw:total_liabilities": {
+   "label": "负债合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_liab",
+   "values": [
+    472421653.34,
+    401346094.42,
+    532894293.75,
+    556365412.95,
+    558918759.42,
+    585316669.43,
+    759722919.94,
+    536028235.88,
+    629027439.57,
+    701652154.75,
+    518499753.28,
+    647452088.96
+   ]
+  },
+  "raw:share_capital": {
+   "label": "股本",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_share",
+   "values": [
+    180254989.0,
+    180254989.0,
+    180254989.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0
+   ]
+  },
+  "raw:capital_reserve": {
+   "label": "资本公积",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.cap_rese",
+   "values": [
+    34585421.61,
+    34585421.61,
+    34585421.61,
+    34585421.61,
+    62244857.27,
+    62244857.27,
+    63244992.58,
+    63244992.58,
+    63244992.58,
+    63244992.58,
+    63244992.58,
+    63244992.58
+   ]
+  },
+  "raw:treasury_shares": {
+   "label": "库存股",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.treasury_share",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:surplus_reserve": {
+   "label": "盈余公积",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.surplus_rese",
+   "values": [
+    40315081.32,
+    47822232.19,
+    57441508.83,
+    74077816.1,
+    81672632.33,
+    90290121.41,
+    101185527.59,
+    127957246.53,
+    127957246.53,
+    127957246.53,
+    127957246.53,
+    127957246.53
+   ]
+  },
+  "raw:special_reserve": {
+   "label": "专项储备",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.special_rese",
+   "values": [
+    null,
+    null,
+    1583118.36,
+    876179.02,
+    578734.3,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:fx_translation_difference": {
+   "label": "外币报表折算差额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.forex_differ",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_equity_instruments": {
+   "label": "其他权益工具",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_eqt_tools",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:preferred_shares": {
+   "label": "其他权益工具-优先股",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_eqt_tools_p_shr",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:general_risk_reserve": {
+   "label": "一般风险准备",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.ordin_risk_reser",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:retained_earnings": {
+   "label": "未分配利润",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.undistr_porfit",
+   "values": [
+    712460209.79,
+    839383654.81,
+    1010124042.16,
+    1155573937.87,
+    1219086709.24,
+    1344272044.75,
+    1553833832.35,
+    1819155684.32,
+    2158554544.5,
+    2556351446.2,
+    2486117716.77,
+    2435371164.86
+   ]
+  },
+  "raw:accumulated_oci": {
+   "label": "其他综合收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_comp_income",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:minority_interests": {
+   "label": "少数股东权益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.minority_int",
+   "values": [
+    514628264.86,
+    577517030.16,
+    665326768.12,
+    719197931.21,
+    742878027.24,
+    836007989.5,
+    982658847.35,
+    1154709232.33,
+    1477377114.72,
+    1514757154.83,
+    1500785397.57,
+    1489838071.75
+   ]
+  },
+  "raw:parent_equity": {
+   "label": "归母股东权益合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_hldr_eqy_exc_min_int",
+   "values": [
+    967615701.72,
+    1102046297.61,
+    1283989079.96,
+    1499444839.6,
+    1597914418.14,
+    1731138508.43,
+    1952595837.52,
+    2244689408.43,
+    2584088268.61,
+    2981885170.31,
+    2911651440.88,
+    2860904888.97
+   ]
+  },
+  "raw:total_equity": {
+   "label": "股东权益合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_hldr_eqy_inc_min_int",
+   "values": [
+    1482243966.58,
+    1679563327.77,
+    1949315848.08,
+    2218642770.81,
+    2340792445.38,
+    2567146497.93,
+    2935254684.87,
+    3399398640.76,
+    4061465383.33,
+    4496642325.14,
+    4412436838.45,
+    4350742960.72
+   ]
+  },
+  "raw:total_liab_and_equity": {
+   "label": "负债及股东权益总计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.total_liab_hldr_eqy",
+   "values": [
+    1954665619.92,
+    2080909422.19,
+    2482210141.83,
+    2775008183.76,
+    2899711204.8,
+    3152463167.36,
+    3694977604.81,
+    3935426876.64,
+    4690492822.9,
+    5198294479.89,
+    4930936591.73,
+    4998195049.68
+   ]
+  },
+  "raw:receivables_combined": {
+   "label": "应收票据及应收账款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.accounts_receiv_bill",
+   "values": [
+    486282915.51,
+    446207439.22,
+    466169373.57,
+    584396886.99,
+    338279749.62,
+    603951912.24,
+    546332105.01,
+    239127095.23,
+    247647112.62,
+    313630993.4,
+    318212910.37,
+    210925474.98
+   ]
+  },
+  "raw:payables_combined": {
+   "label": "应付票据及应付账款",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.accounts_pay",
+   "values": [
+    150371539.22,
+    169414084.94,
+    198948053.25,
+    147990346.68,
+    137854571.07,
+    169869459.63,
+    185140429.74,
+    70563649.54,
+    40703241.03,
+    32190726.47,
+    25820585.61,
+    36868645.68
+   ]
+  },
+  "raw:other_receivables_combined": {
+   "label": "其他应收款合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_rcv_total",
+   "values": [
+    60048367.81,
+    35521515.09,
+    24072755.57,
+    20400117.74,
+    14950912.05,
+    22850187.41,
+    10078348.95,
+    99380187.52,
+    9474628.84,
+    2544866.08,
+    2209219.1,
+    34662242.52
+   ]
+  },
+  "raw:ppe_combined": {
+   "label": "固定资产合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.fix_assets_total",
+   "values": [
+    437692476.12,
+    535190817.47,
+    522331176.54,
+    642612138.53,
+    650684829.97,
+    786104961.35,
+    904866047.83,
+    877746292.09,
+    878056455.97,
+    904297915.45,
+    854023183.26,
+    767575664.94
+   ]
+  },
+  "raw:cip_combined": {
+   "label": "在建工程合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.cip_total",
+   "values": [
+    77507306.12,
+    23978559.32,
+    199063451.19,
+    121723717.3,
+    190697743.54,
+    55281091.95,
+    1118377.28,
+    3740603.04,
+    40273683.39,
+    4826279.54,
+    840415.44,
+    14197678.28
+   ]
+  },
+  "raw:other_payables_combined": {
+   "label": "其他应付款合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.oth_pay_total",
+   "values": [
+    96287963.18,
+    72971225.54,
+    98114432.49,
+    180566552.83,
+    88047847.98,
+    101045288.29,
+    123607751.14,
+    84605356.49,
+    113822865.56,
+    200698405.89,
+    74116258.94,
+    156024217.47
+   ]
+  },
+  "raw:long_term_payables_combined": {
+   "label": "长期应付款合计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "balancesheet.long_pay_total",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:total_revenue": {
+   "label": "营业总收入",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.total_revenue",
+   "values": [
+    1373956906.92,
+    1232966348.39,
+    1544725068.68,
+    1767233195.23,
+    1526231270.06,
+    1799947846.95,
+    1821033958.04,
+    2027141972.94,
+    2341075595.24,
+    2484165699.48,
+    2134491189.49,
+    2228386030.26
+   ]
+  },
+  "raw:revenue": {
+   "label": "营业收入",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.revenue",
+   "values": [
+    1373956906.92,
+    1232966348.39,
+    1544725068.68,
+    1767233195.23,
+    1526231270.06,
+    1799947846.95,
+    1821033958.04,
+    2027141972.94,
+    2341075595.24,
+    2484165699.48,
+    2134491189.49,
+    2228386030.26
+   ]
+  },
+  "raw:interest_income_fin_sub": {
+   "label": "利息收入",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.int_income",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:fee_commission_income": {
+   "label": "手续费及佣金收入",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.comm_income",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:total_operating_costs": {
+   "label": "营业总成本",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.total_cogs",
+   "values": [
+    984702712.38,
+    944919374.28,
+    1148436194.24,
+    1254327488.89,
+    1238129777.49,
+    1412292761.73,
+    1255175982.68,
+    1250691954.66,
+    1191187161.17,
+    1202103793.01,
+    1004720401.31,
+    1064670465.87
+   ]
+  },
+  "raw:cost_of_goods_sold": {
+   "label": "营业成本",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.oper_cost",
+   "values": [
+    521229986.84,
+    464870176.82,
+    610901945.12,
+    571491429.3,
+    605657586.53,
+    735290019.4,
+    713006869.7,
+    630529310.23,
+    501704281.52,
+    337568305.25,
+    345100261.01,
+    331788537.73
+   ]
+  },
+  "raw:interest_expense_fin_sub": {
+   "label": "利息支出",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.int_exp",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:fee_commission_expense": {
+   "label": "手续费及佣金支出",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.comm_exp",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:taxes_and_surcharges": {
+   "label": "税金及附加",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.biz_tax_surchg",
+   "values": [
+    24056005.92,
+    21282352.27,
+    28169885.35,
+    32720637.69,
+    26272957.27,
+    24002184.25,
+    26295118.63,
+    31958596.45,
+    39930657.06,
+    39970385.92,
+    36379566.33,
+    42059728.77
+   ]
+  },
+  "raw:selling_expenses": {
+   "label": "销售费用",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.sell_exp",
+   "values": [
+    281329448.22,
+    281049433.89,
+    334685679.97,
+    480382538.01,
+    433237895.27,
+    445139636.52,
+    277534067.72,
+    371927057.08,
+    488612610.97,
+    631598922.89,
+    417111093.09,
+    492493254.81
+   ]
+  },
+  "raw:admin_expenses": {
+   "label": "管理费用",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.admin_exp",
+   "values": [
+    107426772.68,
+    115398449.76,
+    143306147.01,
+    153005080.75,
+    127083445.88,
+    140673185.3,
+    134500092.1,
+    153601203.34,
+    112229509.33,
+    117752850.78,
+    87153868.38,
+    86954861.23
+   ]
+  },
+  "raw:rd_expenses": {
+   "label": "研发费用",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.rd_exp",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    42737273.09,
+    65080879.74,
+    95886988.67,
+    80447834.25,
+    65585633.58,
+    95593668.23,
+    101431595.5,
+    91095893.28
+   ]
+  },
+  "raw:net_finance_expense": {
+   "label": "财务费用",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.fin_exp",
+   "values": [
+    46474899.57,
+    57915640.93,
+    27536604.61,
+    9009533.72,
+    842652.14,
+    -3550960.59,
+    -8202653.67,
+    -14168030.77,
+    -17471304.49,
+    -25831374.1,
+    -26788304.46,
+    -23772632.93
+   ]
+  },
+  "raw:finance_interest_expense": {
+   "label": "财务费用-利息费用",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.fin_exp_int_exp",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    1208268.07,
+    1225080.27,
+    276296.21,
+    null,
+    224541.31,
+    238766.25,
+    null,
+    null
+   ]
+  },
+  "raw:finance_interest_income": {
+   "label": "财务费用-利息收入",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.fin_exp_int_inc",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    5800840.9,
+    5606150.21,
+    8895445.09,
+    14645099.98,
+    17949105.15,
+    26344972.17,
+    27309491.87,
+    24056705.55
+   ]
+  },
+  "raw:asset_impairment_loss": {
+   "label": "资产减值损失",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.assets_impair_loss",
+   "values": [
+    4185599.15,
+    4403320.61,
+    3835932.18,
+    7718269.42,
+    2297967.31,
+    -573688.11,
+    -6854565.28,
+    291584.6,
+    -966179.68,
+    -1545878.53,
+    -44487020.77,
+    -31864843.2
+   ]
+  },
+  "raw:credit_impairment_loss": {
+   "label": "信用减值损失",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.credit_impa_loss",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    -5084129.0,
+    -9300934.25,
+    3312431.32,
+    370406.48,
+    -3905155.51,
+    154699.31,
+    -12185979.78
+   ]
+  },
+  "raw:other_asset_impairment_loss": {
+   "label": "其他资产减值损失",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.oth_impair_loss_assets",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_income_grants": {
+   "label": "其他收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.oth_income",
+   "values": [
+    null,
+    null,
+    null,
+    7387636.79,
+    10545496.22,
+    15412884.26,
+    19003070.27,
+    15744771.31,
+    8331209.25,
+    12024456.35,
+    19002725.96,
+    9367819.67
+   ]
+  },
+  "raw:asset_disposal_income": {
+   "label": "资产处置收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.asset_disp_income",
+   "values": [
+    null,
+    null,
+    null,
+    6223.23,
+    -39879003.12,
+    -1925294.66,
+    -84261.29,
+    -847732.95,
+    null,
+    1391945.76,
+    null,
+    6336316.71
+   ]
+  },
+  "raw:net_hedging_income": {
+   "label": "净敞口套期收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.net_expo_hedging_benefits",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:fx_gain": {
+   "label": "汇兑收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.forex_gain",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_business_income": {
+   "label": "其他业务收入",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.oth_b_income",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:premiums_earned": {
+   "label": "已赚保费",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.prem_earned",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:insurance_reserve_provision": {
+   "label": "提取保险合同准备金净额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.reser_insur_liab",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:discontinued_net_income": {
+   "label": "终止经营净利润",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.end_net_profit",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:fair_value_change_gain": {
+   "label": "公允价值变动收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.fv_value_chg_gain",
+   "values": [
+    null,
+    null,
+    1433561.65,
+    -1433561.65,
+    null,
+    null,
+    9733304.38,
+    1592412.95,
+    3030028.48,
+    14036082.88,
+    10040738.59,
+    6715368.11
+   ]
+  },
+  "raw:investment_income": {
+   "label": "投资收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.invest_income",
+   "values": [
+    1855783.13,
+    2945154.11,
+    1444134.26,
+    8696344.23,
+    11058109.62,
+    13074436.47,
+    18218140.14,
+    25182638.97,
+    -956239.86,
+    16211360.12,
+    20314712.02,
+    21069978.13
+   ]
+  },
+  "raw:associate_investment_income": {
+   "label": "对联营合营企业的投资收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.ass_invest_income",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    2006083.57,
+    -15942004.5,
+    670185.4,
+    5378360.54,
+    7498252.77
+   ]
+  },
+  "raw:operating_profit_reported": {
+   "label": "营业利润",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.operate_profit",
+   "values": [
+    391109977.67,
+    290992128.22,
+    399166570.35,
+    527562348.94,
+    269826095.29,
+    414217111.29,
+    612728228.86,
+    818122108.56,
+    1160293431.94,
+    1325725751.58,
+    1179128964.75,
+    1207205047.01
+   ]
+  },
+  "raw:non_operating_income": {
+   "label": "营业外收入",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.non_oper_income",
+   "values": [
+    59023952.2,
+    13823385.02,
+    9426398.71,
+    882465.92,
+    2738932.12,
+    4499939.91,
+    3188010.91,
+    5380527.01,
+    506789.44,
+    1227529.53,
+    738383.56,
+    833202.46
+   ]
+  },
+  "raw:non_operating_expenses": {
+   "label": "营业外支出",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.non_oper_exp",
+   "values": [
+    1096654.3,
+    819500.21,
+    2248436.54,
+    2423169.47,
+    2675128.46,
+    4327504.39,
+    1668932.14,
+    2382614.63,
+    1607251.46,
+    1562465.24,
+    1640000.0,
+    1041855.29
+   ]
+  },
+  "raw:noncurrent_asset_disposal_loss": {
+   "label": "非流动资产处置损失",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.nca_disploss",
+   "values": [
+    150453.73,
+    282873.07,
+    1210965.05,
+    267171.7,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:pretax_profit": {
+   "label": "利润总额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.total_profit",
+   "values": [
+    449037275.57,
+    303996013.03,
+    406344532.52,
+    526021645.39,
+    269889898.95,
+    414389546.81,
+    614247307.63,
+    821120020.94,
+    1159192969.92,
+    1325390815.87,
+    1178227348.31,
+    1206996394.18
+   ]
+  },
+  "raw:income_tax_expense": {
+   "label": "所得税费用",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.income_tax",
+   "values": [
+    62753685.39,
+    42523159.96,
+    55387778.32,
+    75189534.97,
+    30335202.81,
+    55371653.06,
+    81530638.1,
+    116820322.75,
+    161304429.35,
+    198304286.06,
+    172191648.5,
+    178449085.41
+   ]
+  },
+  "raw:net_income_total": {
+   "label": "净利润",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.n_income",
+   "values": [
+    386283590.18,
+    261472853.07,
+    350956754.2,
+    450832110.42,
+    239554696.14,
+    359017893.75,
+    532716669.53,
+    704299698.19,
+    997888540.57,
+    1127086529.81,
+    1006035699.81,
+    1028547308.77
+   ]
+  },
+  "raw:net_income_parent": {
+   "label": "归母净利润",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.n_income_attr_p",
+   "values": [
+    217378360.24,
+    152456087.77,
+    198385162.89,
+    243200947.33,
+    129690458.85,
+    204102270.09,
+    290756639.28,
+    380262703.21,
+    526864048.18,
+    585262089.7,
+    515594983.07,
+    535082160.59
+   ]
+  },
+  "raw:minority_income": {
+   "label": "少数股东损益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.minority_gain",
+   "values": [
+    168905229.94,
+    109016765.3,
+    152571591.31,
+    207631163.09,
+    109864237.29,
+    154915623.66,
+    241960030.25,
+    324036994.98,
+    471024492.39,
+    541824440.11,
+    490440716.74,
+    493465148.18
+   ]
+  },
+  "raw:continuing_net_income": {
+   "label": "持续经营净利润",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.continued_net_profit",
+   "values": [
+    null,
+    null,
+    null,
+    450832110.42,
+    239554696.14,
+    359017893.75,
+    532716669.53,
+    704299698.19,
+    null,
+    1127086529.81,
+    1006035699.81,
+    1028547308.77
+   ]
+  },
+  "raw:other_comprehensive_income": {
+   "label": "其他综合收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.oth_compr_income",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:total_comprehensive_income": {
+   "label": "综合收益总额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.t_compr_income",
+   "values": [
+    386283590.18,
+    261472853.07,
+    350956754.2,
+    450832110.42,
+    239554696.14,
+    359017893.75,
+    532716669.53,
+    704299698.19,
+    997888540.57,
+    1127086529.81,
+    1006035699.81,
+    1028547308.77
+   ]
+  },
+  "raw:comprehensive_income_parent": {
+   "label": "归母综合收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.compr_inc_attr_p",
+   "values": [
+    217378360.24,
+    152456087.77,
+    198385162.89,
+    243200947.33,
+    129690458.85,
+    204102270.09,
+    290756639.28,
+    380262703.21,
+    526864048.18,
+    585262089.7,
+    515594983.07,
+    535082160.59
+   ]
+  },
+  "raw:comprehensive_income_minority": {
+   "label": "少数股东综合收益",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.compr_inc_attr_m_s",
+   "values": [
+    168905229.94,
+    109016765.3,
+    152571591.31,
+    207631163.09,
+    109864237.29,
+    154915623.66,
+    241960030.25,
+    324036994.98,
+    471024492.39,
+    541824440.11,
+    490440716.74,
+    493465148.18
+   ]
+  },
+  "raw:basic_eps": {
+   "label": "基本每股收益",
+   "unit": "price",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.basic_eps",
+   "values": [
+    1.21,
+    0.85,
+    1.1,
+    1.04,
+    0.55,
+    0.87,
+    1.24,
+    1.62,
+    2.25,
+    2.5,
+    2.2,
+    2.28
+   ]
+  },
+  "raw:diluted_eps": {
+   "label": "稀释每股收益",
+   "unit": "price",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.diluted_eps",
+   "values": [
+    1.21,
+    0.85,
+    1.1,
+    1.04,
+    0.55,
+    0.87,
+    1.24,
+    1.62,
+    2.25,
+    2.5,
+    2.2,
+    2.28
+   ]
+  },
+  "raw:ebit_vendor": {
+   "label": "息税前利润(供应商计算)",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.ebit",
+   "values": [
+    435729094.11,
+    345962615.04,
+    423825479.05,
+    531302876.85,
+    299489640.93,
+    399517008.89,
+    580175364.84,
+    777895007.2,
+    1141714518.51,
+    1268254988.72,
+    1165871949.68,
+    1171103637.94
+   ]
+  },
+  "raw:ebitda_vendor": {
+   "label": "EBITDA(供应商计算)",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "income.ebitda",
+   "values": [
+    470421471.84,
+    382446213.24,
+    464454192.86,
+    574354997.33,
+    349637216.0,
+    460240020.67,
+    649675915.19,
+    851066449.61,
+    1213955612.64,
+    1345405223.02,
+    1243053415.52,
+    1245987499.32
+   ]
+  },
+  "raw:cash_received_from_sales": {
+   "label": "销售商品提供劳务收到的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_fr_sale_sg",
+   "values": [
+    1353843367.33,
+    1317483615.57,
+    1747577297.56,
+    1859939617.05,
+    1979395604.2,
+    1651167231.57,
+    2192059631.74,
+    2447711506.32,
+    2907121485.22,
+    2967857667.58,
+    2825040967.64,
+    3474775236.37
+   ]
+  },
+  "raw:tax_refunds_received": {
+   "label": "收到的税费返还",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.recp_tax_rends",
+   "values": [
+    3411441.55,
+    2873379.47,
+    3166840.81,
+    2949435.33,
+    3539367.9,
+    4218204.43,
+    3650580.98,
+    8710585.95,
+    4400579.38,
+    1086856.84,
+    1173483.29,
+    1654942.88
+   ]
+  },
+  "raw:net_increase_deposits_taken": {
+   "label": "客户存款和同业存放款项净增加额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.n_depos_incr_fi",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:net_interest_fee_cash": {
+   "label": "收取利息和手续费净增加额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.ifc_cash_incr",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:net_increase_loans_issued": {
+   "label": "客户贷款及垫款净增加额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.n_incr_clt_loan_adv",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:net_increase_due_from_banks": {
+   "label": "存放央行和同业款项净增加额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.n_incr_dep_cbob",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:fees_paid": {
+   "label": "支付手续费的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.pay_handling_chrg",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_operating_cash_received": {
+   "label": "收到其他与经营活动有关的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_fr_oth_operate_a",
+   "values": [
+    43718015.49,
+    65248261.96,
+    108574149.64,
+    54810869.23,
+    128341752.61,
+    73688604.79,
+    89456997.94,
+    54287670.97,
+    84264218.11,
+    85301891.7,
+    68794977.7,
+    72882090.06
+   ]
+  },
+  "raw:operating_cash_inflows": {
+   "label": "经营活动现金流入小计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_inf_fr_operate_a",
+   "values": [
+    1400972824.37,
+    1385605257.0,
+    1859318288.01,
+    1917699921.61,
+    2111276724.71,
+    1729074040.79,
+    2285167210.66,
+    2510709763.24,
+    2995786282.71,
+    3054246416.12,
+    2895009428.63,
+    3549312269.31
+   ]
+  },
+  "raw:cash_paid_for_goods": {
+   "label": "购买商品接受劳务支付的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_paid_goods_s",
+   "values": [
+    355737493.28,
+    307851922.51,
+    451173962.42,
+    421314815.16,
+    444535955.6,
+    463172561.24,
+    458236452.66,
+    423435088.42,
+    263852190.18,
+    275634633.35,
+    238425041.14,
+    230807637.89
+   ]
+  },
+  "raw:cash_paid_to_employees": {
+   "label": "支付给职工的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_paid_to_for_empl",
+   "values": [
+    154243528.54,
+    189535408.01,
+    229146732.51,
+    299966314.89,
+    328744380.47,
+    472786253.37,
+    439887884.45,
+    501243848.86,
+    null,
+    395840345.44,
+    323537628.89,
+    326920623.37
+   ]
+  },
+  "raw:cash_paid_for_taxes": {
+   "label": "支付的各项税费",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_paid_for_taxes",
+   "values": [
+    207240839.98,
+    189813972.46,
+    204622010.97,
+    307554010.14,
+    295508866.88,
+    139133869.32,
+    226304150.88,
+    326332735.07,
+    440533275.08,
+    468601356.84,
+    357226591.43,
+    503179095.12
+   ]
+  },
+  "raw:other_operating_cash_paid": {
+   "label": "支付其他与经营活动有关的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.oth_cash_pay_oper_act",
+   "values": [
+    411339567.88,
+    408167358.8,
+    473461860.95,
+    462755864.44,
+    503924838.34,
+    410439859.46,
+    425187216.35,
+    503845497.65,
+    591458197.39,
+    739485128.76,
+    1046211933.46,
+    1216882252.23
+   ]
+  },
+  "raw:operating_cash_outflows": {
+   "label": "经营活动现金流出小计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.st_cash_out_act",
+   "values": [
+    1128561429.68,
+    1095368661.78,
+    1358404566.85,
+    1491591004.63,
+    1572714041.29,
+    1485532543.39,
+    1549615704.34,
+    1754857170.0,
+    1799381743.29,
+    1879561464.39,
+    1965401194.92,
+    2277789608.61
+   ]
+  },
+  "raw:cfo": {
+   "label": "经营活动产生的现金流量净额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.n_cashflow_act",
+   "values": [
+    272411394.69,
+    290236595.22,
+    500913721.16,
+    426108916.98,
+    538562683.42,
+    243541497.4,
+    735551506.32,
+    755852593.24,
+    1196404539.42,
+    1174684951.73,
+    929608233.71,
+    1271522660.7
+   ]
+  },
+  "raw:cash_from_investment_disposals": {
+   "label": "收回投资收到的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_disp_withdrwl_invest",
+   "values": [
+    76000000.0,
+    250000000.0,
+    219800000.0,
+    548050000.0,
+    490000000.0,
+    650000000.0,
+    1006000000.0,
+    1882500000.0,
+    1380852197.07,
+    2200003500.0,
+    2460000000.0,
+    3095000000.0
+   ]
+  },
+  "raw:cash_from_investment_returns": {
+   "label": "取得投资收益收到的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_recp_return_invest",
+   "values": [
+    1855783.13,
+    2945154.11,
+    1444134.26,
+    8696344.23,
+    11058109.62,
+    13074436.47,
+    17136375.56,
+    48645417.1,
+    20205435.32,
+    23270706.35,
+    28972434.36,
+    26037633.81
+   ]
+  },
+  "raw:cash_from_asset_disposals": {
+   "label": "处置固定无形长期资产收回的现金净额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.n_recp_disp_fiolta",
+   "values": [
+    37405785.0,
+    19136230.0,
+    100460.0,
+    710121.0,
+    16044770.0,
+    107362.7,
+    33290.0,
+    92476.0,
+    70.0,
+    1933440.0,
+    null,
+    24837561.63
+   ]
+  },
+  "raw:other_investing_cash_received": {
+   "label": "收到其他与投资活动有关的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.oth_recp_ral_inv_act",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    36518062.5,
+    null,
+    null,
+    null,
+    null,
+    null,
+    200000.0,
+    null
+   ]
+  },
+  "raw:investing_cash_inflows": {
+   "label": "投资活动现金流入小计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.stot_inflows_inv_act",
+   "values": [
+    115261568.13,
+    272081384.11,
+    221344594.26,
+    557456465.23,
+    553620942.12,
+    663181799.17,
+    1050951865.56,
+    1966852972.34,
+    1456454987.14,
+    2225207646.35,
+    2489172434.36,
+    3145875195.44
+   ]
+  },
+  "raw:capex_paid": {
+   "label": "购建固定无形长期资产支付的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_pay_acq_const_fiolta",
+   "values": [
+    80758646.8,
+    80726831.86,
+    229814212.94,
+    177802200.93,
+    131457660.36,
+    172476494.0,
+    101765010.43,
+    120340378.59,
+    89676559.98,
+    50611153.17,
+    43641927.07,
+    48320939.39
+   ]
+  },
+  "raw:cash_paid_for_investments": {
+   "label": "投资支付的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_paid_invest",
+   "values": [
+    76000000.0,
+    350000000.0,
+    289800000.0,
+    478050000.0,
+    490000000.0,
+    676000000.0,
+    980000000.0,
+    2615118171.58,
+    1695000000.0,
+    2355000000.0,
+    2260000000.0,
+    3340000000.0
+   ]
+  },
+  "raw:other_investing_cash_paid": {
+   "label": "支付其他与投资活动有关的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.oth_pay_ral_inv_act",
+   "values": [
+    null,
+    2000000.0,
+    2000000.0,
+    2000000.0,
+    2000000.0,
+    2000000.0,
+    7082727.48,
+    null,
+    null,
+    892835.91,
+    null,
+    null
+   ]
+  },
+  "raw:investing_cash_outflows": {
+   "label": "投资活动现金流出小计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.stot_out_inv_act",
+   "values": [
+    156758646.8,
+    432726831.86,
+    521614212.94,
+    657852200.93,
+    623457660.36,
+    850476494.0,
+    1088847737.91,
+    2735458550.17,
+    1784676559.98,
+    2406503989.08,
+    2303641927.07,
+    3388320939.39
+   ]
+  },
+  "raw:cfi": {
+   "label": "投资活动产生的现金流量净额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.n_cashflow_inv_act",
+   "values": [
+    -41497078.67,
+    -160645447.75,
+    -300269618.68,
+    -100395735.7,
+    -69836718.24,
+    -187294694.83,
+    -37895872.35,
+    -768605577.83,
+    -328221572.84,
+    -181296342.73,
+    185530507.29,
+    -242445743.95
+   ]
+  },
+  "raw:cash_from_borrowings": {
+   "label": "取得借款收到的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_recp_borrow",
+   "values": [
+    101580000.0,
+    92740000.0,
+    72740000.0,
+    30000000.0,
+    20000000.0,
+    20000000.0,
+    null,
+    null,
+    7892299.0,
+    2105098.0,
+    null,
+    null
+   ]
+  },
+  "raw:cash_from_equity_issuance": {
+   "label": "吸收投资收到的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_recp_cap_contrib",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:minority_equity_contributions": {
+   "label": "其中子公司吸收少数股东投资",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.incl_cash_rec_saims",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:other_financing_cash_received": {
+   "label": "收到其他与筹资活动有关的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.oth_cash_recp_ral_fnc_act",
+   "values": [
+    9083570.44,
+    null,
+    null,
+    null,
+    null,
+    null,
+    20000000.0,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:financing_cash_inflows": {
+   "label": "筹资活动现金流入小计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.stot_cash_in_fnc_act",
+   "values": [
+    110663570.44,
+    92740000.0,
+    72740000.0,
+    30000000.0,
+    20000000.0,
+    20000000.0,
+    20000000.0,
+    null,
+    7892299.0,
+    2105098.0,
+    null,
+    null
+   ]
+  },
+  "raw:debt_repayments": {
+   "label": "偿还债务支付的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_prepay_amt_borr",
+   "values": [
+    94988671.87,
+    132580000.0,
+    86480000.0,
+    49500000.0,
+    21000000.0,
+    20000000.0,
+    20000000.0,
+    null,
+    null,
+    7895926.94,
+    null,
+    null
+   ]
+  },
+  "raw:dividends_and_interest_paid": {
+   "label": "分配股利利润或偿付利息支付的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_pay_dist_dpcp_int_exp",
+   "values": [
+    75990602.09,
+    67539339.23,
+    75558017.88,
+    134663115.88,
+    157628886.21,
+    134713147.33,
+    137939614.93,
+    268226698.09,
+    339672093.03,
+    690884183.59,
+    1090241186.5,
+    1090241186.5
+   ]
+  },
+  "raw:dividends_paid_to_minority": {
+   "label": "其中子公司支付少数股东的股利",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.incl_dvd_profit_paid_sc_ms",
+   "values": [
+    49386001.5,
+    46128000.0,
+    53568485.8,
+    106146914.8,
+    105204260.99,
+    null,
+    73023434.0,
+    163073850.0,
+    152482360.0,
+    null,
+    504444400.0,
+    504412474.0
+   ]
+  },
+  "raw:other_financing_cash_paid": {
+   "label": "支付其他与筹资活动有关的现金",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.oth_cashpay_ral_fnc_act",
+   "values": [
+    19897000.0,
+    18872000.0,
+    null,
+    null,
+    null,
+    null,
+    3000000.0,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:financing_cash_outflows": {
+   "label": "筹资活动现金流出小计",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.stot_cashout_fnc_act",
+   "values": [
+    190876273.96,
+    218991339.23,
+    162038017.88,
+    184163115.88,
+    178628886.21,
+    154713147.33,
+    160939614.93,
+    268226698.09,
+    339672093.03,
+    698780110.53,
+    1090241186.5,
+    1090241186.5
+   ]
+  },
+  "raw:cff": {
+   "label": "筹资活动产生的现金流量净额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.n_cash_flows_fnc_act",
+   "values": [
+    -80212703.52,
+    -126251339.23,
+    -89298017.88,
+    -154163115.88,
+    -158628886.21,
+    -134713147.33,
+    -140939614.93,
+    -268226698.09,
+    -331779794.03,
+    -696675012.53,
+    -1090241186.5,
+    -1090241186.5
+   ]
+  },
+  "raw:fx_effect_on_cash": {
+   "label": "汇率变动对现金的影响",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.eff_fx_flu_cash",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:net_increase_in_cash": {
+   "label": "现金及现金等价物净增加额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.n_incr_cash_cash_equ",
+   "values": [
+    150701612.5,
+    3339808.24,
+    111346084.6,
+    171550065.4,
+    310097078.97,
+    -78466344.76,
+    556716019.04,
+    -280979682.68,
+    536403172.55,
+    296713596.47,
+    24897554.5,
+    -61164269.75
+   ]
+  },
+  "raw:cash_beginning": {
+   "label": "期初现金及现金等价物余额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_cash_equ_beg_period",
+   "values": [
+    257430872.29,
+    408132484.79,
+    411472293.03,
+    522818377.63,
+    694368443.03,
+    1004465522.0,
+    925999177.24,
+    1482715196.28,
+    1201735513.6,
+    1738138686.15,
+    2034852282.62,
+    2059749837.12
+   ]
+  },
+  "raw:cash_ending": {
+   "label": "期末现金及现金等价物余额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.c_cash_equ_end_period",
+   "values": [
+    408132484.79,
+    411472293.03,
+    522818377.63,
+    694368443.03,
+    1004465522.0,
+    925999177.24,
+    1482715196.28,
+    1201735513.6,
+    1738138686.15,
+    2034852282.62,
+    2059749837.12,
+    1998585567.37
+   ]
+  },
+  "raw:fcf_vendor": {
+   "label": "自由现金流(供应商计算)",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.free_cashflow",
+   "values": [
+    184366161.9794,
+    284413594.2743,
+    259133355.2904,
+    294853931.0053,
+    278534947.1752,
+    52170739.651,
+    668841005.877,
+    3285080.3569,
+    1142638399.8706,
+    1099047891.7976,
+    2079330212.3712,
+    1226502247.9168
+   ]
+  },
+  "raw:supp_net_profit": {
+   "label": "净利润(补充资料)",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.net_profit",
+   "values": [
+    386283590.18,
+    261472853.07,
+    350956754.2,
+    450832110.42,
+    239554696.14,
+    359017893.75,
+    532716669.53,
+    704299698.19,
+    997888540.57,
+    1127086529.81,
+    1006035699.81,
+    1028547308.77
+   ]
+  },
+  "raw:supp_finance_expense": {
+   "label": "财务费用(补充资料)",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.finan_exp",
+   "values": [
+    7536807.16,
+    7808360.26,
+    2270284.06,
+    1530140.94,
+    1208023.07,
+    1225080.27,
+    276296.21,
+    41166.9,
+    224541.31,
+    238766.25,
+    null,
+    null
+   ]
+  },
+  "raw:supp_impairment_provisions": {
+   "label": "资产减值准备",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.prov_depr_assets",
+   "values": [
+    4185599.15,
+    4403320.61,
+    3835932.18,
+    7718269.42,
+    2297967.31,
+    573688.11,
+    6854565.28,
+    -291584.6,
+    595773.2,
+    1545878.53,
+    44487020.77,
+    31864843.2
+   ]
+  },
+  "raw:supp_depreciation": {
+   "label": "固定资产折旧等",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.depr_fa_coga_dpba",
+   "values": [
+    27159180.43,
+    30467107.15,
+    34303652.74,
+    36405593.0,
+    40714492.11,
+    50293579.24,
+    58921206.53,
+    64102052.97,
+    63089366.32,
+    67590008.74,
+    67919055.61,
+    64478196.2
+   ]
+  },
+  "raw:supp_intangible_amortization": {
+   "label": "无形资产摊销",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.amort_intang_assets",
+   "values": [
+    7383256.66,
+    5942437.77,
+    6243837.4,
+    6468468.19,
+    7262844.9,
+    6386812.96,
+    6493363.3,
+    5153680.16,
+    5318983.73,
+    5713164.13,
+    5462907.62,
+    6606162.53
+   ]
+  },
+  "raw:supp_lt_deferred_amortization": {
+   "label": "长期待摊费用摊销",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.lt_amort_deferred_exp",
+   "values": [
+    149940.64,
+    74053.28,
+    81223.67,
+    178059.29,
+    2170238.06,
+    4042619.58,
+    4085980.52,
+    3915709.28,
+    3832744.08,
+    3847061.43,
+    3799502.61,
+    3799502.65
+   ]
+  },
+  "raw:supp_rou_asset_depreciation": {
+   "label": "使用权资产折旧",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.use_right_asset_dep",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:supp_asset_disposal_loss": {
+   "label": "处置资产的损失",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.loss_disp_fiolta",
+   "values": [
+    -51445762.97,
+    -88888.05,
+    731594.29,
+    -6223.23,
+    39879003.12,
+    1925294.66,
+    84261.29,
+    847732.95,
+    null,
+    -1391945.76,
+    null,
+    -6336316.71
+   ]
+  },
+  "raw:supp_asset_writeoff_loss": {
+   "label": "固定资产报废损失",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.loss_scr_fa",
+   "values": [
+    23461.5,
+    227997.17,
+    34080.3,
+    265704.03,
+    91428.66,
+    686487.46,
+    98920.44,
+    100377.26,
+    null,
+    null,
+    null,
+    -339646.04
+   ]
+  },
+  "raw:supp_fair_value_loss": {
+   "label": "公允价值变动损失",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.loss_fv_chg",
+   "values": [
+    null,
+    null,
+    -1433561.65,
+    1433561.65,
+    null,
+    null,
+    -9733304.38,
+    -1592412.95,
+    -3030028.48,
+    -14036082.88,
+    -10040738.59,
+    -6715368.11
+   ]
+  },
+  "raw:supp_investment_loss": {
+   "label": "投资损失",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.invest_loss",
+   "values": [
+    -1855783.13,
+    -2945154.11,
+    -1444134.26,
+    -8696344.23,
+    -11058109.62,
+    -13074436.47,
+    -18218140.14,
+    -25182638.97,
+    956239.86,
+    -16211360.12,
+    -20314712.02,
+    -21069978.13
+   ]
+  },
+  "raw:supp_credit_impairment_loss": {
+   "label": "信用减值损失",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.credit_impa_loss",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    9300934.25,
+    null,
+    null,
+    null,
+    null,
+    12185979.78
+   ]
+  },
+  "raw:supp_deferred_tax_asset_decrease": {
+   "label": "递延所得税资产减少",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.decr_def_inc_tax_assets",
+   "values": [
+    2570314.19,
+    -676579.67,
+    -1836090.35,
+    -1429080.23,
+    -4363619.73,
+    2350761.93,
+    309450.77,
+    7300147.64,
+    -839885.25,
+    -3370334.66,
+    -3666100.05,
+    -860331.9
+   ]
+  },
+  "raw:supp_deferred_tax_liab_increase": {
+   "label": "递延所得税负债增加",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.incr_def_inc_tax_liab",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    17525387.78,
+    3117479.29,
+    1812883.85,
+    8633469.16,
+    -154173.87,
+    -1827998.0
+   ]
+  },
+  "raw:supp_inventory_decrease": {
+   "label": "存货的减少",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.decr_inventories",
+   "values": [
+    8310874.84,
+    -18724073.36,
+    -26134517.93,
+    28653709.79,
+    -14704346.19,
+    11191161.07,
+    -20974042.24,
+    35762657.28,
+    14136559.06,
+    -164763.02,
+    16309948.33,
+    -17648544.26
+   ]
+  },
+  "raw:supp_operating_receivables_decrease": {
+   "label": "经营性应收项目的减少",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.decr_oper_payable",
+   "values": [
+    -200622852.5,
+    138615531.66,
+    106034316.52,
+    -112049819.6,
+    235193640.07,
+    -350980197.52,
+    -112245830.47,
+    307853723.47,
+    90094507.16,
+    -85216958.67,
+    -50900295.82,
+    64611336.12
+   ]
+  },
+  "raw:supp_operating_payables_increase": {
+   "label": "经营性应付项目的增加",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.incr_oper_payable",
+   "values": [
+    82732768.54,
+    -136340370.56,
+    27270349.99,
+    14804767.54,
+    316425.52,
+    164818623.36,
+    260055787.65,
+    -346262764.31,
+    22324314.01,
+    76516363.28,
+    -129175181.38,
+    114227514.6
+   ]
+  },
+  "raw:supp_cfo_indirect": {
+   "label": "经营活动现金流量净额(间接法)",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.im_net_cashflow_oper_act",
+   "values": [
+    272411394.69,
+    290236595.22,
+    500913721.16,
+    426108916.98,
+    538562683.42,
+    243541497.4,
+    735551506.32,
+    755852593.24,
+    1196404539.42,
+    1174684951.73,
+    929608233.71,
+    1271522660.7
+   ]
+  },
+  "raw:supp_net_cash_increase": {
+   "label": "现金净增加额(补充资料)",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.im_n_incr_cash_equ",
+   "values": [
+    150701612.5,
+    3339808.24,
+    111346084.6,
+    171550065.4,
+    310097078.97,
+    -78466344.76,
+    556716019.04,
+    -280979682.68,
+    536403172.55,
+    296713596.47,
+    24897554.5,
+    -61164269.75
+   ]
+  },
+  "raw:supp_cash_ending": {
+   "label": "现金的期末余额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.end_bal_cash",
+   "values": [
+    408132484.79,
+    411472293.03,
+    522818377.63,
+    694368443.03,
+    1004465522.0,
+    925999177.24,
+    1482715196.28,
+    1201735513.6,
+    1738138686.15,
+    2034852282.62,
+    2059749837.12,
+    1998585567.37
+   ]
+  },
+  "raw:supp_cash_beginning": {
+   "label": "现金的期初余额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.beg_bal_cash",
+   "values": [
+    257430872.29,
+    408132484.79,
+    411472293.03,
+    522818377.63,
+    694368443.03,
+    1004465522.0,
+    925999177.24,
+    1482715196.28,
+    1201735513.6,
+    1738138686.15,
+    2034852282.62,
+    2059749837.12
+   ]
+  },
+  "raw:supp_cash_equivalents_ending": {
+   "label": "现金等价物的期末余额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.end_bal_cash_equ",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:supp_cash_equivalents_beginning": {
+   "label": "现金等价物的期初余额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.beg_bal_cash_equ",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "raw:supp_net_capital_disposal": {
+   "label": "处置子公司收到的现金净额",
+   "unit": "CNY_yuan",
+   "formula": "Tushare 年度合并报表披露值",
+   "source": "cashflow.net_dism_capital_add",
+   "values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "oa": {
+   "label": "经营资产",
+   "unit": "CNY_yuan",
+   "formula": "加总归入经营资产的已披露科目",
+   "inputs": [
+    "raw:notes_receivable",
+    "raw:accounts_receivable",
+    "raw:other_receivables",
+    "raw:prepayments",
+    "raw:inventory",
+    "raw:long_term_receivables",
+    "raw:goodwill",
+    "raw:ppe",
+    "raw:construction_in_progress",
+    "raw:assets_held_for_disposal",
+    "raw:intangible_assets",
+    "raw:development_expenditure",
+    "raw:long_term_deferred_expenses",
+    "raw:deferred_tax_assets"
+   ],
+   "values": [
+    1436081515.99,
+    1477163603.8099997,
+    1678680151.3400002,
+    1885264874.8899996,
+    1688920983.72,
+    1916618544.8400002,
+    1942565924.07,
+    1708584742.4199996,
+    1633489650.58,
+    1679361335.52,
+    1601955530.7800002,
+    1490848186.4800003
+   ],
+   "metadata_by_year": {
+    "20151231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:other_current_assets",
+      "raw:long_term_receivables",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20161231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:other_current_assets",
+      "raw:long_term_receivables",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20171231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:other_current_assets",
+      "raw:long_term_receivables",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20181231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:other_current_assets",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:assets_held_for_disposal",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20191231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:other_current_assets",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20201231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:contract_assets",
+      "raw:other_current_assets",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:construction_materials",
+      "raw:assets_held_for_disposal",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20211231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:other_current_assets",
+      "raw:long_term_equity_investments",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:construction_materials",
+      "raw:assets_held_for_disposal",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20221231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:other_current_assets",
+      "raw:long_term_equity_investments",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:assets_held_for_disposal",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20231231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:other_current_assets",
+      "raw:long_term_equity_investments",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:assets_held_for_disposal",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20241231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:other_current_assets",
+      "raw:long_term_equity_investments",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:assets_held_for_disposal",
+      "raw:intangible_assets",
+      "raw:development_expenditure",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    },
+    "20251231": {
+     "label": "经营资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营资产的已披露科目",
+     "inputs": [
+      "raw:notes_receivable",
+      "raw:accounts_receivable",
+      "raw:other_receivables",
+      "raw:prepayments",
+      "raw:inventory",
+      "raw:contract_assets",
+      "raw:other_current_assets",
+      "raw:long_term_equity_investments",
+      "raw:goodwill",
+      "raw:ppe",
+      "raw:construction_in_progress",
+      "raw:assets_held_for_disposal",
+      "raw:intangible_assets",
+      "raw:long_term_deferred_expenses",
+      "raw:deferred_tax_assets",
+      "raw:other_noncurrent_assets"
+     ]
+    }
+   }
+  },
+  "ol": {
+   "label": "经营负债",
+   "unit": "CNY_yuan",
+   "formula": "加总归入经营负债的已披露科目",
+   "inputs": [
+    "raw:notes_payable",
+    "raw:accounts_payable",
+    "raw:advances_from_customers",
+    "raw:employee_benefits_payable",
+    "raw:taxes_payable",
+    "raw:other_payables",
+    "raw:other_current_liabilities",
+    "raw:deferred_income_noncurrent"
+   ],
+   "values": [
+    350291857.15999997,
+    317135733.35,
+    457733481.89000005,
+    460924770.09000003,
+    495166092.49,
+    522871955.17,
+    698844656.28,
+    520623499.22,
+    609856153.9100001,
+    690373168.09,
+    507220766.61999995,
+    636173102.3000001
+   ],
+   "metadata_by_year": {
+    "20181231": {
+     "label": "经营负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营负债的已披露科目",
+     "inputs": [
+      "raw:accounts_payable",
+      "raw:advances_from_customers",
+      "raw:employee_benefits_payable",
+      "raw:taxes_payable",
+      "raw:other_payables",
+      "raw:other_current_liabilities",
+      "raw:deferred_income_noncurrent"
+     ]
+    },
+    "20191231": {
+     "label": "经营负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营负债的已披露科目",
+     "inputs": [
+      "raw:accounts_payable",
+      "raw:advances_from_customers",
+      "raw:employee_benefits_payable",
+      "raw:taxes_payable",
+      "raw:other_payables",
+      "raw:other_current_liabilities",
+      "raw:deferred_income_noncurrent"
+     ]
+    },
+    "20201231": {
+     "label": "经营负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营负债的已披露科目",
+     "inputs": [
+      "raw:notes_payable",
+      "raw:accounts_payable",
+      "raw:advances_from_customers",
+      "raw:contract_liabilities",
+      "raw:employee_benefits_payable",
+      "raw:taxes_payable",
+      "raw:other_payables",
+      "raw:other_current_liabilities",
+      "raw:deferred_tax_liabilities",
+      "raw:deferred_income_noncurrent"
+     ]
+    },
+    "20211231": {
+     "label": "经营负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营负债的已披露科目",
+     "inputs": [
+      "raw:accounts_payable",
+      "raw:advances_from_customers",
+      "raw:contract_liabilities",
+      "raw:employee_benefits_payable",
+      "raw:taxes_payable",
+      "raw:other_payables",
+      "raw:other_current_liabilities",
+      "raw:deferred_tax_liabilities",
+      "raw:deferred_income_noncurrent"
+     ]
+    },
+    "20221231": {
+     "label": "经营负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营负债的已披露科目",
+     "inputs": [
+      "raw:accounts_payable",
+      "raw:advances_from_customers",
+      "raw:contract_liabilities",
+      "raw:employee_benefits_payable",
+      "raw:taxes_payable",
+      "raw:other_payables",
+      "raw:other_current_liabilities",
+      "raw:deferred_tax_liabilities",
+      "raw:deferred_income_noncurrent"
+     ]
+    },
+    "20231231": {
+     "label": "经营负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营负债的已披露科目",
+     "inputs": [
+      "raw:accounts_payable",
+      "raw:advances_from_customers",
+      "raw:contract_liabilities",
+      "raw:employee_benefits_payable",
+      "raw:taxes_payable",
+      "raw:other_payables",
+      "raw:other_current_liabilities",
+      "raw:deferred_tax_liabilities",
+      "raw:deferred_income_noncurrent"
+     ]
+    },
+    "20241231": {
+     "label": "经营负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营负债的已披露科目",
+     "inputs": [
+      "raw:accounts_payable",
+      "raw:advances_from_customers",
+      "raw:contract_liabilities",
+      "raw:employee_benefits_payable",
+      "raw:taxes_payable",
+      "raw:other_payables",
+      "raw:other_current_liabilities",
+      "raw:deferred_tax_liabilities",
+      "raw:deferred_income_noncurrent"
+     ]
+    },
+    "20251231": {
+     "label": "经营负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入经营负债的已披露科目",
+     "inputs": [
+      "raw:accounts_payable",
+      "raw:advances_from_customers",
+      "raw:contract_liabilities",
+      "raw:employee_benefits_payable",
+      "raw:taxes_payable",
+      "raw:other_payables",
+      "raw:other_current_liabilities",
+      "raw:deferred_tax_liabilities",
+      "raw:deferred_income_noncurrent"
+     ]
+    }
+   }
+  },
+  "fa": {
+   "label": "金融资产",
+   "unit": "CNY_yuan",
+   "formula": "加总归入金融资产的已披露科目",
+   "inputs": [
+    "raw:cash_and_equivalents",
+    "raw:afs_financial_assets",
+    "raw:investment_real_estate"
+   ],
+   "values": [
+    518584103.92999995,
+    603745818.38,
+    803529990.49,
+    889743308.87,
+    1210790221.08,
+    1235844622.52,
+    1752411680.7399998,
+    2226842134.22,
+    3057003172.3199997,
+    3518933144.3700004,
+    3328981060.95,
+    3507346863.2000003
+   ],
+   "metadata_by_year": {
+    "20161231": {
+     "label": "金融资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融资产的已披露科目",
+     "inputs": [
+      "raw:cash_and_equivalents",
+      "raw:trading_financial_assets",
+      "raw:afs_financial_assets",
+      "raw:investment_real_estate"
+     ]
+    },
+    "20181231": {
+     "label": "金融资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融资产的已披露科目",
+     "inputs": [
+      "raw:cash_and_equivalents",
+      "raw:noncurrent_assets_due_1y",
+      "raw:afs_financial_assets",
+      "raw:investment_real_estate"
+     ]
+    },
+    "20191231": {
+     "label": "金融资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融资产的已披露科目",
+     "inputs": [
+      "raw:cash_and_equivalents",
+      "raw:trading_financial_assets",
+      "raw:other_illiquid_financial_assets",
+      "raw:investment_real_estate"
+     ]
+    },
+    "20201231": {
+     "label": "金融资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融资产的已披露科目",
+     "inputs": [
+      "raw:cash_and_equivalents",
+      "raw:other_illiquid_financial_assets",
+      "raw:investment_real_estate"
+     ]
+    },
+    "20211231": {
+     "label": "金融资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融资产的已披露科目",
+     "inputs": [
+      "raw:cash_and_equivalents",
+      "raw:trading_financial_assets",
+      "raw:other_illiquid_financial_assets",
+      "raw:investment_real_estate"
+     ]
+    },
+    "20221231": {
+     "label": "金融资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融资产的已披露科目",
+     "inputs": [
+      "raw:cash_and_equivalents",
+      "raw:trading_financial_assets",
+      "raw:other_illiquid_financial_assets",
+      "raw:investment_real_estate"
+     ]
+    },
+    "20231231": {
+     "label": "金融资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融资产的已披露科目",
+     "inputs": [
+      "raw:cash_and_equivalents",
+      "raw:trading_financial_assets",
+      "raw:other_illiquid_financial_assets",
+      "raw:investment_real_estate"
+     ]
+    },
+    "20241231": {
+     "label": "金融资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融资产的已披露科目",
+     "inputs": [
+      "raw:cash_and_equivalents",
+      "raw:trading_financial_assets",
+      "raw:other_illiquid_financial_assets",
+      "raw:investment_real_estate"
+     ]
+    },
+    "20251231": {
+     "label": "金融资产",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融资产的已披露科目",
+     "inputs": [
+      "raw:cash_and_equivalents",
+      "raw:trading_financial_assets",
+      "raw:other_illiquid_financial_assets",
+      "raw:investment_real_estate"
+     ]
+    }
+   }
+  },
+  "fo": {
+   "label": "金融负债",
+   "unit": "CNY_yuan",
+   "formula": "加总归入金融负债的已披露科目",
+   "inputs": [
+    "raw:short_term_borrowings",
+    "raw:interest_payable",
+    "raw:dividends_payable",
+    "raw:current_portion_lt_debt",
+    "raw:long_term_borrowings"
+   ],
+   "values": [
+    122129796.18,
+    84210361.07000001,
+    75160811.86,
+    95440642.86,
+    63752666.93,
+    62444714.26,
+    60878263.66,
+    15404736.66,
+    19171285.66,
+    11278986.66,
+    11278986.66,
+    11278986.66
+   ],
+   "metadata_by_year": {
+    "20151231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:short_term_borrowings",
+      "raw:interest_payable",
+      "raw:dividends_payable",
+      "raw:long_term_borrowings"
+     ]
+    },
+    "20161231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:short_term_borrowings",
+      "raw:interest_payable",
+      "raw:dividends_payable",
+      "raw:current_portion_lt_debt"
+     ]
+    },
+    "20171231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:short_term_borrowings",
+      "raw:interest_payable",
+      "raw:dividends_payable"
+     ]
+    },
+    "20181231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:short_term_borrowings",
+      "raw:interest_payable",
+      "raw:dividends_payable"
+     ]
+    },
+    "20191231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:short_term_borrowings",
+      "raw:interest_payable",
+      "raw:dividends_payable"
+     ]
+    },
+    "20201231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:interest_payable",
+      "raw:dividends_payable"
+     ]
+    },
+    "20211231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:interest_payable",
+      "raw:dividends_payable"
+     ]
+    },
+    "20221231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:short_term_borrowings",
+      "raw:interest_payable",
+      "raw:dividends_payable"
+     ]
+    },
+    "20231231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:interest_payable",
+      "raw:dividends_payable"
+     ]
+    },
+    "20241231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:interest_payable",
+      "raw:dividends_payable"
+     ]
+    },
+    "20251231": {
+     "label": "金融负债",
+     "unit": "CNY_yuan",
+     "formula": "加总归入金融负债的已披露科目",
+     "inputs": [
+      "raw:interest_payable",
+      "raw:dividends_payable"
+     ]
+    }
+   }
+  },
+  "minority_interests": {
+   "label": "少数股东权益",
+   "unit": "CNY_yuan",
+   "formula": "报表披露值",
+   "inputs": [
+    "raw:minority_interests"
+   ],
+   "values": [
+    514628264.86,
+    577517030.16,
+    665326768.12,
+    719197931.21,
+    742878027.24,
+    836007989.5,
+    982658847.35,
+    1154709232.33,
+    1477377114.72,
+    1514757154.83,
+    1500785397.57,
+    1489838071.75
+   ]
+  },
+  "noa_capital": {
+   "label": "平均净经营资产",
+   "unit": "CNY_yuan",
+   "formula": "（期初余额 ＋ 期末余额）÷ 2",
+   "inputs": [
+    "@noa",
+    "noa"
+   ],
+   "values": [
+    null,
+    1122908764.6449997,
+    1190487269.955,
+    1322643387.125,
+    1309047498.0149999,
+    1293750740.45,
+    1318733928.73,
+    1215841255.495,
+    1105797369.9349997,
+    1006310832.05,
+    1041861465.7950001,
+    974704924.1700003
+   ],
+   "missing_reasons": {
+    "20141231": "缺少上年年末或本年年末余额"
+   }
+  },
+  "nfo_capital": {
+   "label": "平均净金融负债",
+   "unit": "CNY_yuan",
+   "formula": "（期初余额 ＋ 期末余额）÷ 2",
+   "inputs": [
+    "@nfo",
+    "nfo"
+   ],
+   "values": [
+    null,
+    -457994882.53,
+    -623952317.97,
+    -761335922.3199999,
+    -970670110.0799999,
+    -1160218731.205,
+    -1432466662.6699998,
+    -1951485407.3199997,
+    -2624634642.1099997,
+    -3272743022.1850004,
+    -3412678116.0,
+    -3406884975.415
+   ],
+   "missing_reasons": {
+    "20141231": "缺少上年年末或本年年末余额"
+   }
+  },
+  "ol_capital": {
+   "label": "平均经营负债",
+   "unit": "CNY_yuan",
+   "formula": "（期初余额 ＋ 期末余额）÷ 2",
+   "inputs": [
+    "@ol",
+    "ol"
+   ],
+   "values": [
+    null,
+    333713795.255,
+    387434607.62,
+    459329125.99,
+    478045431.29,
+    509019023.83000004,
+    610858305.725,
+    609734077.75,
+    565239826.565,
+    650114661.0,
+    598796967.355,
+    571696934.46
+   ],
+   "missing_reasons": {
+    "20141231": "缺少上年年末或本年年末余额"
+   }
+  },
+  "cse_capital": {
+   "label": "平均归母权益",
+   "unit": "CNY_yuan",
+   "formula": "（期初余额 ＋ 期末余额）÷ 2",
+   "inputs": [
+    "@cse_calc",
+    "cse_calc"
+   ],
+   "values": [
+    null,
+    1034830999.6649997,
+    1193017688.7849998,
+    1391716959.7799997,
+    1548679628.87,
+    1664526463.2850003,
+    1841867172.9750001,
+    2098642622.9749997,
+    2414388838.5199995,
+    2782986719.46,
+    2946768305.5950007,
+    2886278164.9250007
+   ],
+   "missing_reasons": {
+    "20141231": "缺少上年年末或本年年末余额"
+   }
+  },
+  "days_per_year": {
+   "label": "周转天数基准",
+   "unit": "days",
+   "formula": "模型约定",
+   "inputs": [],
+   "values": [
+    365.0,
+    365.0,
+    365.0,
+    365.0,
+    365.0,
+    365.0,
+    365.0,
+    365.0,
+    365.0,
+    365.0,
+    365.0,
+    365.0
+   ]
+  },
+  "delta_assets": {
+   "label": "资产总计变动",
+   "unit": "CNY_yuan",
+   "formula": "期末资产总计 − 期初资产总计",
+   "inputs": [
+    "raw:total_assets",
+    "@raw:total_assets"
+   ],
+   "values": [
+    null,
+    126243802.26999998,
+    401300719.63999987,
+    292798041.9300003,
+    124703021.03999996,
+    252751962.55999994,
+    542514437.4499998,
+    240449271.82999992,
+    755065946.2599998,
+    507801656.9900007,
+    -267357888.1600008,
+    67258457.95000076
+   ]
+  },
+  "nfe_pretax": {
+   "label": "税前净财务费用",
+   "unit": "CNY_yuan",
+   "formula": "按融资分类加总：费用为加项、收益为减项；已披露的联营合营收益单独转入经营",
+   "inputs": [
+    "raw:net_finance_expense",
+    "-raw:investment_income"
+   ],
+   "values": [
+    44619116.44,
+    54970486.82,
+    24658908.7,
+    1746751.1400000006,
+    -10215457.479999999,
+    -16625397.06,
+    -36154098.19,
+    -38936999.12,
+    -35487097.61,
+    -55408631.7,
+    -51765394.53,
+    -44059726.4
+   ],
+   "metadata_by_year": {
+    "20161231": {
+     "label": "税前净财务费用",
+     "unit": "CNY_yuan",
+     "formula": "按融资分类加总：费用为加项、收益为减项；已披露的联营合营收益单独转入经营",
+     "inputs": [
+      "raw:net_finance_expense",
+      "-raw:fair_value_change_gain",
+      "-raw:investment_income"
+     ]
+    },
+    "20171231": {
+     "label": "税前净财务费用",
+     "unit": "CNY_yuan",
+     "formula": "按融资分类加总：费用为加项、收益为减项；已披露的联营合营收益单独转入经营",
+     "inputs": [
+      "raw:net_finance_expense",
+      "-raw:fair_value_change_gain",
+      "-raw:investment_income"
+     ]
+    },
+    "20201231": {
+     "label": "税前净财务费用",
+     "unit": "CNY_yuan",
+     "formula": "按融资分类加总：费用为加项、收益为减项；已披露的联营合营收益单独转入经营",
+     "inputs": [
+      "raw:net_finance_expense",
+      "-raw:fair_value_change_gain",
+      "-raw:investment_income"
+     ]
+    },
+    "20211231": {
+     "label": "税前净财务费用",
+     "unit": "CNY_yuan",
+     "formula": "按融资分类加总：费用为加项、收益为减项；已披露的联营合营收益单独转入经营",
+     "inputs": [
+      "raw:net_finance_expense",
+      "-raw:fair_value_change_gain",
+      "raw:associate_investment_income",
+      "-raw:investment_income"
+     ]
+    },
+    "20221231": {
+     "label": "税前净财务费用",
+     "unit": "CNY_yuan",
+     "formula": "按融资分类加总：费用为加项、收益为减项；已披露的联营合营收益单独转入经营",
+     "inputs": [
+      "raw:net_finance_expense",
+      "-raw:fair_value_change_gain",
+      "raw:associate_investment_income",
+      "-raw:investment_income"
+     ]
+    },
+    "20231231": {
+     "label": "税前净财务费用",
+     "unit": "CNY_yuan",
+     "formula": "按融资分类加总：费用为加项、收益为减项；已披露的联营合营收益单独转入经营",
+     "inputs": [
+      "raw:net_finance_expense",
+      "-raw:fair_value_change_gain",
+      "raw:associate_investment_income",
+      "-raw:investment_income"
+     ]
+    },
+    "20241231": {
+     "label": "税前净财务费用",
+     "unit": "CNY_yuan",
+     "formula": "按融资分类加总：费用为加项、收益为减项；已披露的联营合营收益单独转入经营",
+     "inputs": [
+      "raw:net_finance_expense",
+      "-raw:fair_value_change_gain",
+      "raw:associate_investment_income",
+      "-raw:investment_income"
+     ]
+    },
+    "20251231": {
+     "label": "税前净财务费用",
+     "unit": "CNY_yuan",
+     "formula": "按融资分类加总：费用为加项、收益为减项；已披露的联营合营收益单独转入经营",
+     "inputs": [
+      "raw:net_finance_expense",
+      "-raw:fair_value_change_gain",
+      "raw:associate_investment_income",
+      "-raw:investment_income"
+     ]
+    }
+   }
+  },
+  "unusual_pretax": {
+   "label": "税前特殊项目净额",
+   "unit": "CNY_yuan",
+   "formula": "按各项报表的列报口径确定加减号",
+   "inputs": [
+    "-raw:asset_impairment_loss",
+    "raw:non_operating_income",
+    "-raw:non_operating_expenses"
+   ],
+   "values": [
+    53741698.75000001,
+    8600564.2,
+    3342029.990000001,
+    -9252749.74,
+    -42113166.77,
+    -7410676.25,
+    -14720682.05,
+    5754195.35,
+    -1696235.22,
+    -4394023.99,
+    -45233937.9,
+    -37923159.099999994
+   ],
+   "metadata_by_year": {
+    "20171231": {
+     "label": "税前特殊项目净额",
+     "unit": "CNY_yuan",
+     "formula": "按各项报表的列报口径确定加减号",
+     "inputs": [
+      "-raw:asset_impairment_loss",
+      "raw:asset_disposal_income",
+      "raw:non_operating_income",
+      "-raw:non_operating_expenses"
+     ]
+    },
+    "20181231": {
+     "label": "税前特殊项目净额",
+     "unit": "CNY_yuan",
+     "formula": "按各项报表的列报口径确定加减号",
+     "inputs": [
+      "-raw:asset_impairment_loss",
+      "raw:asset_disposal_income",
+      "raw:non_operating_income",
+      "-raw:non_operating_expenses"
+     ]
+    },
+    "20191231": {
+     "label": "税前特殊项目净额",
+     "unit": "CNY_yuan",
+     "formula": "按各项报表的列报口径确定加减号",
+     "inputs": [
+      "raw:asset_impairment_loss",
+      "raw:credit_impairment_loss",
+      "raw:asset_disposal_income",
+      "raw:non_operating_income",
+      "-raw:non_operating_expenses"
+     ]
+    },
+    "20201231": {
+     "label": "税前特殊项目净额",
+     "unit": "CNY_yuan",
+     "formula": "按各项报表的列报口径确定加减号",
+     "inputs": [
+      "raw:asset_impairment_loss",
+      "raw:credit_impairment_loss",
+      "raw:asset_disposal_income",
+      "raw:non_operating_income",
+      "-raw:non_operating_expenses"
+     ]
+    },
+    "20211231": {
+     "label": "税前特殊项目净额",
+     "unit": "CNY_yuan",
+     "formula": "按各项报表的列报口径确定加减号",
+     "inputs": [
+      "raw:asset_impairment_loss",
+      "raw:credit_impairment_loss",
+      "raw:asset_disposal_income",
+      "raw:non_operating_income",
+      "-raw:non_operating_expenses"
+     ]
+    },
+    "20221231": {
+     "label": "税前特殊项目净额",
+     "unit": "CNY_yuan",
+     "formula": "按各项报表的列报口径确定加减号",
+     "inputs": [
+      "raw:asset_impairment_loss",
+      "raw:credit_impairment_loss",
+      "raw:non_operating_income",
+      "-raw:non_operating_expenses"
+     ]
+    },
+    "20231231": {
+     "label": "税前特殊项目净额",
+     "unit": "CNY_yuan",
+     "formula": "按各项报表的列报口径确定加减号",
+     "inputs": [
+      "raw:asset_impairment_loss",
+      "raw:credit_impairment_loss",
+      "raw:asset_disposal_income",
+      "raw:non_operating_income",
+      "-raw:non_operating_expenses"
+     ]
+    },
+    "20241231": {
+     "label": "税前特殊项目净额",
+     "unit": "CNY_yuan",
+     "formula": "按各项报表的列报口径确定加减号",
+     "inputs": [
+      "raw:asset_impairment_loss",
+      "raw:credit_impairment_loss",
+      "raw:non_operating_income",
+      "-raw:non_operating_expenses"
+     ]
+    },
+    "20251231": {
+     "label": "税前特殊项目净额",
+     "unit": "CNY_yuan",
+     "formula": "按各项报表的列报口径确定加减号",
+     "inputs": [
+      "raw:asset_impairment_loss",
+      "raw:credit_impairment_loss",
+      "raw:asset_disposal_income",
+      "raw:non_operating_income",
+      "-raw:non_operating_expenses"
+     ]
+    }
+   }
+  },
+  "oi_core_pretax": {
+   "label": "税前核心经营收益",
+   "unit": "CNY_yuan",
+   "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+   "inputs": [
+    "raw:revenue",
+    "-raw:cost_of_goods_sold",
+    "-raw:taxes_and_surcharges",
+    "-raw:selling_expenses",
+    "-raw:admin_expenses"
+   ],
+   "values": [
+    439914693.26,
+    350365935.6500001,
+    427661411.23,
+    537021146.27,
+    301787608.24000025,
+    405174826.0,
+    592813891.4899998,
+    776428826.47,
+    1125402107.53,
+    1274376208.16,
+    1171695891.6799998,
+    1200859826.8800004
+   ],
+   "metadata_by_year": {
+    "20171231": {
+     "label": "税前核心经营收益",
+     "unit": "CNY_yuan",
+     "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+     "inputs": [
+      "raw:revenue",
+      "-raw:cost_of_goods_sold",
+      "-raw:taxes_and_surcharges",
+      "-raw:selling_expenses",
+      "-raw:admin_expenses",
+      "raw:other_income_grants"
+     ]
+    },
+    "20181231": {
+     "label": "税前核心经营收益",
+     "unit": "CNY_yuan",
+     "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+     "inputs": [
+      "raw:revenue",
+      "-raw:cost_of_goods_sold",
+      "-raw:taxes_and_surcharges",
+      "-raw:selling_expenses",
+      "-raw:admin_expenses",
+      "-raw:rd_expenses",
+      "raw:other_income_grants"
+     ]
+    },
+    "20191231": {
+     "label": "税前核心经营收益",
+     "unit": "CNY_yuan",
+     "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+     "inputs": [
+      "raw:revenue",
+      "-raw:cost_of_goods_sold",
+      "-raw:taxes_and_surcharges",
+      "-raw:selling_expenses",
+      "-raw:admin_expenses",
+      "-raw:rd_expenses",
+      "raw:other_income_grants"
+     ]
+    },
+    "20201231": {
+     "label": "税前核心经营收益",
+     "unit": "CNY_yuan",
+     "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+     "inputs": [
+      "raw:revenue",
+      "-raw:cost_of_goods_sold",
+      "-raw:taxes_and_surcharges",
+      "-raw:selling_expenses",
+      "-raw:admin_expenses",
+      "-raw:rd_expenses",
+      "raw:other_income_grants"
+     ]
+    },
+    "20211231": {
+     "label": "税前核心经营收益",
+     "unit": "CNY_yuan",
+     "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+     "inputs": [
+      "raw:revenue",
+      "-raw:cost_of_goods_sold",
+      "-raw:taxes_and_surcharges",
+      "-raw:selling_expenses",
+      "-raw:admin_expenses",
+      "-raw:rd_expenses",
+      "raw:other_income_grants",
+      "raw:associate_investment_income"
+     ]
+    },
+    "20221231": {
+     "label": "税前核心经营收益",
+     "unit": "CNY_yuan",
+     "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+     "inputs": [
+      "raw:revenue",
+      "-raw:cost_of_goods_sold",
+      "-raw:taxes_and_surcharges",
+      "-raw:selling_expenses",
+      "-raw:admin_expenses",
+      "-raw:rd_expenses",
+      "raw:other_income_grants",
+      "raw:associate_investment_income"
+     ]
+    },
+    "20231231": {
+     "label": "税前核心经营收益",
+     "unit": "CNY_yuan",
+     "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+     "inputs": [
+      "raw:revenue",
+      "-raw:cost_of_goods_sold",
+      "-raw:taxes_and_surcharges",
+      "-raw:selling_expenses",
+      "-raw:admin_expenses",
+      "-raw:rd_expenses",
+      "raw:other_income_grants",
+      "raw:associate_investment_income"
+     ]
+    },
+    "20241231": {
+     "label": "税前核心经营收益",
+     "unit": "CNY_yuan",
+     "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+     "inputs": [
+      "raw:revenue",
+      "-raw:cost_of_goods_sold",
+      "-raw:taxes_and_surcharges",
+      "-raw:selling_expenses",
+      "-raw:admin_expenses",
+      "-raw:rd_expenses",
+      "raw:other_income_grants",
+      "raw:associate_investment_income"
+     ]
+    },
+    "20251231": {
+     "label": "税前核心经营收益",
+     "unit": "CNY_yuan",
+     "formula": "经营收入 − 经营费用，另加已披露的联营合营投资收益",
+     "inputs": [
+      "raw:revenue",
+      "-raw:cost_of_goods_sold",
+      "-raw:taxes_and_surcharges",
+      "-raw:selling_expenses",
+      "-raw:admin_expenses",
+      "-raw:rd_expenses",
+      "raw:other_income_grants",
+      "raw:associate_investment_income"
+     ]
+    }
+   }
+  },
+  "tax_rate_assumed": {
+   "label": "税率假设",
+   "unit": "pct",
+   "formula": "所得税分摊假设",
+   "inputs": [],
+   "values": [
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25
+   ]
+  },
+  "noa": {
+   "label": "净经营资产（NOA）",
+   "unit": "CNY_yuan",
+   "formula": "经营资产 − 经营负债",
+   "inputs": [
+    "oa",
+    "ol"
+   ],
+   "values": [
+    1085789658.83,
+    1160027870.4599996,
+    1220946669.45,
+    1424340104.7999997,
+    1193754891.23,
+    1393746589.67,
+    1243721267.79,
+    1187961243.1999996,
+    1023633496.6699998,
+    988988167.43,
+    1094734764.1600003,
+    854675084.1800002
+   ]
+  },
+  "nfo": {
+   "label": "净金融负债（NFO）",
+   "unit": "CNY_yuan",
+   "formula": "金融负债 − 金融资产",
+   "inputs": [
+    "fo",
+    "fa"
+   ],
+   "values": [
+    -396454307.74999994,
+    -519535457.31,
+    -728369178.63,
+    -794302666.01,
+    -1147037554.1499999,
+    -1173399908.26,
+    -1691533417.0799997,
+    -2211437397.56,
+    -3037831886.66,
+    -3507654157.7100005,
+    -3317702074.29,
+    -3496067876.5400004
+   ]
+  },
+  "cse_calc": {
+   "label": "重构归母权益（CSE）",
+   "unit": "CNY_yuan",
+   "formula": "净经营资产 − 净金融负债 − 少数股东权益",
+   "inputs": [
+    "noa",
+    "nfo",
+    "minority_interests"
+   ],
+   "values": [
+    967615701.7199999,
+    1102046297.6099997,
+    1283989079.96,
+    1499444839.5999994,
+    1597914418.14,
+    1731138508.4300003,
+    1952595837.52,
+    2244689408.4299994,
+    2584088268.6099997,
+    2981885170.3100004,
+    2911651440.880001,
+    2860904888.9700003
+   ]
+  },
+  "oi_after_tax": {
+   "label": "税后经营收益（OI）",
+   "unit": "CNY_yuan",
+   "formula": "合并净利润 ＋ 税后净财务费用",
+   "inputs": [
+    "raw:net_income_total",
+    "nfe_after_tax"
+   ],
+   "values": [
+    419747927.51,
+    302700718.185,
+    369450935.72499996,
+    452142173.77500004,
+    231893103.02999997,
+    346548845.955,
+    505601095.8875,
+    675096948.85,
+    971273217.3625001,
+    1085530056.0349998,
+    967211653.9124999,
+    995502513.97
+   ]
+  },
+  "oi_pretax": {
+   "label": "税前经营收益",
+   "unit": "CNY_yuan",
+   "formula": "税前核心经营收益 ＋ 税前特殊项目净额",
+   "inputs": [
+    "oi_core_pretax",
+    "unusual_pretax"
+   ],
+   "values": [
+    493656392.01,
+    358966499.8500001,
+    431003441.22,
+    527768396.53,
+    259674441.47000024,
+    397764149.75,
+    578093209.4399998,
+    782183021.82,
+    1123705872.31,
+    1269982184.17,
+    1126461953.7799997,
+    1162936667.7800004
+   ]
+  },
+  "nfe_after_tax": {
+   "label": "税后净财务费用",
+   "unit": "CNY_yuan",
+   "formula": "税前净财务费用 ×（1 − 假设税率）",
+   "inputs": [
+    "nfe_pretax",
+    "tax_rate_assumed"
+   ],
+   "values": [
+    33464337.33,
+    41227865.115,
+    18494181.525,
+    1310063.3550000004,
+    -7661593.109999999,
+    -12469047.795,
+    -27115573.6425,
+    -29202749.339999996,
+    -26615323.2075,
+    -41556473.775000006,
+    -38824045.8975,
+    -33044794.799999997
+   ]
+  },
+  "unusual_after_tax": {
+   "label": "税后特殊项目净额",
+   "unit": "CNY_yuan",
+   "formula": "税前特殊项目净额 ×（1 − 假设税率）",
+   "inputs": [
+    "unusual_pretax",
+    "tax_rate_assumed"
+   ],
+   "values": [
+    40306274.06250001,
+    6450423.149999999,
+    2506522.4925000006,
+    -6939562.305,
+    -31584875.0775,
+    -5558007.1875,
+    -11040511.537500001,
+    4315646.512499999,
+    -1272176.415,
+    -3295517.9925,
+    -33925453.425,
+    -28442369.324999996
+   ]
+  },
+  "oi_core_after_tax": {
+   "label": "税后核心经营收益",
+   "unit": "CNY_yuan",
+   "formula": "税后经营收益 − 税后特殊项目净额",
+   "inputs": [
+    "oi_after_tax",
+    "unusual_after_tax"
+   ],
+   "values": [
+    379441653.4475,
+    296250295.035,
+    366944413.23249996,
+    459081736.08000004,
+    263477978.10749996,
+    352106853.1425,
+    516641607.425,
+    670781302.3375,
+    972545393.7775,
+    1088825574.0275,
+    1001137107.3374999,
+    1023944883.2950001
+   ]
+  },
+  "te_capital": {
+   "label": "平均合并权益",
+   "unit": "CNY_yuan",
+   "formula": "平均净经营资产 − 平均净金融负债",
+   "inputs": [
+    "noa_capital",
+    "nfo_capital"
+   ],
+   "values": [
+    null,
+    1580903647.1749997,
+    1814439587.925,
+    2083979309.445,
+    2279717608.095,
+    2453969471.6549997,
+    2751200591.3999996,
+    3167326662.8149996,
+    3730432012.044999,
+    4279053854.2350006,
+    4454539581.795,
+    4381589899.585
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "rnoa": {
+   "label": "净经营资产收益率（RNOA）",
+   "unit": "pct",
+   "formula": "税后经营收益 ÷ 平均净经营资产",
+   "inputs": [
+    "oi_after_tax",
+    "noa_capital"
+   ],
+   "values": [
+    null,
+    0.2695683992463064,
+    0.31033589778659715,
+    0.34184737789209474,
+    0.17714643920991077,
+    0.267863688978034,
+    0.3833988683178998,
+    0.5552508979267617,
+    0.8783464708544142,
+    1.0787224200137238,
+    0.9283495797346357,
+    1.0213373188995734
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "opm": {
+   "label": "税后经营利润率（OPM）",
+   "unit": "pct",
+   "formula": "税后经营收益 ÷ 营业总收入",
+   "inputs": [
+    "oi_after_tax",
+    "raw:total_revenue"
+   ],
+   "values": [
+    null,
+    0.24550606639042885,
+    0.2391693792091453,
+    0.2558474880368887,
+    0.15193837760962903,
+    0.19253271506850866,
+    0.27764506732849964,
+    0.3330289431434814,
+    0.4148833208706907,
+    0.43697972975886,
+    0.45313452623976325,
+    0.44673701075654665
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "opm_core": {
+   "label": "核心经营利润率",
+   "unit": "pct",
+   "formula": "税后核心经营收益 ÷ 营业总收入",
+   "inputs": [
+    "oi_core_after_tax",
+    "raw:total_revenue"
+   ],
+   "values": [
+    null,
+    0.24027443686670105,
+    0.23754674580769355,
+    0.25977428294077054,
+    0.17263306241729798,
+    0.19562058630706594,
+    0.28370783814546074,
+    0.3309000115885588,
+    0.4154267362211333,
+    0.43830633932970703,
+    0.46902845618055905,
+    0.459500674205685
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "ato": {
+   "label": "净经营资产周转率（ATO）",
+   "unit": "x",
+   "formula": "营业总收入 ÷ 平均净经营资产",
+   "inputs": [
+    "raw:total_revenue",
+    "noa_capital"
+   ],
+   "values": [
+    null,
+    1.09801115389797,
+    1.297556981636931,
+    1.3361373235089429,
+    1.1659097720856815,
+    1.3912632400302485,
+    1.3808956593645372,
+    1.6672752004246632,
+    2.11709275034504,
+    2.4685868623906164,
+    2.0487284150213396,
+    2.2862160383128862
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "ollev": {
+   "label": "经营负债杠杆（OLLEV）",
+   "unit": "x",
+   "formula": "平均经营负债 ÷ 平均净经营资产",
+   "inputs": [
+    "ol_capital",
+    "noa_capital"
+   ],
+   "values": [
+    null,
+    0.29718691826267957,
+    0.32544204158910905,
+    0.34728115715940133,
+    0.3651857033567488,
+    0.39344443092102116,
+    0.46321573474133937,
+    0.5014915187277156,
+    0.5111604005697948,
+    0.6460376260440553,
+    0.5747376086110293,
+    0.5865333397662092
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "flev": {
+   "label": "财务杠杆（FLEV）",
+   "unit": "x",
+   "formula": "平均净金融负债 ÷ 平均合并权益",
+   "inputs": [
+    "nfo_capital",
+    "te_capital"
+   ],
+   "values": [
+    null,
+    -0.2897044885362971,
+    -0.343881561073937,
+    -0.36532796600689715,
+    -0.42578524051982075,
+    -0.47279265068547416,
+    -0.5206696549672747,
+    -0.6161301359379185,
+    -0.7035739114492511,
+    -0.7648286592481071,
+    -0.7661124238175089,
+    -0.777545378160033
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "nbc": {
+   "label": "净借款成本（NBC）",
+   "unit": "pct",
+   "formula": "税后净财务费用 ÷ 平均净金融负债",
+   "inputs": [
+    "nfe_after_tax",
+    "nfo_capital"
+   ],
+   "values": [
+    null,
+    -0.09001817855966865,
+    -0.02964037634345195,
+    -0.001720742863423385,
+    0.007893096769373636,
+    0.01074715263564973,
+    0.018929287744790378,
+    0.014964369823346264,
+    0.010140582152075603,
+    0.012697750325430506,
+    0.011376415992905203,
+    0.009699416046758298
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "spread": {
+   "label": "经营回报与净借款成本之差",
+   "unit": "pp",
+   "formula": "RNOA − NBC",
+   "inputs": [
+    "rnoa",
+    "nbc"
+   ],
+   "values": [
+    null,
+    0.359586577805975,
+    0.3399762741300491,
+    0.3435681207555181,
+    0.16925334244053714,
+    0.25711653634238424,
+    0.36446958057310946,
+    0.5402865281034155,
+    0.8682058887023386,
+    1.0660246696882933,
+    0.9169731637417305,
+    1.011637902852815
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "rotce_direct": {
+   "label": "合并权益收益率（ROTCE）",
+   "unit": "pct",
+   "formula": "合并净利润 ÷ 平均合并权益",
+   "inputs": [
+    "raw:net_income_total",
+    "te_capital"
+   ],
+   "values": [
+    null,
+    0.165394553638509,
+    0.19342432591065514,
+    0.21633233515166927,
+    0.10508086409008309,
+    0.1463008802256501,
+    0.19363061755483166,
+    0.2223640859209783,
+    0.26749945779683676,
+    0.2633962011706202,
+    0.2258450466848491,
+    0.23474294316485855
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "roce_parent": {
+   "label": "归母权益收益率（ROCE）",
+   "unit": "pct",
+   "formula": "归母净利润 ÷ 平均归母权益",
+   "inputs": [
+    "raw:net_income_parent",
+    "cse_capital"
+   ],
+   "values": [
+    null,
+    0.14732462384616793,
+    0.16628853432344376,
+    0.17474885652643393,
+    0.08374260010421208,
+    0.12261881958139442,
+    0.15785972167057372,
+    0.18119459647252667,
+    0.21821839124428827,
+    0.21029999374684835,
+    0.17496963778626393,
+    0.1853882855410452
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "gross_margin": {
+   "label": "毛利率",
+   "unit": "pct",
+   "formula": "毛利 ÷ 营业收入",
+   "inputs": [
+    "gross_profit",
+    "raw:revenue"
+   ],
+   "values": [
+    null,
+    0.6229660465372598,
+    0.6045238356609125,
+    0.6766179863288375,
+    0.6031678826065527,
+    0.5914937087505373,
+    0.6084604207669924,
+    0.6889565118542081,
+    0.7856949675012238,
+    0.8641120013368425,
+    0.838322002588141,
+    0.8511081413971672
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "purchases_est": {
+   "label": "估算采购额",
+   "unit": "CNY_yuan",
+   "formula": "营业成本 ＋（期末存货 − 期初存货）",
+   "inputs": [
+    "raw:cost_of_goods_sold",
+    "wc:inventory",
+    "@wc:inventory"
+   ],
+   "values": [
+    null,
+    483397203.49,
+    634521879.99,
+    542020039.14,
+    621353742.4599999,
+    723540781.3,
+    730702866.59,
+    597967363.1600001,
+    486601542.78,
+    337058485.34000003,
+    329173077.6,
+    339579351.65000004
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "dio": {
+   "label": "存货周转天数（DIO）",
+   "unit": "days",
+   "formula": "365 × 平均存货 ÷ 营业成本",
+   "inputs": [
+    "days_per_year",
+    "inventory_avg",
+    "raw:cost_of_goods_sold"
+   ],
+   "values": [
+    null,
+    86.10590567874623,
+    78.11382572992355,
+    81.63201597947395,
+    72.8761898198211,
+    61.00766848753721,
+    64.43642435627011,
+    68.56235961704247,
+    68.82893654431254,
+    93.85502048144373,
+    83.11418546389874,
+    81.97341551151722
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "dso": {
+   "label": "应收款项周转天数（DSO）",
+   "unit": "days",
+   "formula": "365 × 平均贸易应收款项 ÷ 营业收入",
+   "inputs": [
+    "days_per_year",
+    "trade_receivables_avg",
+    "raw:revenue"
+   ],
+   "values": [
+    null,
+    138.0244399698697,
+    107.79184704787643,
+    108.49068649779811,
+    110.32960042464943,
+    95.53458928314535,
+    122.16139296049225,
+    76.89620062087964,
+    37.94678527820789,
+    41.23446933112872,
+    54.022950764943985,
+    43.33529021231021
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "dpo": {
+   "label": "应付款项周转天数（DPO）",
+   "unit": "days",
+   "formula": "365 × 平均贸易应付款项 ÷ 估算采购额",
+   "inputs": [
+    "days_per_year",
+    "trade_payables_avg",
+    "purchases_est"
+   ],
+   "values": [
+    null,
+    120.73068687168626,
+    105.94763134209727,
+    116.81534521802219,
+    83.95651932962046,
+    77.61778887134307,
+    88.66710091391842,
+    78.04103926674244,
+    41.73066820342111,
+    39.46837017122044,
+    32.16260737904283,
+    33.691049396362786
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "dpo_cogs": {
+   "label": "应付天数（营业成本口径）",
+   "unit": "days",
+   "formula": "365 × 平均贸易应付款项 ÷ 营业成本",
+   "inputs": [
+    "days_per_year",
+    "trade_payables_avg",
+    "raw:cost_of_goods_sold"
+   ],
+   "values": [
+    null,
+    125.54231120702246,
+    110.0439943868074,
+    110.7912642973122,
+    86.13232732418028,
+    76.37753011876391,
+    90.86771469296686,
+    74.01082505042869,
+    40.474455325563156,
+    39.408762202653506,
+    30.67822789706096,
+    34.482157788510406
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "advance_days": {
+   "label": "客户预收款天数",
+   "unit": "days",
+   "formula": "365 × 平均客户预收款 ÷ 营业收入",
+   "inputs": [
+    "days_per_year",
+    "customer_advances_avg",
+    "raw:revenue"
+   ],
+   "values": [
+    null,
+    15.598386633413313,
+    13.702808039774812,
+    17.585391670186663,
+    29.71688579907486,
+    24.609152245679176,
+    25.357493749924735,
+    25.483717050896963,
+    21.48754370948367,
+    19.941733892326386,
+    14.240343026954625,
+    13.60009536443018
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "ccc": {
+   "label": "现金循环周期（CCC）",
+   "unit": "days",
+   "formula": "DIO ＋ DSO − DPO",
+   "inputs": [
+    "dio",
+    "dso",
+    "dpo"
+   ],
+   "values": [
+    null,
+    103.39965877692964,
+    79.9580414357027,
+    73.30735725924988,
+    99.24927091485004,
+    78.9244688993395,
+    97.93071640284394,
+    67.41752097117967,
+    65.04505361909932,
+    95.62111964135201,
+    104.9745288497999,
+    91.61765632746464
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "ccc_net_advances": {
+   "label": "扣除客户预收款的现金循环周期",
+   "unit": "days",
+   "formula": "DIO ＋ DSO − DPO − 客户预收款天数",
+   "inputs": [
+    "ccc",
+    "advance_days"
+   ],
+   "values": [
+    null,
+    87.80127214351633,
+    66.25523339592789,
+    55.72196558906322,
+    69.53238511577518,
+    54.315316653660325,
+    72.57322265291921,
+    41.933803920282706,
+    43.557509909615646,
+    75.67938574902563,
+    90.73418582284528,
+    78.01756096303447
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "owc_avg": {
+   "label": "平均经营营运资本",
+   "unit": "CNY_yuan",
+   "formula": "（期初经营营运资本 ＋ 期末经营营运资本）÷ 2",
+   "inputs": [
+    "owc_begin",
+    "owc_end"
+   ],
+   "values": [
+    null,
+    292332062.15,
+    253712831.88000005,
+    251989103.72499996,
+    186392228.27499995,
+    191951898.92,
+    252579449.325,
+    73945616.71000001,
+    -105627274.90500002,
+    -148188639.995,
+    -59900735.06500003,
+    -91952620.99000001
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "owc_pct_sales": {
+   "label": "平均经营营运资本／营业收入",
+   "unit": "pct",
+   "formula": "平均经营营运资本 ÷ 营业收入",
+   "inputs": [
+    "owc_avg",
+    "raw:revenue"
+   ],
+   "values": [
+    null,
+    0.23709654568571592,
+    0.16424465234891475,
+    0.14258961658549218,
+    0.12212580880201229,
+    0.10664303371081625,
+    0.13870111988293407,
+    0.03647776904483674,
+    -0.045119121791610255,
+    -0.059653283203298275,
+    -0.028063238377344757,
+    -0.041264224304651244
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "d_owc": {
+   "label": "经营营运资本增加额",
+   "unit": "CNY_yuan",
+   "formula": "期末经营营运资本 − 期初经营营运资本",
+   "inputs": [
+    "owc_end",
+    "owc_begin"
+   ],
+   "values": [
+    null,
+    -979909.6399998069,
+    -76258550.90000007,
+    72811094.58999982,
+    -204004845.48999983,
+    215124186.7799999,
+    -93869085.96999991,
+    -263398579.26000005,
+    -95747203.97,
+    10624473.789999992,
+    165951336.07,
+    -230055107.91999996
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "d_revenue": {
+   "label": "营业收入增加额",
+   "unit": "CNY_yuan",
+   "formula": "本年营业收入 − 上年营业收入",
+   "inputs": [
+    "raw:revenue",
+    "@raw:revenue"
+   ],
+   "values": [
+    null,
+    -140990558.52999997,
+    311758720.28999996,
+    222508126.54999995,
+    -241001925.17000008,
+    273716576.8900001,
+    21086111.089999914,
+    206108014.9000001,
+    313933622.2999997,
+    143090104.24000025,
+    -349674509.99,
+    93894840.77000022
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "incr_owc_per_incr_revenue": {
+   "label": "经营营运资本增加额／营业收入增加额",
+   "unit": "x",
+   "formula": "经营营运资本增加额 ÷ 营业收入增加额",
+   "inputs": [
+    "d_owc",
+    "d_revenue"
+   ],
+   "values": [
+    null,
+    0.006950179148281775,
+    -0.2446075953515073,
+    0.3272289229114443,
+    0.8464863728623623,
+    0.7859377361220361,
+    null,
+    -1.2779637870356293,
+    -0.30499187461514565,
+    0.07425023446890441,
+    -0.47458802780547504,
+    null
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance",
+    "20201231": "delta_revenue_near_zero_suppressed",
+    "20251231": "delta_revenue_near_zero_suppressed"
+   }
+  },
+  "inventory_avg": {
+   "label": "平均存货",
+   "unit": "CNY_yuan",
+   "formula": "（期初余额 ＋ 期末余额）÷ 2",
+   "inputs": [
+    "@wc:inventory",
+    "wc:inventory"
+   ],
+   "values": [
+    null,
+    109665938.625,
+    130739419.39500001,
+    127813691.75,
+    120926074.63499999,
+    122899533.55,
+    125872912.945,
+    118439937.85499999,
+    94607594.94999999,
+    86801315.625,
+    78582813.965,
+    74514629.22
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "trade_receivables_avg": {
+   "label": "平均贸易应收款项",
+   "unit": "CNY_yuan",
+   "formula": "（期初余额 ＋ 期末余额）÷ 2",
+   "inputs": [
+    "@wc:trade_receivables",
+    "wc:trade_receivables"
+   ],
+   "values": [
+    null,
+    466245177.365,
+    456188406.395,
+    525283130.28,
+    461338318.305,
+    471115830.93,
+    609479575.185,
+    427067166.68,
+    243387103.925,
+    280639053.01,
+    315921951.885,
+    264569192.675
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "trade_payables_avg": {
+   "label": "平均贸易应付款项",
+   "unit": "CNY_yuan",
+   "formula": "（期初余额 ＋ 期末余额）÷ 2",
+   "inputs": [
+    "@wc:trade_payables",
+    "wc:trade_payables"
+   ],
+   "values": [
+    null,
+    159892812.07999998,
+    184181069.095,
+    173469199.965,
+    142922458.875,
+    153862015.35,
+    177504944.685,
+    127852039.64000002,
+    55633445.285000004,
+    36446983.75,
+    29005656.04,
+    31344615.645
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "customer_advances_avg": {
+   "label": "平均客户预收款",
+   "unit": "CNY_yuan",
+   "formula": "（期初余额 ＋ 期末余额）÷ 2",
+   "inputs": [
+    "@wc:customer_advances",
+    "wc:customer_advances"
+   ],
+   "values": [
+    null,
+    52691193.995,
+    57991975.59,
+    85143802.495,
+    124259836.59,
+    121356686.57499999,
+    126511937.56,
+    141531814.95999998,
+    137819079.945,
+    135722113.215,
+    83276401.99000001,
+    83030856.22
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "owc_end": {
+   "label": "期末经营营运资本",
+   "unit": "CNY_yuan",
+   "formula": "经营性营运资产 − 经营性营运负债；两期均缺少的组不参与加总",
+   "inputs": [
+    "wc:inventory",
+    "wc:trade_receivables",
+    "wc:prepayments",
+    "-wc:trade_payables",
+    "-wc:customer_advances",
+    "-wc:other_op_payables"
+   ],
+   "values": [
+    null,
+    291842107.3300001,
+    215583556.43000004,
+    288394651.01999986,
+    84389805.53000003,
+    299513992.30999994,
+    205644906.34000003,
+    -57753672.92000002,
+    -153500876.89000002,
+    -142876403.10000002,
+    23074932.96999997,
+    -206980174.95
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "owc_begin": {
+   "label": "期初经营营运资本",
+   "unit": "CNY_yuan",
+   "formula": "同一期末定义，取上年年末各组余额",
+   "inputs": [
+    "@wc:inventory",
+    "@wc:trade_receivables",
+    "@wc:prepayments",
+    "-@wc:trade_payables",
+    "-@wc:customer_advances",
+    "-@wc:other_op_payables"
+   ],
+   "values": [
+    null,
+    292822016.9699999,
+    291842107.3300001,
+    215583556.43000004,
+    288394651.01999986,
+    84389805.53000003,
+    299513992.30999994,
+    205644906.34000003,
+    -57753672.92000002,
+    -153500876.89000002,
+    -142876403.10000002,
+    23074932.96999997
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "fcf_simple": {
+   "label": "简式自由现金流",
+   "unit": "CNY_yuan",
+   "formula": "经营活动现金流量净额 − 现金资本开支",
+   "inputs": [
+    "raw:cfo",
+    "raw:capex_paid"
+   ],
+   "values": [
+    191652747.89,
+    209509763.36,
+    271099508.22,
+    248306716.05,
+    407105023.05999994,
+    71065003.4,
+    633786495.8900001,
+    635512214.65,
+    1106727979.44,
+    1124073798.56,
+    885966306.64,
+    1223201721.31
+   ]
+  },
+  "fcf_after_disposals": {
+   "label": "含处置回收的简式自由现金流",
+   "unit": "CNY_yuan",
+   "formula": "简式自由现金流 ＋ 长期资产处置回收现金",
+   "inputs": [
+    "fcf_simple",
+    "raw:cash_from_asset_disposals"
+   ],
+   "values": [
+    229058532.89,
+    228645993.36,
+    271199968.22,
+    249016837.05,
+    423149793.05999994,
+    71172366.10000001,
+    633819785.8900001,
+    635604690.65,
+    1106728049.44,
+    1126007238.56,
+    null,
+    1248039282.94
+   ]
+  },
+  "cash_conversion": {
+   "label": "经营现金流量净额／净利润",
+   "unit": "x",
+   "formula": "经营活动现金流量净额 ÷ 合并净利润",
+   "inputs": [
+    "raw:cfo",
+    "raw:net_income_total"
+   ],
+   "values": [
+    0.7052108906905986,
+    1.110006609911047,
+    1.4272804702158373,
+    0.9451609748538816,
+    2.2481825324152878,
+    0.6783547606949883,
+    1.3807555655597472,
+    1.0731973834185748,
+    1.1989360442365702,
+    1.0422313821175948,
+    0.9240310596190234,
+    1.2362315761834668
+   ]
+  },
+  "delta_noa": {
+   "label": "净经营资产增加额",
+   "unit": "CNY_yuan",
+   "formula": "期末净经营资产 − 期初净经营资产",
+   "inputs": [
+    "noa",
+    "@noa"
+   ],
+   "values": [
+    null,
+    74238211.62999964,
+    60918798.99000049,
+    203393435.34999967,
+    -230585213.5699997,
+    199991698.44000006,
+    -150025321.8800001,
+    -55760024.59000039,
+    -164327746.52999973,
+    -34645329.23999989,
+    105746596.73000038,
+    -240059679.98000014
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "delta_nfo": {
+   "label": "净金融负债变动",
+   "unit": "CNY_yuan",
+   "formula": "期末净金融负债 − 期初净金融负债",
+   "inputs": [
+    "nfo",
+    "@nfo"
+   ],
+   "values": [
+    null,
+    -123081149.56000006,
+    -208833721.32,
+    -65933487.379999995,
+    -352734888.13999987,
+    -26362354.110000134,
+    -518133508.8199997,
+    -519903980.48000026,
+    -826394489.0999999,
+    -469822271.05000067,
+    189952083.42000055,
+    -178365802.25000048
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "delta_cse": {
+   "label": "归母权益变动",
+   "unit": "CNY_yuan",
+   "formula": "期末归母权益 − 期初归母权益",
+   "inputs": [
+    "cse_calc",
+    "@cse_calc"
+   ],
+   "values": [
+    null,
+    134430595.88999975,
+    181942782.35000038,
+    215455759.6399994,
+    98469578.54000068,
+    133224090.2900002,
+    221457329.08999968,
+    292093570.9099994,
+    339398860.1800003,
+    397796901.70000076,
+    -70233729.42999935,
+    -50746551.9100008
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "delta_mi": {
+   "label": "少数股东权益变动",
+   "unit": "CNY_yuan",
+   "formula": "期末少数股东权益 − 期初少数股东权益",
+   "inputs": [
+    "minority_interests",
+    "@minority_interests"
+   ],
+   "values": [
+    null,
+    62888765.29999995,
+    87809737.96000004,
+    53871163.09000003,
+    23680096.02999997,
+    93129962.25999999,
+    146650857.85000002,
+    172050384.9799999,
+    322667882.3900001,
+    37380040.109999895,
+    -13971757.25999999,
+    -10947325.819999933
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "noa_growth": {
+   "label": "净经营资产增长率",
+   "unit": "pct",
+   "formula": "期末净经营资产 ÷ 期初净经营资产 − 1",
+   "inputs": [
+    "noa",
+    "@noa"
+   ],
+   "values": [
+    null,
+    0.06837255358463769,
+    0.05251494428822959,
+    0.16658666626415577,
+    -0.16188915329487094,
+    0.16753162639102248,
+    -0.10764174993642273,
+    -0.04483321627930493,
+    -0.13832753170242465,
+    -0.03384544307382009,
+    0.10692402620427212,
+    -0.21928570082836463
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "revenue_growth": {
+   "label": "营业总收入增长率",
+   "unit": "pct",
+   "formula": "本年营业总收入 ÷ 上年营业总收入 − 1",
+   "inputs": [
+    "raw:total_revenue",
+    "@raw:total_revenue"
+   ],
+   "values": [
+    null,
+    -0.10261643419811362,
+    0.2528525784155362,
+    0.1440438373542665,
+    -0.13637245261151543,
+    0.17934148137276718,
+    0.011714845586070943,
+    0.11318186241943362,
+    0.15486513845140126,
+    0.06112152231689505,
+    -0.1407613469838972,
+    0.04398933161791807
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "reinvestment_rate": {
+   "label": "再投资率",
+   "unit": "pct",
+   "formula": "净经营资产增加额 ÷ 税后经营收益",
+   "inputs": [
+    "delta_noa",
+    "oi_after_tax"
+   ],
+   "values": [
+    null,
+    0.24525284272575745,
+    0.16489009256521486,
+    0.44984398082540855,
+    -0.9943599467042749,
+    0.5770952660046352,
+    -0.29672665486742117,
+    -0.08259558080507594,
+    -0.16918797264505347,
+    -0.03191558727221722,
+    0.1093313922575698,
+    -0.24114422275304717
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "da_total": {
+   "label": "折旧摊销（披露）",
+   "unit": "CNY_yuan",
+   "formula": "加总已披露的折旧与摊销项目",
+   "inputs": [
+    "raw:supp_depreciation",
+    "raw:supp_rou_asset_depreciation",
+    "raw:supp_intangible_amortization",
+    "raw:supp_lt_deferred_amortization"
+   ],
+   "values": [
+    34692377.73,
+    36483598.199999996,
+    40628713.81,
+    43052120.48,
+    50147575.07,
+    60723011.78,
+    69500550.35,
+    73171442.41,
+    72241094.13,
+    77150234.3,
+    77181465.84,
+    74883861.38000001
+   ]
+  },
+  "capex_to_da": {
+   "label": "现金资本开支／折旧摊销",
+   "unit": "x",
+   "formula": "现金资本开支 ÷ 披露折旧摊销之和",
+   "inputs": [
+    "raw:capex_paid",
+    "da_total"
+   ],
+   "values": [
+    2.327849864558707,
+    2.21268832688767,
+    5.656448146862958,
+    4.129929001118507,
+    2.6214160939287865,
+    2.840381083614295,
+    1.464233159557995,
+    1.6446358664859893,
+    1.2413510766963796,
+    0.6560077701539787,
+    0.5654456882235342,
+    0.6452784151286509
+   ]
+  },
+  "fcf_from_oi": {
+   "label": "重构自由现金流",
+   "unit": "CNY_yuan",
+   "formula": "税后经营收益 − 净经营资产增加额",
+   "inputs": [
+    "oi_after_tax",
+    "delta_noa"
+   ],
+   "values": [
+    null,
+    228462506.55500036,
+    308532136.7349995,
+    248748738.42500037,
+    462478316.59999967,
+    146557147.51499993,
+    655626417.7675002,
+    730856973.4400004,
+    1135600963.8925,
+    1120175385.2749996,
+    861465057.1824995,
+    1235562193.9500003
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "fcf_articulation_diff": {
+   "label": "两种自由现金流口径差额",
+   "unit": "residual",
+   "formula": "重构自由现金流 − 简式自由现金流",
+   "inputs": [
+    "fcf_from_oi",
+    "fcf_simple"
+   ],
+   "values": [
+    null,
+    18952743.19500035,
+    37432628.51499945,
+    442022.3750003576,
+    55373293.53999972,
+    75492144.11499992,
+    21839921.877500057,
+    95344758.79000044,
+    28872984.452499866,
+    -3898413.2850003242,
+    -24501249.457500458,
+    12360472.640000343
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "capital_charge": {
+   "label": "经营资本费用",
+   "unit": "CNY_yuan",
+   "formula": "经营必要报酬率 × 期初净经营资产",
+   "inputs": [
+    "ri_r_op",
+    "@noa"
+   ],
+   "values": [
+    null,
+    86863172.70639999,
+    92802229.63679996,
+    97675733.55600001,
+    113947208.38399997,
+    95500391.2984,
+    111499727.1736,
+    99497701.4232,
+    95036899.45599997,
+    81890679.73359999,
+    79119053.3944,
+    87578781.13280003
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "equity_charge": {
+   "label": "权益资本费用",
+   "unit": "CNY_yuan",
+   "formula": "权益必要报酬率 × 期初归母权益",
+   "inputs": [
+    "ri_r_e",
+    "@cse_calc"
+   ],
+   "values": [
+    null,
+    77409256.13759999,
+    88163703.80879997,
+    102719126.39680001,
+    119955587.16799995,
+    127833153.45120001,
+    138491080.67440003,
+    156207667.0016,
+    179575152.67439994,
+    206727061.4888,
+    238550813.62480003,
+    232932115.27040008
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "reoi": {
+   "label": "剩余经营收益（ReOI）",
+   "unit": "CNY_yuan",
+   "formula": "税后经营收益 − 经营资本费用",
+   "inputs": [
+    "oi_after_tax",
+    "capital_charge"
+   ],
+   "values": [
+    null,
+    215837545.47860003,
+    276648706.0882,
+    354466440.21900004,
+    117945894.646,
+    251048454.6566,
+    394101368.71389997,
+    575599247.4268,
+    876236317.9065001,
+    1003639376.3013998,
+    888092600.5180999,
+    907923732.8372
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "reoi_core": {
+   "label": "核心剩余经营收益",
+   "unit": "CNY_yuan",
+   "formula": "税后核心经营收益 − 经营资本费用",
+   "inputs": [
+    "oi_core_after_tax",
+    "capital_charge"
+   ],
+   "values": [
+    null,
+    209387122.32860005,
+    274142183.5957,
+    361406002.52400005,
+    149530769.72349998,
+    256606461.8441,
+    405141880.2514,
+    571283600.9143,
+    877508494.3215001,
+    1006934894.2938999,
+    922018053.9430999,
+    936366102.1622001
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "re_common": {
+   "label": "剩余权益收益（RE）",
+   "unit": "CNY_yuan",
+   "formula": "归母综合收益 − 权益资本费用",
+   "inputs": [
+    "raw:comprehensive_income_parent",
+    "equity_charge"
+   ],
+   "values": [
+    null,
+    75046831.63240002,
+    110221459.08120002,
+    140481820.9332,
+    9734871.682000041,
+    76269116.6388,
+    152265558.60559994,
+    224055036.20839998,
+    347288895.5056001,
+    378535028.21120006,
+    277044169.44519997,
+    302150045.31959987
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "rnoa_open": {
+   "label": "期初口径经营收益率",
+   "unit": "pct",
+   "formula": "税后经营收益 ÷ 期初净经营资产",
+   "inputs": [
+    "oi_after_tax",
+    "@noa"
+   ],
+   "values": [
+    null,
+    0.27878393915740296,
+    0.31848453397804766,
+    0.37032098541918834,
+    0.1628073956834639,
+    0.2903015087108285,
+    0.36276400576320844,
+    0.5428040561287474,
+    0.8175967212080008,
+    1.06046750088421,
+    0.9779810171297713,
+    0.9093549840210454
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "roce_open": {
+   "label": "期初口径归母收益率",
+   "unit": "pct",
+   "formula": "归母净利润 ÷ 期初归母权益",
+   "inputs": [
+    "raw:net_income_parent",
+    "@cse_calc"
+   ],
+   "values": [
+    null,
+    0.15755850953947872,
+    0.18001527097385703,
+    0.18941044836423096,
+    0.08649231730631517,
+    0.12773041395269377,
+    0.16795688956378899,
+    0.19474726715231208,
+    0.23471579016738175,
+    0.22648688003789316,
+    0.17290906712427095,
+    0.18377273909828978
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "ato_open": {
+   "label": "期初口径净经营资产周转率",
+   "unit": "x",
+   "formula": "营业总收入 ÷ 期初净经营资产",
+   "inputs": [
+    "raw:total_revenue",
+    "@noa"
+   ],
+   "values": [
+    null,
+    1.1355480671261793,
+    1.3316275479376647,
+    1.4474286547061763,
+    1.071535699175098,
+    1.507803536700404,
+    1.3065746467377326,
+    1.6299005455957831,
+    1.9706666430748763,
+    2.4268116543287057,
+    2.158257560387929,
+    2.035548795209642
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "spread_op": {
+   "label": "经营收益率与必要报酬率之差",
+   "unit": "pp",
+   "formula": "期初口径经营收益率 − 经营必要报酬率",
+   "inputs": [
+    "rnoa_open",
+    "ri_r_op"
+   ],
+   "values": [
+    null,
+    0.19878393915740294,
+    0.23848453397804764,
+    0.2903209854191883,
+    0.08280739568346389,
+    0.21030150871082848,
+    0.2827640057632084,
+    0.46280405612874737,
+    0.7375967212080008,
+    0.98046750088421,
+    0.8979810171297713,
+    0.8293549840210455
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "spread_e": {
+   "label": "归母收益率与必要报酬率之差",
+   "unit": "pp",
+   "formula": "期初口径归母收益率 − 权益必要报酬率",
+   "inputs": [
+    "roce_open",
+    "ri_r_e"
+   ],
+   "values": [
+    null,
+    0.07755850953947872,
+    0.10001527097385703,
+    0.10941044836423096,
+    0.006492317306315165,
+    0.04773041395269377,
+    0.08795688956378898,
+    0.11474726715231208,
+    0.15471579016738174,
+    0.14648688003789317,
+    0.09290906712427095,
+    0.10377273909828978
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi"
+   }
+  },
+  "delta_reoi": {
+   "label": "剩余经营收益变动",
+   "unit": "CNY_yuan",
+   "formula": "本年剩余经营收益 − 上年剩余经营收益",
+   "inputs": [
+    "reoi",
+    "@reoi"
+   ],
+   "values": [
+    null,
+    null,
+    60811160.60959995,
+    77817734.13080007,
+    -236520545.57300004,
+    133102560.0106,
+    143052914.05729997,
+    181497878.71290004,
+    300637070.4797001,
+    127403058.39489973,
+    -115546775.78329992,
+    19831132.31910014
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi",
+    "20151231": "no_prior_reoi"
+   }
+  },
+  "pm": {
+   "label": "税后经营利润率",
+   "unit": "pct",
+   "formula": "税后经营收益 ÷ 营业总收入",
+   "inputs": [
+    "oi_after_tax",
+    "raw:total_revenue"
+   ],
+   "values": [
+    0.3055029785839129,
+    0.24550606639042885,
+    0.2391693792091453,
+    0.2558474880368887,
+    0.15193837760962903,
+    0.19253271506850866,
+    0.27764506732849964,
+    0.3330289431434814,
+    0.4148833208706907,
+    0.43697972975886,
+    0.45313452623976325,
+    0.44673701075654665
+   ]
+  },
+  "pm_core": {
+   "label": "核心经营利润率",
+   "unit": "pct",
+   "formula": "税后核心经营收益 ÷ 营业总收入",
+   "inputs": [
+    "oi_core_after_tax",
+    "raw:total_revenue"
+   ],
+   "values": [
+    0.276167070114371,
+    0.24027443686670105,
+    0.23754674580769355,
+    0.25977428294077054,
+    0.17263306241729798,
+    0.19562058630706594,
+    0.28370783814546074,
+    0.3309000115885588,
+    0.4154267362211333,
+    0.43830633932970703,
+    0.46902845618055905,
+    0.459500674205685
+   ]
+  },
+  "pm_unusual": {
+   "label": "特殊项目利润率",
+   "unit": "pct",
+   "formula": "税后经营利润率 − 核心经营利润率",
+   "inputs": [
+    "pm",
+    "pm_core"
+   ],
+   "values": [
+    0.02933590846954187,
+    0.005231629523727799,
+    0.0016226334014517452,
+    -0.003926794903881814,
+    -0.02069468480766895,
+    -0.003087871238557277,
+    -0.006062770816961105,
+    0.0021289315549226084,
+    -0.0005434153504426109,
+    -0.001326609570847015,
+    -0.015893929940795803,
+    -0.012763663449138374
+   ]
+  },
+  "sales_effect": {
+   "label": "收入变动效应",
+   "unit": "CNY_yuan",
+   "formula": "营业总收入变动 × 上年经营利润率",
+   "inputs": [
+    "raw:total_revenue",
+    "@raw:total_revenue",
+    "@pm"
+   ],
+   "values": [
+    null,
+    null,
+    76538657.08131187,
+    53217130.49595343,
+    -61659737.16679875,
+    41588052.617527895,
+    4059766.2183938744,
+    57224873.673853934,
+    104548982.45177378,
+    59365697.6308246,
+    -152800672.878992,
+    42546994.18867206
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi",
+    "20151231": "no_prior_reoi"
+   }
+  },
+  "core_margin_effect": {
+   "label": "核心利润率变动效应",
+   "unit": "CNY_yuan",
+   "formula": "本年营业总收入 × 核心经营利润率变动",
+   "inputs": [
+    "raw:total_revenue",
+    "pm_core",
+    "@pm_core"
+   ],
+   "values": [
+    null,
+    null,
+    -4213532.758463179,
+    39281241.469781116,
+    -132997655.67411806,
+    41376344.13209954,
+    160409876.86813834,
+    95665235.58076848,
+    197883452.18289188,
+    56836725.260034844,
+    65576087.7406259,
+    -21231576.25217232
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi",
+    "20151231": "no_prior_reoi"
+   }
+  },
+  "unusual_effect": {
+   "label": "特殊项目变动效应",
+   "unit": "CNY_yuan",
+   "formula": "本年营业总收入 × 特殊项目利润率变动",
+   "inputs": [
+    "raw:total_revenue",
+    "pm_unusual",
+    "@pm_unusual"
+   ],
+   "values": [
+    null,
+    null,
+    -5574906.782848731,
+    -9807133.91573443,
+    -25591677.904083293,
+    31691346.1753726,
+    -5417393.15403225,
+    16605743.707877629,
+    -6256166.122165652,
+    -1945584.2183595996,
+    -31093816.984133895,
+    6975442.121000398
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi",
+    "20151231": "no_prior_reoi"
+   }
+  },
+  "capital_charge_effect": {
+   "label": "资本费用变动效应",
+   "unit": "CNY_yuan",
+   "formula": "上年经营资本费用 − 本年经营资本费用",
+   "inputs": [
+    "@capital_charge",
+    "capital_charge"
+   ],
+   "values": [
+    null,
+    null,
+    -5939056.930399971,
+    -4873503.9192000395,
+    -16271474.827999974,
+    18446817.085599978,
+    -15999335.875200005,
+    12002025.750400009,
+    4460801.9672000315,
+    13146219.72239998,
+    2771626.3391999914,
+    -8459727.73840003
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi",
+    "20151231": "no_prior_reoi"
+   }
+  },
+  "margin_effect": {
+   "label": "利润率影响",
+   "unit": "CNY_yuan",
+   "formula": "经营利润率变动 × 上年周转率 × 本年期初净经营资产",
+   "inputs": [
+    "pm",
+    "@pm",
+    "@ato_open",
+    "@noa"
+   ],
+   "values": [
+    null,
+    null,
+    -8347111.486641102,
+    27116040.18770343,
+    -214222210.1685995,
+    51926286.62488911,
+    178863270.98846495,
+    89999611.01880717,
+    158491249.24247763,
+    44573768.408521116,
+    38772933.34931332,
+    -15115535.104299648
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi",
+    "20151231": "no_prior_reoi"
+   }
+  },
+  "turnover_effect": {
+   "label": "周转率影响",
+   "unit": "CNY_yuan",
+   "formula": "本年经营利润率 × 周转率变动 × 本年期初净经营资产",
+   "inputs": [
+    "pm",
+    "ato_open",
+    "@ato_open",
+    "@noa"
+   ],
+   "values": [
+    null,
+    null,
+    54400907.95242888,
+    36173502.55546402,
+    -81347717.98300649,
+    100270434.40455788,
+    -77868912.84273805,
+    133920028.67479643,
+    167951786.78731334,
+    204036897.03040588,
+    -120351089.75535989,
+    -60011769.06621779
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi",
+    "20151231": "no_prior_reoi"
+   }
+  },
+  "growth_effect": {
+   "label": "经营资本增长影响",
+   "unit": "CNY_yuan",
+   "formula": "上年经营超额回报 × 两年期初净经营资产之差",
+   "inputs": [
+    "@spread_op",
+    "@noa",
+    "@@noa"
+   ],
+   "values": [
+    null,
+    null,
+    14757364.143812252,
+    14528191.387632625,
+    59049382.578605875,
+    -19094161.018846992,
+    42058555.91157305,
+    -42421760.980703555,
+    -25805965.550090875,
+    -121207607.04402724,
+    -33968619.37725334,
+    94958436.48961748
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance,no_prior_reoi",
+    "20151231": "no_prior_reoi"
+   }
+  },
+  "ri_r_op": {
+   "label": "经营必要报酬率",
+   "unit": "pct",
+   "formula": "价值创造模块假设",
+   "inputs": [],
+   "values": [
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08
+   ]
+  },
+  "ri_r_e": {
+   "label": "权益必要报酬率",
+   "unit": "pct",
+   "formula": "价值创造模块假设",
+   "inputs": [],
+   "values": [
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08
+   ]
+  },
+  "market_ev": {
+   "label": "市场隐含经营资产价值",
+   "unit": "CNY_yuan",
+   "formula": "总市值 ＋ 净金融负债 ＋ 少数股东权益",
+   "inputs": [
+    "market_cap",
+    "nfo",
+    "minority_interests"
+   ],
+   "values": [
+    null,
+    6395746985.849999,
+    7531100276.49,
+    6987646223.2,
+    3063946451.09,
+    5872392434.24,
+    4772138864.27,
+    6081008867.77,
+    9101627796.06,
+    4793342803.119999,
+    4786544570.28,
+    5736082459.209999
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "reoi_0": {
+   "label": "基期剩余经营收益",
+   "unit": "CNY_yuan",
+   "formula": "税后经营收益 − r_op × 期初净经营资产",
+   "inputs": [
+    "oi_after_tax",
+    "r_op_assumed",
+    "@noa"
+   ],
+   "values": [
+    null,
+    215837545.47860003,
+    276648706.0882,
+    354466440.21900004,
+    117945894.646,
+    251048454.6566,
+    394101368.71389997,
+    575599247.4268,
+    876236317.9065001,
+    1003639376.3013998,
+    888092600.5180999,
+    907923732.8372
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "re_0": {
+   "label": "基期剩余权益收益",
+   "unit": "CNY_yuan",
+   "formula": "归母综合收益 − r_e × 期初归母权益",
+   "inputs": [
+    "raw:comprehensive_income_parent",
+    "r_e_assumed",
+    "@cse_calc"
+   ],
+   "values": [
+    null,
+    75046831.63240002,
+    110221459.08120002,
+    140481820.9332,
+    9734871.682000041,
+    76269116.6388,
+    152265558.60559994,
+    224055036.20839998,
+    347288895.5056001,
+    378535028.21120006,
+    277044169.44519997,
+    302150045.31959987
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "reoi_1_rnoa": {
+   "label": "按期初回报率估算首年剩余经营收益",
+   "unit": "CNY_yuan",
+   "formula": "（期初口径 RNOA − r_op）× 年末净经营资产",
+   "inputs": [
+    "rnoa_open",
+    "r_op_assumed",
+    "noa"
+   ],
+   "values": [
+    null,
+    230594909.62241226,
+    291176897.47583264,
+    413515822.7976059,
+    98851733.62715301,
+    293107010.568173,
+    351679607.73319644,
+    549793281.8767091,
+    755028710.8624729,
+    969670756.9241467,
+    983051037.0077174,
+    708829040.7832898
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "v_noa_reoi_flat": {
+   "label": "剩余经营收益零增长估值",
+   "unit": "CNY_yuan",
+   "formula": "年末净经营资产 ＋ 基期 ReOI ÷ r_op",
+   "inputs": [
+    "noa",
+    "reoi_0",
+    "r_op_assumed"
+   ],
+   "values": [
+    null,
+    3857997188.9424996,
+    4679055495.5525,
+    5855170607.5375,
+    2668078574.3050003,
+    4531852272.877501,
+    6169988376.71375,
+    8382951836.035,
+    11976587470.501251,
+    13534480371.197498,
+    12195892270.636248,
+    12203721744.645
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "v_noa_reoi_g": {
+   "label": "剩余经营收益增长估值",
+   "unit": "CNY_yuan",
+   "formula": "年末净经营资产 ＋ 基期 ReOI ×（1 ＋ g）÷（r_op − g）",
+   "inputs": [
+    "noa",
+    "reoi_0",
+    "r_op_assumed",
+    "g_assumed"
+   ],
+   "values": [
+    null,
+    5606281307.31916,
+    6919910014.8669195,
+    8726348773.311401,
+    3623440320.9375997,
+    6565344755.59596,
+    9362209463.296339,
+    13045305740.192078,
+    19074101645.5439,
+    21663959319.238834,
+    19389442334.832855,
+    19557903980.62632
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "v_noa_rnoa_g": {
+   "label": "按期初回报率估算经营资产价值",
+   "unit": "CNY_yuan",
+   "formula": "年末净经营资产 ＋ 首年 ReOI ÷（r_op − g）",
+   "inputs": [
+    "noa",
+    "reoi_1_rnoa",
+    "r_op_assumed",
+    "g_assumed"
+   ],
+   "values": [
+    null,
+    5771926062.908245,
+    7044484618.966652,
+    9694656560.752117,
+    3170789563.77306,
+    7255886801.03346,
+    8277313422.453928,
+    12183826880.73418,
+    16124207713.919456,
+    20382403305.912933,
+    20755755504.314346,
+    15031255899.845795
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "v_equity_ri": {
+   "label": "剩余权益收益估值",
+   "unit": "CNY_yuan",
+   "formula": "年末归母权益 ＋ 基期 RE ×（1 ＋ g）÷（r_e − g）",
+   "inputs": [
+    "cse_calc",
+    "re_0",
+    "r_e_assumed",
+    "g_assumed"
+   ],
+   "values": [
+    null,
+    2648011029.23744,
+    3554551137.0327206,
+    4393370350.823919,
+    1798452774.789201,
+    3302282311.18928,
+    5089266344.795359,
+    6860223154.323039,
+    9738239516.025362,
+    10779706751.46072,
+    8618761331.45112,
+    9085195822.553757
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "earn_1": {
+   "label": "首年预测归母综合收益",
+   "unit": "CNY_yuan",
+   "formula": "r_e × 年末归母权益 ＋ 基期 RE ×（1 ＋ g）",
+   "inputs": [
+    "r_e_assumed",
+    "cse_calc",
+    "re_0",
+    "g_assumed"
+   ],
+   "values": [
+    null,
+    165461940.390172,
+    216247229.25043604,
+    264651862.72919595,
+    137860071.28366005,
+    217048270.81236404,
+    313041192.36536795,
+    410351839.96905196,
+    564434623.8595681,
+    628441892.6823361,
+    518287609.79895604,
+    540086937.796788
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "aeg_2": {
+   "label": "第二年模型异常盈利增长",
+   "unit": "CNY_yuan",
+   "formula": "基期 RE ×（1 ＋ g）× g",
+   "inputs": [
+    "re_0",
+    "g_assumed"
+   ],
+   "values": [
+    null,
+    2318947.0974411606,
+    3405843.0856090807,
+    4340888.26683588,
+    300807.53497380123,
+    2356715.7041389197,
+    4705005.760913039,
+    6923300.618839559,
+    10731226.871123044,
+    11696732.37172608,
+    8560664.83585668,
+    9336436.400375636
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "v_equity_aeg": {
+   "label": "异常盈利增长估值",
+   "unit": "CNY_yuan",
+   "formula": "［首年预测归母综合收益 ＋ 第二年 AEG ÷（r_e − g）］÷ r_e",
+   "inputs": [
+    "earn_1",
+    "aeg_2",
+    "r_e_assumed",
+    "g_assumed"
+   ],
+   "values": [
+    null,
+    2648011029.23744,
+    3554551137.0327206,
+    4393370350.823919,
+    1798452774.789201,
+    3302282311.1892805,
+    5089266344.795359,
+    6860223154.323038,
+    9738239516.025362,
+    10779706751.460722,
+    8618761331.45112,
+    9085195822.553759
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "net_payout_implied": {
+   "label": "隐含归母净分配",
+   "unit": "CNY_yuan",
+   "formula": "归母综合收益 − 归母权益变动",
+   "inputs": [
+    "raw:comprehensive_income_parent",
+    "delta_cse"
+   ],
+   "values": [
+    null,
+    18025491.880000263,
+    16442380.539999604,
+    27745187.690000623,
+    31220880.309999317,
+    70878179.7999998,
+    69299310.1900003,
+    88169132.30000061,
+    187465187.9999997,
+    187465187.99999928,
+    585828712.4999993,
+    585828712.5000007
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "cum_div_growth": {
+   "label": "含净分配的综合收益增长率",
+   "unit": "pct",
+   "formula": "（本年归母综合收益 ＋ r_e × 上年隐含净分配）÷ 上年归母综合收益 − 1",
+   "inputs": [
+    "raw:comprehensive_income_parent",
+    "r_e_assumed",
+    "@net_payout_implied",
+    "@raw:comprehensive_income_parent"
+   ],
+   "values": [
+    null,
+    null,
+    0.3107197302731888,
+    0.23253339217095914,
+    -0.4576087169339398,
+    0.5930234370884098,
+    0.4523449128384949,
+    0.32690572081370917,
+    0.40407558842062996,
+    0.1393058737136017,
+    -0.09341095647938413,
+    0.1286930181611008
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "aeg_actual": {
+   "label": "历史异常盈利增长（AEG）",
+   "unit": "CNY_yuan",
+   "formula": "本年归母综合收益 ＋ r_e × 上年隐含净分配 −（1 ＋ r_e）× 上年归母综合收益",
+   "inputs": [
+    "raw:comprehensive_income_parent",
+    "r_e_assumed",
+    "@net_payout_implied",
+    "@raw:comprehensive_income_parent"
+   ],
+   "values": [
+    null,
+    null,
+    35174627.4488,
+    30260361.85199997,
+    -130746949.25119999,
+    66534244.956799954,
+    75996441.96679994,
+    71789477.60280001,
+    123233859.29720008,
+    31246132.705600023,
+    -101490858.76600009,
+    25105875.8743999
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "trailing_pe": {
+   "label": "年末市值／同年归母净利润",
+   "unit": "x",
+   "formula": "总市值 ÷ 同年归母净利润（事后口径）",
+   "inputs": [
+    "market_cap",
+    "raw:net_income_parent"
+   ],
+   "values": [
+    21.626118201506955,
+    41.57108781750552,
+    38.27979157499181,
+    29.04080364628076,
+    26.741411887602403,
+    30.424866662491123,
+    18.850862520534772,
+    18.770541977287177,
+    20.23687629632562,
+    11.595215076169659,
+    12.807458303184223,
+    14.46938962693703
+   ]
+  },
+  "normal_pe": {
+   "label": "正常前瞻市盈率",
+   "unit": "x",
+   "formula": "1 ÷ r_e",
+   "inputs": [
+    "r_e_assumed"
+   ],
+   "values": [
+    null,
+    12.5,
+    12.5,
+    12.5,
+    12.5,
+    12.5,
+    12.5,
+    12.5,
+    12.5,
+    12.5,
+    12.5,
+    12.5
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "forward_pe_market": {
+   "label": "市场前瞻收益倍数",
+   "unit": "x",
+   "formula": "总市值 ÷ 首年预测归母综合收益",
+   "inputs": [
+    "market_cap",
+    "earn_1"
+   ],
+   "values": [
+    null,
+    38.30346361256891,
+    35.11787278534431,
+    26.686949735271405,
+    25.156711045535772,
+    28.61015353754324,
+    17.50892076721584,
+    17.394187957188922,
+    18.889845018885193,
+    10.798515956717575,
+    12.740920527815598,
+    14.335307377704266
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "forward_pe_model": {
+   "label": "模型前瞻收益倍数",
+   "unit": "x",
+   "formula": "AEG 估值 ÷ 首年预测归母综合收益",
+   "inputs": [
+    "v_equity_aeg",
+    "earn_1"
+   ],
+   "values": [
+    null,
+    16.003746982497763,
+    16.437441299727325,
+    16.600564626742944,
+    13.04549430479196,
+    15.214506426748127,
+    16.257497316376785,
+    16.717905187997754,
+    17.25308672497073,
+    17.153068369536008,
+    16.629302280242317,
+    16.82172847878083
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "v_to_p": {
+   "label": "模型价值／总市值",
+   "unit": "x",
+   "formula": "ReOI 增长模型股权价值 ÷ 总市值",
+   "inputs": [
+    "v_equity_reoi_g",
+    "market_cap"
+   ],
+   "values": [
+    null,
+    0.8754346954982761,
+    0.9195182014858183,
+    1.2461792239951441,
+    1.1613254823805157,
+    1.1115904002400967,
+    1.8374492517301753,
+    1.975700959593208,
+    1.9353213864066465,
+    3.486003589381385,
+    3.2114005395559877,
+    2.785231730536711
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "v_per_share": {
+   "label": "模型每股价值",
+   "unit": "price",
+   "formula": "ReOI 增长模型股权价值 ÷ 总股本",
+   "inputs": [
+    "v_equity_reoi_g",
+    "shares"
+   ],
+   "values": [
+    null,
+    30.780283892553793,
+    38.73930183079104,
+    37.55984181174544,
+    17.18761713923163,
+    29.457145608734397,
+    42.97793799679261,
+    60.17985122836599,
+    88.05712308563187,
+    100.95466395443546,
+    90.49726720057639,
+    92.02405637217859
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "implied_g_reoi": {
+   "label": "隐含永续增长率（ReOI）",
+   "unit": "pct",
+   "formula": "（r_op × 经营溢价 − 基期 ReOI）÷（经营溢价 ＋ 基期 ReOI）；经营溢价＝市场隐含经营资产价值 − NOA",
+   "inputs": [
+    "r_op_assumed",
+    "market_ev",
+    "noa",
+    "reoi_0"
+   ],
+   "values": [
+    null,
+    0.03724073624876398,
+    0.03463950664197796,
+    0.015309484836663336,
+    0.01592919547439894,
+    0.022674449155527115,
+    -0.02850922123966632,
+    -0.03367477216424438,
+    -0.02568582201926152,
+    -0.14544340190568666,
+    -0.12942367836689547,
+    -0.08937321655893601
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "implied_g_rnoa": {
+   "label": "隐含永续增长率（RNOA）",
+   "unit": "pct",
+   "formula": "r_op − 首年 ReOI ÷（市场隐含经营资产价值 − NOA）",
+   "inputs": [
+    "r_op_assumed",
+    "reoi_1_rnoa",
+    "market_ev",
+    "noa"
+   ],
+   "values": [
+    null,
+    0.03595735666097977,
+    0.033855814674467265,
+    0.0056708485930785785,
+    0.027143524894020533,
+    0.014554546007797917,
+    -0.019670630847107504,
+    -0.03236213584269472,
+    -0.013467348809529114,
+    -0.1748844284461079,
+    -0.18627889534777514,
+    -0.065209974567823
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "implied_g_fcf": {
+   "label": "隐含永续增长率（反向 DCF）",
+   "unit": "pct",
+   "formula": "（r_op × 市场隐含经营资产价值 − 重构自由现金流）÷（市场隐含经营资产价值 ＋ 重构自由现金流）",
+   "inputs": [
+    "r_op_assumed",
+    "market_ev",
+    "fcf_from_oi"
+   ],
+   "values": [
+    null,
+    0.04275185629888366,
+    0.03749613118190519,
+    0.042875348993019466,
+    -0.061638235559235824,
+    0.05370276704161255,
+    -0.05045452306719847,
+    -0.03587508469999337,
+    -0.03980283627163867,
+    -0.12458031539856501,
+    -0.08472745677225332,
+    -0.11140493181349408
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "implied_g_equity": {
+   "label": "隐含永续增长率（RE）",
+   "unit": "pct",
+   "formula": "（r_e × 权益溢价 − 基期 RE）÷（权益溢价 ＋ 基期 RE）；权益溢价＝总市值 − 归母权益",
+   "inputs": [
+    "r_e_assumed",
+    "market_cap",
+    "cse_calc",
+    "re_0"
+   ],
+   "values": [
+    null,
+    0.06473843905539937,
+    0.06145915548830822,
+    0.053400068827665285,
+    0.07440740805589065,
+    0.061916095762182106,
+    0.03532166275523287,
+    0.0327116309469815,
+    0.035482563794023814,
+    -0.017735743305934918,
+    0.00461105779075528,
+    0.017046699306523857
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "implied_r_op": {
+   "label": "隐含经营必要报酬率",
+   "unit": "pct",
+   "formula": "［税后经营收益 ×（1 ＋ g）＋ g × 经营溢价］÷［经营溢价 ＋（1 ＋ g）× 期初 NOA］",
+   "inputs": [
+    "oi_after_tax",
+    "g_assumed",
+    "market_ev",
+    "noa",
+    "@noa"
+   ],
+   "values": [
+    null,
+    0.07378772873183853,
+    0.0759281032513934,
+    0.09274543935164314,
+    0.08838252873179174,
+    0.08606978291557833,
+    0.12623380591650063,
+    0.13639946578391965,
+    0.13360626061618333,
+    0.2536125553776795,
+    0.2350047569266277,
+    0.19500963476119418
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "implied_r_e": {
+   "label": "隐含权益必要报酬率",
+   "unit": "pct",
+   "formula": "［归母综合收益 ×（1 ＋ g）＋ g × 权益溢价］÷［权益溢价 ＋（1 ＋ g）× 期初归母权益］",
+   "inputs": [
+    "raw:comprehensive_income_parent",
+    "g_assumed",
+    "market_cap",
+    "cse_calc",
+    "@cse_calc"
+   ],
+   "values": [
+    null,
+    0.0503984330408718,
+    0.0528713916766661,
+    0.06061681400619822,
+    0.05555140355192146,
+    0.056263342836558594,
+    0.07631226764978924,
+    0.07799025939984654,
+    0.0755541824672841,
+    0.11088066981739644,
+    0.09489911970072655,
+    0.08852039321665892
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "r_op_assumed": {
+   "label": "经营必要报酬率",
+   "unit": "pct",
+   "formula": "估值模型假设",
+   "inputs": [],
+   "values": [
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08
+   ]
+  },
+  "r_e_assumed": {
+   "label": "权益必要报酬率",
+   "unit": "pct",
+   "formula": "估值模型假设",
+   "inputs": [],
+   "values": [
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08,
+    0.08
+   ]
+  },
+  "g_assumed": {
+   "label": "永续增长率",
+   "unit": "pct",
+   "formula": "估值模型假设",
+   "inputs": [],
+   "values": [
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03,
+    0.03
+   ]
+  },
+  "v_equity_reoi_g": {
+   "label": "剩余经营收益增长模型的股权价值",
+   "unit": "CNY_yuan",
+   "formula": "经营资产价值 − 账面净金融负债 − 账面少数股东权益",
+   "inputs": [
+    "v_noa_reoi_g",
+    "nfo",
+    "minority_interests"
+   ],
+   "values": [
+    null,
+    5548299734.469161,
+    6982952425.37692,
+    8801453508.1114,
+    4027599847.8476,
+    6902736674.35596,
+    10071084033.026339,
+    14102033905.422077,
+    20634556417.4839,
+    23656856322.118835,
+    21206359011.552856,
+    21564133785.41632
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "v_equity_reoi_flat": {
+   "label": "剩余经营收益零增长模型的股权价值",
+   "unit": "CNY_yuan",
+   "formula": "经营资产价值 − 账面净金融负债 − 账面少数股东权益",
+   "inputs": [
+    "v_noa_reoi_flat",
+    "nfo",
+    "minority_interests"
+   ],
+   "values": [
+    null,
+    3800015616.0924997,
+    4742097906.0625,
+    5930275342.337501,
+    3072238101.215,
+    4869244191.637501,
+    6878862946.443749,
+    9439680001.265,
+    13537042242.441252,
+    15527377374.0775,
+    14012808947.356247,
+    14209951549.435001
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "v_equity_rnoa_g": {
+   "label": "经营回报率基数模型的股权价值",
+   "unit": "CNY_yuan",
+   "formula": "经营资产价值 − 账面净金融负债 − 账面少数股东权益",
+   "inputs": [
+    "v_noa_rnoa_g",
+    "nfo",
+    "minority_interests"
+   ],
+   "values": [
+    null,
+    5713944490.058246,
+    7107527029.476652,
+    9769761295.552116,
+    3574949090.6830597,
+    7593278719.79346,
+    8986187992.183928,
+    13240555045.96418,
+    17684662485.859455,
+    22375300308.79293,
+    22572672181.034348,
+    17037485704.635796
+   ],
+   "missing_reasons": {
+    "20141231": "no_opening_balance"
+   }
+  },
+  "raw:daily_basic.close": {
+   "label": "年末收盘价",
+   "unit": "price",
+   "formula": "Tushare 年末最后一笔交易日披露值",
+   "source": "daily_basic.close",
+   "inputs": [],
+   "values": [
+    26.08,
+    35.16,
+    42.13,
+    30.14,
+    14.8,
+    26.5,
+    23.39,
+    30.46,
+    45.5,
+    28.96,
+    28.18,
+    33.04
+   ]
+  },
+  "price": {
+   "label": "年末收盘价",
+   "unit": "price",
+   "formula": "年末最后一个交易日收盘价",
+   "inputs": [
+    "raw:daily_basic.close"
+   ],
+   "values": [
+    26.08,
+    35.16,
+    42.13,
+    30.14,
+    14.8,
+    26.5,
+    23.39,
+    30.46,
+    45.5,
+    28.96,
+    28.18,
+    33.04
+   ]
+  },
+  "shares": {
+   "label": "总股本",
+   "unit": "shares",
+   "formula": "原始单位 × 10,000",
+   "inputs": [
+    "raw:daily_basic.total_share"
+   ],
+   "values": [
+    180254989.0,
+    180254989.0,
+    180254989.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0,
+    234331485.0
+   ]
+  },
+  "market_cap": {
+   "label": "总市值",
+   "unit": "CNY_yuan",
+   "formula": "原始单位 × 10,000",
+   "inputs": [
+    "raw:daily_basic.total_mv"
+   ],
+   "values": [
+    4701050113.0,
+    6337765413.0,
+    7594142687.0,
+    7062750958.0,
+    3468105978.0,
+    6209784353.0,
+    5481013434.0,
+    7137737033.0,
+    10662082568.0,
+    6786239806.0,
+    6603461247.0,
+    7742312264.0
+   ]
+  },
+  "gross_profit": {
+   "label": "Gross profit",
+   "unit": "CNY_yuan",
+   "formula": "营业收入 − 营业成本",
+   "inputs": [
+    "raw:revenue",
+    "raw:cost_of_goods_sold"
+   ],
+   "values": [
+    852726920.0800002,
+    768096171.5700002,
+    933823123.5600001,
+    1195741765.93,
+    920573683.53,
+    1064657827.5500001,
+    1108027088.34,
+    1396612662.71,
+    1839371313.7199998,
+    2146597394.23,
+    1789390928.48,
+    1896597492.5300002
+   ]
+  },
+  "overview:revenue_yoy": {
+   "label": "营业收入同比",
+   "unit": "pct",
+   "formula": "（本年营业收入 − 上年营业收入）÷ 上年营业收入",
+   "inputs": [
+    "raw:revenue",
+    "@raw:revenue"
+   ],
+   "values": [
+    null,
+    -0.10261643419811368,
+    0.2528525784155364,
+    0.14404383735426646,
+    -0.13637245261151532,
+    0.17934148137276698,
+    0.011714845586070884,
+    0.11318186241943366,
+    0.15486513845140135,
+    0.06112152231689505,
+    -0.14076134698389722,
+    0.043989331617918064
+   ],
+   "missing_reasons": {
+    "20141231": "上年营业收入缺失或非正值，或本年营业收入未披露"
+   }
+  },
+  "overview:cfo_yoy": {
+   "label": "经营现金流量净额同比",
+   "unit": "pct",
+   "formula": "（本年经营现金流量净额 − 上年经营现金流量净额）÷ 上年经营现金流量净额",
+   "inputs": [
+    "raw:cfo",
+    "@raw:cfo"
+   ],
+   "values": [
+    null,
+    0.06543485653485533,
+    0.7258806415514427,
+    -0.1493367041469126,
+    0.263908503105271,
+    -0.5477935904258088,
+    2.0202306965038805,
+    0.027599816934054458,
+    0.5828543159342114,
+    -0.018154049883937543,
+    -0.20863186989759838,
+    0.3678048607911356
+   ],
+   "missing_reasons": {
+    "20141231": "上年经营现金流量净额缺失或非正值，或本年未披露"
+   }
+  },
+  "overview:rnoa_change": {
+   "label": "净经营资产收益率变动",
+   "unit": "pp",
+   "formula": "本年净经营资产收益率 − 上年净经营资产收益率",
+   "inputs": [
+    "rnoa",
+    "@rnoa"
+   ],
+   "values": [
+    null,
+    null,
+    0.04076749854029075,
+    0.03151148010549759,
+    -0.16470093868218397,
+    0.09071724976812323,
+    0.1155351793398658,
+    0.1718520296088619,
+    0.3230955729276525,
+    0.2003759491593096,
+    -0.1503728402790881,
+    0.0929877391649377
+   ],
+   "missing_reasons": {
+    "20141231": "缺少本年或上年的净经营资产收益率",
+    "20151231": "缺少本年或上年的净经营资产收益率"
+   }
+  },
+  "overview:oa_share": {
+   "label": "经营资产占比",
+   "unit": "pct",
+   "formula": "经营资产 ÷ 总资产",
+   "inputs": [
+    "oa",
+    "raw:total_assets"
+   ],
+   "values": [
+    0.7346942113039137,
+    0.7098644410266529,
+    0.6762844624034933,
+    0.6793727261501471,
+    0.5824445485896202,
+    0.6079749209076577,
+    0.5257314473411778,
+    0.4341548695928915,
+    0.34825544185995777,
+    0.32306006172153917,
+    0.32487855014537115,
+    0.29827731244210826
+   ]
+  },
+  "overview:fa_share": {
+   "label": "金融资产占比",
+   "unit": "pct",
+   "formula": "金融资产 ÷ 总资产",
+   "inputs": [
+    "fa",
+    "raw:total_assets"
+   ],
+   "values": [
+    0.26530578869608623,
+    0.2901355589733469,
+    0.3237155375965069,
+    0.32062727384985273,
+    0.41755545141037964,
+    0.3920250790923423,
+    0.47426855265882206,
+    0.5658451304071084,
+    0.6517445581400423,
+    0.6769399382784608,
+    0.675121449854629,
+    0.7017226875578918
+   ]
+  },
+  "overview:investment_net_outflow": {
+   "label": "投资收付净流出",
+   "unit": "CNY_yuan",
+   "formula": "投资支付的现金 − 收回投资收到的现金",
+   "inputs": [
+    "raw:cash_paid_for_investments",
+    "raw:cash_from_investment_disposals"
+   ],
+   "values": [
+    0.0,
+    100000000.0,
+    70000000.0,
+    -70000000.0,
+    0.0,
+    26000000.0,
+    -26000000.0,
+    732618171.58,
+    314147802.93,
+    154996500.0,
+    -200000000.0,
+    245000000.0
+   ]
+  },
+  "overview:avg_assets": {
+   "label": "平均总资产",
+   "unit": "CNY_yuan",
+   "formula": "（期初资产总计 ＋ 期末资产总计）÷ 2",
+   "inputs": [
+    "@raw:total_assets",
+    "raw:total_assets"
+   ],
+   "values": [
+    null,
+    2017787521.055,
+    2281559782.01,
+    2628609162.795,
+    2837359694.28,
+    3026087186.08,
+    3423720386.085,
+    3815202240.725,
+    4312959849.7699995,
+    4944393651.395,
+    5064615535.809999,
+    4964565820.705
+   ],
+   "missing_reasons": {
+    "20141231": "缺少期初或期末资产总计"
+   }
+  },
+  "overview:avg_equity": {
+   "label": "平均股东权益（含少数股东）",
+   "unit": "CNY_yuan",
+   "formula": "（期初股东权益合计 ＋ 期末股东权益合计）÷ 2",
+   "inputs": [
+    "@raw:total_equity",
+    "raw:total_equity"
+   ],
+   "values": [
+    null,
+    1580903647.175,
+    1814439587.925,
+    2083979309.445,
+    2279717608.0950003,
+    2453969471.6549997,
+    2751200591.3999996,
+    3167326662.815,
+    3730432012.045,
+    4279053854.235,
+    4454539581.795,
+    4381589899.585
+   ],
+   "missing_reasons": {
+    "20141231": "缺少期初或期末股东权益合计"
+   }
+  },
+  "overview:net_margin": {
+   "label": "销售净利率",
+   "unit": "pct",
+   "formula": "合并净利润 ÷ 营业总收入",
+   "inputs": [
+    "raw:net_income_total",
+    "raw:total_revenue"
+   ],
+   "values": [
+    0.28114680179157303,
+    0.21206811800778638,
+    0.22719690468925963,
+    0.2551061804615579,
+    0.15695832003925755,
+    0.1994601645588529,
+    0.29253527490688264,
+    0.3474348159090908,
+    0.4262521648591615,
+    0.4537082731823921,
+    0.4713234258185788,
+    0.46156603694468173
+   ]
+  },
+  "overview:asset_turnover": {
+   "label": "总资产周转率",
+   "unit": "x",
+   "formula": "营业总收入 ÷ 平均总资产",
+   "inputs": [
+    "raw:total_revenue",
+    "overview:avg_assets"
+   ],
+   "values": [
+    null,
+    0.6110486537974741,
+    0.6770478165245066,
+    0.6723073251981291,
+    0.5379054594793953,
+    0.5948103065998097,
+    0.5318874652968782,
+    0.5313327695453397,
+    0.5428002292589957,
+    0.502420695969287,
+    0.42145177149140195,
+    0.448858190371128
+   ],
+   "missing_reasons": {
+    "20141231": "缺少期初或期末资产总计"
+   }
+  },
+  "overview:equity_multiplier": {
+   "label": "权益乘数（财务杠杆）",
+   "unit": "x",
+   "formula": "平均总资产 ÷ 平均股东权益",
+   "inputs": [
+    "overview:avg_assets",
+    "overview:avg_equity"
+   ],
+   "values": [
+    null,
+    1.2763507280539779,
+    1.2574459889398693,
+    1.2613412958956125,
+    1.2446101588218121,
+    1.2331397032576588,
+    1.2444459327274193,
+    1.2045496555553232,
+    1.15615559695073,
+    1.155487596049185,
+    1.1369560069705709,
+    1.1330512290014216
+   ],
+   "missing_reasons": {
+    "20141231": "缺少期初或期末资产总计"
+   }
+  },
+  "overview:roe": {
+   "label": "合并净资产收益率（ROE）",
+   "unit": "pct",
+   "formula": "合并净利润 ÷ 平均股东权益",
+   "inputs": [
+    "raw:net_income_total",
+    "overview:avg_equity"
+   ],
+   "values": [
+    null,
+    0.16539455363850897,
+    0.19342432591065514,
+    0.21633233515166927,
+    0.10508086409008308,
+    0.1463008802256501,
+    0.19363061755483166,
+    0.22236408592097828,
+    0.2674994577968367,
+    0.26339620117062024,
+    0.2258450466848491,
+    0.23474294316485855
+   ],
+   "missing_reasons": {
+    "20141231": "缺少期初或期末股东权益合计"
+   }
+  },
+  "overview:fcf_per_share": {
+   "label": "每股自由现金流",
+   "unit": "price",
+   "formula": "简式自由现金流 ÷ 年末总股本",
+   "inputs": [
+    "fcf_simple",
+    "shares"
+   ],
+   "values": [
+    1.063231308898751,
+    1.162296613937271,
+    1.5039778356425964,
+    1.0596387252442838,
+    1.7373039865300215,
+    0.3032669869351957,
+    2.70465787339674,
+    2.7120223074163508,
+    4.72291625446747,
+    4.796938826039531,
+    3.7808248713995902,
+    5.219963170164692
+   ]
+  }
+ }
+}

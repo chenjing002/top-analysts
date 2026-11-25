@@ -1,0 +1,55 @@
+{
+  "session_id": "2026-11-25-01",
+  "company": {
+    "ts_code": "000915.SZ",
+    "name": "华特达因",
+    "industry": "化学制药"
+  },
+  "started_at": "2026-11-25T01:26:00-08:00",
+  "status": "open",
+  "user_request": "分析讨论 华特达因\n000915.SZ   然后push到github pages",
+  "workflow_git_revision": "a29331526783a44bdf2626f9ccbf513d20db321a",
+  "experts": [
+    "warren-buffett",
+    "stephen-penman",
+    "jeff-bezos",
+    "li-lu",
+    "joekray-mond"
+  ],
+  "expert_versions": {
+    "warren-buffett": "1.1",
+    "stephen-penman": "1.1",
+    "jeff-bezos": "1.0",
+    "li-lu": "1.0",
+    "joekray-mond": "1.0"
+  },
+  "expert_selection_reason": {
+    "warren-buffett": "round-one great/good/gruesome verdict; operating profit ×2.7 over the decade on shrinking net operating assets is the See's capital-need test of his card",
+    "stephen-penman": "required; net operating assets small against 35亿 of net financial assets and a 48% minority share make the like-for-like reverse curve the valuation question, and cash collected runs 1.56× revenue",
+    "jeff-bezos": "cash broke before profit in 2026 (9M CFO −3.32亿 vs +9.55亿; collections halved from Q2) and dividends (10.9亿/yr) ran above CFO — his working-capital and free-cash-flow lens",
+    "li-lu": "holding structure under a provincial SOE controller with minorities taking 46.9% of decade profit, payouts above profit, and an untested bear case for the 2026 break (Megastudy threat test)",
+    "joekray-mond": "micro-cap (43.5亿) controlled holding with net cash and investment property: floor, holding discount and catalyst questions from his setup taxonomy"
+  },
+  "data": {
+    "avl_version": "20261121_201610",
+    "s1_quote_date": "2026-11-20",
+    "s2_exported_at": "2026-11-22T04:52:13.344746+00:00",
+    "duckdb_filings_through": "20260930",
+    "duckdb_daily_basic_last": "20251231",
+    "factsheet_generated_at": "2026-11-25T01:26:30-08:00"
+  },
+  "cross_check_note": "98 comparisons, 0 mismatches >1%.",
+  "question_queue": [
+    "Divergence item 4 reversed with items 3 and 5 (owners jeff-bezos and stephen-penman): how much of the 3.32亿 nine-month cash burn and the +6.12亿 NOA rebuild is settlement of 2025's accrued liabilities (operating liabilities −3.52亿: taxes payable 1.28 → 0.06亿, other payables 1.45 → 0.51亿, contract liabilities 1.07 → 0.15亿) rather than lost sales, and does it change the 5.0亿 FY2025 earning-power base?",
+    "User: can you supply the 2026 Q3 report and the FY2025 annual-report notes (subsidiaries, other operating cash, revenue recognition), or authorize fetching them? The remaining disagreements turn on them.",
+    "Divergence item 5, cash taxes vs pretax profit (支付的各项税费 vs 利润总额, +1.4亿 excess FY2025; cash taxes 3.57 → 5.03亿 on pretax +0.29亿): does VAT on gross invoices confirm the rebate gross-up hypothesis? (owner: stephen-penman)"
+  ],
+  "rounds": 1,
+  "run_notes": [
+    "Round one: five independent first reads (one subagent per expert, in parallel), then the exchange in the main thread; every quoted source passage was re-checked against the file before use.",
+    "The panel corrected its own workpaper in-round (t7): the reverse curve E = r × P on the full price charged the parent's cash the operating hurdle; the like-for-like curve values cash at face and solves only the operating stake. Workpaper item 4 and A6 carry the correction.",
+    "Independent Observer verdict accept-with-weaknesses (0 high, 5 medium, 4 low); all fixed in the round file except the scan items 3–5 blind spot, which is queued as next round's question. One fix diverged from the reviewer's suggestion (floor centred on a 48% profit-share case, not on the low limit), reasoned in observer/round-01.md Resolution.",
+    "Improve: ingest filed 15 log lines, F-000915-001…004 and H-000915-001…002; promoted P-018…P-021. CHECKLIST: statement-blind-spot rule extended (plan turns from the scan; unreached item becomes the first next question) and a new dropped-thread rule — both Observer-checked, not computable in check_round.py.",
+    "Proposals: stephen-penman card-not-applied (§3.3) validated by a fresh reviewer and applied (1.1 → 1.2, after this round; the round used 1.1). stephen-penman window-conflation (§4) validated, left unapplied under the one-change-per-expert-per-session limit — apply next session, with the reviewer's suggested tightening."
+  ]
+}

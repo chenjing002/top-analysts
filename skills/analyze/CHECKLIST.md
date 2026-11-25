@@ -38,8 +38,16 @@ playbook, add a rule here and, where it can be computed, a check in `check_round
   lines differ by an order of magnitude, carries its absolute change in the same sentence
   (`calc.growth_gap` `excess_a`). [percent-without-base]
 - A round's questions span the statements the scan flagged: when a balance-sheet or cash-flow
-  excess move ranks among the five largest and nobody asks about it, log the miss.
+  excess move ranks among the five largest and nobody asks about it, log the miss. Plan the turn
+  order from the scan before the opener speaks so that at least one balance-sheet and one cash-flow
+  item from the top five gets a question; an item the round cannot reach becomes the first
+  `next_question_candidates` entry, with the pair named (P-021; 000002.SZ and 000915.SZ r1).
   [statement-blind-spot]
+- A consequential point raised in a turn — a precedent in the data, a colleague's figure, a test
+  someone proposed — is used, answered, or carried to `open_questions` / `next_question_candidates`
+  by the end of the round; before writing a test or threshold, check whether the record already
+  ran it once (e.g. a prior dip and recovery) and say what differs (P-020). Observer-checked.
+  [dropped-thread]
 - Challenges and concessions made in the text are recorded in `challenges[]` / `concessions[]`.
   [challenge-unrecorded]
 - A spoken estimate carries its assumption in the same sentence as the number: a floor names its
