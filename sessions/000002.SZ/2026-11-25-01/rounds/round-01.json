@@ -1,0 +1,779 @@
+{
+ "round": 1,
+ "session_id": "2026-11-25-01",
+ "ts_code": "000002.SZ",
+ "started_at": "2026-11-25T00:40:00-08:00",
+ "ended_at": "2026-11-25T01:15:00-08:00",
+ "question": "Gruesome on the full decade: is the 3,836亿 of net operating assets still earning anything, or is the book just carrying it at cost?",
+ "initiated_by": "warren-buffett",
+ "why_this_question": "Round one of a new session, business before news: ROE near 20% in FY2016–20 turned into 1,380亿 of parent losses in FY2024–25, and ten-year Penman free cash flow is negative. The great/good/gruesome verdict and whether book (0.36×) is a floor decide everything that follows.",
+ "where_it_went": "From the verdict to where the leverage sat (operating liabilities — the homebuyer float) and how the float was repaid (land-bank sales), then to partner receivables and an unnamed 356亿 liability, the equity as a 7.9% stub with no estimable normal EBIT, the floor (tangible book against a 6.8% write-down, conceded as no floor once 2026 sales were shown to lose money after carrying cost), the maturity wall, the reverse curve solved for earnings, and capital allocation.",
+ "participants": [
+  "warren-buffett",
+  "stephen-penman",
+  "jeff-bezos",
+  "li-lu",
+  "joel-greenblatt"
+ ],
+ "statements": [
+  {
+   "expert": "warren-buffett",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T00:40:00-08:00",
+   "text": "Gruesome, on the full decade. Vanke's operations earned 2,055亿 after tax over FY2016–25, yet produced −273亿 of free cash on Penman's measure, because net operating assets nearly tripled by 2023 to earn it. I reread the passage: \"The worst sort of business is one that grows rapidly, requires significant capital to engender the growth, and then earns little or no money.\" Stephen, last year the asset base shrank about 505亿 less than it would have if it had followed sales — is what's left still earning anything, or just sitting at cost?",
+   "evidence": [
+    {
+     "claim": "Verdict gruesome: the worst sort of business grows rapidly, requires significant capital to engender the growth, and then earns little or no money",
+     "source": "SRC source-files/Warren Buffett/Businesses – The Great, the Good and the Gruesome.md, paragraph 'Now let’s move to the gruesome' (line 81)"
+    },
+    {
+     "claim": "Operating income after tax (total firm, before minorities) FY2016–FY2025 sums to 2,054.6亿; same scope as Penman FCF = OI − ΔNOA",
+     "source": "derived: sum of S2 reformulated_is oi_after_tax FY2016–FY2025",
+     "formula": "sum(o16, o17, o18, o19, o20, o21, o22, o23, o24, o25)",
+     "inputs": {
+      "o16": 294.8,
+      "o17": 375.1,
+      "o18": 533.3,
+      "o19": 585.9,
+      "o20": 603.2,
+      "o21": 400.6,
+      "o22": 358.4,
+      "o23": 210.1,
+      "o24": -444.9,
+      "o25": -861.9
+     },
+     "result": 2054.6
+    },
+    {
+     "claim": "Penman free cash flow from operations (OI − ΔNOA) FY2016–FY2025 sums to −273.4亿",
+     "source": "derived: sum of S2 fcf_from_oi FY2016–FY2025 (capital & reinvestment table)",
+     "formula": "sum(f16, f17, f18, f19, f20, f21, f22, f23, f24, f25)",
+     "inputs": {
+      "f16": 0.8,
+      "f17": 427.1,
+      "f18": 0.4,
+      "f19": -105.6,
+      "f20": -8.2,
+      "f21": -525.6,
+      "f22": -176.3,
+      "f23": -87.6,
+      "f24": 1.6,
+      "f25": 200.0
+     },
+     "result": -273.4
+    },
+    {
+     "claim": "NOA 1,802.3亿 (end FY2016) to 5,344.8亿 (end FY2023), ratio 2.97",
+     "source": "derived: S2 capital & reinvestment NOA end",
+     "formula": "noa23 / noa16",
+     "inputs": {
+      "noa16": 1802.3,
+      "noa23": 5344.8
+     },
+     "result": 2.9655
+    },
+    {
+     "claim": "FY2025 NOA fell 1,061.9亿 while 营业总收入 fell 1,097.4亿; growth gap +10.3pp, so NOA fell 504.5亿 less than proportional to sales (excess move = NOA begin × gap); NOA end 3,836.3亿",
+     "source": "S2 paired-line divergence scan FY2025 (calc.growth_gap)",
+     "values": {
+      "noa_end": 3836.3,
+      "d_noa": -1061.9,
+      "d_rev": -1097.4,
+      "excess": 504.5,
+      "gap_pp": 10.3
+     }
+    }
+   ],
+   "challenges": [],
+   "concessions": [],
+   "confidence": "high",
+   "thinker_used": null
+  },
+  {
+   "expert": "stephen-penman",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T00:43:00-08:00",
+   "text": "No — return on net operating assets was −19.7% in FY2025. But let me test 'gruesome' first: in FY2016–20 operating cash more than covered parent profit, which looks like a great business. The catch is who supplied that cash. In 2021 operating liabilities, mostly buyers' deposits and supplier bills, were 2.77× the net operating assets; netting them out, as my lecture says to, shows the cash was the homebuyers', not earned. So the counter-case fails. Jeff, deposits are down 89% from their 2021 peak — what replaced that funding as they unwound?",
+   "evidence": [
+    {
+     "claim": "RNOA (average NOA basis) −19.7% FY2025",
+     "source": "S2 ratios_annual basis=average (rnoa)",
+     "values": {
+      "2025": -0.197
+     }
+    },
+    {
+     "claim": "Counter-case tested: FY2016–20 CFO 2,543.9亿 against parent net income 1,632.36亿",
+     "source": "derived: S2 raw:cfo and raw:net_income_parent FY2016–FY2020",
+     "formula": "sum(c16, c17, c18, c19, c20) - sum(n16, n17, n18, n19, n20)",
+     "inputs": {
+      "c16": 395.7,
+      "c17": 823.2,
+      "c18": 336.2,
+      "c19": 456.9,
+      "c20": 531.9,
+      "n16": 210.23,
+      "n17": 280.52,
+      "n18": 337.73,
+      "n19": 388.72,
+      "n20": 415.16
+     },
+     "result": 911.54
+    },
+    {
+     "claim": "Operating liabilities 12,492.1亿 / NOA 4,512.3亿 = 2.77× at FY2021 year-end",
+     "source": "derived: S2 reformulated_bs FY2021 (OL / NOA)",
+     "formula": "ol / noa",
+     "inputs": {
+      "ol": 12492.1,
+      "noa": 4512.3
+     },
+     "result": 2.7684
+    },
+    {
+     "claim": "View operating assets as net operating assets, that is, net of operating liabilities, and debt as net debt",
+     "source": "SRC source-files/Stephen Penman/Penman_What_Matters_in_Company_Valuation.pdf p.9 (PDF page; passage before 'The financial statements tie together')"
+    },
+    {
+     "claim": "合同负债 + 预收款项 6,382.23亿 (FY2021) → 677.2亿 (2026Q3), −89.4%",
+     "source": "derived: calc.pct_change on S2 raw_balancesheet contract_liab + adv_receipts FY2021, 20260930",
+     "formula": "(cl26 + ar26) / (cl21 + ar21) - 1",
+     "inputs": {
+      "cl21": 6368.59,
+      "ar21": 13.64,
+      "cl26": 658.89,
+      "ar26": 18.31
+     },
+     "result": -0.8939
+    }
+   ],
+   "challenges": [
+    {
+     "to": "warren-buffett",
+     "point": "Counter-case to 'gruesome': FY2016–20 operating cash (2,543.9亿) more than covered parent profit (1,632.4亿); tested and rejected because the cash came from operating liabilities (2.77× NOA in 2021)"
+    }
+   ],
+   "concessions": [],
+   "confidence": "high",
+   "thinker_used": null
+  },
+  {
+   "expert": "jeff-bezos",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T00:46:00-08:00",
+   "text": "Nothing did. Most deposits were settled by handing over finished homes, which uses up inventory rather than cash. The cash-flow bridge shows inventory releasing about 7,575亿 over 2022–25 while lower deposits and supplier balances took out about 8,718亿, so four years of operations left almost nothing to replace the float. Amazon's 2004 letter prizes \"collecting payments from our customers before payments are due to suppliers\"; Vanke ran that cycle for a decade and is now running it backwards. Li Lu, other receivables shrank about 248亿 less than the fall in sales would explain — how much of that balance is partner money that won't come back?",
+   "evidence": [
+    {
+     "claim": "Indirect-method CFO: decrease in inventories FY2022–25 sums to 7,574.5亿",
+     "source": "derived: sum of S2 raw_cashflow decr_inventories FY2022–FY2025",
+     "formula": "sum(d22, d23, d24, d25)",
+     "inputs": {
+      "d22": 1964.8,
+      "d23": 2341.6,
+      "d24": 1988.9,
+      "d25": 1279.2
+     },
+     "result": 7574.5
+    },
+    {
+     "claim": "Increase in operating payables (incl. customer advances) FY2022–25 sums to −8,718.0亿 in the indirect-method bridge; much of the advance decline is settled by delivery (non-cash, offset by inventory), so this is a bridge reading, not a cash repayment of deposits",
+     "source": "derived: sum of S2 raw_cashflow incr_oper_payable FY2022–FY2025",
+     "formula": "sum(p22, p23, p24, p25)",
+     "inputs": {
+      "p22": -2414.7,
+      "p23": -2849.6,
+      "p24": -2010.6,
+      "p25": -1443.1
+     },
+     "result": -8718.0
+    },
+    {
+     "claim": "CFO FY2022–25 sums to 94.7亿 (left almost nothing)",
+     "source": "derived: sum of S2 raw:cfo FY2022–FY2025",
+     "formula": "sum(c22, c23, c24, c25)",
+     "inputs": {
+      "c22": 27.5,
+      "c23": 39.1,
+      "c24": 38.0,
+      "c25": -9.9
+     },
+     "result": 94.7
+    },
+    {
+     "claim": "Amazon's operating cycle: collecting payments from our customers before payments are due to suppliers",
+     "source": "SRC source-files/Jeff Bezos/Amazon Shareholder Letter 2004.html (operating-cycle paragraph in the free cash flow discussion)"
+    },
+    {
+     "claim": "其他应收款 FY2025 fell 460.1亿 while 营业收入 fell 1,097.4亿; excess move 248.0亿; balance 1,754.1亿",
+     "source": "S2 paired-line divergence scan FY2025 (calc.growth_gap)",
+     "values": {
+      "latest": 1754.1,
+      "d_a": -460.1,
+      "d_b": -1097.4,
+      "excess": 248.0
+     }
+    }
+   ],
+   "challenges": [],
+   "concessions": [],
+   "confidence": "medium",
+   "thinker_used": null
+  },
+  {
+   "expert": "li-lu",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T00:49:00-08:00",
+   "text": "I can't tell from here, and that is the bear case. Other receivables were 1,754亿 at FY2025, and a 342亿 credit write-down landed the same year — my hypothesis is loans to project partners, which only the receivables note can confirm. Then there's a liability that grew to 356亿 since 2024 with no lender named in our data. My lecture's test is whether I want to be a passive minority shareholder here; I can't answer while I don't know who ranks ahead of me. Joel, with the equity this thin, what does a small error in asset values do to the stock?",
+   "evidence": [
+    {
+     "claim": "其他应收款(合计) 1,754.14亿 FY2025",
+     "source": "S1 balance_sheet oth_rcv_total FY2025",
+     "values": {
+      "2025": 1754.14
+     }
+    },
+    {
+     "claim": "Credit impairment loss (信用减值损失) −341.74亿 FY2025",
+     "source": "S2 raw_income credit_impa_loss FY2025",
+     "values": {
+      "2025": -341.74
+     }
+    },
+    {
+     "claim": "The credit impairment sits mainly on partner/JV loans inside other receivables",
+     "source": "hypothesis (labelled in text)",
+     "unverifiable": "the counterparty, ageing and provision note for other receivables is in the FY2025 annual report, not in the local data"
+    },
+    {
+     "claim": "其他非流动负债 17.75亿 FY2024 → 356.21亿 2026Q3; no counterparty in the local data",
+     "source": "S2 raw_balancesheet oth_ncl FY2024, 20260930 (DuckDB; workpaper Appendix C)",
+     "values": {
+      "2024": 17.75,
+      "2026Q3": 356.21
+     }
+    },
+    {
+     "claim": "Do I want to be a passive minority shareholder in this company? It's a question that must be answered before you make any investment",
+     "source": "SRC source-files/Li Lu/Li Lu_CBS Lecture Notes.pdf p.15"
+    }
+   ],
+   "challenges": [],
+   "concessions": [],
+   "confidence": "medium",
+   "thinker_used": null
+  },
+  {
+   "expert": "joel-greenblatt",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T00:52:00-08:00",
+   "text": "It gets magnified about twelve times. The equity is under 8% of a 4,245亿 enterprise, so each 1% error in what the whole enterprise is worth moves the stock about 12.6%. And I can't fall back on normal earnings: core operating profit before tax went from its 2020 peak to a loss last year, on a company whose sales have more than halved. When I can't estimate normalized EBIT with confidence, I pass — this is a speculation on asset values and refinancing, not an investment. Warren, does anything in the book give a floor above zero?",
+   "evidence": [
+    {
+     "claim": "EV 4,245.10亿 = mkt cap 336.45 + interest-bearing debt (291.81 + 1,606.21 + 1,210.02 + 89.27 + 111.26) + minority 1,124.74 − cash 524.46 − trading 0.20 (2026Q3 balances, S1 quote 2026-11-20)",
+     "source": "derived: calc.enterprise_value",
+     "formula": "P + st + due + lt + bond + lease + MI - C - T",
+     "inputs": {
+      "P": 336.45,
+      "st": 291.81,
+      "due": 1606.21,
+      "lt": 1210.02,
+      "bond": 89.27,
+      "lease": 111.26,
+      "MI": 1124.74,
+      "C": 524.46,
+      "T": 0.2
+     },
+     "result": 4245.1
+    },
+    {
+     "claim": "Equity is 7.93% of EV",
+     "source": "derived: market cap / calc.enterprise_value",
+     "formula": "P / (P + st + due + lt + bond + lease + MI - C - T)",
+     "inputs": {
+      "P": 336.45,
+      "st": 291.81,
+      "due": 1606.21,
+      "lt": 1210.02,
+      "bond": 89.27,
+      "lease": 111.26,
+      "MI": 1124.74,
+      "C": 524.46,
+      "T": 0.2
+     },
+     "result": 0.0793
+    },
+    {
+     "claim": "A 1% change in EV (42.45亿) is a 12.6% change in market cap",
+     "source": "derived: 0.01 × EV / market cap",
+     "formula": "0.01 * (P + st + due + lt + bond + lease + MI - C - T) / P",
+     "inputs": {
+      "P": 336.45,
+      "st": 291.81,
+      "due": 1606.21,
+      "lt": 1210.02,
+      "bond": 89.27,
+      "lease": 111.26,
+      "MI": 1124.74,
+      "C": 524.46,
+      "T": 0.2
+     },
+     "result": 0.1262
+    },
+    {
+     "claim": "S2 OI core pretax 834.8亿 FY2020 (peak) → −74.4亿 FY2025",
+     "source": "S2 reformulated_is oi_core_pretax",
+     "values": {
+      "2020": 834.8,
+      "2025": -74.4
+     }
+    },
+    {
+     "claim": "营业收入 5,038.38亿 FY2022 → 2,334.33亿 FY2025, ratio 0.463 (more than halved)",
+     "source": "derived: S1 annual.营业收入",
+     "formula": "r25 / r22",
+     "inputs": {
+      "r22": 5038.38,
+      "r25": 2334.33
+     },
+     "result": 0.4633
+    }
+   ],
+   "challenges": [],
+   "concessions": [],
+   "confidence": "medium",
+   "thinker_used": null
+  },
+  {
+   "expert": "warren-buffett",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T00:55:00-08:00",
+   "text": "One I wouldn't lean on. Strip out goodwill, intangibles and the tax credits that need future profits, and tangible book is about 554亿 — still above the 336亿 price. But a write-down averaging under 3% on the remaining non-cash assets erases that margin, assuming the parent bears all of it. That's a thin cushion. Stephen, is this year's selling still covering cost once sales taxes and interest are paid?",
+   "evidence": [
+    {
+     "claim": "Tangible book ex goodwill, intangibles and deferred tax assets 553.60亿 (2026Q3)",
+     "source": "derived: parent equity − goodwill − intangibles − deferred tax assets (S2 raw_balancesheet 20260930)",
+     "formula": "B - gw - intan - dta",
+     "inputs": {
+      "B": 930.94,
+      "gw": 56.95,
+      "intan": 68.15,
+      "dta": 252.24
+     },
+     "result": 553.6
+    },
+    {
+     "claim": "Market cap 336.45亿 at S1 quote 2026-11-20 (price 2.82元)",
+     "source": "S1 quote",
+     "values": {
+      "mkt_cap": 336.45,
+      "price": 2.82
+     }
+    },
+    {
+     "claim": "(Tangible book ex DTA 553.60 − market cap 336.45) / tangible non-cash assets 8,426.01亿 = 2.58% average write-down takes tangible book to the price, assuming all of it falls on the parent (none on minorities or tax); tangible non-cash assets = total assets − cash − trading − goodwill − intangibles − DTA",
+     "source": "derived: 2026Q3 S2 raw_balancesheet; S1 quote 2026-11-20",
+     "formula": "(B - gw - intan - dta - P) / (TA - C - T - gw - intan - dta)",
+     "inputs": {
+      "B": 930.94,
+      "gw": 56.95,
+      "intan": 68.15,
+      "dta": 252.24,
+      "P": 336.45,
+      "TA": 9328.01,
+      "C": 524.46,
+      "T": 0.2
+     },
+     "result": 0.0258
+    }
+   ],
+   "challenges": [],
+   "concessions": [],
+   "confidence": "medium",
+   "thinker_used": null
+  },
+  {
+   "expert": "stephen-penman",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T00:58:00-08:00",
+   "text": "No, and that's why I don't count your cushion. In the first nine months of 2026, gross profit left after sales taxes was about 12亿 — under a fifth of the 62亿 interest bill alone, before any selling or admin cost. So each home sold now loses money once it's carried, and the parent is losing about 80亿 a quarter even with small write-downs. Book isn't a floor here; it's a balance that shrinks every quarter. Jeff, with sales losing money, is there any cash to service the debt without new borrowing?",
+   "evidence": [
+    {
+     "claim": "9M26 营业收入 1,049.99 − 营业成本 980.29 − 税金及附加 58.16 = 11.54亿",
+     "source": "derived: S2 raw_income 20260930 YTD (DuckDB; workpaper Appendix C)",
+     "formula": "rev - cost - tax",
+     "inputs": {
+      "rev": 1049.99,
+      "cost": 980.29,
+      "tax": 58.16
+     },
+     "result": 11.54
+    },
+    {
+     "claim": "9M26 interest expense (财务费用-利息费用) 62.23亿",
+     "source": "S2 raw_income fin_exp_int_exp 20260930",
+     "values": {
+      "9M26": 62.23
+     }
+    },
+    {
+     "claim": "Gross profit after sales taxes / interest expense = 0.185 (under a fifth)",
+     "source": "derived: S2 raw_income 20260930",
+     "formula": "(rev - cost - tax) / intexp",
+     "inputs": {
+      "rev": 1049.99,
+      "cost": 980.29,
+      "tax": 58.16,
+      "intexp": 62.23
+     },
+     "result": 0.1854
+    },
+    {
+     "claim": "Parent net loss by single quarter 2026: Q1 −59.5, Q2 −90.0, Q3 −89.9; average −79.8亿",
+     "source": "derived: S2 quarterly filings (de-cumulated raw_income n_income_attr_p)",
+     "formula": "(q1 + q2 + q3) / 3",
+     "inputs": {
+      "q1": -59.5,
+      "q2": -90.0,
+      "q3": -89.9
+     },
+     "result": -79.8
+    },
+    {
+     "claim": "9M26 asset impairment −39.37亿 and credit impairment −4.07亿, small against FY2025 −219.29亿 and −341.74亿",
+     "source": "S2 raw_income 20260930, FY2025",
+     "values": {
+      "asset_9m26": -39.37,
+      "credit_9m26": -4.07,
+      "asset_fy25": -219.29,
+      "credit_fy25": -341.74
+     }
+    }
+   ],
+   "challenges": [
+    {
+     "to": "warren-buffett",
+     "point": "Tangible book is not a cushion when 2026 sales lose money after carrying cost; the parent book shrinks about 80亿 a quarter"
+    }
+   ],
+   "concessions": [],
+   "confidence": "high",
+   "thinker_used": null
+  },
+  {
+   "expert": "jeff-bezos",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T01:01:00-08:00",
+   "text": "No. In the first nine months of 2026 it repaid 186亿 of debt but could raise only 105亿 of new borrowing, and covered the gap out of a shrinking cash pile. That is a business being run for its lenders, not its owners. And debt falling due within a year is about 3.6× the cash on hand. Li Lu, does anything in the record tell us who is rolling that debt?",
+   "evidence": [
+    {
+     "claim": "9M26 cash repaid on borrowings 185.85亿; cash received from borrowings 104.79亿",
+     "source": "S2 raw_cashflow 20260930 YTD (c_prepay_amt_borr, c_recp_borrow)",
+     "values": {
+      "repaid": 185.85,
+      "borrowed": 104.79
+     }
+    },
+    {
+     "claim": "Cash and equivalents fell 146.56亿 in 9M26; 货币资金 672.41亿 (FY2025) → 524.46亿 (2026Q3)",
+     "source": "S2 raw_cashflow n_incr_cash_cash_equ 20260930; S1 EV items 20260930",
+     "values": {
+      "chg": -146.56,
+      "cash25": 672.41,
+      "cash26q3": 524.46
+     }
+    },
+    {
+     "claim": "Debt due within a year 1,898.02亿 (短期借款 291.81 + 一年内到期的非流动负债 1,606.21) = 3.62× cash 524.46亿 (2026Q3)",
+     "source": "derived: S1 EV items 20260930",
+     "formula": "(st + due) / C",
+     "inputs": {
+      "st": 291.81,
+      "due": 1606.21,
+      "C": 524.46
+     },
+     "result": 3.619
+    }
+   ],
+   "challenges": [],
+   "concessions": [],
+   "confidence": "high",
+   "thinker_used": null
+  },
+  {
+   "expert": "li-lu",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T01:04:00-08:00",
+   "text": "Not locally, and that's the point. Bracketing helps [reasoning method, not evidence — Tukey 2.5]: take the tangible book at par and the equity is worth up to 554亿; an average write-down of about 6.6% on the remaining non-cash assets takes it to nothing. A judgment that small separates the two brackets, so the answer sits in two lines — inventory and partner receivables — plus whoever holds the 356亿. What would refute my bear case is the FY2025 annual report's receivables note and a note naming that lender and its rank. Stephen, setting the documents aside, what does today's price itself assume?",
+   "evidence": [
+    {
+     "claim": "Bracket: upper = tangible book ex DTA 553.60亿 at par; lower = 0 after a 6.57% average write-down on the 8,426.01亿 tangible non-cash assets (2026Q3; parent bears all, labelled)",
+     "source": "derived: tangible book ex DTA / tangible non-cash assets",
+     "formula": "(B - gw - intan - dta) / (TA - C - T - gw - intan - dta)",
+     "inputs": {
+      "B": 930.94,
+      "gw": 56.95,
+      "intan": 68.15,
+      "dta": 252.24,
+      "TA": 9328.01,
+      "C": 524.46,
+      "T": 0.2
+     },
+     "result": 0.0657
+    },
+    {
+     "claim": "Documents that would close the bear case: FY2025 annual report notes on other receivables (counterparties, ageing, security, provisions) and on other non-current liabilities (lender, rank, rate, maturity)",
+     "source": "hypothesis (labelled in text)",
+     "unverifiable": "annual-report notes are not in the local data layer"
+    }
+   ],
+   "challenges": [],
+   "concessions": [],
+   "confidence": "medium",
+   "thinker_used": {
+    "thinker": "john-tukey",
+    "method": "2.5"
+   }
+  },
+  {
+   "expert": "stephen-penman",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T01:07:00-08:00",
+   "text": "A turnaround the record doesn't show yet. With the price below book and no growth, the price is just steady profit divided by the required return. I'd argue 12% here, an assumption that prices in the refinancing risk, and it asks for about 40亿 a year on today's book; at 8% it's 27亿, at 15% about 50亿. Against this year's losses, the price is a bet that the bleeding stops soon and most of the book survives. Jeff, does management's record with cash give us any reason to trust it with that bet?",
+   "evidence": [
+    {
+     "claim": "Implied steady parent earnings at r = 12%, g = 0: 40.37亿 (4.3% on 930.94亿 book)",
+     "source": "derived: calc.implied_earnings_re(price=336.45, book=930.94, r=0.12)",
+     "formula": "0.12 * B + 0.12 * (P - B)",
+     "inputs": {
+      "P": 336.45,
+      "B": 930.94
+     },
+     "result": 40.374
+    },
+    {
+     "claim": "Implied steady parent earnings at r = 8%, g = 0: 26.92亿",
+     "source": "derived: calc.implied_earnings_re(price=336.45, book=930.94, r=0.08)",
+     "formula": "0.08 * B + 0.08 * (P - B)",
+     "inputs": {
+      "P": 336.45,
+      "B": 930.94
+     },
+     "result": 26.916
+    },
+    {
+     "claim": "Implied steady parent earnings at r = 15%, g = 0: 50.47亿",
+     "source": "derived: calc.implied_earnings_re(price=336.45, book=930.94, r=0.15)",
+     "formula": "0.15 * B + 0.15 * (P - B)",
+     "inputs": {
+      "P": 336.45,
+      "B": 930.94
+     },
+     "result": 50.4675
+    },
+    {
+     "claim": "Required return 12% argued for rollover risk on 3.6× cash falling due within a year; 8% and 15% shown as the reverse curve",
+     "source": "assumption (labelled in text)",
+     "unverifiable": "a required return is an argued input, not a data point"
+    }
+   ],
+   "challenges": [],
+   "concessions": [],
+   "confidence": "medium",
+   "thinker_used": null
+  },
+  {
+   "expert": "jeff-bezos",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T01:10:00-08:00",
+   "text": "Not much. Over FY2016–22 the board declared 761亿 of dividends, while those same seven years of operations and investment produced only about 368亿 of cash. Financing filled the gap: partners put 1,335亿 into project companies and debt excluding leases roughly quadrupled. Share count barely moved, so the problem wasn't dilution; it was paying out profits whose cash had already gone into land and partner stakes. Warren, does that leave this in your too-hard pile?",
+   "evidence": [
+    {
+     "claim": "Cash dividends declared FY2016–FY2022 sum to 761.41亿 (年度现金分红总额; none FY2023–25)",
+     "source": "derived: sum of S1 annual.分红 FY2016–FY2022",
+     "formula": "sum(d16, d17, d18, d19, d20, d21, d22)",
+     "inputs": {
+      "d16": 87.21,
+      "d17": 99.35,
+      "d18": 118.12,
+      "d19": 118.11,
+      "d20": 145.22,
+      "d21": 112.77,
+      "d22": 80.63
+     },
+     "result": 761.41
+    },
+    {
+     "claim": "CFO + investing cash flow FY2016–FY2022 = 2,612.5 − 2,245.0 = 367.5亿 (same window as the dividends)",
+     "source": "derived: S2 raw_cashflow n_cashflow_act + n_cashflow_inv_act FY2016–FY2022",
+     "formula": "sum(c16, c17, c18, c19, c20, c21, c22) + sum(i16, i17, i18, i19, i20, i21, i22)",
+     "inputs": {
+      "c16": 395.7,
+      "c17": 823.2,
+      "c18": 336.2,
+      "c19": 456.9,
+      "c20": 531.9,
+      "c21": 41.1,
+      "c22": 27.5,
+      "i16": -433.9,
+      "i17": -516.1,
+      "i18": -673.6,
+      "i19": -286.3,
+      "i20": 58.0,
+      "i21": -262.8,
+      "i22": -130.3
+     },
+     "result": 367.5
+    },
+    {
+     "claim": "Minority partners' capital received (吸收投资收到的现金-子公司吸收少数股东投资) FY2016–FY2022 sums to 1,335.0亿",
+     "source": "derived: sum of S2 raw_cashflow incl_cash_rec_saims FY2016–FY2022",
+     "formula": "sum(m16, m17, m18, m19, m20, m21, m22)",
+     "inputs": {
+      "m16": 97.4,
+      "m17": 142.5,
+      "m18": 194.9,
+      "m19": 51.7,
+      "m20": 316.9,
+      "m21": 387.9,
+      "m22": 143.7
+     },
+     "result": 1335.0
+    },
+    {
+     "claim": "Interest-bearing debt ex leases (短期借款 + 一年内到期 + 长期借款 + 应付债券) 795.0亿 FY2015 → 3,176.4亿 FY2022, ratio 4.0",
+     "source": "derived: S2 raw_balancesheet FY2015, FY2022",
+     "formula": "(s22 + d22 + l22 + b22) / (s15 + d15 + l15 + b15)",
+     "inputs": {
+      "s15": 19.0,
+      "d15": 247.5,
+      "l15": 338.3,
+      "b15": 190.2,
+      "s22": 41.33,
+      "d22": 639.22,
+      "l22": 1807.73,
+      "b22": 688.16
+     },
+     "result": 3.9955
+    },
+    {
+     "claim": "Total shares 110.39亿 (FY2016) → 119.31亿 (FY2025), +8.1% (barely moved)",
+     "source": "derived: S1 annual.总股本",
+     "formula": "s25 / s16 - 1",
+     "inputs": {
+      "s16": 110.39,
+      "s25": 119.31
+     },
+     "result": 0.0808
+    }
+   ],
+   "challenges": [],
+   "concessions": [],
+   "confidence": "high",
+   "thinker_used": null
+  },
+  {
+   "expert": "warren-buffett",
+   "phase": "discussion",
+   "timestamp": "2026-11-25T01:13:00-08:00",
+   "text": "Yes — the too-hard pile, and I'll concede Stephen's point: a book that shrinks every quarter isn't a cushion. The business verdict is settled: gruesome, a decade of growth that consumed capital and left owners nothing in operating free cash. The stock is cheap only if the inventory and partner loans are worth close to book and lenders keep rolling the debt, and neither is in our data. I'd want the annual-report notes, and one quarter where sales cover their carrying cost, before calling it an investment.",
+   "evidence": [],
+   "challenges": [],
+   "concessions": [
+    {
+     "to": "stephen-penman",
+     "point": "Tangible book is not a cushion while 2026 sales lose money after carrying cost; the book is a shrinking balance, not a floor"
+    }
+   ],
+   "confidence": "medium",
+   "thinker_used": null
+  }
+ ],
+ "disagreements": [
+  {
+   "topic": "Does tangible book give the equity a floor?",
+   "positions": {
+    "warren-buffett": "tangible book ex deferred tax assets, about 554亿, sits above the 336亿 price; a write-down averaging under 3% on the remaining non-cash assets closes the gap — a thin cushion",
+    "stephen-penman": "no cushion: 9M26 gross profit after sales taxes was 11.5亿 against 62.2亿 of interest, so the parent book shrinks about 80亿 a quarter"
+   },
+   "status": "resolved",
+   "resolution": "Buffett conceded in the closing turn: the book is a shrinking balance, not a floor, until a quarter shows sales covering selling, admin and interest (9M26: 11.5亿 against 128.7亿)."
+  },
+  {
+   "topic": "Who rolls the 1,898亿 due within a year, and does the 356亿 new liability rank ahead of equity?",
+   "positions": {
+    "li-lu": "bear case unrefuted locally: the lender is unnamed and may be senior, and no actual controller is on record",
+    "joel-greenblatt": "pass until known: the equity moves about 12.6% for each 1% of enterprise value",
+    "jeff-bezos": "the company repaid 186亿 while raising 105亿 in 9M26 — it is being run for its lenders"
+   },
+   "status": "open",
+   "resolution": "Needs the FY2025 annual-report notes on other non-current liabilities and other receivables, and the debt-maturity schedule. The Tukey bracket shows the equity's value turns on inventory, partner receivables and that lender, not on earnings power."
+  }
+ ],
+ "conclusion": {
+  "answer": "Vanke was a gruesome business dressed as a great one. For a decade homebuyers' deposits and suppliers funded the growth, so ROE ran near 20% while operations produced no free cash: ten-year operating income after tax of 2,055亿 against Penman free cash flow (OI − ΔNOA) of −273亿 (same total-firm scope; parent profit 825亿), with net operating assets nearly tripling to 2023. Since 2021 the float has run in reverse — customer deposits down 89%, mostly settled by delivering homes — and selling down the land bank left almost no cash (FY2022–25 operating cash 95亿); in 2026 sales lose money once sales taxes and interest are paid. At 336亿 (S1 quote 2026-11-20, 2.82元) the stock is 0.36× parent book, but the book is not a floor: the equity is 7.9% of a 4,245亿 enterprise (each 1% on enterprise value moves the stock about 12.6%), tangible book of 554亿 falls to the price with a write-down averaging under 3% on the remaining non-cash assets and to zero at about 6.6%, and 1,898亿 of debt falls due within a year against 524亿 of cash. The price asks for about 40亿 a year of steady profit at the argued 12% hurdle (27亿 at 8%, 50亿 at 15%) against losses near 80亿 a quarter. The insight to remember: this is no longer an earnings question but a bet on asset realization and on who rolls the debt — a speculation the local record cannot underwrite, so the panel passes for now. Scorecard: business type GRUESOME on the full cycle (capital-hungry growth, then losses; OI core pretax 835亿 in 2020 to a loss in FY2025); cash backing NO — CFO 2,544亿 in FY2016–20 rode the deposit float, FY2021–23 CFO was 108亿 against 573亿 of parent profit, and CFO − capex (2,057亿) overstates owner cash because land sits in CFO and JV stakes in investing (CFO + investing 534亿); return driver LEVERAGE — asset turnover 0.2–0.3 and a 6–10× equity multiplier, with the leverage hidden in operating liabilities (2.77× NOA in 2021); capital allocation: 761亿 of dividends declared FY2016–22 against 368亿 of operating and investing cash in the same years, with partners' capital (1,335亿) and debt filling the gap; cheap or not CHEAP TO BOOK ONLY (PB 0.36, earnings and after-interest cash negative); floor NONE for the equity — tangible book ex deferred tax assets 554亿 is above the price but shrinks about 80亿 a quarter and vanishes with a write-down averaging about 6.6% on the remaining non-cash assets (parent bearing all of it, labelled). Confidence medium: the business verdict rests on direct S2 series, but the valuation pass depends on an argued hurdle and on annual-report notes not in the local data.",
+  "confidence": "medium",
+  "what_would_change_our_mind": [
+   "The FY2025 annual-report receivables note showing most of the 1,754亿 other receivables secured and current would lift the lower bracket toward book",
+   "A named lender for the 356亿 ranking behind or alongside equity, plus a refinancing of the 1,898亿 due within a year, would turn the stub from a speculation into a priced option on the book",
+   "A quarter in which gross profit after sales taxes covers selling, admin and interest (9M26: 11.5亿 against 128.7亿) would show the book has stopped shrinking",
+   "Another year of impairments at the FY2025 scale (asset −219.3亿, credit −341.7亿) would take parent book below the 336亿 market cap"
+  ],
+  "open_questions": [
+   "Who holds the 356.2亿 of other non-current liabilities (17.8亿 at FY2024), at what rate, maturity and rank? Document: FY2025 annual report note on 其他非流动负债 and the 2026 Q3 report.",
+   "What is in the 1,754亿 other receivables (counterparties, ageing, security, provisions), and what did the −341.7亿 FY2025 credit impairment hit? Document: FY2025 annual report notes on 其他应收款 and 信用减值损失.",
+   "Maturity schedule of the 1,606.2亿 一年内到期的非流动负债 and any bond extensions or shareholder support agreements. Document: FY2025 annual report and 2026 announcements (not in local data).",
+   "Largest shareholder and its holding: raw_stock_basic shows 无实际控制人; the shareholder register is needed.",
+   "Inventory realization by project vintage: carrying cost against 2026 selling prices. Document: FY2025 annual report note on 存货跌价准备."
+  ]
+ },
+ "next_question_candidates": [
+  "Who is the lender behind the 356亿 of other non-current liabilities, and does it rank ahead of shareholders? (Needs the FY2025 annual-report note — can you supply it or authorize fetching it?)",
+  "Inventory vs cost of sales (scan item 7, +179亿 excess move FY2025): is the 3,300亿 land bank carried above what 2026 sales realize, project by project?",
+  "Payables vs cost of sales (scan item 4, +209亿 excess move; supplier days 555 → 803): how much of the 1,116亿 of payables is overdue construction cost that will need cash in 2027?"
+ ],
+ "thinkers_consulted": [
+  {
+   "thinker": "john-tukey",
+   "method": "2.5",
+   "used_for": "Two brackets with opposite biases on the book (tangible book at par vs a 6.6% average write-down on the remaining non-cash assets) to locate the lines that decide the equity value: inventory, partner receivables and the 356亿 lender. Diagnostic, not a valuation range."
+  }
+ ],
+ "knowledge_candidates": [
+  {
+   "kind": "fact",
+   "text": "FY2016–FY2025 operating income after tax (total firm) sums to 2,054.6亿 while Penman free cash flow from operations (OI − ΔNOA, S2 fcf_from_oi) sums to −273.4亿 (parent net income 825.07亿); NOA rose from 1,802.3亿 (end FY2016) to 5,344.8亿 (end FY2023).",
+   "source": "S2 raw:net_income_parent, fcf_from_oi, capital & reinvestment FY2016–FY2025",
+   "confidence": "high"
+  },
+  {
+   "kind": "fact",
+   "text": "Customer advances (合同负债 + 预收款项) fell from 6,382.2亿 at FY2021 to 677.2亿 at 2026Q3 (−89.4%); FY2022–FY2025 inventory decreases released 7,574.5亿 in the indirect CFO block while operating payables absorbed 8,718.0亿, leaving CFO of 94.7亿 over the four years.",
+   "source": "S2 raw_balancesheet, raw_cashflow FY2021–FY2025, 20260930",
+   "confidence": "high"
+  },
+  {
+   "kind": "fact",
+   "text": "9M26 gross profit after 税金及附加 was 11.54亿 (营业收入 1,049.99 − 营业成本 980.29 − 58.16) against interest expense of 62.23亿; parent net loss averaged 79.8亿 per quarter in 2026 Q1–Q3.",
+   "source": "S2 raw_income 20260930 (DuckDB), quarterly filings",
+   "confidence": "high"
+  },
+  {
+   "kind": "hypothesis",
+   "text": "The rise in other non-current liabilities from 17.75亿 (FY2024) to 356.21亿 (2026Q3) is shareholder or related-party loans that may rank ahead of equity; verify in the FY2025 annual-report note on 其他非流动负债.",
+   "source": "S2 raw_balancesheet oth_ncl; no counterparty in local data",
+   "confidence": "low"
+  },
+  {
+   "kind": "hypothesis",
+   "text": "The FY2025 credit impairment of −341.74亿 sits mainly on partner/JV loans inside the 1,754亿 of other receivables; verify in the FY2025 annual-report notes on 其他应收款 and 信用减值损失.",
+   "source": "S2 raw_income credit_impa_loss; S1 oth_rcv_total",
+   "confidence": "low"
+  },
+  {
+   "kind": "method",
+   "text": "For a developer priced below book: solve the reverse curve for earnings rather than growth (calc.implied_earnings_re; E = r × P at g = 0), express the book–price gap as an average write-down on non-cash assets, and measure owner cash as CFO + investing cash flow, not CFO − capex, because land sits in CFO and JV stakes in investing.",
+   "source": "panel method this round (Penman reverse curve, Bezos float, Buffett floor)",
+   "confidence": "medium"
+  }
+ ]
+}

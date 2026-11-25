@@ -1,0 +1,55 @@
+{
+  "session_id": "2026-11-25-01",
+  "company": {
+    "ts_code": "000002.SZ",
+    "name": "万科A",
+    "industry": "全国地产"
+  },
+  "started_at": "2026-11-25T00:12:00-08:00",
+  "status": "open",
+  "user_request": "分析 000002 万科A，然后 push 到 github pages",
+  "workflow_git_revision": "ece5a8fa52a1933904411a7f43378aabdf8d5651",
+  "experts": [
+    "warren-buffett",
+    "stephen-penman",
+    "jeff-bezos",
+    "li-lu",
+    "joel-greenblatt"
+  ],
+  "expert_versions": {
+    "warren-buffett": "1.1",
+    "stephen-penman": "1.1",
+    "jeff-bezos": "1.0",
+    "li-lu": "1.0",
+    "joel-greenblatt": "1.2"
+  },
+  "expert_selection_reason": {
+    "warren-buffett": "round-one great/good/gruesome verdict; a decade of 20% ROE that turned into two years of losses is the capital-intensity test of his card",
+    "stephen-penman": "required; ten-year OI − ΔNOA is negative, the leverage hides in operating liabilities, and price below book needs the reverse curve solved for earnings",
+    "jeff-bezos": "cash trailed earnings from FY2021; the customer-advance float shrank 89% from its peak and payables are being stretched — a float-in-reverse question",
+    "li-lu": "1,754亿 of other receivables (partner/JV funding) carry the credit impairments, other non-current liabilities rose 338亿 with no counterparty in the data, and the bear case (equity wiped out) must be stated and tested",
+    "joel-greenblatt": "special situation: a 7.9% equity stub on a 4,245亿 EV with negative EBIT; his discipline of refusing to opine without a confident normalized EBIT is the right test"
+  },
+  "data": {
+    "avl_version": "20261121_201610",
+    "s1_quote_date": "2026-11-20",
+    "s2_exported_at": "2026-11-22T04:45:50.397803+00:00",
+    "duckdb_filings_through": "20260930",
+    "duckdb_daily_basic_last": "20251231",
+    "factsheet_generated_at": "2026-11-25T00:12:48-08:00"
+  },
+  "cross_check_note": "98 comparisons, 0 mismatches >1%.",
+  "question_queue": [
+    "Who is the lender behind the 356亿 of other non-current liabilities, and does it rank ahead of shareholders? (Needs the FY2025 annual-report note — can you supply it or authorize fetching it?)",
+    "Inventory vs cost of sales (scan item 7, +179亿 excess move FY2025): is the 3,300亿 land bank carried above what 2026 sales realize, project by project?",
+    "Payables vs cost of sales (scan item 4, +209亿 excess move; supplier days 555 → 803): how much of the 1,116亿 of payables is overdue construction cost that will need cash in 2027?"
+  ],
+  "rounds": 1,
+  "run_notes": [
+    "Round one: five independent first reads (one subagent per expert, in parallel), then the exchange in the main thread; one independent Observer reviewed the round cold.",
+    "Gate 0 errors / 0 warnings both before and after the review fixes. Observer verdict accept-with-weaknesses (0 high, 4 medium, 6 low); all medium and four low fixed, resolution recorded in observer/round-01.md.",
+    "Main process lesson: a floor percentage was computed on one base (full book to price) and spoken against another (tangible book; to zero), and two magnifiers (EV/cap 12.6, assets/book 10) appeared in one round. New CHECKLIST rule under financial definitions; P-017 (scope-mismatch) promoted to the playbook.",
+    "calc.implied_earnings_re added: the reverse curve solved for earnings when price is below book (implied_growth_re needs P > B).",
+    "Not run: review of the pending joel-greenblatt excess-cash-vocabulary proposal (left at proposed from a prior session; outside this request's scope)."
+  ]
+}

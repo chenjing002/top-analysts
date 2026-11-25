@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-24T02:30:03-08:00",
+ "built_at": "2026-11-25T00:33:25-08:00",
  "experts": {
   "jeff-bezos": {
    "name": "Jeff Bezos",
@@ -51,6 +51,52 @@
   }
  },
  "companies": [
+  {
+   "ts_code": "000002.SZ",
+   "name": "万科A",
+   "industry": "全国地产",
+   "sessions": [
+    {
+     "session_id": "2026-11-25-01",
+     "started_at": "2026-11-25T00:12:00-08:00",
+     "status": "open",
+     "user_request": "分析 000002 万科A，然后 push 到 github pages",
+     "experts": [
+      "warren-buffett",
+      "stephen-penman",
+      "jeff-bezos",
+      "li-lu",
+      "joel-greenblatt"
+     ],
+     "factsheet": "sessions/000002.SZ/2026-11-25-01/data/factsheet.md",
+     "summary": null,
+     "rounds": [
+      {
+       "round": 1,
+       "question": "Gruesome on the full decade: is the 3,836亿 of net operating assets still earning anything, or is the book just carrying it at cost?",
+       "participants": [
+        "warren-buffett",
+        "stephen-penman",
+        "jeff-bezos",
+        "li-lu",
+        "joel-greenblatt"
+       ],
+       "started_at": "2026-11-25T00:40:00-08:00",
+       "ended_at": "2026-11-25T01:15:00-08:00",
+       "conclusion": "Vanke was a gruesome business dressed as a great one. For a decade homebuyers' deposits and suppliers funded the growth, so ROE ran near 20% while operations produced no free cash: ten-year operating income after tax of 2,055亿 against Penman free cash flow (OI − ΔNOA) of −273亿 (same total-firm scope; parent profit 825亿), with net operating assets nearly tripling to 2023. Since 2021 the float has run in reverse — customer deposits down 89%, mostly settled by delivering homes — and selling down the land bank left almost no cash (FY2022–25 operating cash 95亿); in 2026 sales lose money once sales taxes and interest are paid. At 336亿 (S1 quote 2026-11-20, 2.82元) the stock is 0.36× parent book, but the book is not a floor: the equity is 7.9% of a 4,245亿 enterprise (each 1% on enterprise value moves the stock about 12.6%), tangible book of 554亿 falls to the price with a write-down averaging under 3% on the remaining non-cash assets and to zero at about 6.6%, and 1,898亿 of debt falls due within a year against 524亿 of cash. The price asks for about 40亿 a year of steady profit at the argued 12% hurdle (27亿 at 8%, 50亿 at 15%) against losses near 80亿 a quarter. The insight to remember: this is no longer an earnings question but a bet on asset realization and on who rolls the debt — a speculation the local record cannot underwrite, so the panel passes for now. Scorecard: business type GRUESOME on the full cycle (capital-hungry growth, then losses; OI core pretax 835亿 in 2020 to a loss in FY2025); cash backing NO — CFO 2,544亿 in FY2016–20 rode the deposit float, FY2021–23 CFO was 108亿 against 573亿 of parent profit, and CFO − capex (2,057亿) overstates owner cash because land sits in CFO and JV stakes in investing (CFO + investing 534亿); return driver LEVERAGE — asset turnover 0.2–0.3 and a 6–10× equity multiplier, with the leverage hidden in operating liabilities (2.77× NOA in 2021); capital allocation: 761亿 of dividends declared FY2016–22 against 368亿 of operating and investing cash in the same years, with partners' capital (1,335亿) and debt filling the gap; cheap or not CHEAP TO BOOK ONLY (PB 0.36, earnings and after-interest cash negative); floor NONE for the equity — tangible book ex deferred tax assets 554亿 is above the price but shrinks about 80亿 a quarter and vanishes with a write-down averaging about 6.6% on the remaining non-cash assets (parent bearing all of it, labelled). Confidence medium: the business verdict rests on direct S2 series, but the valuation pass depends on an argued hurdle and on annual-report notes not in the local data.",
+       "confidence": "medium",
+       "n_disagreements_open": 1,
+       "thinkers": [
+        "john-tukey"
+       ],
+       "json": "sessions/000002.SZ/2026-11-25-01/rounds/round-01.json",
+       "md": "sessions/000002.SZ/2026-11-25-01/rounds/round-01.md",
+       "observer": "sessions/000002.SZ/2026-11-25-01/observer/round-01.md"
+      }
+     ]
+    }
+   ]
+  },
   {
    "ts_code": "000807.SZ",
    "name": "云铝股份",
@@ -307,5 +353,5 @@
    ]
   }
  ],
- "n_rounds": 7
+ "n_rounds": 8
 }

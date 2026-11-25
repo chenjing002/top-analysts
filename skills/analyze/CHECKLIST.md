@@ -66,6 +66,11 @@ playbook, add a rule here and, where it can be computed, a check in `check_round
   base before inferring. [single-quarter-read]
 - State scope on every comparison: parent vs total, pre- vs post-bonus shares, 营业收入 vs 营业总收入,
   begin vs average basis. [scope-mismatch]
+- A floor or write-down percentage names its base and its end point: full book or tangible book,
+  over which assets, and whether it reaches the price or zero. A magnifier names its base (EV /
+  market cap, assets / book, or 1% of assets over market cap); do not speak two in one round
+  without saying which is which. Pair a figure only with the gap it was computed from (P-017,
+  P-012; 000002.SZ/2026-11-25-01 r1). [like-for-like] [scope-mismatch]
 
 ## Stall signals (warnings — consult a Thinker or record `declined_because`)
 

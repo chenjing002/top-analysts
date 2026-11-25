@@ -250,6 +250,19 @@ def implied_return_re(price: float, book: float, earnings_next: float, g: float)
     return earnings_next / price + g * (price - book) / price
 
 
+def implied_earnings_re(price: float, book: float, r: float, g: float = 0.0) -> float:
+    """The next-year earnings the price implies, given r and g: E1 = rB + (r − g)(P − B).
+    Use it when the price is below book (implied_growth_re needs P > B): with g = 0 it is r × P,
+    the steady profit a below-book price asks the business to earn on the current book.
+
+    >>> round(implied_earnings_re(336.45, 930.94, 0.08), 3)
+    26.916
+    >>> round(implied_earnings_re(728.62, 420.9, 0.08, 0.0107), 1)
+    55.0
+    """
+    return r * book + (r - g) * (price - book)
+
+
 def zero_growth_return(earnings: float, price: float) -> float:
     """E/P: the return earned if residual earnings never grow. Same as implied_return_re(g=0).
 
