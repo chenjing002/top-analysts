@@ -141,7 +141,11 @@ the reason and the role version.
    round one only if it changes the scorecard's verdict; otherwise it is queued for round two.
 2. **Let an expert open.** Give the panel the fact sheet, the decade workpaper, the data
    dictionary, relevant company knowledge and prior rounds. Each speaker has their full role card.
-   When the host supports and authorizes delegation, keep a separate context for each expert.
+   When the host supports and authorizes delegation, give each expert one subagent for an
+   independent first read of the record (in parallel, each returning a short opening note); the
+   turn-by-turn exchange then runs in the main thread from those notes and the cards. Never spawn
+   an agent per turn. A later round that continues an earlier thread skips the first reads; spawn
+   them again only when the round opens a new topic.
    Each panelist reads the 10-year record through their own lens; whoever saw the most
    consequential thing opens the round with it — the thing that changes how the business or its
    price should be understood: a puzzle, a break in a long series, an assumption the record

@@ -85,7 +85,7 @@ error in a card may still be filed by hand at `proposed`.
 - `**Change:**` the exact text to add, replace or remove. For improvements, mark additions to sections 1–7 `[observer-added, from <session> r<N>]` unless they carry a new source anchor in §8.
 - `**Risk:**` what the change could break (e.g. makes the expert too cautious; duplicates another expert's role).
 
-**validated** — give a fresh reviewer (an independent subagent that has not read the discussion) the proposal, the target file, and the cited evidence. The reviewer performs four checks.
+**validated** — give a fresh reviewer (an independent subagent that has not read the discussion) the proposal, the target file, and the cited evidence. One reviewer takes every proposal pending in the session and performs four checks on each.
 
 1. the cited statements or source evidence show what the proposal claims;
 2. the change does not contradict the expert's source anchors (§8) or scope (§1);

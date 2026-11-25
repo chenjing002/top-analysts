@@ -38,8 +38,9 @@ example `observe 600519.SH 2026-11-23-01 1`. Use `observe proposals` for pending
 
 - A `drafting` proposal (written by `scripts/improve.py`) is not reviewable: the orchestrator fills
   Change and Risk from the cited turns and sets `proposed` first.
-- For each `proposed` proposal, give a fresh reviewer (a subagent that has not read the discussion)
-  the proposal, target role card and cited rounds or source evidence. Follow the four validation checks in `observer/OBSERVER.md` and record
+- Give every `proposed` proposal in the session to one fresh reviewer (a subagent that has not
+  read the discussion), with each proposal's target role card and cited rounds or source evidence.
+  For each proposal it follows the four validation checks in `observer/OBSERVER.md` and records
   `validated` or `rejected` with the rationale. Leave the status pending if a fresh reviewer or
   the required evidence is unavailable.
 - Apply validated edits at once, through the same protocol and its one-change-per-expert-per-session
