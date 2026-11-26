@@ -123,6 +123,28 @@ def enterprise_value(market_cap: float, debt: float, minority: float, cash: floa
     return market_cap + debt + minority - cash - trading_financial_assets + operating_cash
 
 
+def revalued_book(book: float, carrying: list[float], worth: list[float], tax: float = 0.0,
+                  market_cap: float = 0.0) -> dict:
+    """Book restated for the few assets that dominate it: book + (Σ worth − Σ carrying) × (1 − tax).
+    Pass each asset's carrying value and estimated worth on the scope of `book` (the parent's share
+    for 归母净资产). `tax` falls on the net gain, a loss shielding it; land appreciation tax
+    (土地增值税) or a different rate for one asset goes into that asset's `worth` instead. With
+    `market_cap`, also returns price to revalued book. Evidence formula:
+    `book + (w1 - c1 + w2 - c2) * (1 - tax)`.
+
+    >>> r = revalued_book(100, [60, 30], [45, 50], tax=0.25, market_cap=80)
+    >>> r['uplift'], r['revalued_book'], round(r['price_to_revalued'], 3)
+    (3.75, 103.75, 0.771)
+    """
+    if len(carrying) != len(worth):
+        raise ValueError("carrying and worth need one entry per asset")
+    uplift = (sum(worth) - sum(carrying)) * (1 - tax)
+    out = {"revalued_book": book + uplift, "uplift": uplift}
+    if market_cap:
+        out["price_to_revalued"] = market_cap / (book + uplift)
+    return out
+
+
 def like_for_like_earnings(earnings: float, excess_cash: float, pretax_yield: float, tax: float) -> float:
     """Earnings with the after-tax interest on `excess_cash` removed, for use when the price
     or EV also has that cash stripped. Stripping cash from P without stripping its income from E

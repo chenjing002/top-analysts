@@ -97,12 +97,21 @@ the reason and the role version.
       sheet suppresses RNOA (net operating assets near zero or negative, as with large customer
       advances), say so and rely on the three-factor DuPont plus the operating-margin and
       working-capital lines.
-   4. **Is it cheap, and what is the floor?** Market value, book value, price to book, earnings yield
-      and free-cash-flow yield at the S1 quote date. Then open the book: how much is cash and
-      financial assets, receivables, inventory, fixed assets, goodwill and intangibles, less debt
-      and customer advances. Give a rough floor (net cash plus tangible assets, with the haircut
-      stated) and say whether it protects the downside. End with what the price assumes
-      (the reverse curve).
+   4. **Is it cheap, what are the main assets worth, and what is the floor?** Market value, book
+      value, price to book, earnings yield and free-cash-flow yield at the S1 quote date. Then open
+      the book: how much is cash and financial assets, receivables, inventory, fixed assets,
+      goodwill and intangibles, less debt and customer advances. Book is what the assets cost, not
+      what they would fetch, so take the two or three assets that make up most of it (the fact
+      sheet's full balance sheet) and estimate each on its own terms, naming the basis: listed
+      stakes and trading assets at market price; investment property at its rent over a stated
+      yield; land and inventory at current selling prices less the cost to finish and sell; an
+      operating subsidiary or associate at a stated multiple of its own earnings; fixed assets at
+      what they earn when that is below the hurdle. Use the parent's share and take the tax due on
+      a sale off any gain. `calc.revalued_book` turns these into a revalued book; set it against
+      market value and say which asset the gap rests on. Each worth is an estimate (medium
+      confidence at most), and the note or price that would confirm it goes to `open_questions`.
+      Then give a rough floor (net cash plus tangible assets, with the haircut stated) and say
+      whether it protects the downside. End with what the price assumes (the reverse curve).
    5. **What did management do with the cash?** Ten-year payout, buybacks, issuance and share count.
    6. **Where does the story bend or break trend?** The headline numbers (about five) and the
       one-line verdict.
@@ -153,7 +162,7 @@ the reason and the role version.
    and where it is heading over a question about how one figure was computed. A question or tentative explanation
    is enough to begin. In round one the unexplained cross-check mismatch, if any, opens instead; otherwise Buffett opens
    with the great/good/gruesome verdict and the single scorecard line that most surprised him, and
-   the rest of the round works through valuation and floor, cash and returns in turn.
+   the rest of the round works through valuation, asset worth and floor, cash and returns in turn.
    In later rounds an expert may pick up a `next_question_candidates` thread, answer a standing
    objection, or open something new the record justifies — unless the user redirects. Record the
    opening topic as the round's `question` and the opener as `initiated_by`. Leave subsequent
@@ -231,7 +240,8 @@ the reason and the role version.
    should remember. Then give the handful of numbers that anchor it. Add what would change it, open questions, ranked next questions (at most three, each single and
    answerable, the first being what to ask next round or what the user should tell us), Thinkers
    consulted, and knowledge candidates. After round one, the conclusion also states the scorecard
-   verdict in one line each: business type, cash backing, return driver, cheap or not and the floor. Use the lowest confidence of the evidence the
+   verdict in one line each: business type, cash backing, return driver, cheap or not, what the
+   main assets are worth against the price, and the floor. Use the lowest confidence of the evidence the
    conclusion depends on. High confidence requires a direct statement line or two independent
    sources. A finding that depends on an S2 default (r = 8%, g = 3%, or tax = 25%) is at most medium.
 5. **Gate, save and review.** Write `rounds/round-NN.json` and run

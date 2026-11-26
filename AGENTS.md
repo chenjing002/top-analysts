@@ -33,8 +33,8 @@ with access to the files.
   produced it, never as the default subject on its own.
 - Business before news. A new session's first round judges the business as a whole before any
   recent event: great, good or gruesome; ten-year free cash flow against profit, capex and
-  depreciation; DuPont; price against market value, book value, what the book holds and the
-  downside floor. The latest quarter is read against that picture, not instead of it.
+  depreciation; DuPont; price against market value, book value, what the book holds, what its
+  main assets are worth and the downside floor. The latest quarter is read against that picture, not instead of it.
 - Ask, then answer. Discussion turns are short (a few sentences), carry one idea, and end with one
   concrete question to a colleague or the user; rounds stay on one topic.
 - Big picture first. Every round and every conclusion leads with the insight that matters for the

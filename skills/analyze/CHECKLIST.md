@@ -34,6 +34,10 @@ playbook, add a rule here and, where it can be computed, a check in `check_round
 - **D4** Round one's workpaper carries the paired-line divergence scan (`## Divergence scan`
   heading, or a line per pair under scorecard item 7) with an owner for each item.
   [divergence-unscanned]
+- **D5** Round one estimates what the two or three assets that dominate book are worth, not only
+  what they carry: the workpaper shows `calc.revalued_book` (or an `asset worth` section) with
+  each asset's carrying value, worth and basis, and the conclusion says what they are worth
+  against the price. [asset-worth-missing]
 - A growth rate spoken for a line smaller than about a tenth of revenue, or for a pair whose two
   lines differ by an order of magnitude, carries its absolute change in the same sentence
   (`calc.growth_gap` `excess_a`). [percent-without-base]
@@ -79,6 +83,10 @@ playbook, add a rule here and, where it can be computed, a check in `check_round
   market cap, assets / book, or 1% of assets over market cap); do not speak two in one round
   without saying which is which. Pair a figure only with the gap it was computed from (P-017,
   P-012; 000002.SZ/2026-11-25-01 r1). [like-for-like] [scope-mismatch]
+- An asset's worth names its basis (market price, rent over a stated yield, selling price less
+  cost to finish, a multiple of its own earnings), the parent's share and the tax on a sale, and
+  is spoken as an estimate. A write-down that reaches the price is not a worth estimate; it says
+  how wrong book must be, not how wrong it is. [assumption-as-finding] [scope-mismatch]
 
 ## Stall signals (warnings — consult a Thinker or record `declined_because`)
 

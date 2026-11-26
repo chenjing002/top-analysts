@@ -40,6 +40,7 @@ unknown tag is a validation warning. `Check` names the deterministic rule that a
 | `thinker-missed` | a stall signal fired and no method was consulted or declined | — (workflow) | T1–T4 |
 | `scorecard-missing` | round one skipped a scorecard line | — (workflow) | D3 |
 | `divergence-unscanned` | round one's workpaper has no paired-line divergence scan, or items without an owner | — (workflow) | D4 |
+| `asset-worth-missing` | cheapness judged on book and a haircut floor without estimating what the main assets are worth | — (workflow) | D5 |
 | `percent-without-base` | a growth rate spoken for a small line or a mismatched pair without its absolute change | §4 | — |
 | `statement-blind-spot` | a top-five balance-sheet or cash-flow excess move in the scan that no turn asked about | — (workflow) | — |
 | `source-not-opened` | a role card quoted without reading the `source-files/` passage | §8 | — |
